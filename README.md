@@ -1,2 +1,3 @@
-# personal_env_config
-The configuration files for my personal development environment.
+# Personal Environment Configuration
+
+This repo simply acts as file storage for comon envirnoment configurations that I prefer.

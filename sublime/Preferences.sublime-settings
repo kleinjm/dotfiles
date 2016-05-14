@@ -1,0 +1,26 @@
+{
+	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"find_selected_text": true,
+	"font_size": 13,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"paths":
+	{
+		"osx":
+		[
+			"/Users/James/.rvm/gems/ruby-2.1.2/bin/haml",
+			"/Users/James/.rvm/gems/ruby-2.1.2/bin/rubocop",
+			"/Users/James/.rvm/gems/ruby-2.1.2/bin/jshint"
+		]
+	},
+	"rulers":
+	[
+		80
+	],
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": "true"
+}

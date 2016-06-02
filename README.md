@@ -1,3 +1,3 @@
 # Personal Environment Configuration
 
-This repo simply acts as file storage for comon envirnoment configurations that I prefer.
+This repo simply acts as file storage for common envirnoment configurations that I prefer.

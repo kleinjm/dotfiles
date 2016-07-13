@@ -3,5 +3,6 @@
   { "keys": ["super+shift+r"], "command": "side_bar_move" },
   { "keys": ["super+alt+w"], "command": "close_others" },
   { "keys": ["super+shift+o"], "command": "insert", "args": {"characters": "binding.pry"} },
-  { "keys": ["ctrl+shift+s"], "command": "auto_save" }
+  { "keys": ["ctrl+shift+s"], "command": "auto_save" },
+  { "keys": ["alt+q"], "command": "wrap_lines" } // use on a line that you want wrapped. Ie. long comments
 ]

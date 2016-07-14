@@ -1,3 +1,5 @@
+// /Users/James/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap
+
 [
   { "keys": ["super+shift+w"], "command": "close_all" },
   { "keys": ["super+shift+r"], "command": "side_bar_move" },

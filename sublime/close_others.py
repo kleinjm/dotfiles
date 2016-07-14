@@ -1,3 +1,5 @@
+# /Users/James/Library/Application Support/Sublime Text 3/Packages/User/close_others.py
+
 import sublime, sublime_plugin
 
 class CloseOthersCommand(sublime_plugin.TextCommand):

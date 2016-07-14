@@ -1,0 +1,32 @@
+// /Users/James/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings
+
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"auto-save",
+		"Case Conversion",
+		"ESLint",
+		"GitGutter",
+		"GoSublime",
+		"Markdown Preview",
+		"Package Control",
+		"Sass",
+		"SideBarEnhancements",
+		"StandardFormat",
+		"SublimeLinter",
+		"SublimeLinter-annotations",
+		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-contrib-golint",
+		"SublimeLinter-contrib-jslint",
+		"SublimeLinter-contrib-sass-lint",
+		"SublimeLinter-contrib-semistandard",
+		"SublimeLinter-haml",
+		"SublimeLinter-jshint",
+		"SublimeLinter-rubocop",
+		"SublimeLinter-ruby"
+	]
+}

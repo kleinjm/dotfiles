@@ -1,7 +1,9 @@
+// /Users/James/Library/Application Support/Sublime Text 3/Packages/User/Default.sublime-mousemap
+
 [
     {
-        "button": "button1", 
-        "count": 1, 
+        "button": "button1",
+        "count": 1,
         "modifiers": ["ctrl"],
         "press_command": "drag_select",
         "command": "goto_definition"

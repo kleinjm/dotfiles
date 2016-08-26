@@ -90,3 +90,4 @@ alias z='zeus'
 alias tm-staging='~/Dropbox/Work/Teikametrics/tm-staging.sh'
 alias tm-local='~/Dropbox/Work/Teikametrics/tm-local.sh'
 alias tm-start='~/Dropbox/Work/Teikametrics/teik-start.sh'
+alias gotm="cd $GOPATH/src/github.com/teikametrics"

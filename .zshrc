@@ -52,8 +52,9 @@ ZSH_THEME="robbyrussell"
 plugins=(git bundler osx rake ruby zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
+export GOPATH="$HOME/go_code"
 
-export PATH=$PATH"/usr/local/bin:/Users/james/.pgvm/environments/current/bin:/Users/james/.pgvm/bin:/Users/james/.rvm/gems/ruby-2.2.3/bin:/Users/james/.rvm/gems/ruby-2.2.3@global/bin:/Users/james/.rvm/rubies/ruby-2.2.3/bin:/Users/james/.pgvm/environments/current/bin:/Users/james/.pgvm/bin:/Users/james/.rvm/gems/ruby-1.9.3-p448/bin:/Users/james/.rvm/gems/ruby-1.9.3-p448@global/bin:/Users/james/.rvm/rubies/ruby-1.9.3-p448/bin:/Users/james/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/james/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:/Users/james/bin"
+export PATH=$PATH"/usr/local/bin:/Users/james/.pgvm/environments/current/bin:/Users/james/.pgvm/bin:/Users/james/.rvm/gems/ruby-2.2.3/bin:/Users/james/.rvm/gems/ruby-2.2.3@global/bin:/Users/james/.rvm/rubies/ruby-2.2.3/bin:/Users/james/.pgvm/environments/current/bin:/Users/james/.pgvm/bin:/Users/james/.rvm/gems/ruby-1.9.3-p448/bin:/Users/james/.rvm/gems/ruby-1.9.3-p448@global/bin:/Users/james/.rvm/rubies/ruby-1.9.3-p448/bin:/Users/james/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/james/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:/Users/james/bin:$GOPATH/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # NOTE: export path must be before this

@@ -23,7 +23,6 @@
 		"SublimeLinter-contrib-sass-lint",
 		"SublimeLinter-contrib-semistandard",
 		"SublimeLinter-haml",
-		"SublimeLinter-jshint",
 		"SublimeLinter-rubocop",
 		"SublimeLinter-ruby"
 	]

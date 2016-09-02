@@ -7,7 +7,6 @@
 	],
 	"installed_packages":
 	[
-		"auto-save",
 		"Case Conversion",
 		"ESLint",
 		"GitGutter",
@@ -16,7 +15,6 @@
 		"Package Control",
 		"Sass",
 		"SideBarEnhancements",
-		"StandardFormat",
 		"SublimeLinter",
 		"SublimeLinter-annotations",
 		"SublimeLinter-contrib-eslint",

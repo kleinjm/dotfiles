@@ -8,11 +8,13 @@
 	"installed_packages":
 	[
 		"Case Conversion",
+		"DocBlockr",
 		"ESLint",
 		"GitGutter",
 		"GoSublime",
 		"Markdown Preview",
 		"Package Control",
+		"Pretty JSON",
 		"Sass",
 		"SideBarEnhancements",
 		"SublimeLinter",

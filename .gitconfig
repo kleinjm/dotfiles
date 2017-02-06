@@ -1,0 +1,49 @@
+[user]
+	name = James Klein
+	email = kleinjm007@gmail.com
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[push]
+	default = matching
+[alias]
+    # one-line log
+    l = log
+
+    a = add -A
+    ap = add -p
+    c = commit --verbose
+    ca = commit -a --verbose
+    cm = commit -m
+    cam = commit -a -m
+    m = commit --amend --verbose
+
+    d = diff
+    ds = diff --stat
+    dc = diff --cached
+
+    s = status -s
+    co = checkout
+    cob = checkout -b
+    # list branches sorted by last modified
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = /Users/james/.gitignore_global
+	editor = /Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl -n -w
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

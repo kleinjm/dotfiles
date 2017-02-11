@@ -90,3 +90,7 @@ fi
 
 alias zshconfig="mate ~/.zshrc"
 alias passwords="~/Dropbox/passwords.sh"
+alias g='git'
+
+alias dox='ch ~/GitHubRepos/doximity'
+

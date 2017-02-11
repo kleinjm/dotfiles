@@ -1,3 +1,5 @@
+# ZSH config found in ~/.zshrc
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/james/.oh-my-zsh
 
@@ -54,7 +56,9 @@ plugins=(git bundler osx rake ruby zsh-autosuggestions zsh-syntax-highlighting)
 # User configuration
 export GOPATH="$HOME/go_code"
 
-export PATH=$PATH"/usr/local/bin:/Users/james/.pgvm/environments/current/bin:/Users/james/.pgvm/bin:/Users/james/.rvm/gems/ruby-2.2.3/bin:/Users/james/.rvm/gems/ruby-2.2.3@global/bin:/Users/james/.rvm/rubies/ruby-2.2.3/bin:/Users/james/.pgvm/environments/current/bin:/Users/james/.pgvm/bin:/Users/james/.rvm/gems/ruby-1.9.3-p448/bin:/Users/james/.rvm/gems/ruby-1.9.3-p448@global/bin:/Users/james/.rvm/rubies/ruby-1.9.3-p448/bin:/Users/james/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/james/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:/Users/james/bin:$GOPATH/bin"
+# having $PATH after the custom ones allows searching the custom ones first
+export PATH=/usr/local/bin:$PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # NOTE: export path must be before this
@@ -82,13 +86,11 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias tm="cd ~/GitHubRepos/teikametrics"
-alias sparc="cd ~/GitHubRepos/sparc"
-alias z='zeus'
-alias tm-staging='~/Dropbox/Work/Teikametrics/tm-staging.sh'
-alias tm-local='~/Dropbox/Work/Teikametrics/tm-local.sh'
-alias tm-start='~/Dropbox/Work/Teikametrics/teik-start.sh'
-alias gotm="cd $GOPATH/src/github.com/teikametrics"
+alias zshconfig="mate ~/.zshrc"
+alias passwords="~/Dropbox/passwords.sh"
+alias g='git'
+
+alias dox='ch ~/GitHubRepos/doximity'
+

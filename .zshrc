@@ -1,12 +1,12 @@
-# ZSH config found in ~/.zshrc
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/james/.oh-my-zsh
+export ZSH=/Users/jamesklein/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -51,46 +51,43 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bundler osx rake ruby zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git bundler osx rake ruby tmux zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
-export GOPATH="$HOME/go_code"
+export PATH=~/.rbenv/shims:/usr/local/bin:/usr/bin:$PATH
 
-# having $PATH after the custom ones allows searching the custom ones first
-export PATH=/usr/local/bin:$PATH
+# NOTE: PATH must be before this
+source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# NOTE: export path must be before this
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='subl'
-else
-  export EDITOR='subl'
-fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias zshconfig="mate ~/.zshrc"
+alias zshconf="vim ~/.zshrc"
+alias vimconf="vim ~/.vimrc"
+alias tmuxconf="vim ~/.tmux.conf"
 alias passwords="~/Dropbox/passwords.sh"
 alias g='git'
+alias master='git checkout master && git pull origin master'
 
-alias dox='ch ~/GitHubRepos/doximity'
-
+#  Doximity
+alias dox='cd ~/GitHubRepos/doximity'
+# export BULLET='true'
+alias doxserver='bin/rails s webrick -p5000'
+alias sshprod='ssh prod-doximity-console-1.dox.box'

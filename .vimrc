@@ -1,56 +1,85 @@
+"===========================================================================
+" Author: James Klein [http://www.jamesmklein.com]
+"===========================================================================
 
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2015 Mar 24
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" after adding new plugins write, source, and run :PlugInstall
+" highlight all and :sort to sort
+call plug#begin('~/.vim/plugged') " Specify a directory for plugins
 
-let mapleader=" "
+" Make sure you use single quotes
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " find or install fzf
+Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
+Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
+Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
+Plug 'christoomey/vim-run-interactive'              " allow interactive shell
+Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
+Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
+Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
+Plug 'nelstrom/vim-textobj-rubyblock'               " provide ruby text objects
+Plug 'nelstrom/vim-visual-star-search'              " * to serach current word
+Plug 'slim-template/vim-slim'                       " syntax for slim
+Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
+Plug 'tpope/vim-bundler'                            " support helpers for bundler
+Plug 'tpope/vim-rails'                              " directory navigation and syntax for rails
+Plug 'tpope/vim-surround'                           " add paren and quote helpers
+Plug 'vim-ruby/vim-ruby'                            " support for running ruby
+Plug 'vim-scripts/tComment'                         " comment with `gc`
+Plug 'w0rp/ale'                                     " async linter
+Plug 'tpope/vim-fugitive'                           " git interactions
+Plug 'tpope/vim-rhubarb'                            " :Gbrowse to get GH url
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
+call plug#end() " Initialize plugin system
 
-" Use Vim settings, rather than Vi settings (much better!).
+let mapleader=" "                     " set leader key to space
+:set statusline=%f\ -\ FileType:\ %y  " set status line to show file name
+colorscheme jellybeans                " set color scheme
+
 " This must be first, because it changes other options as a side effect.
-set nocompatible
+set nocompatible               " Use Vim settings, rather than Vi settings
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set undofile		               " keep an undo file (undo changes after closing)
+set nobackup 		               " do not keep a backup file. Set for unandpw.txt
+set nowritebackup	             " don't make backup when overwriting file
+set history=1000		           " keep 1000 lines of command line history
+set ruler		                   " show the cursor position all the time
+set showcmd		                 " display incomplete commands
+set incsearch		               " do incremental searching
+set number                     " display line numbers
+set relativenumber             " set relative line numbering
+set numberwidth=5              " give space between relative and static line numbers
+set ignorecase smartcase       " search case insensitive, until first capital used
+set scrolloff=5                " prevent hitting the bottom of the screen
+set tags=tags;/                " check the current folder for tags file and keep going up
+set cursorline                 " highlight cursor line
+set cursorcolumn               " highlight cursor column
+set clipboard=unnamed          " copy to the system clipboard
+set lazyredraw                 " Don't update while executing macros
+set hidden                     " Allow buffer change w/o saving
+set tabstop=2                  " set tab size to 2
+set shiftwidth=2               " use spaces for indenting with '>'
+set expandtab                  " set spaces for tab
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-set undofile		" keep an undo file (undo changes after closing)
-set nobackup 		" do not keep a backup. Set originally for the unandpw.txt file
-set nowritebackup	" change the write behavior to leave no trailing files
-
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
-set number              " display line numbers
-set relativenumber  " set relative line numbering
-set numberwidth=5   " give some space between relative and static line numbers
-" search case insensitive, until first capital used
-set ignorecase smartcase
-set scrolloff=5 " prevent hitting the bottom of the screen
-" check the current folder for tags file and keep going one directory up all
-" the way to the root folder
-set tags=tags;/
-" highlight line and column
-set cursorline
-set cursorcolumn
-" copy to the system clipboard
-set clipboard=unnamed
-
-runtime macros/matchit.vim
+runtime macros/matchit.vim " use % to switch between if/else/end
 
 " map Enter to insert a new line without entering insert mode
 map <CR> o<Esc>
+" Don't use Ex mode, use Q for formatting
+map Q gq
+" leader + i inserts binding.pry
+map <Leader>i obinding.pry<ESC>
+" reindent the entire file
+map <leader>= mzgg=G`z
+
+" map 0 to go to first char on line
+nmap 0 ^
+" reload vimrc with leader+so
+nmap <leader>so :source $MYVIMRC<cr>
+" Split edit your vimrc. Type space, v, r in sequence to trigger
+nmap <leader>vr :sp $MYVIMRC<cr>
+" ctrl+a save and write in insert mode
+imap <C-a> <esc>:w<cr>
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
 
 " ctrl+space exits out of search and everything
 nnoremap <C-@> <Esc>:noh<CR>
@@ -59,17 +88,28 @@ onoremap <C-@> <Esc>
 cnoremap <C-@> <C-c>
 inoremap <C-@> <Esc>
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+" RSpec.vim mappings
+let g:rspec_command = "VtrSendCommand! bin/rspec {spec}"
+let g:rspec_runner = "os_x_iterm"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+" fzf fuzzy find
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>dc :Files app/controllers<cr>
+nnoremap <leader>dm :Files app/models<cr>
+nnoremap <leader>dv :Files app/views<cr>
+nnoremap <leader>ds :Files spec/<cr>
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
+" Don't use arrow keys
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
-" In many terminal emulators the mouse works just fine, thus enable it.
+" enable mouse
 if has('mouse')
   set mouse=a
 endif
@@ -109,10 +149,10 @@ if has("autocmd")
 
   " trim trailing whitespace on save
   autocmd BufWritePre * %s/\s\+$//e
+  " Bind `q` to close the buffer for help files
+  autocmd Filetype help nnoremap <buffer> q :q<CR>
 else
-
   set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
@@ -123,21 +163,12 @@ if !exists(":DiffOrig")
         \ | wincmd p | diffthis
 endif
 
+" Prevent that the langmap option applies to characters that result from a
+" mapping.  If unset (default), this may break plugins (but it's backward
+" compatible).
 if has('langmap') && exists('+langnoremap')
-  " Prevent that the langmap option applies to characters that result from a
-  " mapping.  If unset (default), this may break plugins (but it's backward
-  " compatible).
   set langnoremap
 endif
-
-" set tab size to 2
-set tabstop=2
-" use spaces for indenting with '>'
-set shiftwidth=2
-" set spaces for tab
-set expandtab
-
-nnoremap <C-n> :call NumberToggle()<cr>
 
 " highlight lines over 80 chars
 if exists('+colorcolumn')
@@ -163,20 +194,38 @@ if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
 
-  let g:ackprg = 'ag --nogroup --nocolor --column'
+  " Use ag in CtrlP for listing files. Lightning fast and respects
+  " .gitignore
+  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
 
-  if !exists(":Ack")
-    command -nargs=+ -complete=file -bar Ack silent! grep! <args>|cwindow|redraw!
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
 
-    " use \ to search
-    nnoremap \ :Ack<SPACE>
-
-    " bind K to grep word under cursor
-    nnoremap K :Ack "\b<C-R><C-W>\b"<CR>:cw<CR>
+  if !exists(":Ag")
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
   endif
 endif
 
-" Zoom / Restore window.
+" ALE async linting
+let g:ale_linters = {
+      \ 'javascript': ['eslint']
+      \ }
+
+nmap <silent> [r <Plug>(ale_previous_wrap)
+nmap <silent> ]r <Plug>(ale_next_wrap)
+
+" Linting on all changes felt too aggressive. The below settings calls lint on
+" certain events, either when I stop interacting or when entering / leaving
+" insert mode
+set updatetime=1000
+autocmd CursorHold * call ale#Lint()
+autocmd CursorHoldI * call ale#Lint()
+autocmd InsertLeave * call ale#Lint()
+autocmd TextChanged * call ale#Lint()
+let g:ale_lint_on_text_changed = 0
+
+" Zoom / Restore window with <ctrl>+a
 function! s:ZoomToggle() abort
   if exists('t:zoomed') && t:zoomed
     execute t:zoom_winrestcmd
@@ -206,6 +255,7 @@ endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
+" Delete the current file
 function! DeleteFile(...)
   if(exists('a:1'))
     let theFile=a:1
@@ -232,68 +282,3 @@ com! Rm call DeleteFile()
 "delete the file and quit the buffer (quits vim if this was the last file)
 com! RM call DeleteFile() <Bar> q!
 
-" set status line to show file name
-:set statusline=%f\ -\ FileType:\ %y
-
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-call plug#begin('~/.vim/plugged')
-
-" Make sure you use single quotes
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'thoughtbot/vim-rspec'
-Plug 'vim-ruby/vim-ruby'
-Plug 'https://github.com/christoomey/vim-tmux-runner.git'
-Plug 'slim-template/vim-slim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'kana/vim-textobj-user' " dependency of nelstrom/vim-textobj-rubyblock
-Plug 'nelstrom/vim-textobj-rubyblock' " provide ruby text objects
-Plug 'airblade/vim-gitgutter' " show git changes in gutter
-Plug 'tpope/vim-rails' " directory navigation and syntax for rails
-Plug 'tpope/vim-bundler'
-Plug 'nelstrom/vim-visual-star-search' " * to serach current word
-Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' } " color scheme
-Plug 'vim-scripts/tComment' " comment with `gc`
-Plug 'mileszs/ack.vim' " backbone for silver searcher
-Plug 'scrooloose/syntastic' " display errors such as rubocop
-
-" Initialize plugin system
-call plug#end()
-" Remember to :w, :so ~/.vimrc and run :PlugInstall after adding new plugins
-
-" set color scheme
-colorscheme jellybeans
-
-" RSpec.vim mappings
-let g:rspec_command = "VtrSendCommand! bin/rspec {spec}"
-let g:rspec_runner = "os_x_iterm"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
-" leader + i inserts binding.pry
-map <Leader>i obinding.pry<ESC>
-" reindent the entire file
-map <leader>= mzgg=G`z
-
-" fzf fuzzy find
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>dc :Files app/controllers<cr>
-nnoremap <leader>dm :Files app/models<cr>
-nnoremap <leader>dv :Files app/views<cr>
-nnoremap <leader>ds :Files spec/<cr>
-
-" Don't use arrow keys
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
-" Syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['rubocop']

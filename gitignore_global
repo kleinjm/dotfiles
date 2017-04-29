@@ -1,0 +1,6 @@
+*~
+*.swp
+*.swo
+.pryrc
+.DS_Store
+tags

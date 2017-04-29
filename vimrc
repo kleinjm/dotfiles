@@ -9,9 +9,9 @@ call plug#begin('~/.vim/plugged') " Specify a directory for plugins
 " Make sure you use single quotes
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " find or install fzf
 Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
+Plug 'christoomey/vim-run-interactive'              " allow interactive shell
 Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
 Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
-Plug 'christoomey/vim-run-interactive'              " allow interactive shell
 Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
@@ -20,44 +20,46 @@ Plug 'nelstrom/vim-visual-star-search'              " * to serach current word
 Plug 'slim-template/vim-slim'                       " syntax for slim
 Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
 Plug 'tpope/vim-bundler'                            " support helpers for bundler
+Plug 'tpope/vim-fugitive'                           " git interactions
 Plug 'tpope/vim-rails'                              " directory navigation and syntax for rails
+Plug 'tpope/vim-repeat'                             " allow . repeat on plugin commands
+Plug 'tpope/vim-rhubarb'                            " :Gbrowse to get GH url
 Plug 'tpope/vim-surround'                           " add paren and quote helpers
 Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
 Plug 'w0rp/ale'                                     " async linter
-Plug 'tpope/vim-fugitive'                           " git interactions
-Plug 'tpope/vim-rhubarb'                            " :Gbrowse to get GH url
+Plug 'henrik/vim-indexed-search'                    " display search count
 
 call plug#end() " Initialize plugin system
 
 let mapleader=" "                     " set leader key to space
-:set statusline=%f\ -\ FileType:\ %y  " set status line to show file name
+:set statusline=%f\ -\ FileType:\ %y\ -\ %l\:%c " set status line to show file name
 colorscheme jellybeans                " set color scheme
 
 " This must be first, because it changes other options as a side effect.
-set nocompatible               " Use Vim settings, rather than Vi settings
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set undofile		               " keep an undo file (undo changes after closing)
-set nobackup 		               " do not keep a backup file. Set for unandpw.txt
-set nowritebackup	             " don't make backup when overwriting file
-set history=1000		           " keep 1000 lines of command line history
-set ruler		                   " show the cursor position all the time
-set showcmd		                 " display incomplete commands
-set incsearch		               " do incremental searching
-set number                     " display line numbers
-set relativenumber             " set relative line numbering
-set numberwidth=5              " give space between relative and static line numbers
-set ignorecase smartcase       " search case insensitive, until first capital used
-set scrolloff=5                " prevent hitting the bottom of the screen
-set tags=tags;/                " check the current folder for tags file and keep going up
-set cursorline                 " highlight cursor line
-set cursorcolumn               " highlight cursor column
 set clipboard=unnamed          " copy to the system clipboard
-set lazyredraw                 " Don't update while executing macros
-set hidden                     " Allow buffer change w/o saving
-set tabstop=2                  " set tab size to 2
-set shiftwidth=2               " use spaces for indenting with '>'
+set cursorcolumn               " highlight cursor column
+set cursorline                 " highlight cursor line
 set expandtab                  " set spaces for tab
+set hidden                     " Allow buffer change w/o saving
+set history=1000		           " keep 1000 lines of command line history
+set ignorecase smartcase       " search case insensitive, until first capital used
+set incsearch		               " do incremental searching
+set lazyredraw                 " Don't update while executing macros
+set nobackup 		               " do not keep a backup file. Set for unandpw.txt
+set nocompatible               " Use Vim settings, rather than Vi settings
+set nowritebackup	             " don't make backup when overwriting file
+set number                     " display line numbers
+set numberwidth=5              " give space between relative and static line numbers
+set relativenumber             " set relative line numbering
+set ruler		                   " show the cursor position all the time
+set scrolloff=5                " prevent hitting the bottom of the screen
+set shiftwidth=2               " use spaces for indenting with '>'
+set showcmd		                 " display incomplete commands
+set tabstop=2                  " set tab size to 2
+set tags=tags;/                " check the current folder for tags file and keep going up
+set undofile		               " keep an undo file (undo changes after closing)
 
 runtime macros/matchit.vim " use % to switch between if/else/end
 
@@ -76,6 +78,14 @@ nmap 0 ^
 nmap <leader>so :source $MYVIMRC<cr>
 " Split edit your vimrc. Type space, v, r in sequence to trigger
 nmap <leader>vr :sp $MYVIMRC<cr>
+" Pre-populate a split command with the current directory
+nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+" Move up and down by visible lines if current line is wrapped
+nmap j gj
+nmap k gk
+" Edit the db/schema.rb Rails file in a split
+nmap <leader>sc :split db/schema.rb<cr>
+
 " ctrl+a save and write in insert mode
 imap <C-a> <esc>:w<cr>
 " Switch between the last two files

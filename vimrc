@@ -77,7 +77,7 @@ nmap 0 ^
 " reload vimrc with leader+so
 nmap <leader>so :source $MYVIMRC<cr>
 " Split edit your vimrc. Type space, v, r in sequence to trigger
-nmap <leader>vr :sp $MYVIMRC<cr>
+nmap <leader>vr :tabe $MYVIMRC<cr>
 " Pre-populate a split command with the current directory
 nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 " Move up and down by visible lines if current line is wrapped

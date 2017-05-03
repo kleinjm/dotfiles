@@ -2,9 +2,7 @@
   name = James Klein
   email = kleinjm007@gmail.com
 [alias]
-    # one-line log
     l = log
-
     a = add -A
     ap = add -p
     c = commit --verbose
@@ -12,14 +10,16 @@
     cm = commit -m
     cam = commit -a -m
     m = commit --amend --verbose
-
     d = diff
     ds = diff --stat
     dc = diff --cached
-
     s = status -s
     co = checkout
     cob = checkout -b
+
+    # push the current branch
+    publish = push -u origin HEAD
+
     # list branches sorted by last modified
     b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
     br = branch
@@ -29,7 +29,7 @@
     # list aliases
     la = "!git config -l | grep alias | cut -c 7-"
 [core]
-	excludesfile = /Users/jamesklein/.gitignore_global
+	excludesfile = /Users/jklein/.gitignore_global
 	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"

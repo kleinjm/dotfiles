@@ -12,6 +12,7 @@ Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell
 Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
 Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
+Plug 'henrik/vim-indexed-search'                    " display search count
 Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
@@ -28,7 +29,6 @@ Plug 'tpope/vim-surround'                           " add paren and quote helper
 Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
 Plug 'w0rp/ale'                                     " async linter
-Plug 'henrik/vim-indexed-search'                    " display search count
 
 call plug#end() " Initialize plugin system
 

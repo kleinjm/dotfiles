@@ -88,6 +88,8 @@ nmap <leader>sc :split db/schema.rb<cr>
 
 " ctrl+a save and write in insert mode
 imap <C-a> <esc>:w<cr>
+" save in normal mode
+map <leader>w <esc>:w<cr>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 

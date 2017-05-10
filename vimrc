@@ -81,6 +81,7 @@ nmap <leader>vr :tabe $MYVIMRC<cr>
 " Pre-populate a split command with the current directory
 nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 " Move up and down by visible lines if current line is wrapped
+" NOTE: this messes with with jumping up and down relative line numbers
 nmap j gj
 nmap k gk
 " Edit the db/schema.rb Rails file in a split

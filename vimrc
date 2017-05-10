@@ -15,6 +15,7 @@ Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to
 Plug 'henrik/vim-indexed-search'                    " display search count
 Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
+Plug 'mattn/emmet-vim'                              " html and css editing
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
 Plug 'nelstrom/vim-textobj-rubyblock'               " provide ruby text objects
 Plug 'nelstrom/vim-visual-star-search'              " * to serach current word
@@ -208,10 +209,6 @@ if executable("ag")
 endif
 
 " ALE async linting
-let g:ale_linters = {
-      \ 'javascript': ['eslint']
-      \ }
-
 nmap <silent> [r <Plug>(ale_previous_wrap)
 nmap <silent> ]r <Plug>(ale_next_wrap)
 

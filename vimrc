@@ -86,7 +86,7 @@ nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 nmap j gj
 nmap k gk
 " Edit the db/schema.rb Rails file in a split
-nmap <leader>sc :split db/schema.rb<cr>
+nmap <leader>sc :vsp db/schema.rb<cr>
 
 " save
 inoremap <C-p> <esc>:w<cr>
@@ -121,6 +121,10 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+let g:fzf_files_options =
+  \ '--reverse ' .
+  \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 
 " enable mouse
 if has('mouse')

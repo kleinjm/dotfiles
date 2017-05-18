@@ -50,6 +50,7 @@ set incsearch		               " do incremental searching
 set lazyredraw                 " Don't update while executing macros
 set nobackup 		               " do not keep a backup file. Set for unandpw.txt
 set nocompatible               " Use Vim settings, rather than Vi settings
+set noswapfile                 " Turn off swap (.swp) files
 set nowritebackup	             " don't make backup when overwriting file
 set number                     " display line numbers
 set numberwidth=5              " give space between relative and static line numbers

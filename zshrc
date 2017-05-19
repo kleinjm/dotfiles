@@ -59,6 +59,9 @@ export PATH=~/.rbenv/shims:/usr/local/bin:/usr/bin:$PATH
 # NOTE: PATH must be before this
 source $ZSH/oh-my-zsh.sh
 
+# tmuxinator autocomplete - allows `mux` in CLI
+source ~/GitHubRepos/dotfiles/tmuxinator/tmuxinator.zsh
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

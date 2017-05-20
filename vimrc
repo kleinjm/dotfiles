@@ -217,33 +217,16 @@ endif
 nmap <silent> [r <Plug>(ale_previous_wrap)
 nmap <silent> ]r <Plug>(ale_next_wrap)
 
-" This option prevents ALE autocmd commands from being run for particular
-" filetypes which can cause issues.
-let g:ale_filetype_blacklist = ['tags']
-
-" This Dictionary allows users to set up filetype aliases for new filetypes.
-let g:ale_linter_aliases = get(g:, 'ale_linter_aliases', {})
-
-" This Dictionary configures which linters are enabled for which languages.
-let g:ale_linters = get(g:, 'ale_linters', {})
-
-" This global variable is used internally by ALE for tracking information for
-" each buffer which linters are being run against.
-let g:ale_buffer_info = {}
-
-" This flag can be set to 'never' to disable linting when text is changed.
-" This flag can also be set to 'insert' or 'normal' to lint when text is
-" changed only in insert or normal mode respectively.
-let g:ale_lint_on_text_changed = 0
-
 " Linting on all changes felt too aggressive. The below settings calls lint on
 " certain events, either when I stop interacting or when entering / leaving
 " insert mode
 set updatetime=1000
-autocmd CursorHold * call ale#Lint()
-autocmd CursorHoldI * call ale#Lint()
-autocmd InsertLeave * call ale#Lint()
-autocmd TextChanged * call ale#Lint()
+" TODO: fix this on personal machine
+" autocmd CursorHold * call ale#Lint()
+" autocmd CursorHoldI * call ale#Lint()
+" autocmd InsertLeave * call ale#Lint()
+" autocmd TextChanged * call ale#Lint()
+" let g:ale_lint_on_text_changed = 0
 
 " Zoom / Restore window with <ctrl>+a
 function! s:ZoomToggle() abort

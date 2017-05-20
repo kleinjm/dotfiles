@@ -1,4 +1,12 @@
 #!/bin/bash
+rm ~/.vimrc
+rm ~/.tmux.conf
+rm ~/.gitconfig
+ m ~/.gitignore_global
+rm ~/.zshrc
+rm ~/.pryrc
+rm ~/.ssh/config
+
 ln -s ~/GitHubRepos/dotfiles/vimrc ~/.vimrc
 ln -s ~/GitHubRepos/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/GitHubRepos/dotfiles/gitconfig ~/.gitconfig

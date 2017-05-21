@@ -4,7 +4,7 @@ Host kleinjm-GitHub
 	HostName github.com
 	User kleinjm
 	PreferredAuthentications publickey
-	IdentityFile /Users/jamesklein/.ssh/kleinjm_GitHub
+	IdentityFile /Users/jklein/.ssh/kleinjm_GitHub
 # ----------------------------
 
 Host aws-bastion

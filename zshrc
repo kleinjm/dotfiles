@@ -54,8 +54,8 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git bundler osx rake ruby tmux docker zsh-autosuggestions zsh-syntax-highlighting)
 
-# User configuration
-export PATH=~/.rbenv/shims:/usr/local/bin:/usr/bin:$PATH
+# QT added to path to fix gem install capybara-webkit issue
+export PATH=~/Qt5.5.1/5.5/clang_64/bin:~/.rbenv/shims:/usr/local/bin:/usr/bin:$PATH
 
 # NOTE: PATH must be before this
 source $ZSH/oh-my-zsh.sh

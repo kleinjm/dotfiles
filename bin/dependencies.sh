@@ -2,7 +2,8 @@
 
 # brew
 brew install fzf
-brew install the_silver_searcher
+brew install ehe_silver_searcher
+brew install macvim --with-override-system-vim
 
 # ruby
 gem install rubocop

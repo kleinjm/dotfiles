@@ -6,6 +6,7 @@ rm ~/.gitignore_global
 rm ~/.zshrc
 rm ~/.pryrc
 rm ~/.ssh/config
+rm -r ~/.tmuxinator
 
 ln -s ~/GitHubRepos/dotfiles/vimrc ~/.vimrc
 ln -s ~/GitHubRepos/dotfiles/tmux.conf ~/.tmux.conf
@@ -14,3 +15,4 @@ ln -s ~/GitHubRepos/dotfiles/gitignore_global ~/.gitignore_global
 ln -s ~/GitHubRepos/dotfiles/zshrc ~/.zshrc
 ln -s ~/GitHubRepos/dotfiles/pryrc ~/.pryrc
 ln -s ~/GitHubRepos/dotfiles/ssh_config ~/.ssh/config
+ln -s ~/GitHubRepos/dotfiles/tmuxinator ~/.tmuxinator

@@ -2,7 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/james/.oh-my-zsh
+DEFAULT_USER=`whoami`
+export ZSH=/Users/$DEFAULT_USER/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -91,6 +92,8 @@ alias tmuxconf="vim ~/.tmux.conf"
 alias passwords="~/Dropbox/passwords.sh"
 alias g='git'
 alias master='git checkout master && git pull origin master'
+alias del="rmtrash"
+alias rm="echo Use 'del' or the full path i.e. 'bin/rm/'"
 
 #  Doximity
 alias dox='cd ~/GitHubRepos/doximity'

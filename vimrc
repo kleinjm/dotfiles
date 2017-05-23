@@ -98,6 +98,10 @@ nnoremap <leader><leader> <c-^>
 
 " change all single ' to double " in current file
 nmap <leader>" :%s/\'/\"/g<cr><C-@><Esc>
+" show the current file on github
+nmap <leader>br :Gbrowse<cr>
+" git blame
+nmap <leader>bl :Gblame<cr>
 
 " ctrl+space exits out of search and everything
 nnoremap <C-@> <Esc>:noh<CR>

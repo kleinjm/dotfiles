@@ -96,6 +96,9 @@ noremap <C-p> <esc>:w<cr>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
+" change all single ' to double " in current file
+nmap <leader>" :%s/\'/\"/g<cr><C-@><Esc>
+
 " ctrl+space exits out of search and everything
 nnoremap <C-@> <Esc>:noh<CR>
 vnoremap <C-@> <Esc>gV

@@ -94,6 +94,7 @@ alias g='git'
 alias master='git checkout master && git pull origin master'
 alias del="rmtrash"
 alias rm="echo Use 'del' or the full path i.e. 'bin/rm/'"
+eval $(thefuck --alias)
 
 #  Doximity
 alias dox='cd ~/GitHubRepos/doximity'

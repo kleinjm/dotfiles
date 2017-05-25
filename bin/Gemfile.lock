@@ -1,0 +1,46 @@
+GEM
+  specs:
+    ast (2.3.0)
+    jslint (1.2.0)
+      json
+    json (1.8.6)
+    parser (2.4.0.0)
+      ast (~> 2.2)
+    pluginator (1.4.0)
+    powerpack (0.1.1)
+    pre-commit (0.33.0)
+      pluginator (~> 1.1)
+    rainbow (2.2.2)
+      rake
+    rake (12.0.0)
+    rubocop (0.48.1)
+      parser (>= 2.3.3.1, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-progressbar (1.8.1)
+    slim (3.0.1)
+      temple (~> 0.7.3)
+      tilt (>= 1.3.3, < 2.1)
+    slim_lint (0.12.0)
+      rake (>= 10, < 13)
+      rubocop (>= 0.48.0)
+      slim (~> 3.0)
+      sysexits (~> 1.1)
+    sysexits (1.2.0)
+    temple (0.7.5)
+    tilt (2.0.6)
+    unicode-display_width (1.2.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  jslint
+  pre-commit
+  rubocop
+  slim_lint
+
+BUNDLED WITH
+   1.15.0

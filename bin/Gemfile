@@ -1,0 +1,4 @@
+gem "rubocop"
+gem "pre-commit"
+gem "slim_lint"
+gem "jslint"

@@ -8,7 +8,6 @@ brew install rmtrash
 brew install thefuck
 
 # ruby
-gem install rubocop
-gem install pre-commit
-gem install slim_lint
-gem install jslint
+gem install bundler
+cd ${PWD}/bin
+bundle

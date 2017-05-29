@@ -39,6 +39,5 @@ windows:
       panes:
         - vim
         -
-  - server: bundle exec rails s
-  - logs: rails c
-  -
+  - server: bin/rails s
+  - logs: bin/rails c

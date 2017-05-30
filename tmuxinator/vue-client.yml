@@ -39,3 +39,4 @@ windows:
       panes:
         - vim
         -
+  - servers: yarn run dev

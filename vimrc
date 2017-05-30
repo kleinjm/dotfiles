@@ -20,6 +20,7 @@ Plug 'mattn/emmet-vim'                              " html and css editing
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
 Plug 'nelstrom/vim-textobj-rubyblock'               " provide ruby text objects
 Plug 'nelstrom/vim-visual-star-search'              " * to serach current word
+Plug 'posva/vim-vue'                              " syntax highlighting for vueJS
 Plug 'slim-template/vim-slim'                       " syntax for slim
 Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
 Plug 'tpope/vim-bundler'                            " support helpers for bundler

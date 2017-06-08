@@ -39,4 +39,5 @@ windows:
       panes:
         - vim
         -
+        - yarn run unit
   - servers: yarn run dev

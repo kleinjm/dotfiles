@@ -133,8 +133,8 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 let g:fzf_files_options =
-  \ '--reverse ' .
-  \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+      \ '--reverse ' .
+      \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 
 " enable mouse
 if has('mouse')
@@ -178,6 +178,8 @@ if has("autocmd")
   autocmd BufWritePre * %s/\s\+$//e
   " Bind `q` to close the buffer for help files
   autocmd Filetype help nnoremap <buffer> q :q<CR>
+  " rebalance vim panes when window resizes
+  autocmd VimResized * :wincmd =
 else
   set autoindent		" always set autoindenting on
 endif " has("autocmd")

@@ -102,3 +102,4 @@ alias dox='cd ~/GitHubRepos/doximity'
 alias doxserver='bin/rails s webrick -p5000'
 alias sshprod='ssh prod-doximity-console-1.dox.box'
 export FAIL_SLOW=false
+export RESIDENCY_URL='http://localhost:5120/'

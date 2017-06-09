@@ -3,5 +3,7 @@
 *.swo
 .pryrc
 .DS_Store
-tags
+
+# disable this for the recipe-viewer repo where there is a real tags dir
+# tags
 npm-debug.log

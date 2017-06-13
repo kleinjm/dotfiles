@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged') " Specify a directory for plugins
 
 " Make sure you use single quotes
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " find or install fzf
+Plug 'AndrewRadev/vim-eco'                          " syntax highlighting for .eco
 Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell
 Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
@@ -73,6 +74,8 @@ map <CR> o<Esc>
 map Q gq
 " leader + i inserts binding.pry
 map <Leader>i obinding.pry<ESC>
+" insert a frozen string literal tag above the current line
+map <Leader>r O# frozen_string_literal: true<ESC>
 " reindent the entire file
 map <leader>= mzgg=G`z
 

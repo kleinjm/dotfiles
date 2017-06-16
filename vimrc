@@ -74,7 +74,7 @@ map Q gq
 " leader + i inserts binding.pry
 map <Leader>i obinding.pry<ESC>
 " insert a frozen string literal tag above the current line
-map <Leader>r ggO# frozen_string_literal: true<ESC>
+map <Leader>r ggO# frozen_string_literal: true<ESC><C-o>
 " reindent the entire file
 map <leader>= mzgg=G`z
 

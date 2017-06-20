@@ -39,5 +39,5 @@ windows:
       panes:
         - vim .
         -
-        - yarn run unit
+        - yarn run unit:watch
   - servers: yarn run dev

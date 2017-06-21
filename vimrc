@@ -13,6 +13,7 @@ Plug 'christoomey/vim-run-interactive'              " allow interactive shell
 Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
 Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
 Plug 'henrik/vim-indexed-search'                    " display search count
+Plug 'jiangmiao/auto-pairs'                         " open and close brackets
 Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
 Plug 'maksimr/vim-jsbeautify'                       " format js and html pages

@@ -37,7 +37,7 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - vim .
+        - vim . -c :Files
         -
   - servers:
       layout: c5de,272x59,0,0[272x45,0,0,1,272x13,0,46{135x13,0,46,4,136x13,136,46,5}]

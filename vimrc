@@ -74,6 +74,8 @@ map <CR> o<Esc>
 map Q gq
 " leader + i inserts binding.pry
 map <Leader>i obinding.pry<ESC>
+" leader + d inserts debugger;
+map <Leader>d odebugger;<ESC>
 " insert a frozen string literal tag above the current line
 map <Leader>r ggO# frozen_string_literal: true<ESC><C-o>
 " reindent the entire file

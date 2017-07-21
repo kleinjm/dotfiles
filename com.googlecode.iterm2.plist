@@ -59,9 +59,9 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-913 397 796 473 -1920 0 1920 1057 </string>
+	<string>1007 397 796 473 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>3 7 1914 1047 0 0 1920 1057 </string>
+	<string>2 9 1676 1013 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>963 7 955 1047 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -737,7 +737,7 @@
 	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>WordCharacters</key>
-	<string>/-+\~_.</string>
+	<string>,</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
 	<key>findRegex_iTerm</key>

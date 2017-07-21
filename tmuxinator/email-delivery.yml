@@ -1,7 +1,7 @@
-# ~/.tmuxinator/doximity.yml
+# ~/.tmuxinator/email-delivery.yml
 
-name: doximity
-root: ~/GitHubRepos/doximity
+name: email-delivery
+root: ~/GitHubRepos/email-delivery
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,7 +28,7 @@ root: ~/GitHubRepos/doximity
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t doximity
+# post: tmux -CC attach -t email-delivery
 
 windows:
   - editor:
@@ -37,12 +37,11 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - vim . -c :Files
+        - vim .
         -
   - servers:
-      layout: c5de,272x59,0,0[272x45,0,0,1,272x13,0,46{135x13,0,46,4,136x13,136,46,5}]
+      layout: 2aa0,238x57,0,0{118x57,0,0,69,119x57,119,0,70}]
       panes:
-        - doxserver
-        - docker-compose up
-        - sidekiq
+        - bundle exec rails server unicorn -p5130
+        - bundle exec sidekiq
   - consoles: rails c

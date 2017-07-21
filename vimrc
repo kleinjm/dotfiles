@@ -33,6 +33,7 @@ Plug 'tpope/vim-surround'                           " add paren and quote helper
 Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
 Plug 'w0rp/ale'                                     " async linter
+Plug 'jbgutierrez/vim-partial'                      " extract haml partials
 
 call plug#end() " Initialize plugin system
 

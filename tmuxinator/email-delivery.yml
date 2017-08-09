@@ -40,7 +40,7 @@ windows:
         - vim .
         -
   - servers:
-      layout: 2aa0,238x57,0,0{118x57,0,0,69,119x57,119,0,70}]
+      layout: c8b6,238x57,0,0{119x57,0,0,82,118x57,120,0,83}
       panes:
         - bundle exec rails server unicorn -p5130
         - bundle exec sidekiq

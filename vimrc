@@ -1,3 +1,4 @@
+"# frozen_string_literal: true
 "===========================================================================
 " Author: James Klein [http://www.jamesmklein.com]
 "===========================================================================
@@ -102,6 +103,9 @@ inoremap <C-p> <esc>:w<cr>
 noremap <C-p> <esc>:w<cr>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
+
+" copy current relative file path to system clipboard
+nnoremap <leader>cf :let @+ = expand("%:p:h")<cr>
 
 " change all single ' to double " in current file
 nmap <leader>" :%s/\'/\"/g<cr><C-@><Esc>

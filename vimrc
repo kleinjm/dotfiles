@@ -105,7 +105,7 @@ noremap <C-p> <esc>:w<cr>
 nnoremap <leader><leader> <c-^>
 
 " copy current relative file path to system clipboard
-nnoremap <leader>cf :let @+ = expand("%:p:h")<cr>
+nnoremap <leader>cf :let @+ = expand("%:h")<cr>
 
 " change all single ' to double " in current file
 nmap <leader>" :%s/\'/\"/g<cr><C-@><Esc>

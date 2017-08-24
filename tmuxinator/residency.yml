@@ -41,7 +41,7 @@ windows:
         -
   - server:
     layout: 9300,272x59,0,0[272x49,0,0,15,272x9,0,50,123]
-      panes:
-        - rails s webrick -p 5120
-        - bundle exec sidekiq
+    panes:
+      - rails s webrick -p 5120
+      - bundle exec sidekiq
   - console: bin/rails c

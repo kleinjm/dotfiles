@@ -32,7 +32,7 @@ root: ~/GitHubRepos/geo_json
 
 windows:
   - editor:
-      layout: e571,272x59,0,0[272x49,0,0,24,272x9,0,50,25]
+      layout: 5496,272x59,0,0[272x50,0,0,2,272x8,0,51,3]
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after

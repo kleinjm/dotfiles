@@ -137,6 +137,10 @@ nnoremap <leader>dm :Files app/models<cr>
 nnoremap <leader>dv :Files app/views<cr>
 nnoremap <leader>ds :Files spec/<cr>
 
+" Search only the files that have not yet been committed
+command! Fzfc call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --modified'}))
+noremap <Leader>g :Fzfc<cr>
+
 " Don't use arrow keys
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>

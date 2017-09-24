@@ -13,18 +13,21 @@ Plug 'christoomey/vim-run-interactive'              " allow interactive shell
 Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
 Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
 Plug 'henrik/vim-indexed-search'                    " display search count
-Plug 'itchyny/lightline.vim'                      " vim status bar coloring
+Plug 'itchyny/lightline.vim'                        " vim status bar coloring
 Plug 'jbgutierrez/vim-partial'                      " extract haml partials
+Plug 'jgdavey/vim-blockle'                          " toggle ruby do and {} blocks
 Plug 'jiangmiao/auto-pairs'                         " open and close brackets
 Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
+Plug 'majutsushi/tagbar'                            " tagbar panel for file structure
 Plug 'maksimr/vim-jsbeautify'                       " format js and html pages
 Plug 'mattn/emmet-vim'                              " html and css editing
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
 Plug 'nelstrom/vim-textobj-rubyblock'               " provide ruby text objects
 Plug 'nelstrom/vim-visual-star-search'              " * to serach current word
-Plug 'posva/vim-vue'                              " syntax highlighting for vueJS
+Plug 'posva/vim-vue'                                " syntax highlighting for vueJS
 Plug 'slim-template/vim-slim'                       " syntax for slim
+Plug 'szw/vim-tags'                                 " generate tag files on save
 Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
 Plug 'tpope/vim-bundler'                            " support helpers for bundler
 Plug 'tpope/vim-fugitive'                           " git interactions
@@ -97,6 +100,8 @@ nmap j gj
 nmap k gk
 " Edit the db/schema.rb Rails file in a split
 nmap <leader>sc :vsp db/schema.rb<cr>
+" Show tagbar
+nmap <Leader>] :TagbarToggle<CR>
 
 " save
 inoremap <C-p> <esc>:w<cr>

@@ -52,6 +52,69 @@
 		<true/>
 		<key>AutoResponseType</key>
 		<integer>0</integer>
+		<key>CopyToMailboxURL</key>
+		<string>imap://jklein%40doximity.com/GitHub</string>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>536AD6D5-72B3-4D33-9ACE-17A015093407</string>
+				<key>Expression</key>
+				<string>noreply@heroku.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>1DAF9045-6813-4FFD-9D02-CF65FDB75979</string>
+				<key>Expression</key>
+				<string>webdev@doximity.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>E3AFD7BE-2EAA-4EE7-A626-647920C85847</string>
+				<key>Expression</key>
+				<string>Invitation to collaborate on</string>
+				<key>Header</key>
+				<string>Subject</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<false/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MailboxURL</key>
+		<string>imap://jklein%40doximity.com/GitHub</string>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>88860AD9-6311-4008-B07D-F85D624F4670</string>
+		<key>RuleName</key>
+		<string>dox heroku collaborate</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<true/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
 		<key>Criteria</key>
 		<array>
 			<dict>

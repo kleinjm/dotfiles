@@ -72,10 +72,7 @@ set tabstop=2                  " set tab size to 2
 set tags=tags;/                " check the current folder for tags file and keep going up
 set undofile		               " keep an undo file (undo changes after closing)
 set encoding=utf8              " set to show fonts and glyphs
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Nerd\ Font\ Complete:h11 lsp=2
-
-
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+set guifont=FuraMono\ Nerd\ Font\ Regular:h12 lsp=2
 
 let g:lightline = {
       \ 'active': {

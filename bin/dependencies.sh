@@ -9,7 +9,7 @@ brew install thefuck
 brew install rbenv
 brew install reattach-to-user-namespace
 
-# Needed for nerd fonts
+# Needed for nerd fonts and devicons
 # https://github.com/ryanoasis/nerd-fonts#option-3-install-script
 brew tap caskroom/fonts
 brew cask install font-hack-nerd-font

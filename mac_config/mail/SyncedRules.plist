@@ -52,6 +52,65 @@
 		<true/>
 		<key>AutoResponseType</key>
 		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>89CD5395-5EDB-4FD9-A53E-5B467C1FA6A4</string>
+				<key>Expression</key>
+				<string>webdev@doximity.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>3B3E7605-EC54-4D07-85AA-DD62976CE364</string>
+				<key>Expression</key>
+				<string>webdev@doximity.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>00867053-5C80-4C11-852C-E345EE61035C</string>
+				<key>Expression</key>
+				<string>Your Twilio account has been recharged</string>
+				<key>Header</key>
+				<string>Subject</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>111208B2-60EA-4D9E-90F1-A7735B877389</string>
+		<key>RuleName</key>
+		<string>Twilio</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
 		<key>CopyToMailboxURL</key>
 		<string>imap://jklein%40doximity.com/GitHub</string>
 		<key>Criteria</key>

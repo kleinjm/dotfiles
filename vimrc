@@ -26,6 +26,7 @@ Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
 Plug 'nelstrom/vim-textobj-rubyblock'               " provide ruby text objects
 Plug 'nelstrom/vim-visual-star-search'              " * to serach current word
 Plug 'posva/vim-vue'                                " syntax highlighting for vueJS
+Plug 'ryanoasis/vim-devicons'                       " font icon integration"
 Plug 'slim-template/vim-slim'                       " syntax for slim
 Plug 'szw/vim-tags'                                 " generate tag files on save
 Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
@@ -70,6 +71,118 @@ set showcmd		                 " display incomplete commands
 set tabstop=2                  " set tab size to 2
 set tags=tags;/                " check the current folder for tags file and keep going up
 set undofile		               " keep an undo file (undo changes after closing)
+set encoding=utf8              " set to show fonts and glyphs
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Nerd\ Font\ Complete:h11 lsp=2
+
+
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+      \   'right': [ [ 'neomake', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ],
+      \ },
+      \ 'colorscheme': 'wombat',
+      \ 'component_function': {
+      \   'fugitive': 'LightlineFugitive',
+      \   'filename': 'LightlineFilename',
+      \   'fileformat': 'LightlineFileformat',
+      \   'filetype': 'LightlineFiletype',
+      \   'fileencoding': 'LightlineFileencoding',
+      \   'mode': 'LightlineMode',
+      \   'neomake': 'LightLineNeomake',
+      \ },
+      \ 'component_expand': {
+      \   'neomake': 'LightLineNeomake',
+      \ },
+      \ 'component_type': {
+      \   'neomake': 'error',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
+      \ }
+
+function! LightlineModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightlineReadonly()
+  return &ft !~? 'help' && &readonly ? '' : ''
+endfunction
+
+function! LightlineFilename()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? g:lightline.fname :
+        \ fname =~ '__Gundo\|NERD_tree' ? '' :
+        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \ &ft == 'unite' ? unite#get_status_string() :
+        \ &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
+
+function! LightlineFugitive()
+  try
+    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && exists('*fugitive#head')
+      let mark = ''
+      let branch = fugitive#head()
+      return branch !=# '' ? mark.branch : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! LightlineFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! LightlineFileencoding()
+  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightlineMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname == 'ControlP' ? 'CtrlP' :
+        \ fname == '__Gundo__' ? 'Gundo' :
+        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightlineNeomake()
+    if !exists('*neomake#statusline#LoclistCounts')
+        return ''
+    endif
+
+    " Count all the errors, warnings
+    let total = 0
+
+    for v in values(neomake#statusline#LoclistCounts())
+        let total += v
+    endfor
+
+    for v in items(neomake#statusline#QflistCounts())
+        let total += v
+    endfor
+
+    if total == 0
+        return ''
+    endif
+
+    return 'line '.getloclist(0)[0].lnum. ', 1 of '.total
+  endif
+endfunction
+
 
 runtime macros/matchit.vim " use % to switch between if/else/end
 

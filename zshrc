@@ -92,7 +92,6 @@ alias tmuxconf="vim ~/.tmux.conf"
 alias passwords="~/Dropbox/passwords.sh"
 alias g='git'
 alias master='git fetch --prune && git checkout master && git pull origin master'
-alias rm="Are you sure? Use prefer 'mv /path/file ~/.Trash' or use /bin/rm if you must"
 eval $(thefuck --alias)
 
 #  Doximity

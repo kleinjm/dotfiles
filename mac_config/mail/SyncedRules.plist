@@ -52,6 +52,65 @@
 		<true/>
 		<key>AutoResponseType</key>
 		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>0DDD68ED-85A4-4B39-BB73-DD24998484C3</string>
+				<key>Expression</key>
+				<string>orders@eat.grubhub.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>8B2267BA-B6B0-4181-940F-FC085973661D</string>
+				<key>Expression</key>
+				<string>kleinjm007@gmail.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>F6861074-8EAC-4BDC-BA12-EA26366EA2C5</string>
+				<key>Expression</key>
+				<string>Your Order</string>
+				<key>Header</key>
+				<string>Subject</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>5C4DF1B8-4819-48C8-AD45-D1F7F7FC2EA9</string>
+		<key>RuleName</key>
+		<string>grubhub</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
 		<key>CopyToMailboxURL</key>
 		<string>imap://jklein%40doximity.com/Hakiri</string>
 		<key>Criteria</key>

@@ -52,6 +52,61 @@
 		<true/>
 		<key>AutoResponseType</key>
 		<integer>0</integer>
+		<key>CopyToMailboxURL</key>
+		<string>imap://kleinjm007%40gmail.com/Finance/Schwab</string>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>1AA09256-5695-4E2C-A2CE-9F75ECBE921F</string>
+				<key>Expression</key>
+				<string>id@proxyvote.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>99FD98CA-CC95-40A2-9DC0-922478544DF4</string>
+				<key>Expression</key>
+				<string>KLEINJM007@GMAIL.COM</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<false/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MailboxURL</key>
+		<string>imap://kleinjm007%40gmail.com/Finance/Schwab</string>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>884866A3-E8E1-4CF0-BE1A-F3AEE6680976</string>
+		<key>RuleName</key>
+		<string>schwab proxy vote</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<true/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
 		<key>Criteria</key>
 		<array>
 			<dict>

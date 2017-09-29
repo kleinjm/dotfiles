@@ -31,7 +31,7 @@ root: ~/GitHubRepos/colleagues
 windows:
   - editor:
       # run tmux list-windows to get this value
-      layout: 9f24,272x59,0,0[272x49,0,0,9,272x9,0,50,68]
+      layout: 93f5,272x59,0,0[272x30,0,0,163,272x28,0,31,166]
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       synchronize: after
@@ -39,8 +39,8 @@ windows:
         - vim .
         -
   - server:
-    layout: 525b,272x59,0,0[272x39,0,0,9,272x19,0,40,68]
-    panes:
-      - bundle exec rails server -p 5100
-      - bundle exec sidekiq
+      layout: 36e1,272x59,0,0{135x59,0,0,164,136x59,136,0,167}
+      panes:
+        - bundle exec rails server -p 5100
+        - bundle exec sidekiq
   - console: bin/rails c

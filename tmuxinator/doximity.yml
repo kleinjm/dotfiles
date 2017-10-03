@@ -44,5 +44,5 @@ windows:
       panes:
         - doxserver
         - docker-compose up
-        - sidekiq
+        - bundle exec sidekiq
   - consoles: rails c

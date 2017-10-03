@@ -86,13 +86,13 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias zshconf="vim ~/.zshrc"
-alias vimconf="vim ~/.vimrc"
-alias tmuxconf="vim ~/.tmux.conf"
-alias passwords="~/Dropbox/passwords.sh"
 alias g='git'
 alias master='git fetch --prune && git checkout master && git pull origin master'
-eval $(thefuck --alias)
+alias passwords="~/Dropbox/passwords.sh"
+alias startdox='~/GitHubRepos/dotfiles/tmuxinator/start_doximity.sh'
+alias tmuxconf="vim ~/.tmux.conf"
+alias vimconf="vim ~/.vimrc"
+alias zshconf="vim ~/.zshrc"
 
 #  Doximity
 alias dox='cd ~/GitHubRepos/doximity'
@@ -102,5 +102,6 @@ alias sshprod='ssh prod-doximity-console-1.dox.box'
 export FAIL_SLOW=false
 export RESIDENCY_URL='http://localhost:5120/'
 
+eval $(thefuck --alias)
 # https://github.com/rbenv/rbenv/issues/142
 eval "$(rbenv init -)"

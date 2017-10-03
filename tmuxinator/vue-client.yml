@@ -39,6 +39,6 @@ windows:
       panes:
         - vim .
         -
-        - yarn run unit:jest:watch
+        - yarn run unit
   - servers: yarn run dev
   - detach: tmux detach

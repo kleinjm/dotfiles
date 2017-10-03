@@ -45,3 +45,4 @@ windows:
         - bundle exec rails server unicorn -p5130
         - bundle exec sidekiq
   - consoles: rails c
+  - detach: tmux detach

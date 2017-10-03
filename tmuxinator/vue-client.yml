@@ -41,3 +41,4 @@ windows:
         -
         - yarn run unit:jest:watch
   - servers: yarn run dev
+  - detach: tmux detach

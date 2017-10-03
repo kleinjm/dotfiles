@@ -44,3 +44,4 @@ windows:
         - bundle exec rails server -p 5100
         - bundle exec sidekiq
   - console: bin/rails c
+  - detach: tmux detach

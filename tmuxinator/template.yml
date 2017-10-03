@@ -40,3 +40,4 @@ windows:
         -
   - server: bin/rails s
   - console: bin/rails c
+  - detach: tmux detach

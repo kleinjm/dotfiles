@@ -41,3 +41,4 @@ windows:
         -
   - server: rails s webrick -p 5150
   - console: bin/rails c
+  - detach: tmux detach

@@ -41,4 +41,3 @@ windows:
         -
         - yarn run unit
   - servers: yarn run dev
-  - detach: tmux detach

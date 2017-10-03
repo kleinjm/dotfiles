@@ -45,4 +45,3 @@ windows:
         - rails s webrick -p 5120
         - bundle exec sidekiq
   - console: bin/rails c
-  - detach: tmux detach

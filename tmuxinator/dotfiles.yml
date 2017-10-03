@@ -12,4 +12,3 @@ windows:
       panes:
         - vim -O ~/.vimrc ~/.tmux.conf ~/.zshrc
         -
-  - detach: tmux detach

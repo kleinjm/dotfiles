@@ -76,16 +76,13 @@ set guifont=FuraMono\ Nerd\ Font\ Regular:h12 lsp=2
 
 let g:lightline = {
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-      \   'right': [ [ 'neomake', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ],
+      \   'left': [ [ 'mode', 'paste' ], [ 'relativepath' ] ],
+      \   'right': [ [ 'neomake', 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
       \ },
       \ 'colorscheme': 'wombat',
       \ 'component_function': {
-      \   'fugitive': 'LightlineFugitive',
       \   'filename': 'LightlineFilename',
-      \   'fileformat': 'LightlineFileformat',
       \   'filetype': 'LightlineFiletype',
-      \   'fileencoding': 'LightlineFileencoding',
       \   'mode': 'LightlineMode',
       \   'neomake': 'LightLineNeomake',
       \ },
@@ -119,28 +116,8 @@ function! LightlineFilename()
         \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
 endfunction
 
-function! LightlineFugitive()
-  try
-    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && exists('*fugitive#head')
-      let mark = ''
-      let branch = fugitive#head()
-      return branch !=# '' ? mark.branch : ''
-    endif
-  catch
-  endtry
-  return ''
-endfunction
-
-function! LightlineFileformat()
-  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
-endfunction
-
 function! LightlineFiletype()
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-
-function! LightlineFileencoding()
-  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
 endfunction
 
 function! LightlineMode()
@@ -220,7 +197,7 @@ noremap <C-p> <esc>:w<cr>
 nnoremap <leader><leader> <c-^>
 
 " copy current relative file path to system clipboard
-nnoremap <leader>cf :let @+ = expand("%:h")<cr>
+nnoremap <leader>cf :let @+ = expand("%")<cr>
 
 " change all single ' to double " in current file
 nmap <leader>" :%s/\'/\"/g<cr><C-@><Esc>

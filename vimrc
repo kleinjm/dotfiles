@@ -165,7 +165,7 @@ map <CR> o<Esc>
 " Don't use Ex mode, use Q for formatting
 map Q gq
 " leader + i inserts binding.pry
-map <Leader>i orequire "pry"; binding.pry<ESC>
+map <Leader>i orequire "pry"; binding.pry<ESC>0
 " leader + d inserts debugger;
 map <Leader>db odebugger;<ESC>
 " insert a frozen string literal tag above the current line

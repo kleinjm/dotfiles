@@ -1,5 +1,5 @@
-name: template
-root: ~/GitHubRepos/template
+name: purpleshark
+root: ~/GitHubRepos/purple_shark
 
 # Optional tmux socket
 # socket_name: foo
@@ -38,5 +38,3 @@ windows:
       panes:
         - vim .
         -
-  - server: bin/rails s
-  - console: bin/rails c

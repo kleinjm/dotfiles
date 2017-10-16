@@ -56,6 +56,55 @@
 		<array>
 			<dict>
 				<key>CriterionUniqueId</key>
+				<string>124A047E-9DFA-4331-BAAF-6B9DB550ED14</string>
+				<key>Expression</key>
+				<string>service_notification@newrelic.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>72F48925-7741-4228-AD73-B5260EEFE15C</string>
+				<key>Expression</key>
+				<string>Upcoming changes to your New Relic account</string>
+				<key>Header</key>
+				<string>Subject</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>416265FB-5161-4D41-BB98-39A7F96FACE4</string>
+		<key>RuleName</key>
+		<string>dox new relic</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
 				<string>B58EE846-6B1F-4199-9DE0-B8B8F8B3AABA</string>
 				<key>Expression</key>
 				<string>noreply@db-ip.com</string>

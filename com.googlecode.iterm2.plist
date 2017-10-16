@@ -63,9 +63,9 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 139 606 456 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>425 331 918 495 0 0 1680 1027 </string>
+	<string>540 348 796 473 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2 9 1676 1013 0 0 1680 1027 </string>
+	<string>3 5 1914 1047 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>963 7 955 1047 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>

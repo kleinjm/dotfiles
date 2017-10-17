@@ -809,6 +809,65 @@
 		<array>
 			<dict>
 				<key>CriterionUniqueId</key>
+				<string>0DCF917B-C857-4CC6-B641-316FB1F4B674</string>
+				<key>Expression</key>
+				<string>team@fullstory.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>62DCB920-D583-443C-8CBE-DC61BCD9F15A</string>
+				<key>Expression</key>
+				<string>webdev@doximity.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>21A900E8-BC88-478E-9ADD-C06DDB250705</string>
+				<key>Expression</key>
+				<string>You're almost out of FullStory sessions</string>
+				<key>Header</key>
+				<string>Subject</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>D5056E26-3C3A-4C79-A8B8-7D27DA23EC4F</string>
+		<key>RuleName</key>
+		<string>dox full story sessions almost out</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
 				<string>89CD5395-5EDB-4FD9-A53E-5B467C1FA6A4</string>
 				<key>Expression</key>
 				<string>webdev@doximity.com</string>

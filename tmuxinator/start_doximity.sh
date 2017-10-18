@@ -6,6 +6,7 @@ tmuxinator start colleagues --no-attach
 tmuxinator start email-delivery --no-attach
 tmuxinator start residency --no-attach
 tmuxinator start vue-client --no-attach
+tmuxinator start pages --no-attach
 tmuxinator start dotfiles --no-attach
 
 tmuxinator start doximity

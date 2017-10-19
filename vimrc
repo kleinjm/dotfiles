@@ -286,6 +286,9 @@ if has("autocmd")
   autocmd Filetype help nnoremap <buffer> q :q<CR>
   " rebalance vim panes when window resizes
   autocmd VimResized * :wincmd =
+  " force syntax highlighting for vue files
+  " https://github.com/posva/vim-vue#my-syntax-highlighting-stops-working-randomly
+  autocmd FileType vue syntax sync fromstart
 else
   set autoindent		" always set autoindenting on
 endif " has("autocmd")

@@ -7,6 +7,7 @@ brew install macvim --with-override-system-vim
 brew install thefuck
 brew install rbenv
 brew install reattach-to-user-namespace
+brew install bash
 
 # Needed for nerd fonts and devicons
 # https://github.com/ryanoasis/nerd-fonts#option-3-install-script

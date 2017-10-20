@@ -1,5 +1,7 @@
 name: pages
 root: ~/GitHubRepos/pages
+# needed for pane-base-index 1 config
+startup_pane: 1
 
 # Optional tmux socket
 # socket_name: foo

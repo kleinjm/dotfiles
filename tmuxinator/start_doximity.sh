@@ -1,12 +1,11 @@
 #!/bin/bash
 
 # a lot of apps rely on the docker container in doximity so keep it at top
-tmuxinator start activities --no-attach
-tmuxinator start colleagues --no-attach
-tmuxinator start email-delivery --no-attach
-tmuxinator start residency --no-attach
-tmuxinator start vue-client --no-attach
-tmuxinator start pages --no-attach
-tmuxinator start dotfiles --no-attach
+apps=(doximity activities colleagues email-delivery residency vue-client pages dotfiles)
 
-tmuxinator start doximity
+for app in ${apps[@]}; do
+  echo "Starting $app"
+  tmuxinator start $app --no-attach
+done
+
+tmux attach -t doximity

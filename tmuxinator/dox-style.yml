@@ -2,6 +2,8 @@
 
 name: dox-style
 root: ~/GitHubRepos/dox-style
+# needed for pane-base-index 1 config
+startup_pane: 1
 
 windows:
   - editor:

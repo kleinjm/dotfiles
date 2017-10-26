@@ -14,3 +14,6 @@ windows:
       panes:
         - vim -O ~/.vimrc ~/.tmux.conf ~/.zshrc
         -
+  - glances:
+      panes:
+        - glances

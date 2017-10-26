@@ -9,6 +9,9 @@ brew install rbenv
 brew install reattach-to-user-namespace
 brew install bash
 
+# used for CLI activity monitor
+pip install glances
+
 # Needed for nerd fonts and devicons
 # https://github.com/ryanoasis/nerd-fonts#option-3-install-script
 brew tap caskroom/fonts

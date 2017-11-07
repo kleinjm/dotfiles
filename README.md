@@ -12,3 +12,6 @@
 
 ### Additional environment configurations
 * Chrome theme - Dark Theme v3
+
+### Userscripts
+- [Rubydoc dark](https://userstyles.org/styles/145687/dark-rubydoc-info)

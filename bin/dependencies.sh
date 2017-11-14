@@ -8,6 +8,7 @@ brew install thefuck
 brew install rbenv
 brew install reattach-to-user-namespace
 brew install bash
+brew install heroku
 
 # used for CLI activity monitor
 pip install glances

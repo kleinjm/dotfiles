@@ -42,4 +42,4 @@ windows:
         - vim .
         -
   - server: bin/rails s
-  - logs: bin/rails c
+  - console: bin/rails c

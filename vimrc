@@ -173,6 +173,8 @@ map <Leader>db odebugger;<ESC>
 map <Leader>r ggO# frozen_string_literal: true<ESC><C-o>
 " reindent the entire file
 map <leader>= mzgg=G`z
+" create parent directories. Good for new files in new dir
+map <Leader>mk :call mkdir(expand('%:h'), 'p')<ESC>
 
 " map 0 to go to first char on line
 nmap 0 ^

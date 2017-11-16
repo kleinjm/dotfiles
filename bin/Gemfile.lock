@@ -1,4 +1,5 @@
 GEM
+  remote: https://rubygems.org/
   specs:
     ast (2.3.0)
     erubis (2.7.0)
@@ -49,4 +50,4 @@ DEPENDENCIES
   tmuxinator
 
 BUNDLED WITH
-   1.15.4
+   1.16.0

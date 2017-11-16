@@ -93,6 +93,7 @@ alias passwords="~/Dropbox/passwords.sh"
 alias tmuxconf="vim ~/.tmux.conf"
 alias vimconf="vim ~/.vimrc"
 alias zshconf="vim ~/.zshrc"
+alias speed="speedtest-cli" # run a speedtest
 
 #  Doximity
 alias dox='cd ~/GitHubRepos/doximity'

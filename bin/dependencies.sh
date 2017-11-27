@@ -5,14 +5,15 @@ sudo xcodebuild -license accept
 xcode-select --install
 
 # brew
+brew install bash
 brew install fzf
-brew install the_silver_searcher
+brew install gpg                                # for github verified commits
+brew install heroku
 brew install macvim --with-override-system-vim
-brew install thefuck
 brew install rbenv
 brew install reattach-to-user-namespace
-brew install bash
-brew install heroku
+brew install the_silver_searcher
+brew install thefuck
 
 # make sure python is installed so we have pip
 brew install python3

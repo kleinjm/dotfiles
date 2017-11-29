@@ -170,7 +170,7 @@ map <Leader>i orequire "pry"; binding.pry<ESC>0
 " leader + d inserts debugger;
 map <Leader>db odebugger;<ESC>
 " insert a frozen string literal tag above the current line
-map <Leader>r ggO# frozen_string_literal: true<ESC><C-o>
+map <Leader>r ggO# frozen_string_literal: true<ESC><cr><C-o>
 " reindent the entire file
 map <leader>= mzgg=G`z
 " create parent directories. Good for new files in new dir

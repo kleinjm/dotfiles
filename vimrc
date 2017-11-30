@@ -204,6 +204,8 @@ nnoremap <leader>cf :let @+ = expand("%")<cr>
 
 " change all single ' to double " in current file
 nmap <leader>" :%s/\'/\"/g<cr><C-@><Esc>
+" change all double " to single ' in current file
+nmap <leader>' :%s/\"/\'/g<cr><C-@><Esc>
 " show the current file on github
 nmap <leader>br :Gbrowse<cr>
 " git blame

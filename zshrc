@@ -101,7 +101,7 @@ alias dox='cd ~/GitHubRepos/doximity'
 alias doxserver='bin/rails s webrick -p5000'
 alias doxstart='~/GitHubRepos/dotfiles/tmuxinator/start_doximity.sh'
 alias sshprod='ssh prod-doximity-console-1.dox.box'
-alias e2e-single="rm test/webdriver/errorShots/* && TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules/.bin/wdio --spec"
+alias e2e-single="TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules/.bin/wdio --spec"
 
 export FAIL_SLOW=false
 export RESIDENCY_URL='http://localhost:5120/'

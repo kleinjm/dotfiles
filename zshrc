@@ -88,6 +88,7 @@ export MYVIMRC='~/.vimrc'
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias gpom='git pull origin master'
+alias gmop='git pull origin master' # because I confuse the name
 alias master='git fetch --prune && git checkout master && git pull origin master'
 alias passwords="~/Dropbox/passwords.sh"
 alias tmuxconf="vim ~/.tmux.conf"

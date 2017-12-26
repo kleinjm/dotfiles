@@ -41,5 +41,9 @@ windows:
       panes:
         - vim .
         -
-  - server: bin/rails s
+  - server:
+      layout: 44b2,238x57,0,0{119x57,0,0,66,118x57,120,0,112}
+      panes:
+        - bin/rails s
+        - bin/webpack-dev-server
   - console: bin/rails c

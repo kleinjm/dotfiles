@@ -175,6 +175,8 @@ map <Leader>r ggO# frozen_string_literal: true<ESC><cr>D<C-o>
 map <leader>= mzgg=G`z
 " create parent directories. Good for new files in new dir
 map <Leader>mk :call mkdir(expand('%:h'), 'p')<ESC>
+" close all other tabs and splits but this one
+map <leader>cl :only \| tabo<esc>
 
 " map 0 to go to first char on line
 nmap 0 ^

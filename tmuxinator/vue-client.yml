@@ -42,5 +42,5 @@ windows:
         - vim .
         -
         - yarn && yarn run unit:debug
-  - servers: yarn run dev
+  - servers: yarn && yarn run dev
   - consoles: cd ~/GitHubRepos/doximity && bundle exec rails c

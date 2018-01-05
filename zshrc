@@ -54,7 +54,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 
 # NOTE: zsh-autosuggestions zsh-syntax-highlighting need to go last!
-plugins=(zsh-nvm git bundler osx rake ruby tmux docker zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git bundler osx rake ruby tmux docker zsh-autosuggestions zsh-syntax-highlighting)
 
 # QT added to path to fix gem install capybara-webkit issue
 export PATH=~/Qt5.5.1/5.5/clang_64/bin:~/.rbenv/shims:/usr/local/bin:/usr/bin:$PATH
@@ -113,7 +113,3 @@ export RESIDENCY_URL='http://localhost:5120/'
 eval $(thefuck --alias)
 # https://github.com/rbenv/rbenv/issues/142
 eval "$(rbenv init -)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

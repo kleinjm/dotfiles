@@ -1,7 +1,9 @@
-# ~/.tmuxinator/activities.yml
+# ~/.tmuxinator/patientpal.yml
 
-name: activities
-root: ~/GitHubRepos/activities
+name: patientpal
+root: ~/GitHubRepos/patientpal
+# needed for pane-base-index 1 config
+startup_pane: 1
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,7 +30,7 @@ root: ~/GitHubRepos/activities
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t activities
+# post: tmux -CC attach -t patientpal
 
 windows:
   - editor:
@@ -39,5 +41,4 @@ windows:
       panes:
         - vim .
         -
-  - server: rails s webrick -p 5150
-  - console: bin/rails c
+  - server: docker-compose up

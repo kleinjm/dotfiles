@@ -110,3 +110,7 @@ export RESIDENCY_URL='http://localhost:5120/'
 eval $(thefuck --alias)
 # https://github.com/rbenv/rbenv/issues/142
 eval "$(rbenv init -)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

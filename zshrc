@@ -92,6 +92,7 @@ export MYVIMRC='~/.vimrc'
 alias gpom='git pull origin master'
 alias gmop='git pull origin master' # because I confuse the name
 alias master='git fetch --prune && git checkout master && git pull origin master'
+alias develop='git fetch --prune && git checkout develop && git pull origin develop'
 alias passwords="~/Dropbox/passwords.sh"
 alias tmuxconf="vim ~/.tmux.conf"
 alias vimconf="vim ~/.vimrc"

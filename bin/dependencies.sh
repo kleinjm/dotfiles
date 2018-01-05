@@ -30,3 +30,6 @@ brew cask install font-devicons
 gem install bundler
 cd ${PWD}/bin
 bundle
+
+# zsh
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm

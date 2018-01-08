@@ -33,7 +33,7 @@ startup_pane: 1
 # post: tmux -CC attach -t patientpal
 
 windows:
-  - editor:
+  - patientpal-editor:
       layout: c489,238x56,0,0[238x48,0,0,0,238x7,0,49,1]
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
@@ -41,4 +41,10 @@ windows:
       panes:
         - vim .
         -
-  - server: docker-compose up
+  - docker: docker-compose up
+  - billing-editor:
+      layout: c489,238x56,0,0[238x48,0,0,0,238x7,0,49,1]
+      panes:
+        - cd ~/GitHubRepos/patientpal-billing && vim .
+        -
+  - billing-server: rails s -p 3050

@@ -47,4 +47,3 @@ windows:
       panes:
         - cd ~/GitHubRepos/patientpal-billing && vim .
         -
-  - billing-server: rails s -p 3050

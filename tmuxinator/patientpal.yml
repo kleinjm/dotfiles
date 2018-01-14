@@ -42,9 +42,3 @@ windows:
         - vim .
         -
   - docker: docker-compose up
-  - billing-editor:
-      layout: c489,238x56,0,0[238x48,0,0,0,238x7,0,49,1]
-      panes:
-        - cd ~/GitHubRepos/patientpal-billing && vim .
-        -
-  - billing-console: cd ~/GitHubRepos/patientpal-billing && rails c

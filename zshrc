@@ -89,14 +89,23 @@ export MYVIMRC='~/.vimrc'
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+
+# Git
 alias gpom='git pull origin master'
 alias gpod='git pull origin develop'
 alias master='git fetch --prune && git checkout master && git pull origin master'
 alias develop='git fetch --prune && git checkout develop && git pull origin develop'
-alias passwords="~/Dropbox/passwords.sh"
+
+# Config files
 alias tmuxconf="vim ~/.tmux.conf"
 alias vimconf="vim ~/.vimrc"
 alias zshconf="vim ~/.zshrc"
+
+# NodeJS, NPM
+alias sequelize="node_modules/.bin/sequelize"
+
+# Misc, Personal
+alias passwords="~/Dropbox/passwords.sh"
 alias speed="speedtest-cli" # run a speedtest
 
 #  Doximity

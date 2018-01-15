@@ -13,6 +13,7 @@ Plug 'calebsmith/vim-lambdify'                      " conceal js functions with 
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell
 Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
 Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
+Plug 'digitaltoad/vim-pug'                          " .pug syntax highlighting
 Plug 'henrik/vim-indexed-search'                    " display search count
 Plug 'itchyny/lightline.vim'                        " vim status bar coloring
 Plug 'jbgutierrez/vim-partial'                      " extract haml partials

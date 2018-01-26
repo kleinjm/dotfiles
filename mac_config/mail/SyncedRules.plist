@@ -56,6 +56,57 @@
 		<array>
 			<dict>
 				<key>CriterionUniqueId</key>
+				<string>A7B2595E-E22D-4FA6-8774-B15A686A2441</string>
+				<key>Expression</key>
+				<string>no-reply@circleci.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>5DC88FF2-7F4C-44A8-9BB9-2B932024DC3B</string>
+				<key>Expression</key>
+				<string>kleinjm007@gmail.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>BD4CDBFE-479C-428B-91A8-4DC7F6C44858</string>
+		<key>RuleName</key>
+		<string>circle ci trash</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
 				<string>CDA9850A-089C-41EE-AB49-725C31A63CDB</string>
 				<key>Expression</key>
 				<string>reservations@resy.com</string>
@@ -2537,7 +2588,7 @@
 		<array>
 			<dict>
 				<key>CriterionUniqueId</key>
-				<string>25A0292D-D48B-496D-AEAB-A38E0F41792F</string>
+				<string>07E87EB3-0311-4503-A952-AC00628C6437</string>
 				<key>Expression</key>
 				<string>notifications@bugsnag.com</string>
 				<key>Header</key>
@@ -2547,7 +2598,7 @@
 			</dict>
 		</array>
 		<key>Deletes</key>
-		<false/>
+		<true/>
 		<key>HighlightTextUsingColor</key>
 		<false/>
 		<key>MailboxURL</key>
@@ -2567,7 +2618,7 @@
 		<key>ShouldCopyMessage</key>
 		<false/>
 		<key>ShouldTransferMessage</key>
-		<true/>
+		<false/>
 		<key>TimeStamp</key>
 		<integer>405447826</integer>
 	</dict>
@@ -3131,6 +3182,65 @@
 		<string>1623DD75-4236-4078-AD65-70E159CDA75E</string>
 		<key>RuleName</key>
 		<string>dox segment feedback</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>6C09D8B4-5702-47E3-8D92-620DDA3D0D2C</string>
+				<key>Expression</key>
+				<string>support@circleci.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>8C4514EB-69AE-4553-A772-130A6A669FC5</string>
+				<key>Expression</key>
+				<string>webdev@doximity.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>F2A2D709-01C9-40B9-9159-B10DC76C6448</string>
+				<key>Expression</key>
+				<string>You have been subscribed</string>
+				<key>Header</key>
+				<string>Subject</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>03DB6C1E-1976-40D9-888B-526746A6D946</string>
+		<key>RuleName</key>
+		<string>dox circle subscription</string>
 		<key>SendNotification</key>
 		<false/>
 		<key>ShouldCopyMessage</key>

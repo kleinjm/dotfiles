@@ -107,7 +107,7 @@ alias sequelize="node_modules/.bin/sequelize"
 # Misc, Personal
 alias passwords="~/Dropbox/passwords.sh"
 alias speed="speedtest-cli" # run a speedtest
-alias pack="ruby ~/GitHubRepos/packing_checklist/app/quiver_parser.rb"
+alias pack="ruby ~/GitHubRepos/packing_checklist/app/run.rb"
 
 #  Doximity
 alias dox='cd ~/GitHubRepos/doximity'

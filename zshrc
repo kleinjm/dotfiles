@@ -108,10 +108,10 @@ alias sequelize="node_modules/.bin/sequelize"
 alias passwords="~/Dropbox/passwords.sh"
 alias speed="speedtest-cli" # run a speedtest
 alias pack="ruby ~/GitHubRepos/packing_checklist/app/run.rb"
+alias ppstart="~/GitHubRepos/dotfiles/tmuxinator/start_patientpal.sh"
 
 #  Doximity
 alias dox='cd ~/GitHubRepos/doximity'
-# export BULLET='true'
 alias doxserver='bin/rails s webrick -p5000'
 alias doxstart='~/GitHubRepos/dotfiles/tmuxinator/start_doximity.sh'
 alias e2e-single="TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules/.bin/wdio --spec"

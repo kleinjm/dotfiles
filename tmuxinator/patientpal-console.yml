@@ -42,3 +42,4 @@ windows:
         - vim .
         -
         -
+  - server: npm start

@@ -351,11 +351,11 @@ nmap <silent> ]r <Plug>(ale_next_wrap)
 " insert mode
 set updatetime=1000
 " TODO: fix this on personal machine
-" autocmd CursorHold * call ale#Lint()
-" autocmd CursorHoldI * call ale#Lint()
-" autocmd InsertLeave * call ale#Lint()
-" autocmd TextChanged * call ale#Lint()
-" let g:ale_lint_on_text_changed = 0
+autocmd CursorHold * call ale#Lint()
+autocmd CursorHoldI * call ale#Lint()
+autocmd InsertLeave * call ale#Lint()
+autocmd TextChanged * call ale#Lint()
+let g:ale_lint_on_text_changed = 0
 
 " Zoom / Restore window with <ctrl>+a
 function! s:ZoomToggle() abort

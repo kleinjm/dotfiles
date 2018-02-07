@@ -43,4 +43,4 @@ windows:
         -
         - yarn && yarn run unit:debug
   - servers: yarn && yarn run dev
-  - consoles: cd ~/GitHubRepos/doximity && bundle exec rails c
+  - consoles: cd ~/GitHubRepos/doximity && bundle && bundle exec rails c

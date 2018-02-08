@@ -356,6 +356,8 @@ autocmd CursorHoldI * call ale#Lint()
 autocmd InsertLeave * call ale#Lint()
 autocmd TextChanged * call ale#Lint()
 let g:ale_lint_on_text_changed = 0
+" disable highlighting
+let g:ale_set_highlights = 0
 
 " Zoom / Restore window with <ctrl>+a
 function! s:ZoomToggle() abort

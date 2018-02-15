@@ -62,6 +62,10 @@ export PATH=~/Qt5.5.1/5.5/clang_64/bin:~/.rbenv/shims:/usr/local/bin:/usr/bin:$P
 # NOTE: PATH must be before this
 source $ZSH/oh-my-zsh.sh
 
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
+
 # tmuxinator autocomplete - allows `mux` in CLI
 source ~/GitHubRepos/dotfiles/tmuxinator/tmuxinator.zsh
 

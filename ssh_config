@@ -1,3 +1,6 @@
+Host *
+   AddKeysToAgent yes
+   UseKeychain yes
 
 # --- SourceTree Generated ---
 Host kleinjm-GitHub

@@ -1,7 +1,7 @@
 # ~/.tmuxinator/dotfiles.yml
 
 name: dotfiles
-root: ~/GitHubRepos/dotfiles
+root: <%= "#{ENV['PROJECT_DIR']}/dotfiles" %>
 # needed for pane-base-index 1 config
 startup_pane: 1
 

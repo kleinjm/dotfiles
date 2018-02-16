@@ -1,39 +1,67 @@
 #!/bin/bash
 
-# accept xcode agreement
-sudo xcodebuild -license accept
-xcode-select --install
+while getopts o: option
+do
+ case "${option}"
+ in
+ o) OS=${OPTARG};;
+ esac
+done
 
-# brew
-brew install bash
-brew install fzf
-brew install gpg                                # for github verified commits
-brew install heroku
-brew install macvim --with-override-system-vim
-brew install rbenv
-brew install reattach-to-user-namespace
-brew install the_silver_searcher
-brew install thefuck
+if [ $OS = 'mac' ]; then
+  echo 'Installing dependencies for mac...'
 
-# make sure python is installed so we have pip
-brew install python3
-# Aliased to `speed` in zshrc
-pip3 install speedtest-cli
+  # accept xcode agreement
+  sudo xcodebuild -license accept
+  xcode-select --install
 
-# Needed for nerd fonts and devicons
-# https://github.com/ryanoasis/nerd-fonts#option-3-install-script
-brew tap caskroom/fonts
-brew cask install font-hack-nerd-font
-brew cask install font-devicons
+  # brew
+  brew install bash
+  brew install fzf
+  brew install gpg                                # for github verified commits
+  brew install heroku
+  brew install macvim --with-override-system-vim
+  brew install rbenv
+  brew install reattach-to-user-namespace
+  brew install the_silver_searcher
+  brew install thefuck
 
-# ruby
-gem install bundler
-cd ${PWD}/bin
-bundle
+  # make sure python is installed so we have pip
+  brew install python3
+  # Aliased to `speed` in zshrc
+  pip3 install speedtest-cli
 
-# nvm and npm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-# get the latest version with "node"
-nvm install node
-npm install -g sass-lint
-npm install -g coffeelint
+  # Needed for nerd fonts and devicons
+  # https://github.com/ryanoasis/nerd-fonts#option-3-install-script
+  brew tap caskroom/fonts
+  brew cask install font-hack-nerd-font
+  brew cask install font-devicons
+
+  # ruby
+  gem install bundler
+  cd ${PWD}/bin
+  bundle
+
+  # nvm and npm
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+  # get the latest version with "node"
+  nvm install node
+  npm install -g sass-lint
+  npm install -g coffeelint
+elif [ $OS = 'linux' ]; then
+  echo 'Installing dependencies for linux...'
+
+  # ruby
+  gem install bundler
+  cd ${PWD}/bin
+  bundle
+
+  # nvm and npm
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+  # get the latest version with "node"
+  nvm install node
+  npm install -g sass-lint
+  npm install -g coffeelint
+else
+  echo 'Please enter a valid os name with option -o'
+fi

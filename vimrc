@@ -36,7 +36,7 @@ Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
 Plug 'nelstrom/vim-textobj-rubyblock'               " provide ruby text objects
 Plug 'nelstrom/vim-visual-star-search'              " * to serach current word
 Plug 'posva/vim-vue'                                " syntax highlighting for vueJS
-Plug 'ryanoasis/vim-devicons'                       " font icon integration"
+Plug 'ryanoasis/vim-devicons'                       " font icon integration
 Plug 'slim-template/vim-slim'                       " syntax for slim
 Plug 'szw/vim-tags'                                 " generate tag files on save
 Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim

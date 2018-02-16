@@ -17,6 +17,13 @@ elif [ $platform = 'linux' ]; then
   export ZSH=/home/vagrant/.oh-my-zsh
 fi
 
+# set a project dir for use by things like tmuxinator
+if [ $platform = 'mac' ]; then
+  export PROJECT_DIR=~/GitHubRepos
+elif [ $platform = 'linux' ]; then
+  export PROJECT_DIR=~/work
+fi
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -80,11 +87,7 @@ if [ -f ~/.zshrc.local ]; then
 fi
 
 # tmuxinator autocomplete - allows `mux` in CLI
-if [ $platform = 'mac' ]; then
-  source ~/GitHubRepos/dotfiles/tmuxinator/tmuxinator.zsh
-elif [ $platform = 'linux' ]; then
-  source /home/vagrant/work/dotfiles/tmuxinator/tmuxinator.zsh
-fi
+source $PROJECT_DIR/dotfiles/tmuxinator/tmuxinator.zsh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

@@ -1,9 +1,21 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='mac'
+fi
+
 # Path to your oh-my-zsh installation.
-DEFAULT_USER=`whoami`
-export ZSH=/Users/$DEFAULT_USER/.oh-my-zsh
+if [ $platform = 'mac' ]; then
+  DEFAULT_USER=`whoami`
+  export ZSH=/Users/$DEFAULT_USER/.oh-my-zsh
+elif [ $platform = 'linux' ]; then
+  export ZSH=/home/vagrant/.oh-my-zsh
+fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.

@@ -31,6 +31,11 @@ else
   echo 'Please enter a valid os name with option -o'
 fi
 
+# ohmyzsh plugins
+sudo chmod -R 777 $ZSH
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 brew install bash
 brew install fzf
 brew install gpg                                # for github verified commits

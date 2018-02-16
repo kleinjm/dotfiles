@@ -74,12 +74,17 @@ export PATH=~/Qt5.5.1/5.5/clang_64/bin:~/.rbenv/shims:/usr/local/bin:/usr/bin:$P
 # NOTE: PATH must be before this
 source $ZSH/oh-my-zsh.sh
 
+# source local env vars if they exist
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
 
 # tmuxinator autocomplete - allows `mux` in CLI
-source ~/GitHubRepos/dotfiles/tmuxinator/tmuxinator.zsh
+if [ $platform = 'mac' ]; then
+  source ~/GitHubRepos/dotfiles/tmuxinator/tmuxinator.zsh
+elif [ $platform = 'linux' ]; then
+  source /home/vagrant/work/dotfiles/tmuxinator/tmuxinator.zsh
+fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

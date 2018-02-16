@@ -17,6 +17,7 @@ if [ $OS = 'mac' ]; then
   xcode-select --install
 
   brew install macvim --with-override-system-vim
+  brew install reattach-to-user-namespace
 elif [ $OS = 'linux' ]; then
   echo 'Installing dependencies for linux...'
 
@@ -35,7 +36,6 @@ brew install fzf
 brew install gpg                                # for github verified commits
 brew install heroku
 brew install rbenv
-brew install reattach-to-user-namespace
 brew install the_silver_searcher
 brew install thefuck
 

@@ -2,6 +2,13 @@
 " Author: James Klein [http://www.jamesmklein.com]
 "==============================================================================
 
+" make sure vim-plug is installed so plugins can be installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " after adding new plugins write, source, and run :PlugInstall
 " highlight all and :sort to sort
 call plug#begin('~/.vim/plugged') " Specify a directory for plugins

@@ -1,0 +1,21 @@
+# --- SourceTree Generated ---
+Host kleinjm-GitHub
+	HostName github.com
+	User kleinjm
+	PreferredAuthentications publickey
+	IdentityFile /Users/jklein/.ssh/kleinjm_GitHub
+# ----------------------------
+
+Host aws-bastion
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  User jklein
+  Hostname 52.86.108.110
+  Port 45750
+Host *.dox.box
+  User jklein
+  ProxyCommand ssh -qax aws-bastion -W %h:%p
+Host  *.amstel *.budweiser *.corona *.ember *.dogfish *.fischer *.guinness *.harp *.islay *.jade *.kirin *.labatt *.miller *.newcastle *.odin *.peroni
+  Hostname %h.dox.pub
+  Port 5750
+  User jklein

@@ -29,6 +29,7 @@ elif [ $OS = 'linux' ]; then
   echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile
 else
   echo 'Please enter a valid os name with option -o'
+  exit 1
 fi
 
 # ohmyzsh plugins

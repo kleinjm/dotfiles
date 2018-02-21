@@ -39,5 +39,5 @@ windows:
       panes:
         - vim .
         -
-  - server: rails s webrick -p 5150
-  - console: bin/rails c
+  - server: bundle && foreman start
+  - console: bundle && bin/rails c

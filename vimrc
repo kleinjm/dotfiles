@@ -16,13 +16,13 @@ call plug#begin('~/.vim/plugged') " Specify a directory for plugins
 " Make sure you use single quotes
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " find or install fzf
 Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
+Plug 'AndrewRadev/vim-eco'                          " .eco syntax highlighting
 Plug 'calebsmith/vim-lambdify'                      " conceal js functions with lambda
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell
 Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
 Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
-Plug 'digitaltoad/vim-pug'                          " .pug syntax highlighting
 Plug 'henrik/vim-indexed-search'                    " display search count
-Plug 'itchyny/lightline.vim'                        " vim status bar coloring
+" Plug 'itchyny/lightline.vim'                        " vim status bar coloring
 Plug 'jbgutierrez/vim-partial'                      " extract haml partials
 Plug 'jgdavey/vim-blockle'                          " toggle ruby do and {} blocks
 Plug 'jiangmiao/auto-pairs'                         " open and close brackets
@@ -37,7 +37,7 @@ Plug 'nelstrom/vim-textobj-rubyblock'               " provide ruby text objects
 Plug 'nelstrom/vim-visual-star-search'              " * to serach current word
 Plug 'posva/vim-vue'                                " syntax highlighting for vueJS
 Plug 'ryanoasis/vim-devicons'                       " font icon integration
-Plug 'slim-template/vim-slim'                       " syntax for slim
+Plug 'onemanstartup/vim-slim'                       " syntax for slim. Use this over the official slim-template/vim-slim plugin for way better speed. See https://github.com/slim-template/vim-slim/issues/19#issuecomment-50607474
 Plug 'szw/vim-tags'                                 " generate tag files on save
 Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
 Plug 'tpope/vim-bundler'                            " support helpers for bundler
@@ -45,10 +45,10 @@ Plug 'tpope/vim-fugitive'                           " git interactions
 Plug 'tpope/vim-rails'                              " directory navigation and syntax for rails
 Plug 'tpope/vim-repeat'                             " allow . repeat on plugin commands
 Plug 'tpope/vim-rhubarb'                            " :Gbrowse to get GH url
-Plug 'tpope/vim-surround'                           " add paren and quote helpers
+" Plug 'tpope/vim-surround'                           " add paren and quote helpers
 Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
-Plug 'w0rp/ale'                                     " async linter
+" Plug 'w0rp/ale'                                     " async linter
 
 call plug#end() " Initialize plugin system
 
@@ -61,7 +61,9 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 set clipboard=unnamed          " copy to the system clipboard
 set cursorcolumn               " highlight cursor column
 set cursorline                 " highlight cursor line
+set encoding=utf8              " set to show fonts and glyphs
 set expandtab                  " set spaces for tab
+set guifont=FuraMono\ Nerd\ Font\ Regular:h12 lsp=2
 set hidden                     " Allow buffer change w/o saving
 set history=1000		           " keep 1000 lines of command line history
 set ignorecase smartcase       " search case insensitive, until first capital used
@@ -76,96 +78,116 @@ set numberwidth=5              " give space between relative and static line num
 set relativenumber             " set relative line numbering
 set ruler		                   " show the cursor position all the time
 set scrolloff=5                " prevent hitting the bottom of the screen
+set shell=/bin/zsh             " set vi internal shell to zsh
 set shiftwidth=2               " use spaces for indenting with '>'
 set showcmd		                 " display incomplete commands
 set tabstop=2                  " set tab size to 2
 set tags=tags;/                " check the current folder for tags file and keep going up
 set undofile		               " keep an undo file (undo changes after closing)
-set encoding=utf8              " set to show fonts and glyphs
-set guifont=FuraMono\ Nerd\ Font\ Regular:h12 lsp=2
 
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'relativepath' ] ],
-      \   'right': [ [ 'neomake', 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
-      \ },
-      \ 'colorscheme': 'wombat',
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \   'filetype': 'LightlineFiletype',
-      \   'mode': 'LightlineMode',
-      \   'neomake': 'LightLineNeomake',
-      \ },
-      \ 'component_expand': {
-      \   'neomake': 'LightLineNeomake',
-      \ },
-      \ 'component_type': {
-      \   'neomake': 'error',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
-      \ }
+" " ALE async linting
+" nmap <silent> [r <Plug>(ale_previous_wrap)
+" nmap <silent> ]r <Plug>(ale_next_wrap)
+"
+" " Linting on all changes felt too aggressive. The below settings calls lint on
+" " certain events, either when I stop interacting or when entering / leaving
+" " insert mode
+" set updatetime=1000
+" " TODO: fix this on personal machine
+" autocmd CursorHold * call ale#Lint()
+" autocmd CursorHoldI * call ale#Lint()
+" autocmd InsertLeave * call ale#Lint()
+" autocmd TextChanged * call ale#Lint()
+"
+" let g:ale_lint_delay = 1000
+" let g:ale_lint_on_save = 1
+" let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_text_changed = 0
+" " disable highlighting
+" let g:ale_set_highlights = 0
 
-function! LightlineModified()
-  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
+" let g:lightline = {
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ], [ 'relativepath' ] ],
+"       \   'right': [ [ 'neomake', 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
+"       \ },
+"       \ 'colorscheme': 'wombat',
+"       \ 'component_function': {
+"       \   'filename': 'LightlineFilename',
+"       \   'filetype': 'LightlineFiletype',
+"       \   'mode': 'LightlineMode',
+"       \   'neomake': 'LightLineNeomake',
+"       \ },
+"       \ 'component_expand': {
+"       \   'neomake': 'LightLineNeomake',
+"       \ },
+"       \ 'component_type': {
+"       \   'neomake': 'error',
+"       \ },
+"       \ 'separator': { 'left': '', 'right': '' },
+"       \ 'subseparator': { 'left': '', 'right': '' },
+"       \ }
+"
+" function! LightlineModified()
+"   return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+" endfunction
+"
+" function! LightlineReadonly()
+"   return &ft !~? 'help' && &readonly ? '' : ''
+" endfunction
 
-function! LightlineReadonly()
-  return &ft !~? 'help' && &readonly ? '' : ''
-endfunction
+" function! LightlineFilename()
+"   let fname = expand('%:t')
+"   return fname == '__Tagbar__' ? g:lightline.fname :
+"         \ fname =~ '__Gundo\|NERD_tree' ? '' :
+"         \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+"         \ &ft == 'unite' ? unite#get_status_string() :
+"         \ &ft == 'vimshell' ? vimshell#get_status_string() :
+"         \ ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+"         \ ('' != fname ? fname : '[No Name]') .
+"         \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+" endfunction
+"
+" function! LightlineFiletype()
+"   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+" endfunction
+"
+" function! LightlineMode()
+"   let fname = expand('%:t')
+"   return fname == '__Tagbar__' ? 'Tagbar' :
+"         \ fname == 'ControlP' ? 'CtrlP' :
+"         \ fname == '__Gundo__' ? 'Gundo' :
+"         \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+"         \ fname =~ 'NERD_tree' ? 'NERDTree' :
+"         \ &ft == 'unite' ? 'Unite' :
+"         \ &ft == 'vimfiler' ? 'VimFiler' :
+"         \ &ft == 'vimshell' ? 'VimShell' :
+"         \ winwidth(0) > 60 ? lightline#mode() : ''
+" endfunction
 
-function! LightlineFilename()
-  let fname = expand('%:t')
-  return fname == '__Tagbar__' ? g:lightline.fname :
-        \ fname =~ '__Gundo\|NERD_tree' ? '' :
-        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \ &ft == 'unite' ? unite#get_status_string() :
-        \ &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-        \ ('' != fname ? fname : '[No Name]') .
-        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
-endfunction
-
-function! LightlineFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-
-function! LightlineMode()
-  let fname = expand('%:t')
-  return fname == '__Tagbar__' ? 'Tagbar' :
-        \ fname == 'ControlP' ? 'CtrlP' :
-        \ fname == '__Gundo__' ? 'Gundo' :
-        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-        \ fname =~ 'NERD_tree' ? 'NERDTree' :
-        \ &ft == 'unite' ? 'Unite' :
-        \ &ft == 'vimfiler' ? 'VimFiler' :
-        \ &ft == 'vimshell' ? 'VimShell' :
-        \ winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-function! LightlineNeomake()
-    if !exists('*neomake#statusline#LoclistCounts')
-        return ''
-    endif
-
-    " Count all the errors, warnings
-    let total = 0
-
-    for v in values(neomake#statusline#LoclistCounts())
-        let total += v
-    endfor
-
-    for v in items(neomake#statusline#QflistCounts())
-        let total += v
-    endfor
-
-    if total == 0
-        return ''
-    endif
-
-    return 'line '.getloclist(0)[0].lnum. ', 1 of '.total
-  endif
-endfunction
+" function! LightlineNeomake()
+"     if !exists('*neomake#statusline#LoclistCounts')
+"         return ''
+"     endif
+"
+"     " Count all the errors, warnings
+"     let total = 0
+"
+"     for v in values(neomake#statusline#LoclistCounts())
+"         let total += v
+"     endfor
+"
+"     for v in items(neomake#statusline#QflistCounts())
+"         let total += v
+"     endfor
+"
+"     if total == 0
+"         return ''
+"     endif
+"
+"     return 'line '.getloclist(0)[0].lnum. ', 1 of '.total
+"   endif
+" endfunction
 
 
 runtime macros/matchit.vim " use % to switch between if/else/end
@@ -348,23 +370,6 @@ if executable("ag")
   let g:ackprg = 'ag --vimgrep'
   nnoremap \ :Ag<SPACE>
 endif
-
-" ALE async linting
-nmap <silent> [r <Plug>(ale_previous_wrap)
-nmap <silent> ]r <Plug>(ale_next_wrap)
-
-" Linting on all changes felt too aggressive. The below settings calls lint on
-" certain events, either when I stop interacting or when entering / leaving
-" insert mode
-set updatetime=1000
-" TODO: fix this on personal machine
-autocmd CursorHold * call ale#Lint()
-autocmd CursorHoldI * call ale#Lint()
-autocmd InsertLeave * call ale#Lint()
-autocmd TextChanged * call ale#Lint()
-let g:ale_lint_on_text_changed = 0
-" disable highlighting
-let g:ale_set_highlights = 0
 
 " Zoom / Restore window with <ctrl>+a
 function! s:ZoomToggle() abort

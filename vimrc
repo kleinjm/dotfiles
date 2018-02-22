@@ -48,7 +48,7 @@ Plug 'tpope/vim-rhubarb'                            " :Gbrowse to get GH url
 " Plug 'tpope/vim-surround'                           " add paren and quote helpers
 Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
-" Plug 'w0rp/ale'                                     " async linter
+Plug 'w0rp/ale'                                     " async linter
 
 call plug#end() " Initialize plugin system
 
@@ -85,26 +85,26 @@ set tabstop=2                  " set tab size to 2
 set tags=tags;/                " check the current folder for tags file and keep going up
 set undofile		               " keep an undo file (undo changes after closing)
 
-" " ALE async linting
-" nmap <silent> [r <Plug>(ale_previous_wrap)
-" nmap <silent> ]r <Plug>(ale_next_wrap)
-"
-" " Linting on all changes felt too aggressive. The below settings calls lint on
-" " certain events, either when I stop interacting or when entering / leaving
-" " insert mode
-" set updatetime=1000
-" " TODO: fix this on personal machine
-" autocmd CursorHold * call ale#Lint()
-" autocmd CursorHoldI * call ale#Lint()
-" autocmd InsertLeave * call ale#Lint()
-" autocmd TextChanged * call ale#Lint()
-"
-" let g:ale_lint_delay = 1000
-" let g:ale_lint_on_save = 1
-" let g:ale_lint_on_enter = 0
-" let g:ale_lint_on_text_changed = 0
-" " disable highlighting
-" let g:ale_set_highlights = 0
+" ALE async linting
+nmap <silent> [r <Plug>(ale_previous_wrap)
+nmap <silent> ]r <Plug>(ale_next_wrap)
+
+" Linting on all changes felt too aggressive. The below settings calls lint on
+" certain events, either when I stop interacting or when entering / leaving
+" insert mode
+set updatetime=1000
+" TODO: fix this on personal machine
+autocmd CursorHold * call ale#Lint()
+autocmd CursorHoldI * call ale#Lint()
+autocmd InsertLeave * call ale#Lint()
+autocmd TextChanged * call ale#Lint()
+
+let g:ale_lint_delay = 1000
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 0
+" disable highlighting
+let g:ale_set_highlights = 0
 
 " let g:lightline = {
 "       \ 'active': {

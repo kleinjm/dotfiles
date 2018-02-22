@@ -120,11 +120,6 @@ alias gpod='git pull origin develop'
 alias master='git fetch --prune && git checkout master && git pull origin master'
 alias develop='git fetch --prune && git checkout develop && git pull origin develop'
 
-# Config files
-alias tmuxconf="vim ~/.tmux.conf"
-alias vimconf="vim ~/.vimrc"
-alias zshconf="vim ~/.zshrc"
-
 # NodeJS, NPM
 alias sequelize="node_modules/.bin/sequelize"
 
@@ -132,15 +127,12 @@ alias sequelize="node_modules/.bin/sequelize"
 alias passwords="~/Dropbox/passwords.sh"
 alias speed="speedtest-cli" # run a speedtest
 alias pack="ruby ~/GitHubRepos/packing_checklist/app/run.rb"
-alias ppstart="~/GitHubRepos/dotfiles/tmuxinator/start_patientpal.sh"
 
 #  Doximity
 alias dox='cd ~/GitHubRepos/doximity'
 alias doxserver='bin/rails s webrick -p5000'
 alias doxstart='~/GitHubRepos/dotfiles/tmuxinator/start_doximity.sh'
 alias e2e-single="TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules/.bin/wdio --spec"
-export FAIL_SLOW=false
-export RESIDENCY_URL='http://localhost:5120/'
 
 eval $(thefuck --alias)
 # https://github.com/rbenv/rbenv/issues/142
@@ -149,6 +141,9 @@ eval "$(rbenv init -)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export NODE_VERSION="$(nvm current)"  # ie. "v9.3.0"
+export NODE_PATH="$HOME/.nvm/versions/node/$NODE_VERSION"
 
 # place this after nvm initialization!
 # call `nvm use` automatically whenever you enter a directory that contains an .nvmrc file

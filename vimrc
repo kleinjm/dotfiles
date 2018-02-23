@@ -15,14 +15,14 @@ call plug#begin('~/.vim/plugged') " Specify a directory for plugins
 
 " Make sure you use single quotes
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " find or install fzf
-Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
 Plug 'AndrewRadev/vim-eco'                          " .eco syntax highlighting
+Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
 Plug 'calebsmith/vim-lambdify'                      " conceal js functions with lambda
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell
 Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
 Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
 Plug 'henrik/vim-indexed-search'                    " display search count
-" Plug 'itchyny/lightline.vim'                        " vim status bar coloring
+Plug 'itchyny/lightline.vim'                        " vim status bar coloring
 Plug 'jbgutierrez/vim-partial'                      " extract haml partials
 Plug 'jgdavey/vim-blockle'                          " toggle ruby do and {} blocks
 Plug 'jiangmiao/auto-pairs'                         " open and close brackets
@@ -35,9 +35,9 @@ Plug 'mattn/emmet-vim'                              " html and css editing
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
 Plug 'nelstrom/vim-textobj-rubyblock'               " provide ruby text objects
 Plug 'nelstrom/vim-visual-star-search'              " * to serach current word
+Plug 'onemanstartup/vim-slim'                       " syntax for slim. Use this over the official slim-template/vim-slim plugin for way better speed. See https://github.com/slim-template/vim-slim/issues/19#issuecomment-50607474
 Plug 'posva/vim-vue'                                " syntax highlighting for vueJS
 Plug 'ryanoasis/vim-devicons'                       " font icon integration
-Plug 'onemanstartup/vim-slim'                       " syntax for slim. Use this over the official slim-template/vim-slim plugin for way better speed. See https://github.com/slim-template/vim-slim/issues/19#issuecomment-50607474
 Plug 'szw/vim-tags'                                 " generate tag files on save
 Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
 Plug 'tpope/vim-bundler'                            " support helpers for bundler
@@ -45,7 +45,7 @@ Plug 'tpope/vim-fugitive'                           " git interactions
 Plug 'tpope/vim-rails'                              " directory navigation and syntax for rails
 Plug 'tpope/vim-repeat'                             " allow . repeat on plugin commands
 Plug 'tpope/vim-rhubarb'                            " :Gbrowse to get GH url
-" Plug 'tpope/vim-surround'                           " add paren and quote helpers
+Plug 'tpope/vim-surround'                           " add paren and quote helpers
 Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
 Plug 'w0rp/ale'                                     " async linter
@@ -59,8 +59,6 @@ colorscheme jellybeans                " set color scheme
 " This must be first, because it changes other options as a side effect.
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set clipboard=unnamed          " copy to the system clipboard
-set cursorcolumn               " highlight cursor column
-set cursorline                 " highlight cursor line
 set encoding=utf8              " set to show fonts and glyphs
 set expandtab                  " set spaces for tab
 set guifont=FuraMono\ Nerd\ Font\ Regular:h12 lsp=2
@@ -75,7 +73,6 @@ set noswapfile                 " Turn off swap (.swp) files
 set nowritebackup	             " don't make backup when overwriting file
 set number                     " display line numbers
 set numberwidth=5              " give space between relative and static line numbers
-set relativenumber             " set relative line numbering
 set ruler		                   " show the cursor position all the time
 set scrolloff=5                " prevent hitting the bottom of the screen
 set shell=/bin/zsh             " set vi internal shell to zsh
@@ -103,92 +100,91 @@ let g:ale_lint_delay = 1000
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 0
-" disable highlighting
+" disable ale highlighting on errors (still get the column indicator)
 let g:ale_set_highlights = 0
 
-" let g:lightline = {
-"       \ 'active': {
-"       \   'left': [ [ 'mode', 'paste' ], [ 'relativepath' ] ],
-"       \   'right': [ [ 'neomake', 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
-"       \ },
-"       \ 'colorscheme': 'wombat',
-"       \ 'component_function': {
-"       \   'filename': 'LightlineFilename',
-"       \   'filetype': 'LightlineFiletype',
-"       \   'mode': 'LightlineMode',
-"       \   'neomake': 'LightLineNeomake',
-"       \ },
-"       \ 'component_expand': {
-"       \   'neomake': 'LightLineNeomake',
-"       \ },
-"       \ 'component_type': {
-"       \   'neomake': 'error',
-"       \ },
-"       \ 'separator': { 'left': '', 'right': '' },
-"       \ 'subseparator': { 'left': '', 'right': '' },
-"       \ }
-"
-" function! LightlineModified()
-"   return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-" endfunction
-"
-" function! LightlineReadonly()
-"   return &ft !~? 'help' && &readonly ? '' : ''
-" endfunction
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'relativepath' ] ],
+      \   'right': [ [ 'neomake', 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
+      \ },
+      \ 'colorscheme': 'wombat',
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \   'filetype': 'LightlineFiletype',
+      \   'mode': 'LightlineMode',
+      \   'neomake': 'LightLineNeomake',
+      \ },
+      \ 'component_expand': {
+      \   'neomake': 'LightLineNeomake',
+      \ },
+      \ 'component_type': {
+      \   'neomake': 'error',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
+      \ }
 
-" function! LightlineFilename()
-"   let fname = expand('%:t')
-"   return fname == '__Tagbar__' ? g:lightline.fname :
-"         \ fname =~ '__Gundo\|NERD_tree' ? '' :
-"         \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
-"         \ &ft == 'unite' ? unite#get_status_string() :
-"         \ &ft == 'vimshell' ? vimshell#get_status_string() :
-"         \ ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-"         \ ('' != fname ? fname : '[No Name]') .
-"         \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
-" endfunction
-"
-" function! LightlineFiletype()
-"   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-" endfunction
-"
-" function! LightlineMode()
-"   let fname = expand('%:t')
-"   return fname == '__Tagbar__' ? 'Tagbar' :
-"         \ fname == 'ControlP' ? 'CtrlP' :
-"         \ fname == '__Gundo__' ? 'Gundo' :
-"         \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-"         \ fname =~ 'NERD_tree' ? 'NERDTree' :
-"         \ &ft == 'unite' ? 'Unite' :
-"         \ &ft == 'vimfiler' ? 'VimFiler' :
-"         \ &ft == 'vimshell' ? 'VimShell' :
-"         \ winwidth(0) > 60 ? lightline#mode() : ''
-" endfunction
+function! LightlineModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
 
-" function! LightlineNeomake()
-"     if !exists('*neomake#statusline#LoclistCounts')
-"         return ''
-"     endif
-"
-"     " Count all the errors, warnings
-"     let total = 0
-"
-"     for v in values(neomake#statusline#LoclistCounts())
-"         let total += v
-"     endfor
-"
-"     for v in items(neomake#statusline#QflistCounts())
-"         let total += v
-"     endfor
-"
-"     if total == 0
-"         return ''
-"     endif
-"
-"     return 'line '.getloclist(0)[0].lnum. ', 1 of '.total
-"   endif
-" endfunction
+function! LightlineReadonly()
+  return &ft !~? 'help' && &readonly ? '' : ''
+endfunction
 
+function! LightlineFilename()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? g:lightline.fname :
+        \ fname =~ '__Gundo\|NERD_tree' ? '' :
+        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \ &ft == 'unite' ? unite#get_status_string() :
+        \ &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
+
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! LightlineMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname == 'ControlP' ? 'CtrlP' :
+        \ fname == '__Gundo__' ? 'Gundo' :
+        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightlineNeomake()
+    if !exists('*neomake#statusline#LoclistCounts')
+        return ''
+    endif
+
+    " Count all the errors, warnings
+    let total = 0
+
+    for v in values(neomake#statusline#LoclistCounts())
+        let total += v
+    endfor
+
+    for v in items(neomake#statusline#QflistCounts())
+        let total += v
+    endfor
+
+    if total == 0
+        return ''
+    endif
+
+    return 'line '.getloclist(0)[0].lnum. ', 1 of '.total
+  endif
+endfunction
 
 runtime macros/matchit.vim " use % to switch between if/else/end
 

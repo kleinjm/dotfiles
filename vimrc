@@ -51,6 +51,9 @@ Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
 Plug 'w0rp/ale'                                     " async linter
 
+" TODO: play with this style
+Plug 'morhetz/gruvbox'                              " colorscheme
+
 call plug#end() " Initialize plugin system
 
 let mapleader=" "                     " set leader key to space

@@ -21,6 +21,7 @@ Plug 'calebsmith/vim-lambdify'                      " conceal js functions with 
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell
 Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
 Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
+Plug 'easymotion/vim-easymotion'                    " vim motions on speed
 Plug 'henrik/vim-indexed-search'                    " display search count
 Plug 'itchyny/lightline.vim'                        " vim status bar coloring
 Plug 'jbgutierrez/vim-partial'                      " extract haml partials
@@ -81,8 +82,37 @@ set showcmd		                 " display incomplete commands
 set tabstop=2                  " set tab size to 2
 set tags=tags;/                " check the current folder for tags file and keep going up
 set undofile		               " keep an undo file (undo changes after closing)
+set synmaxcol=256              " stop syntax highlighting on long lines
 
-" ALE async linting
+" ### EasyMotion Config ###
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+map <Leader> <Plug>(easymotion-prefix)
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" give a choice to which char to perform a verb on if there is more than one
+" on that line. ie. dfn = delete find 'n' and will highlight all n's
+omap f <plug>(easymotion-bd-fl)
+omap t <plug>(easymotion-bd-tl)
+" applies a verb to the motion with a 1 char search. ie. `dmt` will delete
+" until the selected 't'
+map m <plug>(easymotion-s)
+vmap m <plug>(easymotion-s)
+
+" ### ALE async linting config ###
 nmap <silent> [r <Plug>(ale_previous_wrap)
 nmap <silent> ]r <Plug>(ale_next_wrap)
 

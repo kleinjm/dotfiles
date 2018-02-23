@@ -105,8 +105,12 @@ map <Leader>k <Plug>(easymotion-k)
 
 " give a choice to which char to perform a verb on if there is more than one
 " on that line. ie. dfn = delete find 'n' and will highlight all n's
+" TODO get this for backward search too
 omap f <plug>(easymotion-bd-fl)
 omap t <plug>(easymotion-bd-tl)
+" verb to a full line such as `dl` to delete to line
+omap l <plug>(easymotion-bd-jk)
+
 " applies a verb to the motion with a 1 char search. ie. `dmt` will delete
 " until the selected 't'
 map m <plug>(easymotion-s)

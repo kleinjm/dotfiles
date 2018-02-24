@@ -1,5 +1,5 @@
-name: doxbot
-root: ~/GitHubRepos/doxbot
+name: hubot-estimate
+root: ~/GitHubRepos/hubot-estimate
 # needed for pane-base-index 1 config
 startup_pane: 1
 

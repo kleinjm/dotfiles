@@ -1,5 +1,9 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+
+
+
+# TODO: fix compinit causing slow boot time. See http://jb-blog.readthedocs.io/en/latest/posts/0032-debugging-zsh-startup-time.html
+zmodload zsh/zprof
 
 platform='unknown'
 unamestr=`uname`
@@ -29,30 +33,14 @@ fi
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# make _ and - interchangeable
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -62,16 +50,9 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-
 # NOTE: zsh-autosuggestions zsh-syntax-highlighting need to go last!
 plugins=(git bundler osx rake ruby tmux docker zsh-autosuggestions zsh-syntax-highlighting)
 
@@ -89,19 +70,13 @@ fi
 # tmuxinator autocomplete - allows `mux` in CLI
 source $PROJECT_DIR/dotfiles/tmuxinator/tmuxinator.zsh
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
+# ssh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -128,7 +103,7 @@ alias passwords="~/Dropbox/passwords.sh"
 alias speed="speedtest-cli" # run a speedtest
 alias pack="ruby ~/GitHubRepos/packing_checklist/app/run.rb"
 
-#  Doximity
+# Doximity
 alias dox='cd ~/GitHubRepos/doximity'
 alias doxserver='bin/rails s webrick -p5000'
 alias doxstart='~/GitHubRepos/dotfiles/tmuxinator/start_doximity.sh'
@@ -138,32 +113,36 @@ eval $(thefuck --alias)
 # https://github.com/rbenv/rbenv/issues/142
 eval "$(rbenv init -)"
 
+### NVM ###
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# TODO: fix slow boot time associated with nvm initialization
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#
+# export NODE_VERSION="$(nvm current)"  # ie. "v9.3.0"
+# export NODE_PATH="$HOME/.nvm/versions/node/$NODE_VERSION"
+#
+# # place this after nvm initialization!
+# # call `nvm use` automatically whenever you enter a directory that contains an .nvmrc file
+# autoload -U add-zsh-hook
+# load-nvmrc() {
+#   local node_version="$(nvm version)"
+#   local nvmrc_path="$(nvm_find_nvmrc)"
+#
+#   if [ -n "$nvmrc_path" ]; then
+#     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+#
+#     if [ "$nvmrc_node_version" = "N/A" ]; then
+#       nvm install
+#     elif [ "$nvmrc_node_version" != "$node_version" ]; then
+#       nvm use
+#     fi
+#   elif [ "$node_version" != "$(nvm version default)" ]; then
+#     echo "Reverting to nvm default version"
+#     nvm use default
+#   fi
+# }
+# add-zsh-hook chpwd load-nvmrc
+# load-nvmrc
 
-export NODE_VERSION="$(nvm current)"  # ie. "v9.3.0"
-export NODE_PATH="$HOME/.nvm/versions/node/$NODE_VERSION"
-
-# place this after nvm initialization!
-# call `nvm use` automatically whenever you enter a directory that contains an .nvmrc file
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+zprof

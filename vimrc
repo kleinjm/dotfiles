@@ -51,16 +51,11 @@ Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
 Plug 'w0rp/ale'                                     " async linter
 
-" TODO: play with this style
-Plug 'morhetz/gruvbox'                              " colorscheme
-
 call plug#end() " Initialize plugin system
 
 let mapleader=" "                     " set leader key to space
-:set statusline=%f\ -\ FileType:\ %y\ -\ %l\:%c " set status line to show file name
 colorscheme jellybeans                " set color scheme
 
-" This must be first, because it changes other options as a side effect.
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set clipboard=unnamed          " copy to the system clipboard
 set encoding=utf8              " set to show fonts and glyphs
@@ -89,13 +84,11 @@ set synmaxcol=256              " stop syntax highlighting on long lines
 
 " ### EasyMotion Config ###
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
+let g:EasyMotion_smartcase = 1  " Turn on case insensitive feature
 
 map <Leader> <Plug>(easymotion-prefix)
 
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
+" Jump to anywhere with `s{char}{label}`
 nmap s <Plug>(easymotion-overwin-f)
 
 " JK motions: Line motions
@@ -136,6 +129,7 @@ let g:ale_lint_on_text_changed = 0
 " disable ale highlighting on errors (still get the column indicator)
 let g:ale_set_highlights = 0
 
+" ### Status bar and light line ###
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'relativepath' ] ],
@@ -288,7 +282,7 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-" fzf fuzzy find
+" ### fzf fuzzy find ###
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>dc :Files app/controllers<cr>
 nnoremap <leader>dm :Files app/models<cr>
@@ -299,15 +293,15 @@ nnoremap <leader>ds :Files spec/<cr>
 command! Fzfc call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --modified'}))
 noremap <Leader>g :Fzfc<cr>
 
+let g:fzf_files_options =
+      \ '--reverse ' .
+      \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+
 " Don't use arrow keys
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
-
-let g:fzf_files_options =
-      \ '--reverse ' .
-      \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 
 " enable mouse
 if has('mouse')

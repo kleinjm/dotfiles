@@ -14,9 +14,7 @@
 * Chrome theme - Dark Theme v3
 
 ### Userscripts
-Mostly stored in bookmarks on my googlde chrome account.
-
-- [Rubydoc dark](https://userstyles.org/styles/145687/dark-rubydoc-info)
+Stored in bookmarks on my googlde chrome account.
 
 ### NVM
 I set the system ~/.nvmrc -> dotfiles/nvmrc and have that fetching `node` which is the latest node version. Any project without a .nvmrc will use the latest since it will traverse up the dirs to find my root one

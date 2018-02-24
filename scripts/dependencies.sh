@@ -59,7 +59,6 @@ brew cask install font-devicons
 
 # ruby
 gem install bundler
-cd ${PWD}/bin
 bundle
 
 # nvm and npm

@@ -54,6 +54,7 @@ Plug 'w0rp/ale'                                     " async linter
 call plug#end() " Initialize plugin system
 
 let mapleader=" "                     " set leader key to space
+" TODO: see if there is a way to speed up colorscheme loading
 colorscheme jellybeans                " set color scheme
 
 set backspace=indent,eol,start " allow backspacing over everything in insert mode

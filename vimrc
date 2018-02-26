@@ -30,7 +30,6 @@ Plug 'jiangmiao/auto-pairs'                         " open and close brackets
 Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
 Plug 'leafgarland/typescript-vim'                   " syntax for typescript
-Plug 'majutsushi/tagbar'                            " tagbar panel for file structure
 Plug 'maksimr/vim-jsbeautify'                       " format js and html pages
 Plug 'mattn/emmet-vim'                              " html and css editing
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
@@ -82,6 +81,7 @@ set tabstop=2                  " set tab size to 2
 set tags=tags;/                " check the current folder for tags file and keep going up
 set undofile		               " keep an undo file (undo changes after closing)
 set synmaxcol=256              " stop syntax highlighting on long lines
+set re=1                       " use old regex engine to speed up ruby syntax hightlighting
 
 " ### EasyMotion Config ###
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -179,8 +179,7 @@ endfunction
 
 function! LightlineMode()
   let fname = expand('%:t')
-  return fname == '__Tagbar__' ? 'Tagbar' :
-        \ fname == 'ControlP' ? 'CtrlP' :
+  return fname == 'ControlP' ? 'CtrlP' :
         \ fname == '__Gundo__' ? 'Gundo' :
         \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
         \ fname =~ 'NERD_tree' ? 'NERDTree' :
@@ -247,8 +246,6 @@ nmap j gj
 nmap k gk
 " Edit the db/schema.rb Rails file in a split
 nmap <leader>sc :vsp db/schema.rb<cr>
-" Show tagbar
-nmap <Leader>] :TagbarToggle<CR>
 
 " save
 inoremap <C-p> <esc>:w<cr>

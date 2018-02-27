@@ -53,7 +53,6 @@ Plug 'w0rp/ale'                                     " async linter
 call plug#end() " Initialize plugin system
 
 let mapleader=" "                     " set leader key to space
-" TODO: see if there is a way to speed up colorscheme loading
 colorscheme jellybeans                " set color scheme
 
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -98,9 +97,10 @@ map <Leader>k <Plug>(easymotion-k)
 
 " give a choice to which char to perform a verb on if there is more than one
 " on that line. ie. dfn = delete find 'n' and will highlight all n's
-" TODO get this for backward search too
 omap f <plug>(easymotion-bd-fl)
+omap F <plug>(easymotion-Fl)
 omap t <plug>(easymotion-bd-tl)
+omap T <plug>(easymotion-Tl)
 " verb to a full line such as `dl` to delete to line
 omap l <plug>(easymotion-bd-jk)
 
@@ -117,7 +117,6 @@ nmap <silent> ]r <Plug>(ale_next_wrap)
 " certain events, either when I stop interacting or when entering / leaving
 " insert mode
 set updatetime=1000
-" TODO: fix this on personal machine
 autocmd CursorHold * call ale#Lint()
 autocmd CursorHoldI * call ale#Lint()
 autocmd InsertLeave * call ale#Lint()

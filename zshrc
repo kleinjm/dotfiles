@@ -130,7 +130,6 @@ eval "$(rbenv init -)"
 
 ### NVM ###
 export NVM_DIR="$HOME/.nvm"
-# TODO: fix slow boot time associated with nvm initialization
 
 # Defer initialization of nvm until nvm, node or a node-dependent command is
 # run. Ensure this block is only run once if .bashrc gets sourced multiple times

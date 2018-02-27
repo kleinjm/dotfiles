@@ -1,9 +1,24 @@
+##############################################################################
+# File: .zshrc
+# Description: ZSH configuration used with oh-my-zsh
+# Author: James Klein
+##############################################################################
 
-
-
-
-# TODO: fix compinit causing slow boot time. See http://jb-blog.readthedocs.io/en/latest/posts/0032-debugging-zsh-startup-time.html
-zmodload zsh/zprof
+# On slow systems, checking the cached .zcompdump file to see if it must be
+# regenerated adds a noticable delay to zsh startup.  This little hack restricts
+# it to once a day.  It should be pasted into your own completion file.
+#
+# The globbing is a little complicated here:
+# - '#q' is an explicit glob qualifier that makes globbing work within zsh's [[ ]] construct.
+# - 'N' makes the glob pattern evaluate to nothing when it doesn't match (rather than throw a globbing error)
+# - '.' matches "regular files"
+# - 'mh+24' matches files (or directories or whatever) that are older than 24 hours.
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
 
 platform='unknown'
 unamestr=`uname`
@@ -116,33 +131,18 @@ eval "$(rbenv init -)"
 ### NVM ###
 export NVM_DIR="$HOME/.nvm"
 # TODO: fix slow boot time associated with nvm initialization
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#
-# export NODE_VERSION="$(nvm current)"  # ie. "v9.3.0"
-# export NODE_PATH="$HOME/.nvm/versions/node/$NODE_VERSION"
-#
-# # place this after nvm initialization!
-# # call `nvm use` automatically whenever you enter a directory that contains an .nvmrc file
-# autoload -U add-zsh-hook
-# load-nvmrc() {
-#   local node_version="$(nvm version)"
-#   local nvmrc_path="$(nvm_find_nvmrc)"
-#
-#   if [ -n "$nvmrc_path" ]; then
-#     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-#
-#     if [ "$nvmrc_node_version" = "N/A" ]; then
-#       nvm install
-#     elif [ "$nvmrc_node_version" != "$node_version" ]; then
-#       nvm use
-#     fi
-#   elif [ "$node_version" != "$(nvm version default)" ]; then
-#     echo "Reverting to nvm default version"
-#     nvm use default
-#   fi
-# }
-# add-zsh-hook chpwd load-nvmrc
-# load-nvmrc
 
-zprof
+# Defer initialization of nvm until nvm, node or a node-dependent command is
+# run. Ensure this block is only run once if .bashrc gets sourced multiple times
+# by checking whether __init_nvm is a function.
+if [ -s "$NVM_DIR/nvm.sh" ] && [ ! "$(whence -w __init_nvm)" = function ]; then
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+  declare -a __node_commands=('nvm' 'node' 'npm' 'yarn' 'gulp' 'grunt' 'webpack')
+  function __init_nvm() {
+    for i in "${__node_commands[@]}"; do unalias $i; done
+    . "$NVM_DIR"/nvm.sh
+    unset __node_commands
+    unset -f __init_nvm
+  }
+  for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
+fi

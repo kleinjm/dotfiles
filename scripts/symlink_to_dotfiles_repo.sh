@@ -31,5 +31,5 @@ fi
 
 ln -s `pwd`/tmux.conf ~/.tmux.conf
 ln -s `pwd`/tmuxinator ~/.tmuxinator
-ln -s `pwd`/vimrc ~/.vimrc
+ln -s `pwd`/vim/vimrc ~/.vimrc
 ln -s `pwd`/zshrc ~/.zshrc

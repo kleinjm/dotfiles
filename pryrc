@@ -13,3 +13,13 @@ end
 def make_pleeb
   my_account.roles = []
 end
+
+def set_old_article
+  AbTest.for_user(my_user).find_by(name: '2017-12-07_Article_Redesign').
+    update_attributes(choice: "old")
+end
+
+def set_new_article
+  AbTest.for_user(my_user).find_by(name: '2017-12-07_Article_Redesign').
+    update_attributes(choice: "new")
+end

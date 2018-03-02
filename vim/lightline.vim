@@ -1,7 +1,7 @@
 " ### Status bar and light line ###
 let g:lightline = {
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'relativepath' ] ],
+      \   'left': [ [ 'mode', 'paste' ], [ 'relativepath' ], ['modified'] ],
       \   'right': [ [ 'neomake', 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
       \ },
       \ 'colorscheme': 'wombat',

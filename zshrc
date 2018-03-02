@@ -95,8 +95,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export MYVIMRC='~/.vimrc'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -127,6 +125,28 @@ alias e2e-single="TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules
 eval $(thefuck --alias)
 # https://github.com/rbenv/rbenv/issues/142
 eval "$(rbenv init -)"
+
+
+export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files --follow --hidden -g "" 2> /dev/null'
+# TODO: look at fzf documentation
+export FZF_DEFAULT_OPTS="--height 100% --reverse --bind \"\
+ctrl-b:page-up,\
+ctrl-d:preview-page-down,\
+ctrl-f:page-down,\
+ctrl-h:unix-line-discard,\
+ctrl-l:jump,\
+ctrl-q:toggle-preview,\
+ctrl-u:preview-page-up,\
+down:preview-down,\
+up:preview-up\
+\""
+# export FZF_ALT_C_COMMAND="bfs -type d -nohidden"
+# export FZF_ALT_C_OPTS='--no-preview'
+export FZF_CTRL_R_OPTS='--no-preview'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_CTRL_T_OPTS='--preview "(highlight -O ansi -l {} || cat {}) 2> /dev/null | head -5000"'
+
+
 
 ### NVM ###
 export NVM_DIR="$HOME/.nvm"

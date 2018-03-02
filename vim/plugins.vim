@@ -45,5 +45,6 @@ Plug 'tpope/vim-surround'                           " add paren and quote helper
 Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
 Plug 'w0rp/ale'                                     " async linter
+Plug 'michaeljsmith/vim-indent-object' " text object representing lines of code at the same indent level
 
 call plug#end() " Initialize plugin system

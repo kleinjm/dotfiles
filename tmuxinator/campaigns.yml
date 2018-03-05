@@ -39,5 +39,5 @@ windows:
         - vim .
         -
         -
-  - server: bundle && foreman start
+  - server: master && bundle && npm install && rails db:migrate && foreman start
   - console: bundle && bin/rails c

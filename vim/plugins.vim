@@ -28,6 +28,7 @@ Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
 Plug 'leafgarland/typescript-vim'                   " syntax for typescript
 Plug 'maksimr/vim-jsbeautify'                       " format js and html pages
 Plug 'mattn/emmet-vim'                              " html and css editing
+Plug 'michaeljsmith/vim-indent-object'              " vii to highlight lines at same indent level
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
 Plug 'nelstrom/vim-textobj-rubyblock'               " provide ruby text objects
 Plug 'nelstrom/vim-visual-star-search'              " * to serach current word

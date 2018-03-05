@@ -5,6 +5,7 @@
 
 source ~/.vim/plugins.vim " load vim-plug and plugins
 source ~/.vim/lightline.vim " configure lightline and status bar
+source ~/.vim/functions.vim " define functions to map to
 
 let mapleader=" "                     " set leader key to space
 colorscheme jellybeans                " set color scheme
@@ -25,65 +26,58 @@ set noswapfile                 " Turn off swap (.swp) files
 set nowritebackup	             " don't make backup when overwriting file
 set number                     " display line numbers
 set numberwidth=5              " give space between relative and static line numbers
+set re=1                       " use old regex engine to speed up ruby syntax hightlighting
 set ruler		                   " show the cursor position all the time
 set scrolloff=5                " prevent hitting the bottom of the screen
 set shell=/bin/zsh             " set vi internal shell to zsh
 set shiftwidth=2               " use spaces for indenting with '>'
 set showcmd		                 " display incomplete commands
+set synmaxcol=256              " stop syntax highlighting on long lines
 set tabstop=2                  " set tab size to 2
 set tags=tags;/                " check the current folder for tags file and keep going up
 set undofile		               " keep an undo file (undo changes after closing)
-set synmaxcol=256              " stop syntax highlighting on long lines
-set re=1                       " use old regex engine to speed up ruby syntax hightlighting
+set updatetime=1000            " slow update for linting
+set wildmode=list:longest,list:full " used for smart tab completion
 
-" ### EasyMotion Config ###
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-let g:EasyMotion_smartcase = 1  " Turn on case insensitive feature
+" enable mouse mode
+if has('mouse')
+  set mouse=a
+endif
 
-map <Leader> <Plug>(easymotion-prefix)
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
 
-" Jump to anywhere with `s{char}{label}`
-nmap s <Plug>(easymotion-overwin-f)
+" Prevent that the langmap option applies to characters that result from a
+" mapping.  If unset (default), this may break plugins (but it's backward
+" compatible).
+if has('langmap') && exists('+langnoremap')
+  set langnoremap
+endif
 
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
-" give a choice to which char to perform a verb on if there is more than one
-" on that line. ie. dfn = delete find 'n' and will highlight all n's
-omap f <plug>(easymotion-bd-fl)
-omap F <plug>(easymotion-Fl)
-omap t <plug>(easymotion-bd-tl)
-omap T <plug>(easymotion-Tl)
-" verb to a full line such as `dl` to delete to line
-omap l <plug>(easymotion-bd-jk)
-
-" applies a verb to the motion with a 1 char search. ie. `dmt` will delete
-" until the selected 't'
-map m <plug>(easymotion-s)
-vmap m <plug>(easymotion-s)
-
-" ### ALE async linting config ###
-nmap <silent> [r <Plug>(ale_previous_wrap)
-nmap <silent> ]r <Plug>(ale_next_wrap)
-
-" Linting on all changes felt too aggressive. The below settings calls lint on
-" certain events, either when I stop interacting or when entering / leaving
-" insert mode
-set updatetime=1000
-autocmd CursorHold * call ale#Lint()
-autocmd CursorHoldI * call ale#Lint()
-autocmd InsertLeave * call ale#Lint()
-autocmd TextChanged * call ale#Lint()
-
-let g:ale_lint_delay = 1000
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_text_changed = 0
-" disable ale highlighting on errors (still get the column indicator)
-let g:ale_set_highlights = 0
+" highlight lines over 80 chars
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 runtime macros/matchit.vim " use % to switch between if/else/end
+
+" auto indent and format json and xml
+nnoremap =j :call FormatJSON()<cr>
+nnoremap =x :%!XMLLINT_INDENT='    ' xmllint --format %<cr>
+nnoremap <silent>K :call FindWordUnderCursor()<cr>
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+" copy current relative file path to system clipboard
+nnoremap <leader>cf :let @+ = expand("%")<cr>
+
+" hit s while highlighting to sort a list
+vnoremap s :!sort<cr>
 
 " map Enter to insert a new line without entering insert mode
 map <CR> o<Esc>
@@ -101,6 +95,7 @@ map <leader>= mzgg=G`z
 map <Leader>mk :call mkdir(expand('%:h'), 'p')<ESC>
 " close all other tabs and splits but this one
 map <leader>cl :only \| tabo<esc>
+map <Leader>n :call RenameFile()<cr>
 
 " map 0 to go to first char on line
 nmap 0 ^
@@ -120,11 +115,6 @@ nmap <leader>sc :vsp db/schema.rb<cr>
 " save
 inoremap <C-p> <esc>:w<cr>
 noremap <C-p> <esc>:w<cr>
-" Switch between the last two files
-nnoremap <leader><leader> <c-^>
-
-" copy current relative file path to system clipboard
-nnoremap <leader>cf :let @+ = expand("%")<cr>
 
 " change all single ' to double " in current file
 nmap <leader>" :%s/\'/\"/g<cr><C-@><Esc>
@@ -142,46 +132,30 @@ onoremap <C-@> <Esc>
 cnoremap <C-@> <C-c>
 inoremap <C-@> <Esc>
 
-" RSpec.vim mappings
-let g:rspec_command = "VtrSendCommand! bin/rspec {spec}"
-let g:rspec_runner = "os_x_iterm"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
-" ### fzf fuzzy find ###
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>dc :Files app/controllers<cr>
-nnoremap <leader>dm :Files app/models<cr>
-nnoremap <leader>dv :Files app/views<cr>
-nnoremap <leader>ds :Files spec/<cr>
-
-" Search only the files that have not yet been committed
-command! Fzfc call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --modified'}))
-noremap <Leader>g :Fzfc<cr>
-
-let g:fzf_files_options =
-      \ '--reverse ' .
-      \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
-
 " Don't use arrow keys
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" enable mouse
-if has('mouse')
-  set mouse=a
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+        \ | wincmd p | diffthis
 endif
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
+" Zoom / Restore window with <ctrl>+a
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <silent> <C-A> :ZoomToggle<CR>
+
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
+
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -222,72 +196,101 @@ else
   set autoindent		" always set autoindenting on
 endif " has("autocmd")
 
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-        \ | wincmd p | diffthis
-endif
 
-" Prevent that the langmap option applies to characters that result from a
-" mapping.  If unset (default), this may break plugins (but it's backward
-" compatible).
-if has('langmap') && exists('+langnoremap')
-  set langnoremap
-endif
+" ##### EasyMotion Config #####
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_smartcase = 1  " Turn on case insensitive feature
 
-" highlight lines over 80 chars
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
+map <Leader> <Plug>(easymotion-prefix)
 
-" Rename current file
-function! RenameFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'), 'file')
-  if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    redraw!
-  endif
-endfunction
-map <Leader>n :call RenameFile()<cr>
+" Jump to anywhere with `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
 
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" give a choice to which char to perform a verb on if there is more than one
+" on that line. ie. dfn = delete find 'n' and will highlight all n's
+omap f <plug>(easymotion-bd-fl)
+omap F <plug>(easymotion-Fl)
+omap t <plug>(easymotion-bd-tl)
+omap T <plug>(easymotion-Tl)
+" verb to a full line such as `dl` to delete to line
+omap l <plug>(easymotion-bd-jk)
+
+" applies a verb to the motion with a 1 char search. ie. `dmt` will delete
+" until the selected 't'
+map m <plug>(easymotion-s)
+vmap m <plug>(easymotion-s)
+" ##### END EasyMotion Config #####
+
+
+" ##### ALE async linting config #####
+nmap <silent> [r <Plug>(ale_previous_wrap)
+nmap <silent> ]r <Plug>(ale_next_wrap)
+
+" Linting on all changes felt too aggressive. The below settings calls lint on
+" certain events, either when I stop interacting or when entering / leaving
+" insert mode
+autocmd CursorHold * call ale#Lint()
+autocmd CursorHoldI * call ale#Lint()
+autocmd InsertLeave * call ale#Lint()
+autocmd TextChanged * call ale#Lint()
+
+let g:ale_lint_delay = 1000
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 0
+" disable ale highlighting on errors (still get the column indicator)
+let g:ale_set_highlights = 0
+" ##### END ALE async linting config #####
+
+
+" ##### RSpec.vim mappings #####
+let g:rspec_command = "VtrSendCommand! bin/rspec {spec}"
+let g:rspec_runner = "os_x_iterm"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+" ##### END RSpec.vim mappings #####
+
+
+" ##### AG & FZF #####
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable("ag")
   let g:ackprg = 'ag --vimgrep'
-  nnoremap \ :Ag<SPACE>
+  nnoremap \ :Ag!<SPACE>
 endif
 
-" Zoom / Restore window with <ctrl>+a
-function! s:ZoomToggle() abort
-  if exists('t:zoomed') && t:zoomed
-    execute t:zoom_winrestcmd
-    let t:zoomed = 0
-  else
-    let t:zoom_winrestcmd = winrestcmd()
-    resize
-    vertical resize
-    let t:zoomed = 1
-  endif
-endfunction
-command! ZoomToggle call s:ZoomToggle()
-nnoremap <silent> <C-A> :ZoomToggle<CR>
+" Augmenting Ag command using fzf#vim#with_preview function
+"   * fzf#vim#with_preview([[options], preview window, [toggle keys...]])
+"     * For syntax-highlighting, Ruby and any of the following tools are required:
+"       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
+"       - CodeRay: http://coderay.rubychan.de/
+"       - Rouge: https://github.com/jneen/rouge
+"
+"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
+"   :Ag! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
 
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
+" fzf mappings mostly for rails
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>dc :Files app/controllers<cr>
+nnoremap <leader>dm :Files app/models<cr>
+nnoremap <leader>dv :Files app/views<cr>
+nnoremap <leader>ds :Files spec/<cr>
+
+" Search only the files that have not yet been committed
+command! Fzfc call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --modified'}))
+noremap <Leader>g :Fzfc<cr>
+
+let g:fzf_files_options =
+      \ '--reverse ' .
+      \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+" ##### END AG & FZF #####

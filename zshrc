@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 ##############################################################################
 # File: zshrc
 # Description: ZSH configuration used with oh-my-zsh
@@ -111,6 +113,9 @@ alias develop='git fetch --prune && git checkout develop && git pull origin deve
 # NodeJS, NPM
 alias sequelize="node_modules/.bin/sequelize"
 
+# Rails
+alias resolve_project="master && bundle install && npm install && rails db:migrate && rails db:test:prepare"
+
 # Misc, Personal
 alias passwords="~/Dropbox/passwords.sh"
 alias speed="speedtest-cli" # run a speedtest
@@ -165,3 +170,5 @@ if [ -s "$NVM_DIR/nvm.sh" ] && [ ! "$(whence -w __init_nvm)" = function ]; then
   }
   for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
 fi
+
+zprof

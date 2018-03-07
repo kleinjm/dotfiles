@@ -14,5 +14,10 @@ windows:
       panes:
         - vim .
         -
-  - server: bundle && foreman start
+  - server:
+      layout: 7d55,272x59,0,0[272x39,0,0,80,272x19,0,40{136x19,0,40,145,135x19,137,40,146}]
+      panes:
+        - bundle && bundle exec rails server -p 5190
+        - bundle exec sidekiq
+        - bundle exec rake consumers:run
   - consoles: rails c

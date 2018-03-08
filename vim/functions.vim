@@ -32,17 +32,3 @@ function! InsertTabWrapper()
     return "\<c-p>"
   endif
 endfunction
-
-" Zoom / Restore window
-fun! s:ZoomToggle() abort
-  if exists('t:zoomed') && t:zoomed
-    execute t:zoom_winrestcmd
-    let t:zoomed = 0
-  else
-    let t:zoom_winrestcmd = winrestcmd()
-    resize
-    vertical resize
-    let t:zoomed = 1
-  endif
-endfun
-

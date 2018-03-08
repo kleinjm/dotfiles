@@ -173,11 +173,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 139 606 456 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>165 387 796 473 0 0 1680 1028 </string>
+	<string>-1158 346 796 473 -1920 0 1920 1058 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 474 592 584 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>3 5 1914 1047 0 0 1920 1058 </string>
+	<string>0 0 1920 1058 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>963 603 570 452 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -792,7 +792,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1</real>
+			<real>0.99481715926204828</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -872,6 +872,8 @@
 	<false/>
 	<key>ShowFullScreenTabBar</key>
 	<true/>
+	<key>SplitPaneDimmingAmount</key>
+	<real>0.39191205929487194</real>
 	<key>UKCrashReporterLastCrashReportDate</key>
 	<real>1511721472</real>
 	<key>WordCharacters</key>

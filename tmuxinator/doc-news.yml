@@ -7,7 +7,7 @@ startup_pane: 1
 
 windows:
   - editor:
-      layout: c489,238x56,0,0[238x48,0,0,0,238x7,0,49,1]
+      layout: e572,272x59,0,0[272x49,0,0,24,272x9,0,50,27]
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
@@ -15,7 +15,7 @@ windows:
         - vim .
         -
   - server:
-      layout: 7d55,272x59,0,0[272x39,0,0,80,272x19,0,40{136x19,0,40,145,135x19,137,40,146}]
+      layout: 8850,272x59,0,0[272x29,0,0,25,272x29,0,30{136x29,0,30,28,135x29,137,30,29}]
       panes:
         - bundle && bundle exec rails server -p 5190
         - bundle exec sidekiq

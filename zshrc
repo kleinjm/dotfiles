@@ -1,5 +1,3 @@
-zmodload zsh/zprof
-
 ##############################################################################
 # File: zshrc
 # Description: ZSH configuration used with oh-my-zsh
@@ -70,8 +68,9 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="mm/dd/yyyy"
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# NOTE: zsh-autosuggestions zsh-syntax-highlighting need to go last!
-plugins=(git bundler osx rake ruby tmux docker zsh-autosuggestions zsh-syntax-highlighting)
+# NOTE: zsh-autosuggestions needs to go last!
+# NOTE: zsh-syntax-highlighting was affecting boot performance
+plugins=(git bundler osx rake ruby tmux docker zsh-autosuggestions)
 
 # QT added to path to fix gem install capybara-webkit issue
 export PATH=~/Qt5.5.1/5.5/clang_64/bin:~/.rbenv/shims:/usr/local/bin:/usr/bin:$PATH
@@ -87,16 +86,8 @@ fi
 # tmuxinator autocomplete - allows `mux` in CLI
 source $PROJECT_DIR/dotfiles/tmuxinator/tmuxinator.zsh
 
-# Preferred editor for local and remote sessions
-export EDITOR='vim'
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+export EDITOR='vim' # Preferred editor for local and remote sessions
+export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh
 export MYVIMRC='~/.vimrc'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -127,13 +118,9 @@ alias doxserver='bin/rails s webrick -p5000'
 alias doxstart='~/GitHubRepos/dotfiles/tmuxinator/start_doximity.sh'
 alias e2e-single="TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules/.bin/wdio --spec"
 
-eval $(thefuck --alias)
-# https://github.com/rbenv/rbenv/issues/142
-eval "$(rbenv init -)"
-
-
-export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files --follow --hidden -g "" 2> /dev/null'
+### FZF ###
 # TODO: look at fzf documentation
+export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files --follow --hidden -g "" 2> /dev/null'
 export FZF_DEFAULT_OPTS="--height 100% --reverse --bind \"\
 ctrl-b:page-up,\
 ctrl-d:preview-page-down,\
@@ -151,6 +138,8 @@ export FZF_CTRL_R_OPTS='--no-preview'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_CTRL_T_OPTS='--preview "(highlight -O ansi -l {} || cat {}) 2> /dev/null | head -5000"'
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+### END FZF ###
 
 
 ### NVM ###
@@ -170,5 +159,7 @@ if [ -s "$NVM_DIR/nvm.sh" ] && [ ! "$(whence -w __init_nvm)" = function ]; then
   }
   for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
 fi
+### END NVM ###
 
-zprof
+# https://github.com/rbenv/rbenv/issues/142
+eval "$(rbenv init -)"

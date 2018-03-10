@@ -18,3 +18,6 @@ Stored in bookmarks on my googlde chrome account.
 
 ### NVM
 I set the system ~/.nvmrc -> dotfiles/nvmrc and have that fetching `node` which is the latest node version. Any project without a .nvmrc will use the latest since it will traverse up the dirs to find my root one
+
+### TMUX
+Default config taken from [oh-my-tmux](https://github.com/gpakosz/.tmux)

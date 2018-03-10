@@ -1,0 +1,117 @@
+# set prefix to ctrl+s
+unbind C-b
+set -g prefix C-s
+
+# standard shell commands in tmux : command bar
+set -g status-keys "emacs"
+
+# start window numbers at 1 to match keyboard order with tmux window order
+set-window-option -g pane-base-index 1
+
+#set inactive/active window styles via oh-my-tmux
+tmux_conf_theme_window_fg=colour247
+tmux_conf_theme_window_bg=colour234
+tmux_conf_theme_focused_pane_fg=colour250
+tmux_conf_theme_focused_pane_bg=black
+tmux_conf_theme_highlight_focused_pane=true
+
+# set the pane border colors
+set -g pane-border-fg colour124
+set -g pane-border-bg colour233
+set -g pane-active-border-fg colour88
+set -g pane-active-border-bg colour232
+
+# increase scrollback lines
+set -g history-limit 10000
+# act like vim
+setw -g mode-keys vi
+bind-key -r C-h select-window -t :-
+bind-key -r C-l select-window -t :+
+
+# Smart pane switching with awareness of Vim splits.
+# See: https://github.com/christoomey/vim-tmux-navigator
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind-key -n C-h if-shell "$is_vim" "send-keys C-h"  "select-pane -L"
+bind-key -n C-j if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
+bind-key -n C-k if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
+bind-key -n C-l if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
+bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+
+# quick clear console with prefix + l
+bind l send-keys 'C-l'
+
+# prefix -> back-one-character
+bind-key C-b send-prefix
+# prefix-2 -> forward-incremental-history-search
+bind-key C-s send-prefix -2
+
+# open new windows in pane current path
+bind c new-window -c "#{pane_current_path}"
+
+# Fine adjustment (1 or 2 cursor cells per bump)
+bind -n S-Left resize-pane -L 2
+bind -n S-Right resize-pane -R 2
+bind -n S-Down resize-pane -D 1
+bind -n S-Up resize-pane -U 1
+
+# Coarse adjustment (5 or 10 cursor cells per bump)
+bind -n C-Left resize-pane -L 10
+bind -n C-Right resize-pane -R 10
+bind -n C-Down resize-pane -D 5
+bind -n C-Up resize-pane -U 5
+
+# Use fzf to do a search on the tmux sessions
+bind-key C-j split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
+
+# choose tmux session (choose-tree)
+# TODO: decide if I like the search or the selection better.
+# This is commented because it conflicts with using fzf to search tmux sessions
+# as configured above
+# bind-key C-j choose-tree
+
+# enable mouse mode for scrolling
+set -g mouse on
+
+# Setup v to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Bind ']' to use pbpaste
+bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
+
+# split panes using \ and -
+bind \ split-window -h -c '#{pane_current_path}'
+bind - split-window -v -c '#{pane_current_path}'
+unbind '"'
+unbind %
+
+# reload config file (change file location to your the tmux.conf you want to use)
+bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
+
+# clear trailing logs
+# TODO: fix, not working
+bind-key C send-keys "clear" \; send-keys "Enter" \; clear-history
+
+# Swap window
+bind-key S command-prompt -p "swap window with:" "swap-window -s '%%'"
+
+# send current pane to window & bring window into current window
+unbind s # was choose-tree
+bind-key s command-prompt -p "send pane to:"  "join-pane -t :'%%'"
+bind-key g command-prompt -p "join pane from:"  "join-pane -s :'%%'"
+
+# send current pane to new window without losing focus on this window
+bind-key b break-pane -d
+
+# after adding a new one, prefix + I
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm' # https://github.com/tmux-plugins/tpm#installation
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

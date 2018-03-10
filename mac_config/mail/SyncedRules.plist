@@ -56,6 +56,169 @@
 		<array>
 			<dict>
 				<key>CriterionUniqueId</key>
+				<string>55E8B1DD-32C8-4687-8DD4-707C703AD4C9</string>
+				<key>Expression</key>
+				<string>support@fullstory.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>0CB0B7C7-77C9-422C-B432-45F5EB2C0397</string>
+				<key>Expression</key>
+				<string>webdev@doximity.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>437F0BDD-435C-47BF-9BFF-7AFCA1A74F18</string>
+		<key>RuleName</key>
+		<string>dox fullstory support</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>A40C555F-B101-4735-8428-3F7B23303128</string>
+				<key>Expression</key>
+				<string>webdev@doximity.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>7BB2AC61-474C-4E41-85E8-D7E3F97A990F</string>
+				<key>Expression</key>
+				<string>Algolia</string>
+				<key>Header</key>
+				<string>Subject</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>7515A6B6-D70D-4C68-ABA2-ADFCABD9C0E8</string>
+		<key>RuleName</key>
+		<string>Dox algolia</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>CopyToMailboxURL</key>
+		<string>imap://kleinjm007%40gmail.com/Finance/Vanguard</string>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>CC1659FD-656C-4F8A-A8FF-44429E529990</string>
+				<key>Expression</key>
+				<string>vanguardinvestments@vanguard.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>FDACF6D0-5A11-47ED-AA9A-EA17C16F9749</string>
+				<key>Expression</key>
+				<string>kleinjm007@gmail.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>D4302756-30B8-476D-8E0C-CDE541F99AD1</string>
+				<key>Expression</key>
+				<string>Your Vanguard statement is ready</string>
+				<key>Header</key>
+				<string>Subject</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<false/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MailboxURL</key>
+		<string>imap://kleinjm007%40gmail.com/Finance/Vanguard</string>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>DBE55D1C-2955-4AEA-BCC4-D936A4F267A7</string>
+		<key>RuleName</key>
+		<string>vanguard</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<true/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
 				<string>A7B2595E-E22D-4FA6-8774-B15A686A2441</string>
 				<key>Expression</key>
 				<string>no-reply@circleci.com</string>
@@ -2633,13 +2796,21 @@
 		<array>
 			<dict>
 				<key>CriterionUniqueId</key>
-				<string>04806F8A-637C-4261-A02D-DA8CEF2600C6</string>
+				<string>1DF79E75-95B2-440F-975D-4B996BEBD7E9</string>
 				<key>Expression</key>
 				<string>scott@scottscheapflights.com</string>
 				<key>Header</key>
 				<string>From</string>
 				<key>Qualifier</key>
 				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>142C1209-9A28-4A14-83C0-DD9C1ED443C9</string>
+				<key>Expression</key>
+				<string>JFK</string>
+				<key>Header</key>
+				<string>Body</string>
 			</dict>
 		</array>
 		<key>Deletes</key>
@@ -2657,7 +2828,113 @@
 		<key>RuleId</key>
 		<string>DB6C2D18-2D50-46FC-80D7-AEA784703063</string>
 		<key>RuleName</key>
-		<string>ScottKeys</string>
+		<string>ScottKeys JFK</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<true/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>CopyToMailboxURL</key>
+		<string>imap://kleinjm007%40gmail.com/Flight%20Deals</string>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>1F862CA7-4F17-4518-A30A-3AAED26F8C05</string>
+				<key>Expression</key>
+				<string>scott@scottscheapflights.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>325CF5B7-67CB-44E4-B6FD-69080F35013D</string>
+				<key>Expression</key>
+				<string>EWR</string>
+				<key>Header</key>
+				<string>Body</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<false/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MailboxURL</key>
+		<string>imap://kleinjm007%40gmail.com/Flight%20Deals</string>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>F0E14CC9-ECE6-47C4-A98C-AC98ACC7C57C</string>
+		<key>RuleName</key>
+		<string>ScottKeys EWR Newark</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<true/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>CopyToMailboxURL</key>
+		<string>imap://kleinjm007%40gmail.com/Flight%20Deals</string>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>2AAFE678-8EE9-4EB4-BC96-978534138A36</string>
+				<key>Expression</key>
+				<string>scott@scottscheapflights.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>0A0A607D-6513-4672-A3ED-7498365FCE2B</string>
+				<key>Expression</key>
+				<string>LGA</string>
+				<key>Header</key>
+				<string>Body</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<false/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MailboxURL</key>
+		<string>imap://kleinjm007%40gmail.com/Flight%20Deals</string>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>8572034D-CB12-4290-B6DC-7338D35E0841</string>
+		<key>RuleName</key>
+		<string>ScottKeys LGA LaGuardia</string>
 		<key>SendNotification</key>
 		<false/>
 		<key>ShouldCopyMessage</key>
@@ -3241,6 +3518,77 @@
 		<string>03DB6C1E-1976-40D9-888B-526746A6D946</string>
 		<key>RuleName</key>
 		<string>dox circle subscription</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>35ADC9E5-AFD3-41AC-A7DE-4C5D259C6405</string>
+				<key>Expression</key>
+				<string>scott@scottscheapflights.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>2F4919EE-7649-4194-AA5E-5087678A94E0</string>
+				<key>Expression</key>
+				<string>JFK</string>
+				<key>Header</key>
+				<string>Body</string>
+				<key>Qualifier</key>
+				<string>DoesNotContain</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>2BBF4007-42D1-4CAB-B1C2-1563652C5AEE</string>
+				<key>Expression</key>
+				<string>EWR</string>
+				<key>Header</key>
+				<string>Body</string>
+				<key>Qualifier</key>
+				<string>DoesNotContain</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>3EFD01D9-3825-4BB3-ABDE-214E04CF3824</string>
+				<key>Expression</key>
+				<string>LGA</string>
+				<key>Header</key>
+				<string>Body</string>
+				<key>Qualifier</key>
+				<string>DoesNotContain</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>0BCC98E7-8628-4F1C-8185-45CDEC61B77C</string>
+		<key>RuleName</key>
+		<string>ScottKeys non-new york airports</string>
 		<key>SendNotification</key>
 		<false/>
 		<key>ShouldCopyMessage</key>

@@ -89,7 +89,6 @@ source $PROJECT_DIR/dotfiles/tmuxinator/tmuxinator.zsh
 export EDITOR='vim' # Preferred editor for local and remote sessions
 export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh
 export MYVIMRC='~/.vimrc'
-export TERM="xterm-256color" # full tmux colors
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

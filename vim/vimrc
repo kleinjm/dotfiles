@@ -65,6 +65,13 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
+" Always show an extra column on the left for gitgutter
+if exists('&signcolumn')  " Vim 7.4.2201
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
+
 runtime macros/matchit.vim " use % to switch between if/else/end
 
 " auto indent and format json and xml

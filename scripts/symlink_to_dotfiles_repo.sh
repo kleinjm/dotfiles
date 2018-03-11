@@ -8,23 +8,33 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='mac'
 fi
 
-rm -f ~/.nvmrc # don't fail if file doesn't exist
+# -r option = don't fail if file doesn't exist
+rm -f ~/.gitconfig
+rm -f ~/.gitignore_global
+rm -f ~/.nvmrc
+rm -f ~/.pryrc
+rm -f ~/.ssh/config
+rm -f ~/.tmux.conf
+rm -f ~/.tmux.conf.local
 rm -f ~/.vim/functions.vim
 rm -f ~/.vim/lightline.vim
 rm -f ~/.vim/plugins.vim
-rm -r ~/.tmuxinator
-rm ~/.gitconfig
-rm ~/.gitignore_global
-rm ~/.pryrc
-rm ~/.ssh/config
-rm ~/.tmux.conf
-rm ~/.vimrc
-rm ~/.zshrc
+rm -f ~/.vimrc
+rm -f ~/.zshrc
+rm -rf ~/.tmuxinator
 
 ln -s `pwd`/gitconfig ~/.gitconfig
 ln -s `pwd`/gitignore_global ~/.gitignore_global
 ln -s `pwd`/nvmrc ~/.nvmrc
 ln -s `pwd`/pryrc ~/.pryrc
+ln -s `pwd`/tmux.conf ~/.tmux.conf
+ln -s `pwd`/tmux.local.conf ~/.tmux.conf.local
+ln -s `pwd`/tmuxinator ~/.tmuxinator
+ln -s `pwd`/vim/functions.vim ~/.vim/functions.vim
+ln -s `pwd`/vim/lightline.vim ~/.vim/lightline.vim
+ln -s `pwd`/vim/plugins.vim ~/.vim/plugins.vim
+ln -s `pwd`/vim/vimrc ~/.vimrc
+ln -s `pwd`/zshrc ~/.zshrc
 
 if [ $platform = 'mac' ]; then
   ln -s `pwd`/ssh_config_mac ~/.ssh/config
@@ -32,10 +42,3 @@ elif [ $platform = 'linux' ]; then
   ln -s `pwd`/ssh_config_linux ~/.ssh/config
 fi
 
-ln -s `pwd`/tmux.conf ~/.tmux.conf
-ln -s `pwd`/tmuxinator ~/.tmuxinator
-ln -s `pwd`/vim/functions.vim ~/.vim/functions.vim
-ln -s `pwd`/vim/lightline.vim ~/.vim/lightline.vim
-ln -s `pwd`/vim/plugins.vim ~/.vim/plugins.vim
-ln -s `pwd`/vim/vimrc ~/.vimrc
-ln -s `pwd`/zshrc ~/.zshrc

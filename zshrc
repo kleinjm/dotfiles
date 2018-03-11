@@ -70,6 +70,8 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # NOTE: zsh-autosuggestions needs to go last!
 # NOTE: zsh-syntax-highlighting was affecting boot performance
+# NOTE: dependency - brew install zsh-autosuggestions
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 plugins=(git bundler osx rake ruby tmux docker zsh-autosuggestions)
 
 # QT added to path to fix gem install capybara-webkit issue
@@ -89,6 +91,10 @@ source $PROJECT_DIR/dotfiles/tmuxinator/tmuxinator.zsh
 export EDITOR='vim' # Preferred editor for local and remote sessions
 export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh
 export MYVIMRC='~/.vimrc'
+
+# See https://github.com/zsh-users/zsh-autosuggestions#usage
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20 # turn off autosuggest for large paste
+export ZSH_AUTOSUGGEST_USE_ASYNC=1 # do autosuggest async
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

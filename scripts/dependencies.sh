@@ -43,6 +43,8 @@ brew install gpg                                # for github verified commits
 brew install heroku
 brew install rbenv
 brew install the_silver_searcher
+brew install zsh-autosuggestions
+
 brew cask install corelocationcli   # for alfred google maps workflow
 
 # make sure python is installed so we have pip

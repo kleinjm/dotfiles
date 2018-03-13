@@ -1,5 +1,6 @@
-## Dotfiles
+# Dotfiles
 
+## Mac
 ### Installing Fonts
 * Run the `bin/dependencies.sh` file
 * Open the font file saved in `mac_config` and install it to the Mac Font Book
@@ -9,6 +10,9 @@
 ### Syncing Mac Mail Rules
 * To save local rule to the repo `mac_config/mail/upload_local_rules.sh`
 * To apply repo rules to the local mac mail `mac_config/mail/apply_dotfile_rules.sh`
+
+### Sequel Pro
+- Dark query scheme found in `mac_config/sequel-pro-master`
 
 ### Additional environment configurations
 * Chrome theme - Dark Theme v3

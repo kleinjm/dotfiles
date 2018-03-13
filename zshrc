@@ -111,7 +111,7 @@ alias develop='git fetch --prune && git checkout develop && git pull origin deve
 alias sequelize="node_modules/.bin/sequelize"
 
 # Rails
-alias resolve_project="master && bundle install && npm install && rails db:migrate && rails db:test:prepare"
+alias resolve_rails="master && bundle install && rails db:migrate && rails db:test:prepare"
 
 # Misc, Personal
 alias passwords="~/Dropbox/passwords.sh"

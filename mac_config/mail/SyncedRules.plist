@@ -56,6 +56,57 @@
 		<array>
 			<dict>
 				<key>CriterionUniqueId</key>
+				<string>FECF100A-02F7-4FC9-BC40-32302A441396</string>
+				<key>Expression</key>
+				<string>info@snowflake.net</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>0DE8925E-0ACC-490D-863B-88380C030FCF</string>
+				<key>Expression</key>
+				<string>webdev@doximity.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>A0ACC299-F4E9-40F3-9998-FA5CB82F6E4E</string>
+		<key>RuleName</key>
+		<string>dox snowflake</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
 				<string>55E8B1DD-32C8-4687-8DD4-707C703AD4C9</string>
 				<key>Expression</key>
 				<string>support@fullstory.com</string>

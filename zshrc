@@ -67,6 +67,8 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="mm/dd/yyyy"
 
+HISTSIZE=100000 # amount of commands saved in history
+
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # NOTE: zsh-autosuggestions needs to go last!
 # NOTE: zsh-syntax-highlighting was affecting boot performance

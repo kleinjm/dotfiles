@@ -25,7 +25,6 @@ Plug 'jgdavey/vim-blockle'                          " toggle ruby do and {} bloc
 Plug 'jiangmiao/auto-pairs'                         " open and close brackets
 Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
-Plug 'leafgarland/typescript-vim'                   " syntax for typescript
 Plug 'maksimr/vim-jsbeautify'                       " format js and html pages
 Plug 'mattn/emmet-vim'                              " html and css editing
 Plug 'michaeljsmith/vim-indent-object'              " vii to highlight lines at same indent level

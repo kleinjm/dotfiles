@@ -26,7 +26,7 @@ rm -rf ~/.tmuxinator
 ln -s `pwd`/gitconfig ~/.gitconfig
 ln -s `pwd`/gitignore_global ~/.gitignore_global
 ln -s `pwd`/nvmrc ~/.nvmrc
-ln -s `pwd`/pryrc ~/.pryrc
+ln -s `pwd`/pryrc.rb ~/.pryrc
 ln -s `pwd`/tmux.conf ~/.tmux.conf
 ln -s `pwd`/tmux.local.conf ~/.tmux.conf.local
 ln -s `pwd`/tmuxinator ~/.tmuxinator

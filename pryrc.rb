@@ -23,3 +23,7 @@ def set_new_article
   AbTest.for_user(my_user).find_by(name: '2017-12-07_Article_Redesign').
     update_attributes(choice: "new")
 end
+
+def clear_sidekiq
+  Sidekiq.redis { |conn| conn.flushdb  }
+end

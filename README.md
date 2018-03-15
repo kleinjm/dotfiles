@@ -1,5 +1,8 @@
 # Dotfiles
 
+## Dual Boot
+I dual boot mac and linux and roughly followed [this guide](https://www.lifewire.com/dual-boot-linux-and-mac-os-4125733) to set it up.
+
 ## Mac
 ### Installing Fonts
 * Run the `bin/dependencies.sh` file

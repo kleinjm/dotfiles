@@ -74,7 +74,7 @@ HISTSIZE=100000 # amount of commands saved in history
 # NOTE: zsh-syntax-highlighting was affecting boot performance
 # NOTE: dependency - brew install zsh-autosuggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-plugins=(git bundler osx rake ruby tmux docker zsh-autosuggestions)
+plugins=(git bundler osx rake ruby rails tmux docker zsh-autosuggestions)
 
 # QT added to path to fix gem install capybara-webkit issue
 export PATH=~/Qt5.5.1/5.5/clang_64/bin:~/.rbenv/shims:/usr/local/bin:/usr/bin:$PATH

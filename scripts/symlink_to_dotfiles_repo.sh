@@ -21,8 +21,10 @@ rm -f ~/.vim/lightline.vim
 rm -f ~/.vim/plugins.vim
 rm -f ~/.vimrc
 rm -f ~/.zshrc
+rm -f ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 rm -rf ~/.tmuxinator
 
+ln -s `pwd`/Default\ \(OSX\).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 ln -s `pwd`/gitconfig ~/.gitconfig
 ln -s `pwd`/gitignore_global ~/.gitignore_global
 ln -s `pwd`/nvmrc ~/.nvmrc

@@ -56,6 +56,104 @@
 		<array>
 			<dict>
 				<key>CriterionUniqueId</key>
+				<string>60D9BFEE-C3FF-41D2-89E0-97F93950D226</string>
+				<key>Expression</key>
+				<string>no-reply@hackerone.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>9C18B6F6-5126-4AF2-AA5E-8854C3156C1B</string>
+				<key>Expression</key>
+				<string>jklein@doximity.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>AD75EAC6-04E7-4450-BA61-17F0B6991EDB</string>
+		<key>RuleName</key>
+		<string>dox hackerone</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>8B286420-EA42-4D65-8E07-9E8987A579F0</string>
+				<key>Expression</key>
+				<string>productupdate@newrelic.com</string>
+				<key>Header</key>
+				<string>From</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>598695C5-2D9F-473F-BE8D-D84D99384110</string>
+				<key>Expression</key>
+				<string>Newsletter</string>
+				<key>Header</key>
+				<string>Subject</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>D2BBD997-E0D0-4AEF-B325-240583B0CF11</string>
+		<key>RuleName</key>
+		<string>dox new relic newsletter</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
 				<string>FECF100A-02F7-4FC9-BC40-32302A441396</string>
 				<key>Expression</key>
 				<string>info@snowflake.net</string>
@@ -3640,6 +3738,47 @@
 		<string>0BCC98E7-8628-4F1C-8185-45CDEC61B77C</string>
 		<key>RuleName</key>
 		<string>ScottKeys non-new york airports</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>6D0A598C-0979-4289-BC6F-7EAB4E454C5D</string>
+				<key>Expression</key>
+				<string>marketing@newrelic.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>675C0E91-39A0-4EB6-A108-2F36315D46E3</string>
+		<key>RuleName</key>
+		<string>dox new relic marketing</string>
 		<key>SendNotification</key>
 		<false/>
 		<key>ShouldCopyMessage</key>

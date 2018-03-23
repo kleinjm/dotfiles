@@ -7,7 +7,7 @@ def my_user
 end
 
 def make_admin
-  my_account << Role.first
+  my_account.roles << Role.first
 end
 
 def make_pleeb

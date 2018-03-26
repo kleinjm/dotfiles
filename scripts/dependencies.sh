@@ -48,7 +48,9 @@ brew install zsh-autosuggestions
 brew cask install corelocationcli   # for alfred google maps workflow
 
 # make sure python is installed so we have pip
-brew install python3
+brew install pyenv
+source ~/.zshrc
+pyenv install 3.6.4
 # Aliased to `speed` in zshrc
 pip3 install speedtest-cli
 

@@ -171,3 +171,10 @@ fi
 
 # https://github.com/rbenv/rbenv/issues/142
 eval "$(rbenv init -)"
+
+### PYENV and Python - https://github.com/pyenv/pyenv ###
+eval "$(pyenv init -)"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

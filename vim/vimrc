@@ -101,7 +101,7 @@ map <leader>= mzgg=G`z
 " create parent directories. Good for new files in new dir
 map <Leader>mk :call mkdir(expand('%:h'), 'p')<ESC>
 " close all other tabs and splits but this one
-map <leader>cl :only \| tabo<esc>
+map <leader>cl :only<esc>
 map <Leader>n :call RenameFile()<cr>
 
 " map 0 to go to first char on line

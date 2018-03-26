@@ -8,6 +8,8 @@ end
 
 def make_admin
   my_account.roles << Role.first
+  # doc news admin
+  my_account.roles << Role.find(20)
 end
 
 def make_pleeb

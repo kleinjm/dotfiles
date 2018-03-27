@@ -56,6 +56,47 @@
 		<array>
 			<dict>
 				<key>CriterionUniqueId</key>
+				<string>9FDEBA4A-C6B7-4625-A85E-3784CE1C8162</string>
+				<key>Expression</key>
+				<string>newsletter@talend.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>C27300CA-6831-4CF2-9458-38114998BEAC</string>
+		<key>RuleName</key>
+		<string>dox talend</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
 				<string>60D9BFEE-C3FF-41D2-89E0-97F93950D226</string>
 				<key>Expression</key>
 				<string>no-reply@hackerone.com</string>

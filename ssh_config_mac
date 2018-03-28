@@ -23,3 +23,13 @@ Host  *.amstel *.budweiser *.corona *.ember *.dogfish *.fischer *.guinness *.har
   Hostname %h.dox.pub
   Port 5750
   User jklein
+Host pre-prod-bastion
+  Hostname 34.199.173.65
+  Port 45750
+  User jklein
+  Protocol 2
+  ForwardAgent yes
+Host *.dox.rox
+  User jklein
+  ProxyCommand ssh -qax pre-prod-bastion -W %h:%p
+  ForwardAgent yes

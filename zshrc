@@ -98,6 +98,11 @@ export MYVIMRC='~/.vimrc'
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20 # turn off autosuggest for large paste
 export ZSH_AUTOSUGGEST_USE_ASYNC=1 # do autosuggest async
 
+# Doximity
+export MESSAGE_LOGGING_ENABLED="true" # for rake consumers:run kafka consumers
+export FAIL_SLOW=false
+export RESIDENCY_URL='http://localhost:5120/'
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.

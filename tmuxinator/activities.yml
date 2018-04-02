@@ -39,5 +39,9 @@ windows:
       panes:
         - vim .
         -
-  - server: bundle && foreman start
+  - server:
+      layout: 18e5,272x59,0,0{136x59,0,0,31,135x59,137,0,35}
+      panes:
+        - bundle exec rails server -p5150
+        - bundle exec sidekiq
   - console: bundle && bin/rails c

@@ -41,6 +41,6 @@ windows:
       panes:
         - vim .
         -
-        - yarn && yarn run unit:debug
-  - servers: yarn && yarn run dev
+        - nvm use && yarn && yarn run unit:debug
+  - servers: nvm use && yarn && yarn run dev
   - consoles: cd ~/GitHubRepos/doximity && bundle && bundle exec rails c

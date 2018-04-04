@@ -28,6 +28,7 @@ ln -s `pwd`/Default\ \(OSX\).sublime-keymap ~/Library/Application\ Support/Subli
 ln -s `pwd`/gitconfig ~/.gitconfig
 ln -s `pwd`/gitignore_global ~/.gitignore_global
 ln -s `pwd`/mac/git/git_template ~/.git_template
+ln -s `pwd`/mac/rbenv/plugins ~/.rbenv/plugins
 ln -s `pwd`/nvmrc ~/.nvmrc
 ln -s `pwd`/pryrc.rb ~/.pryrc
 ln -s `pwd`/tmux.conf ~/.tmux.conf

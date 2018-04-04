@@ -45,6 +45,8 @@ brew install rbenv
 brew install the_silver_searcher
 brew install zsh-autosuggestions
 
+rbenv ctags # see https://github.com/tpope/rbenv-ctags
+
 brew cask install corelocationcli   # for alfred google maps workflow
 
 # make sure python is installed so we have pip

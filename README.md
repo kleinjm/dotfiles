@@ -31,3 +31,6 @@ Default config taken from [oh-my-tmux](https://github.com/gpakosz/.tmux)
 
 ### Alfred
 - I use [this script](https://github.com/stuartcryan/custom-iterm-applescripts-for-alfred) to get Alfred <> iTerm2 integration
+
+### VIM
+- Followed [this guide](https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html) to set up ctags using git hooks

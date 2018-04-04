@@ -37,11 +37,13 @@ Plug 'ryanoasis/vim-devicons'                       " font icon integration
 Plug 'szw/vim-tags'                                 " generate tag files on save
 Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
 Plug 'tpope/vim-bundler'                            " support helpers for bundler
-Plug 'tpope/vim-fugitive'                           " git interactions
+Plug 'tpope/vim-fugitive'                           " look in .git/ctags for ctags index
 Plug 'tpope/vim-rails'                              " directory navigation and syntax for rails
+Plug 'tpope/vim-rake'                               " configures path for lib and ext directories on ruby and rails projects
 Plug 'tpope/vim-repeat'                             " allow . repeat on plugin commands
 Plug 'tpope/vim-rhubarb'                            " :Gbrowse to get GH url
 Plug 'tpope/vim-surround'                           " add paren and quote helpers
+Plug 'tpope/vim-unimpaired'                         " handy bracket mappings
 Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
 Plug 'w0rp/ale'                                     " async linter

@@ -21,7 +21,7 @@ set ignorecase smartcase       " search case insensitive, until first capital us
 set incsearch		               " do incremental searching
 set lazyredraw                 " Don't update while executing macros
 set nobackup 		               " do not keep a backup file. Set for unandpw.txt
-set nocompatible               " Use Vim settings, rather than Vi settings
+set nocompatible               " Use Vim settings, rather than Vi settings. Needed for vim-textobj-rubyblock plugin
 set noswapfile                 " Turn off swap (.swp) files
 set nowritebackup	             " don't make backup when overwriting file
 set number                     " display line numbers
@@ -185,6 +185,7 @@ if has("autocmd")
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
+  " Needed for vim-textobj-rubyblock plugin to work correctly
   filetype plugin indent on
 
   " Put these in an autocmd group, so that we can delete them easily.

@@ -131,6 +131,8 @@ nmap <leader>' :%s/\"/\'/g<cr><C-@><Esc>
 nmap <leader>br :.Gbrowse<cr>
 " git blame
 nmap <leader>bl :Gblame<cr>
+" open temp file to scratch on
+map <Leader>tmp :vsp ~/.tempfile<CR>
 
 " ctrl+space exits out of search and everything
 nnoremap <C-@> <Esc>:noh<CR>

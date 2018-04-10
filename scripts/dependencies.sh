@@ -43,6 +43,7 @@ brew install gpg                                # for github verified commits
 brew install heroku
 brew install rbenv
 brew install the_silver_searcher
+brew install tree # shell `tree` command for directory structure
 brew install zsh-autosuggestions
 
 rbenv ctags # see https://github.com/tpope/rbenv-ctags

@@ -310,7 +310,7 @@ nnoremap <leader>dm :Files app/models<cr>
 nnoremap <leader>dv :Files app/views<cr>
 nnoremap <leader>ds :Files spec/<cr>
 
-" Search only the files that are on the current branch
+" Search only the files that are on the current and uncommitted branch
 command! Fzfc call fzf#run(fzf#wrap({'source': 'git diff origin/master --name-only'}))
 noremap <Leader>g :Fzfc<cr>
 

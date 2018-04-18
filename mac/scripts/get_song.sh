@@ -7,7 +7,7 @@ cd ~/Music/iTunes/iTunes\ Media/Automatically\ Add\ to\ iTunes.localized
 youtube-dl -x --audio-format mp3 $1
 
 # cleanup
-sudo rm -rf ~/Music/iTunes/iTunes\ Media/Automatically\ Add\ to\ iTunes.localized/Not\ Added/
+rm -rf ~/Music/iTunes/iTunes\ Media/Automatically\ Add\ to\ iTunes.localized/Not\ Added/
 
 # fire off remote sync script
 $ORIGINAL_PWD/upload_music.sh

@@ -34,3 +34,6 @@ Default config taken from [oh-my-tmux](https://github.com/gpakosz/.tmux)
 
 ### VIM
 - Followed [this guide](https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html) to set up ctags using git hooks
+
+### Music
+Music is synced to my personal server space using `/mac/scripts/upload_music`. This only uploads the file difference.

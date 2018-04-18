@@ -128,6 +128,7 @@ alias resolve_rails="master && bundle install && rails db:migrate && rails db:te
 alias passwords="~/Dropbox/passwords.sh"
 alias speed="speedtest-cli" # run a speedtest
 alias pack="ruby ~/GitHubRepos/packing_checklist/app/run.rb"
+alias get-song="~/GitHubRepos/dotfiles/mac/scripts/get_song.sh"
 
 # Doximity
 alias dox='cd ~/GitHubRepos/doximity'

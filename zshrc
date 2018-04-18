@@ -109,7 +109,7 @@ export RESIDENCY_URL='http://localhost:5120/'
 # For a full list of active aliases, run `alias`.
 
 # Git
-alias gpom='git pull origin master'
+alias gpom='git pull origin master --message "Merge master"'
 alias gpod='git pull origin develop'
 alias master='git fetch --prune && git checkout master && git pull origin master'
 alias develop='git fetch --prune && git checkout develop && git pull origin develop'

@@ -44,6 +44,6 @@ windows:
   - servers:
       layout: c8b6,238x57,0,0{119x57,0,0,82,118x57,120,0,83}
       panes:
-        - bundle exec rails server puma -p5130
-        - bundle exec sidekiq
+        - bundle && bundle exec rails server puma -p5130
+        - bundle && bundle exec sidekiq
   - consoles: rails c

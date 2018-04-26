@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/sh
+
+set -e
+set -o pipefail
 
 ORIGINAL_PWD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 

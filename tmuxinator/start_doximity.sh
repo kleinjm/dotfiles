@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/sh
+
+set -e
+set -o pipefail
 
 # a lot of apps rely on the docker container in doximity so keep it at top
 apps=(doximity doc-news dotfiles)

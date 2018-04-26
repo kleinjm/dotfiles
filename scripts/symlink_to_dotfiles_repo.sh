@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/sh
+
+set -e
+set -o pipefail
 
 platform='unknown'
 unamestr=`uname`

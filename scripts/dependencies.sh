@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/sh
+
+set -e
+set -o pipefail
 
 # get the os version, either mac or linux. Ie. -o mac
 while getopts o: option

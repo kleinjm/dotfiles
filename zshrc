@@ -196,6 +196,16 @@ bip() {
   fi
 }
 
+# fbr - checkout git branch (including remote branches)
+fbr() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# cd tab completion with fzf
 # taken from https://github.com/changyuheng/zsh-interactive-cd
 # NOTE: I copied manually but should write a git command for fetching this
 source ~/.zsh/zsh-interactive-cd.plugin.zsh

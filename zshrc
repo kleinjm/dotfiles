@@ -137,7 +137,6 @@ alias doxstart='~/GitHubRepos/dotfiles/tmuxinator/start_doximity.sh'
 alias e2e-single="TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules/.bin/wdio --spec"
 
 ### FZF ###
-# TODO: look at fzf documentation
 export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files --follow --hidden -g "" 2> /dev/null'
 export FZF_DEFAULT_OPTS="--height 100% --reverse --bind \"\
 ctrl-b:page-up,\
@@ -150,11 +149,9 @@ ctrl-u:preview-page-up,\
 down:preview-down,\
 up:preview-up\
 \""
-# export FZF_ALT_C_COMMAND="bfs -type d -nohidden"
-# export FZF_ALT_C_OPTS='--no-preview'
 export FZF_CTRL_R_OPTS='--no-preview'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_CTRL_T_OPTS='--preview "(highlight -O ansi -l {} || cat {}) 2> /dev/null | head -5000"'
+export FZF_CTRL_T_OPTS='--preview "(highlight -O ansi -l {} || cat {}) 2> /dev/null | head -5000"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ### END FZF ###

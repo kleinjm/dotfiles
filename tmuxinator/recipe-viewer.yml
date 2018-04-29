@@ -39,11 +39,11 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - vim .
-        -
+        - nvm use && vim .
+        - nvm use
   - server:
       layout: 44b2,238x57,0,0{119x57,0,0,66,118x57,120,0,112}
       panes:
-        - bin/rails s
+        - bin/rails s --early-hints
         - nvm use && bin/webpack-dev-server
   - console: bin/rails c

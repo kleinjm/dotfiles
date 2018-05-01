@@ -27,6 +27,7 @@ rm -f ~/.zshrc
 rm -f ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 rm -rf ~/.git_template
 rm -rf ~/.oh-my-zsh/custom/plugins
+rm -rf ~/.rbenv/plugins
 rm -rf ~/.tmuxinator
 
 ln -s `pwd`/Default\ \(OSX\).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap

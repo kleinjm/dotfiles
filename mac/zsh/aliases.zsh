@@ -1,6 +1,7 @@
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes.
 # For a full list of active aliases, run `alias`.
+# Don't forget that zsh plugins like git include their own aliases
 
 # shell commands
 alias cp="cp -iv" # -i will ask form confirmation when overwriting files

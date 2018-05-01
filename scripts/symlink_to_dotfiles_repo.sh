@@ -23,6 +23,7 @@ rm -f ~/.vim/functions.vim
 rm -f ~/.vim/lightline.vim
 rm -f ~/.vim/plugins.vim
 rm -f ~/.vimrc
+rm -f ~/.zshenv
 rm -f ~/.zshrc
 rm -f ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 rm -rf ~/.git_template
@@ -36,6 +37,7 @@ ln -s `pwd`/gitignore_global ~/.gitignore_global
 ln -s `pwd`/mac/git/git_template ~/.git_template
 ln -s `pwd`/mac/rbenv/plugins ~/.rbenv/plugins
 ln -s `pwd`/mac/zsh/plugins ~/.oh-my-zsh/custom/plugins
+ln -s `pwd`/mac/zsh/zshenv ~/.zshenv
 ln -s `pwd`/mac/zsh/zshrc ~/.zshrc
 ln -s `pwd`/nvmrc ~/.nvmrc
 ln -s `pwd`/pryrc.rb ~/.pryrc

@@ -4,6 +4,7 @@
 # Don't forget that zsh plugins like git include their own aliases
 
 # shell commands
+# TODO: some of these don't seem to work
 alias cp="cp -iv" # -i will ask form confirmation when overwriting files
 alias rm="rm -iv" # -i will ask confirmation before deleting a file
 alias mv="mv -iv" # -i will ask confirmation before overwriting an existing dir

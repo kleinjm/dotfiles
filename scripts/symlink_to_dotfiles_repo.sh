@@ -25,6 +25,7 @@ rm -f ~/.vim/plugins.vim
 rm -f ~/.vimrc
 rm -f ~/.zshenv
 rm -f ~/.zshrc
+rm -f ~/.psqlrc
 rm -f ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 rm -rf ~/.git_template
 rm -rf ~/.oh-my-zsh/custom/plugins
@@ -50,6 +51,7 @@ ln -s `pwd`/vim/functions.vim ~/.vim/functions.vim
 ln -s `pwd`/vim/lightline.vim ~/.vim/lightline.vim
 ln -s `pwd`/vim/plugins.vim ~/.vim/plugins.vim
 ln -s `pwd`/vim/vimrc ~/.vimrc
+ln -s `pwd`/mac/psqlrc ~/.psqlrc
 
 if [ $platform = 'mac' ]; then
   ln -s `pwd`/ssh_config_mac ~/.ssh/config

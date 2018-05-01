@@ -1,0 +1,17 @@
+-- vim: ft=sql
+
+-- Official docs: http://www.postgresql.org/docs/9.3/static/app-psql.html
+-- http://craigkerstiens.com/2013/02/13/How-I-Work-With-Postgres/
+-- https://github.com/hgmnz/dotfiles/blob/master/psqlrc
+
+-- Remove this:
+--    Null display is "[NULL]".
+--    Expanded display is used automatically.
+--    psql (9.3.1)
+--    Type "help" for help.
+\pset null '[NULL]'
+
+-- Use best available output format. Horizontal or vertical
+\x auto
+
+\set VERBOSITY verbose

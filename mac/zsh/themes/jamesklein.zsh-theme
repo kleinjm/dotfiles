@@ -2,7 +2,14 @@
 
 # TODO: It would be cool to have this show the nvm node version in a JS project
 prompt_color()  { print "%{$fg[$2]%}$1%{$reset_color%}" }
+prompt_green()  { prompt_color "$1" green }
 prompt_magenta(){ prompt_color "$1" magenta }
+prompt_purple() { prompt_color "$1" purple }
+prompt_red()    { prompt_color "$1" red }
+prompt_cyan()   { prompt_color "$1" cyan }
+prompt_blue()   { prompt_color "$1" blue }
+prompt_yellow() { prompt_color "$1" yellow }
+prompt_spaced() { [[ -n "$1" ]] && print " $@" }
 
 prompt_ruby_version() {
   local version=$(rbenv version-name)

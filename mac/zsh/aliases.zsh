@@ -7,7 +7,7 @@
 alias cp="cp -iv" # -i will ask form confirmation when overwriting files
 alias df="df -h" # disk free space
 alias du="du -cksh" # disk usage
-alias ls="ls -FGhla" # TODO: fix this alias. -F symbols, -G colorized output, -h full unit (Kilobyte)
+alias ls="ls -FGhla" # -F symbols, -G colorized output, -h full unit (Kilobyte)
 alias mv="mv -iv" # -i will ask confirmation before overwriting an existing dir
 alias rm="rm -iv" # -i will ask confirmation before deleting a file
 

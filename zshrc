@@ -71,10 +71,11 @@ HISTSIZE=1000000 # amount of commands saved in history
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # NOTE: zsh-syntax-highlighting was affecting boot performance
-# NOTE: dependency - brew install zsh-autosuggestions
-# zsh-autosuggestions was breaking scroll up through history ability
-# source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-plugins=(git bundler osx rake ruby rails tmux docker)
+# NOTE: Follow the oh-my-zsh install instructions and check out `develop` branch
+# https://github.com/zsh-users/zsh-autosuggestions#oh-my-zsh
+# Currently there is an issue on master
+# See https://github.com/zsh-users/zsh-autosuggestions/issues/241
+plugins=(git bundler osx rake ruby rails tmux docker zsh-autosuggestions)
 
 # QT added to path to fix gem install capybara-webkit issue
 export PATH=~/Qt5.5.1/5.5/clang_64/bin:~/.rbenv/shims:/usr/local/bin:/usr/bin:$PATH

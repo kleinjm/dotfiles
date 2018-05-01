@@ -45,7 +45,6 @@ brew install rbenv
 brew install the_silver_searcher
 brew install tree # shell `tree` command for directory structure
 brew install youtube-dl
-# brew install zsh-autosuggestions # currently disabled due to scroll up through history issue
 
 rbenv ctags # see https://github.com/tpope/rbenv-ctags
 

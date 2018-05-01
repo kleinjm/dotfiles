@@ -4,7 +4,16 @@
 # Author: James Klein
 ##############################################################################
 
-BASE="$HOME/.zsh"
+# Path to your oh-my-zsh installation.
+DEFAULT_USER=`whoami`
+export ZSH=/Users/$DEFAULT_USER/.oh-my-zsh
+export PROJECT_DIR=~/GitHubRepos
+DOTFILES_DIR=$PROJECT_DIR/dotfiles
+
+# Load all .zsh config files in this dir
+for file in "$DOTFILES_DIR"/mac/zsh/*.zsh; do
+  source "$file"
+done
 
 # On slow systems, checking the cached .zcompdump file to see if it must be
 # regenerated adds a noticable delay to zsh startup.  This little hack restricts
@@ -21,29 +30,6 @@ if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
 else
 	compinit -C;
 fi;
-
-platform='unknown'
-unamestr=`uname`
-if [[ "$unamestr" == 'Linux' ]]; then
-   platform='linux'
-elif [[ "$unamestr" == 'Darwin' ]]; then
-   platform='mac'
-fi
-
-# Path to your oh-my-zsh installation.
-if [ $platform = 'mac' ]; then
-  DEFAULT_USER=`whoami`
-  export ZSH=/Users/$DEFAULT_USER/.oh-my-zsh
-elif [ $platform = 'linux' ]; then
-  export ZSH=/home/vagrant/.oh-my-zsh
-fi
-
-# set a project dir for use by things like tmuxinator
-if [ $platform = 'mac' ]; then
-  export PROJECT_DIR=~/GitHubRepos
-elif [ $platform = 'linux' ]; then
-  export PROJECT_DIR=~/work
-fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -91,7 +77,7 @@ if [ -f ~/.zshrc.local ]; then
 fi
 
 # tmuxinator autocomplete - allows `mux` in CLI
-source $PROJECT_DIR/dotfiles/mac/zsh/plugins/tmuxinator.zsh
+source $DOTFILES_DIR/mac/zsh/plugins/tmuxinator.zsh
 
 export EDITOR='vim' # Preferred editor for local and remote sessions
 export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh
@@ -109,35 +95,6 @@ export RESIDENCY_URL='http://localhost:5120/'
 # Git
 # use the default merge message so that EDITOR does not open
 export GIT_MERGE_AUTOEDIT=no
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-
-# Git
-alias gpom='git pull origin master'
-alias gpod='git pull origin develop'
-alias master='git fetch --prune && git checkout master && git pull origin master'
-alias develop='git fetch --prune && git checkout develop && git pull origin develop'
-
-# NodeJS, NPM
-alias sequelize="node_modules/.bin/sequelize"
-
-# Rails
-alias resolve_rails="master && bundle install && rails db:migrate && rails db:test:prepare"
-
-# Misc, Personal
-alias passwords="~/Dropbox/passwords.sh"
-alias speed="speedtest-cli" # run a speedtest
-alias pack="ruby ~/GitHubRepos/packing_checklist/app/run.rb"
-alias get-song="~/GitHubRepos/dotfiles/mac/scripts/get_song.sh"
-
-# Doximity
-alias dox='cd ~/GitHubRepos/doximity'
-alias doxserver='bin/rails s webrick -p5000'
-alias doxstart='~/GitHubRepos/dotfiles/tmuxinator/start_doximity.sh'
-alias e2e-single="TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules/.bin/wdio --spec"
 
 ### FZF ###
 export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files --follow --hidden -g "" 2> /dev/null'

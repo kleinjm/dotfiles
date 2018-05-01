@@ -17,6 +17,7 @@ set expandtab                  " set spaces for tab
 set guifont=FuraMono\ Nerd\ Font\ Regular:h12 lsp=2
 set hidden                     " Allow buffer change w/o saving
 set history=1000		           " keep 1000 lines of command line history
+set hlsearch                   " highlight the last used search pattern
 set ignorecase smartcase       " search case insensitive, until first capital used
 set incsearch		               " highlight matches while searching
 set lazyredraw                 " Don't update while executing macros
@@ -47,7 +48,6 @@ endif
 " Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2 || has("gui_running")
   syntax on
-  set hlsearch " highlight the last used search pattern
 endif
 
 " Prevent that the langmap option applies to characters that result from a

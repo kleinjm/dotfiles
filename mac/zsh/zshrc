@@ -4,6 +4,8 @@
 # Author: James Klein
 ##############################################################################
 
+BASE="$HOME/.zsh"
+
 # On slow systems, checking the cached .zcompdump file to see if it must be
 # regenerated adds a noticable delay to zsh startup.  This little hack restricts
 # it to once a day.  It should be pasted into your own completion file.
@@ -89,7 +91,7 @@ if [ -f ~/.zshrc.local ]; then
 fi
 
 # tmuxinator autocomplete - allows `mux` in CLI
-source $PROJECT_DIR/dotfiles/tmuxinator/tmuxinator.zsh
+source $PROJECT_DIR/dotfiles/mac/zsh/plugins/tmuxinator.zsh
 
 export EDITOR='vim' # Preferred editor for local and remote sessions
 export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh

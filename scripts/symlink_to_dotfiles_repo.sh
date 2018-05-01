@@ -25,6 +25,8 @@ rm -f ~/.vim/plugins.vim
 rm -f ~/.vimrc
 rm -f ~/.zshrc
 rm -f ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
+rm -rf ~/.git_template
+rm -rf ~/.oh-my-zsh/custom/plugins
 rm -rf ~/.tmuxinator
 
 ln -s `pwd`/Default\ \(OSX\).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
@@ -32,6 +34,8 @@ ln -s `pwd`/gitconfig ~/.gitconfig
 ln -s `pwd`/gitignore_global ~/.gitignore_global
 ln -s `pwd`/mac/git/git_template ~/.git_template
 ln -s `pwd`/mac/rbenv/plugins ~/.rbenv/plugins
+ln -s `pwd`/mac/zsh/plugins ~/.oh-my-zsh/custom/plugins
+ln -s `pwd`/mac/zsh/zshrc ~/.zshrc
 ln -s `pwd`/nvmrc ~/.nvmrc
 ln -s `pwd`/pryrc.rb ~/.pryrc
 ln -s `pwd`/tmux.conf ~/.tmux.conf
@@ -41,7 +45,6 @@ ln -s `pwd`/vim/functions.vim ~/.vim/functions.vim
 ln -s `pwd`/vim/lightline.vim ~/.vim/lightline.vim
 ln -s `pwd`/vim/plugins.vim ~/.vim/plugins.vim
 ln -s `pwd`/vim/vimrc ~/.vimrc
-ln -s `pwd`/zshrc ~/.zshrc
 
 if [ $platform = 'mac' ]; then
   ln -s `pwd`/ssh_config_mac ~/.ssh/config

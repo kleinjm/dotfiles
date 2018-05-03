@@ -37,6 +37,7 @@ fi
 
 sudo chmod -R 777 $ZSH # ohmyzsh plugins
 
+brew cask install insomnia # OSS rest client
 brew install bash
 brew install fzf
 brew install gpg                                # for github verified commits

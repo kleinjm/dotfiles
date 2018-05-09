@@ -29,7 +29,7 @@ rm -f ~/.psqlrc
 rm -f ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 rm -rf ~/.git_template
 rm -rf ~/.oh-my-zsh/custom/plugins
-rm -rf ~/.oh-my-zsh/custom/themes
+rm -rf ~/.oh-my-zsh/themes # this may get in the way of pulling updates
 rm -rf ~/.rbenv/plugins
 rm -rf ~/.tmuxinator
 
@@ -39,7 +39,7 @@ ln -s `pwd`/gitignore_global ~/.gitignore_global
 ln -s `pwd`/mac/git/git_template ~/.git_template
 ln -s `pwd`/mac/rbenv/plugins ~/.rbenv/plugins
 ln -s `pwd`/mac/zsh/plugins ~/.oh-my-zsh/custom/plugins
-ln -s `pwd`/mac/zsh/themes ~/.oh-my-zsh/custom/themes
+ln -s `pwd`/mac/zsh/themes ~/.oh-my-zsh/themes # this should be the custom folder
 ln -s `pwd`/mac/zsh/zshenv ~/.zshenv
 ln -s `pwd`/mac/zsh/zshrc ~/.zshrc
 ln -s `pwd`/nvmrc ~/.nvmrc

@@ -37,3 +37,9 @@ Default config taken from [oh-my-tmux](https://github.com/gpakosz/.tmux)
 
 ### Music
 Music is synced to my personal server space using `/mac/scripts/upload_music`. This only uploads the file difference and deletes any deleted songs. My server plan comes with 100GB of space.
+
+### SSH
+To set up ssh and rsync without asking for a password. See [this guide](https://www.thegeekstuff.com/2011/07/rsync-over-ssh-without-password/)
+```
+ssh-copy-id -i ~/.ssh/id_rsa.pub jamesmkl@jamesmklein.com
+```

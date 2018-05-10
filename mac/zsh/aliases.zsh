@@ -33,13 +33,14 @@ alias rc!="spring stop && rails console"
 # Misc, Personal
 alias passwords="~/Dropbox/passwords.sh"
 alias speed="speedtest-cli" # run a speedtest
-alias pack="ruby ~/GitHubRepos/packing_checklist/app/run.rb"
-alias get-song="~/GitHubRepos/dotfiles/mac/scripts/get_song.sh"
+alias pack="ruby $PROJECT_DIR/packing_checklist/app/run.rb"
+alias get-song="$DOTFILES_DIR/mac/scripts/get_song.sh"
+alias upload-music="$DOTFILES_DIR/mac/scripts/upload_music.sh"
 
 # Doximity
-alias dox='cd ~/GitHubRepos/doximity'
+alias dox="cd $PROJECT_DIR/doximity"
 alias doxserver='bin/rails s webrick -p5000'
-alias doxstart='~/GitHubRepos/dotfiles/tmuxinator/start_doximity.sh'
+alias doxstart="$DOTFILES_DIR/tmuxinator/start_doximity.sh"
 alias e2e-single="TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules/.bin/wdio --spec"
 
 # Global aliases

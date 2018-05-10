@@ -7,7 +7,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export PROJECT_DIR=$HOME/GitHubRepos
-DOTFILES_DIR=$PROJECT_DIR/dotfiles
+export DOTFILES_DIR=$PROJECT_DIR/dotfiles
 
 # On slow systems, checking the cached .zcompdump file to see if it must be
 # regenerated adds a noticable delay to zsh startup.  This little hack restricts

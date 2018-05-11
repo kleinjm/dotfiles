@@ -9,7 +9,7 @@ alias df="df -h" # disk free space
 alias du="du -cksh" # disk usage
 alias ls="ls -FGhla" # -F symbols, -G colorized output, -h full unit (Kilobyte)
 alias mv="mv -iv" # -i will ask confirmation before overwriting an existing dir
-alias rm="rm -iv" # -i will ask confirmation before deleting a file
+alias rm="rm -v" # -i will ask confirmation before deleting a file
 
 # Use modern regexps for sed, ie. "(one|two)", not "\(one\|two\)"
 alias sed="sed -E"

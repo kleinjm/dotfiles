@@ -1,5 +1,11 @@
 Host *
+   IdentityFile ~/.ssh/id_rsa
    AddKeysToAgent yes
+   Protocol 2
+   ServerAliveInterval 60
+   ControlPath ~/.ssh/cm-%r@%h:%p
+   ControlMaster auto
+   ControlPersist 10m
    UseKeychain yes
 
 # --- SourceTree Generated ---

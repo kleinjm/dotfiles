@@ -1,6 +1,6 @@
 # ~/.tmuxinator/feedlr.yml
 
-name: dox-style
+name: feedlr
 root: ~/GitHubRepos/feedlr
 # needed for pane-base-index 1 config
 startup_pane: 1

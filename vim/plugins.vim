@@ -48,5 +48,6 @@ Plug 'tpope/vim-unimpaired'                         " handy bracket mappings
 Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
 Plug 'w0rp/ale'                                     " async linter
+Plug 'yegappan/greplace'                            " global search and replace
 
 call plug#end() " Initialize plugin system

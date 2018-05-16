@@ -31,10 +31,11 @@ alias resolve_rails="master && bundle install && rails db:migrate && rails db:te
 alias rc!="spring stop && rails console"
 
 # Misc, Personal
-alias passwords="~/Dropbox/passwords.sh"
-alias speed="speedtest-cli" # run a speedtest
-alias pack="ruby $PROJECT_DIR/packing_checklist/app/run.rb"
 alias get-song="$DOTFILES_DIR/mac/scripts/get_song.sh"
+alias pack="ruby $PROJECT_DIR/packing_checklist/app/run.rb"
+alias passwords="~/Dropbox/passwords.sh"
+alias pomo="$DOTFILES_DIR/mac/scripts/bin/pomodoro"
+alias speed="speedtest-cli" # run a speedtest
 alias upload-music="$DOTFILES_DIR/mac/scripts/upload_music.sh"
 
 # Doximity

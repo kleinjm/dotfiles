@@ -3,5 +3,6 @@
 *.swo
 .pryrc
 .DS_Store
+.git
 
 npm-debug.log

@@ -16,9 +16,10 @@ windows:
         - nvm use && vim .
         - nvm use
   - servers:
-      layout: c5de,272x59,0,0[272x45,0,0,1,272x13,0,46{135x13,0,46,4,136x13,136,46,5}]
+      layout: c5ae,272x59,0,0[272x38,0,0{136x38,0,0,6,135x38,137,0,25},272x20,0,39{135x20,0,39,9,136x20,136,39,10}]
       panes:
         - bundle && doxserver
-        - docker-compose up
         - bundle && bundle exec sidekiq
+        - docker-compose up
+        - docker-compose -f docker-compose-test.yml up
   - consoles: rails c

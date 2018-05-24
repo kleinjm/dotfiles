@@ -1,12 +1,10 @@
 # Dotfiles
 
-## Dual Boot
-I dual boot mac and linux and roughly followed [this guide](https://www.lifewire.com/dual-boot-linux-and-mac-os-4125733) to set it up.
-
 ## Mac
 ### Installing Fonts
 * Run the `bin/dependencies.sh` file
 * Open the font file saved in `mac_config` and install it to the Mac Font Book
+  * `open mac_config/Fura\ Mono\ Regular\ Nerd\ Font\ Complete.otf`
 * In iTerm, set the font to that font for the current profile
 * Restart vim and you should see devicons
 
@@ -19,6 +17,7 @@ I dual boot mac and linux and roughly followed [this guide](https://www.lifewire
 
 ### Additional environment configurations
 * Chrome theme - Dark Theme v3
+* See `~/Dropbox/Environment\ Configurations/README.txt`
 
 ### Userscripts
 Stored in bookmarks on my googlde chrome account.
@@ -43,3 +42,4 @@ To set up ssh and rsync without asking for a password. See [this guide](https://
 ```
 ssh-copy-id -i ~/.ssh/id_rsa.pub jamesmkl@jamesmklein.com
 ```
+- See `~/Dropbox/Environment\ Configurations` for additional configurations

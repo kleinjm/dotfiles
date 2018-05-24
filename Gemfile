@@ -10,5 +10,3 @@ gem "pry-nav"
 gem "rubocop"
 gem "slim_lint"
 gem "tmuxinator"
-
-gem ctags # index every rubygem installed on the system. Will run automatically after the first time

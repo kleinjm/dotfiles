@@ -4,6 +4,7 @@ GEM
     ast (2.3.0)
     coderay (1.1.2)
     erubis (2.7.0)
+    gem-ctags (1.0.9)
     jslint (1.2.0)
       json
     json (1.8.6)
@@ -56,6 +57,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  gem-ctags
   jslint
   pre-commit
   pry
@@ -66,4 +68,4 @@ DEPENDENCIES
   tmuxinator
 
 BUNDLED WITH
-   1.16.1
+   1.16.2

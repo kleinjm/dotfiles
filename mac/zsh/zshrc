@@ -39,6 +39,9 @@ HYPHEN_INSENSITIVE="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
+# ignore insecure completion-dependent directories
+ZSH_DISABLE_COMPFIX=true
+
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
@@ -91,7 +94,7 @@ done
 # cd tab completion with fzf
 # taken from https://github.com/changyuheng/zsh-interactive-cd
 # NOTE: I copied manually but should write a git command for fetching this
-source $DOTFILES_DIR/mac/zsh/plugins/zsh-interactive-cd.plugin.zsh
+# source $DOTFILES_DIR/mac/zsh/plugins/zsh-interactive-cd.plugin.zsh
 
 # tmuxinator autocomplete - allows `mux` in CLI
 source $DOTFILES_DIR/mac/zsh/plugins/tmuxinator.zsh

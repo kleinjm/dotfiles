@@ -9,4 +9,3 @@ npm-debug.log
 
 # temp fix for yarn issues in doximity app repo
 config/initializers/james_env.rb
-yarn-error.log

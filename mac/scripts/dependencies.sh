@@ -44,7 +44,7 @@ brew cask install insomnia # OSS rest client
 
 # gpg for github verified commits
 # tree for `tree` command for dir structure
-brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl
+brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl yarn
 
 brew install rbenv ctags
 rbenv ctags

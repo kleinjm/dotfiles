@@ -41,7 +41,7 @@ fi
 
 brew cask install insomnia # OSS rest client
 
-brew tag divoxx/brewery # for muggler
+brew tap divoxx/brewery # for muggler
 
 # gpg for github verified commits
 # tree for `tree` command for dir structure

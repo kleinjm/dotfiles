@@ -41,13 +41,10 @@ if [ $? != 0 ]; then
 fi
 
 brew cask install insomnia # OSS rest client
-brew install bash
-brew install fzf
-brew install gpg                                # for github verified commits
-brew install heroku
-brew install the_silver_searcher
-brew install tree # shell `tree` command for directory structure
-brew install youtube-dl
+
+# gpg for github verified commits
+# tree for `tree` command for dir structure
+brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl
 
 brew install rbenv ctags
 rbenv ctags

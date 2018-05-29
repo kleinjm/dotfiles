@@ -31,7 +31,6 @@ fi
 
 # NOTE: **You must open the XCode app and click install when prompted**
 brew install macvim --with-override-system-vim
-brew install reattach-to-user-namespace
 
 # oh-my-zsh
 ls ~/.oh-my-zsh
@@ -42,9 +41,12 @@ fi
 
 brew cask install insomnia # OSS rest client
 
+brew tag divoxx/brewery # for muggler
+
 # gpg for github verified commits
 # tree for `tree` command for dir structure
-brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl yarn
+# muggler - run rails migrations when switching branches. Run `muggler install` in each repo. See https://github.com/divoxx/muggler
+brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl yarn reattach-to-user-namespace muggler
 
 brew install rbenv ctags
 rbenv ctags

@@ -10,6 +10,7 @@ source ~/.vim/functions.vim " define functions to map to
 let mapleader=" "                     " set leader key to space
 colorscheme jellybeans                " set color scheme
 
+set autoread                   " auto-reload the current file when switching to it
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set clipboard=unnamed          " copy to the system clipboard
 set encoding=utf8              " set to show fonts and glyphs
@@ -41,7 +42,6 @@ set tags=tags;/                " check the current folder for tags file and keep
 set undofile		               " keep an undo file (undo changes after closing)
 set updatetime=1000            " slow update for linting
 set wildmode=list:longest,list:full " used for smart tab completion
-setl autoread                  " auto-reload the current file when switching to it
 
 let g:grep_cmd_opts = '--line-numbers --noheading'
 

@@ -41,6 +41,7 @@ set tags=tags;/                " check the current folder for tags file and keep
 set undofile		               " keep an undo file (undo changes after closing)
 set updatetime=1000            " slow update for linting
 set wildmode=list:longest,list:full " used for smart tab completion
+setl autoread                  " auto-reload the current file when switching to it
 
 let g:grep_cmd_opts = '--line-numbers --noheading'
 

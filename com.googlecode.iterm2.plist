@@ -168,13 +168,13 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>787 243 796 473 0 0 1920 1058 </string>
+	<string>212 325 918 512 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>841 619 570 352 0 0 1920 1058 </string>
+	<string>0 0 1920 1058 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>-1920 0 960 1058 -1920 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 0 960 1058 0 0 1920 1058 </string>
+	<string>0 0 1914 1058 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>-960 706 570 352 -1920 0 1920 1058 </string>
 	<key>New Bookmarks</key>
@@ -808,6 +808,8 @@
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>548867234.66355002</real>
 	<key>PMPrintingExpandedStateForPrint2</key>
@@ -860,7 +862,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-05-24T15:41:07Z</date>
+	<date>2018-05-29T12:46:23Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>

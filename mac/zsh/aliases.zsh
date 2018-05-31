@@ -18,10 +18,11 @@ alias sed="sed -E"
 alias \$=''
 
 # Git
-alias gpom='git pull origin master'
-alias gpod='git pull origin develop'
-alias master='git fetch --prune && git checkout master && git pull origin master'
 alias develop='git fetch --prune && git checkout develop && git pull origin develop'
+alias gpod='git pull origin develop'
+alias gpom='git pull origin master'
+alias gs='git s'
+alias master='git fetch --prune && git checkout master && git pull origin master'
 
 # NodeJS, NPM
 alias sequelize="node_modules/.bin/sequelize"

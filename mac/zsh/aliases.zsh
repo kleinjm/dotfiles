@@ -28,7 +28,7 @@ alias master='git fetch --prune && git checkout master && git pull origin master
 alias sequelize="node_modules/.bin/sequelize"
 
 # Rails
-alias resolve_rails="master && bundle install && rails db:migrate && rails db:test:prepare"
+alias resolve-rails="master && bundle install && rails db:migrate && rails db:test:prepare"
 alias rc!="spring stop && rails console"
 
 # Misc, Personal

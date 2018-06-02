@@ -43,10 +43,12 @@ brew cask install insomnia # OSS rest client
 
 brew tap divoxx/brewery # for muggler
 
-# gpg for github verified commits
-# tree for `tree` command for dir structure
-# muggler - run rails migrations when switching branches. Run `muggler install` in each repo. See https://github.com/divoxx/muggler
-brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl yarn reattach-to-user-namespace muggler
+# gpg - github verified commits
+# tree - `tree` command for dir structure
+# muggler - run rails migrations when switching branches.
+#   Run `muggler install` in each repo. See https://github.com/divoxx/muggler
+# ffmpeg - dependency for youtube-dl
+brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl yarn reattach-to-user-namespace muggler ffmpeg
 
 brew install rbenv ctags
 rbenv ctags

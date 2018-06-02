@@ -307,12 +307,7 @@ command! -bang -nargs=* Ag
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \                 <bang>0)
 
-" fzf mappings mostly for rails
 nnoremap <leader>f :Files<cr>
-nnoremap <leader>dc :Files app/controllers<cr>
-nnoremap <leader>dm :Files app/models<cr>
-nnoremap <leader>dv :Files app/views<cr>
-nnoremap <leader>ds :Files spec/<cr>
 
 " Search only the files that are on the current and uncommitted branch
 command! Fzfc call fzf#run(fzf#wrap({'source': 'git diff origin/master --name-only'}))

@@ -38,6 +38,7 @@ alias passwords="~/Dropbox/passwords.sh"
 alias pomo="$DOTFILES_DIR/mac/scripts/bin/pomodoro" # https://github.com/carlmjohnson/pomodoro
 alias speed="speedtest-cli" # run a speedtest
 alias upload-music="$DOTFILES_DIR/mac/scripts/upload_music.sh"
+alias download-music="$DOTFILES_DIR/mac/scripts/download_music.sh"
 
 # Doximity
 alias dox="cd $PROJECT_DIR/doximity"

@@ -18,6 +18,7 @@ if [ $? != 0 ]; then
 fi
 
 # tmux is required for oh-my-zsh to source it's plugin correctly
+# NOTE: keep this before `source ~/.zshrc`
 brew install tmux
 
 # make sure python is installed so we have pip
@@ -43,36 +44,35 @@ if [ $? != 0 ]; then
   sudo chmod -R 777 $ZSH # ohmyzsh plugins
 fi
 
-brew cask install insomnia # OSS rest client
+# divoxx/brewery - muggler
+brew tap divoxx/brewery caskroom/fonts
 
-brew tap divoxx/brewery # for muggler
-
-# gpg - github verified commits
-# tree - `tree` command for dir structure
+# gpg for github verified commits
+# tree for `tree` command for dir structure
 # muggler - run rails migrations when switching branches.
 #   Run `muggler install` in each repo. See https://github.com/divoxx/muggler
 # ffmpeg - dependency for youtube-dl
-brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl yarn reattach-to-user-namespace muggler ffmpeg
+brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl \
+  yarn reattach-to-user-namespace muggler rbenv ctags
 
-brew install rbenv ctags
-rbenv ctags
-if [ $? != 0 ]; then
+until
+  rbenv ctags
+  [ "$?" -ne 127  ]
+do
   mkdir -p ~/.rbenv/plugins
   git clone git://github.com/tpope/rbenv-ctags.git \
     ~/.rbenv/plugins/rbenv-ctags
   rbenv ctags # see https://github.com/tpope/rbenv-ctags
-fi
-
-brew cask install corelocationcli   # for alfred google maps workflow
+done
 
 # Aliased to `speed` in zshrc
 pip3 install speedtest-cli
 
-# Needed for nerd fonts and devicons
+# font related casks - Needed for nerd fonts and devicons
 # https://github.com/ryanoasis/nerd-fonts#option-3-install-script
-brew tap caskroom/fonts
-brew cask install font-hack-nerd-font
-brew cask install font-devicons
+# corelocationcli - alfred google maps workflow
+# insomnia - OOS rest client
+brew cask install font-hack-nerd-font font-devicons corelocationcli insomnia
 
 # ruby
 gem install bundler # if this command fails, run `rbenv init`
@@ -81,9 +81,13 @@ gem ctags # index every rubygem installed on the system. Will run automatically 
 
 # nvm and npm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-source ~/.nvm/nvm.sh
+# TODO: handle error code 3 here
 
 # get the latest version with "node"
 nvm install node
-npm install -g sass-lint
-npm install -g coffeelint
+npm install -g sass-lint coffeelint
+
+# zsh-autosuggestions on develop branch
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+cd $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git checkout develop

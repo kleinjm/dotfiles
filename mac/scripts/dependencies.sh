@@ -23,12 +23,16 @@ brew install tmux
 
 # make sure python is installed so we have pip
 # NOTE: it's also a macvim dependency
-pyenv versions | grep 3.6.4
+pyenv versions | grep 3.6.5
 if [ $? != 0 ]; then
   brew install pyenv
   source ~/.zshrc
-  pyenv install 3.6.4
+  pyenv install 3.6.5
 fi
+
+# plugin to enable `pyenv install-latest`
+git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
+pyenv install-latest
 
 # NOTE: **You must open the XCode app and click install when prompted**
 brew install macvim --with-override-system-vim
@@ -45,7 +49,9 @@ brew tap divoxx/brewery caskroom/fonts
 
 # gpg for github verified commits
 # tree for `tree` command for dir structure
-# muggler - run rails migrations when switching branches. Run `muggler install` in each repo. See https://github.com/divoxx/muggler
+# muggler - run rails migrations when switching branches.
+#   Run `muggler install` in each repo. See https://github.com/divoxx/muggler
+# ffmpeg - dependency for youtube-dl
 brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl \
   yarn reattach-to-user-namespace muggler rbenv ctags
 

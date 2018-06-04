@@ -44,4 +44,10 @@ windows:
       panes:
         - PORT=5150 bundle exec rails server -p5150
         - bundle exec sidekiq
+  - kafka:
+      layout: c449,272x59,0,0{90x59,0,0,40,90x59,91,0,41,90x59,182,0,42}
+      panes:
+        - bundle exec rake consumers:run
+        - bundle exec rake events:run_listener
+        - bundle exec rake data:kafka_bridge
   - console: bundle && bin/rails c

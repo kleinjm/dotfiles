@@ -1,7 +1,7 @@
-# ~/.tmuxinator/bridge-schema.yml
+# ~/.tmuxinator/doximity_client_ruby.yml
 
-name: bridge-schema
-root: ~/GitHubRepos/bridge-schema
+name: doximity_client_ruby
+root: ~/GitHubRepos/doximity_client_ruby
 # needed for pane-base-index 1 config
 startup_pane: 1
 
@@ -13,4 +13,4 @@ windows:
       # synchronize: after
       panes:
         - vim .
-        - resolve-rails
+        -

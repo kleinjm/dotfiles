@@ -17,6 +17,7 @@ rm -f ~/.gitignore_global
 rm -f ~/.nvmrc
 rm -f ~/.pryrc
 rm -f ~/.psqlrc
+rm -f ~/.pyenv/version
 rm -f ~/.rbenv/version
 rm -f ~/.tmux.conf
 rm -f ~/.tmux.conf.local
@@ -40,6 +41,7 @@ ln -s `pwd`/gitconfig ~/.gitconfig
 ln -s `pwd`/gitignore_global ~/.gitignore_global
 ln -s `pwd`/mac/git/git_template ~/.git_template
 ln -s `pwd`/mac/psqlrc ~/.psqlrc
+ln -s `pwd`/mac/pyenv/version ~/.pyenv/version
 ln -s `pwd`/mac/rbenv/plugins ~/.rbenv/plugins
 ln -s `pwd`/mac/rbenv/version ~/.rbenv/version
 ln -s `pwd`/mac/zsh/plugins ~/.oh-my-zsh/custom/plugins

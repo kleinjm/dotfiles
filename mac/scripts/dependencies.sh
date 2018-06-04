@@ -22,12 +22,16 @@ brew install tmux
 
 # make sure python is installed so we have pip
 # NOTE: it's also a macvim dependency
-pyenv versions | grep 3.6.4
+pyenv versions | grep 3.6.5
 if [ $? != 0 ]; then
   brew install pyenv
   source ~/.zshrc
-  pyenv install 3.6.4
+  pyenv install 3.6.5
 fi
+
+# plugin to enable `pyenv install-latest`
+git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
+pyenv install-latest
 
 # NOTE: **You must open the XCode app and click install when prompted**
 brew install macvim --with-override-system-vim

@@ -137,6 +137,8 @@ nmap <leader>br :.Gbrowse<cr>
 nmap <leader>bl :Gblame<cr>
 " open temp file to scratch on
 map <Leader>tmp :vsp ~/.tempfile<CR>
+" open my local zsh config
+map <Leader>lcl :vsp $LOCAL_CONFIG<CR>
 
 " ctrl+space exits out of search and everything
 nnoremap <C-@> <Esc>:noh<CR>

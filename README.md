@@ -17,7 +17,7 @@
 
 ### Additional environment configurations
 * Chrome theme - Dark Theme v3
-* See `~/Dropbox/Environment\ Configurations/README.txt`
+* See `~/Dropbox/EnvironmentConfigurations/README.txt`
 
 ### Userscripts
 Stored in bookmarks on my googlde chrome account.
@@ -42,4 +42,4 @@ To set up ssh and rsync without asking for a password. See [this guide](https://
 ```
 ssh-copy-id -i ~/.ssh/id_rsa.pub jamesmkl@jamesmklein.com
 ```
-- See `~/Dropbox/Environment\ Configurations` for additional configurations
+- See `$LOCAL_CONFIG` (vim `leader + lcl`) for additional configurations

@@ -85,7 +85,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | b
 
 # get the latest version with "node"
 nvm install node
-npm install -g sass-lint coffeelint
+npm install -g sass-lint coffeelint coffeelint-prefer-double-quotes
 
 # zsh-autosuggestions on develop branch
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions

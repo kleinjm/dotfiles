@@ -3,14 +3,6 @@
 set -e
 set -o pipefail
 
-platform='unknown'
-unamestr=`uname`
-if [[ "$unamestr" == 'Linux' ]]; then
-   platform='linux'
-elif [[ "$unamestr" == 'Darwin' ]]; then
-   platform='mac'
-fi
-
 # -r option = don't fail if file doesn't exist
 rm -f ~/.gitconfig
 rm -f ~/.gitignore_global
@@ -58,11 +50,10 @@ ln -s `pwd`/vim/functions.vim ~/.vim/functions.vim
 ln -s `pwd`/vim/lightline.vim ~/.vim/lightline.vim
 ln -s `pwd`/vim/plugins.vim ~/.vim/plugins.vim
 ln -s `pwd`/vim/vimrc ~/.vimrc
+sudo ln -s `pwd`/ssh_config_mac ~/.ssh/config
 
-if [ $platform = 'mac' ]; then
-  sudo ln -s `pwd`/ssh_config_mac ~/.ssh/config
-elif [ $platform = 'linux' ]; then
-  ln -s `pwd`/ssh_config_linux ~/.ssh/config
-fi
-
+# update permissions
 chmod -R 0755 `pwd`/mac/git/git_template/hooks
+
+# show hidden files on Mac
+defaults write com.apple.finder AppleShowAllFiles YES

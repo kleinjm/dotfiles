@@ -55,5 +55,5 @@ sudo ln -s `pwd`/ssh_config_mac ~/.ssh/config
 # update permissions
 chmod -R 0755 `pwd`/mac/git/git_template/hooks
 
-# show hidden files on Mac
+# Hidden files on Mac. Requires: hold 'alt' key, right click Finder, Relaunch
 defaults write com.apple.finder AppleShowAllFiles YES

@@ -34,7 +34,7 @@ alias rc!="spring stop && rails console"
 # Misc, Personal
 alias get-song="$DOTFILES_DIR/mac/scripts/get_song.sh"
 alias pack="ruby $PROJECT_DIR/packing_checklist/app/run.rb"
-alias passwords="~/Dropbox/passwords.sh"
+alias passwords="$DOTFILES_DIR/mac/scripts/passwords.sh"
 alias pomo="$DOTFILES_DIR/mac/scripts/bin/pomodoro" # https://github.com/carlmjohnson/pomodoro
 alias speed="speedtest-cli" # run a speedtest
 alias upload-music="$DOTFILES_DIR/mac/scripts/upload_music.sh"

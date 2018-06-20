@@ -32,3 +32,14 @@ function! InsertTabWrapper()
     return "\<c-p>"
   endif
 endfunction
+
+" Get the url on the current line if there is one
+function! ExtractUrlFromCurrentLine()
+  return matchstr(getline("."), "http[^ ]*[^)]")
+endfunction
+
+" Open the url on the current line in the default browser
+function! OpenUrlOnCurrentLineInBrowser()
+  let url = ExtractUrlFromCurrentLine()
+  exec "!open" url
+endfunction

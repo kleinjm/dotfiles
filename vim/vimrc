@@ -13,6 +13,7 @@ colorscheme jellybeans                " set color scheme
 set autoread                   " auto-reload the current file when switching to it
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set clipboard=unnamed          " copy to the system clipboard
+set complete-=i                " do not scan included files such as all ruby gems. Faster tab completion
 set encoding=utf8              " set to show fonts and glyphs
 set expandtab                  " set spaces for tab
 set grepprg=ag                 " use ag for grepping

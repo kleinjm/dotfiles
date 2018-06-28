@@ -42,3 +42,5 @@
 	helper = osxkeychain
 [init]
 	templatedir = ~/.git_template
+[web]
+	browser = open

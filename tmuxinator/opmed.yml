@@ -14,3 +14,5 @@ windows:
       panes:
         - vim .
         -
+  - server: BLOG_THEME="opmed" rails s -p 5210
+  - console: bin/rails c

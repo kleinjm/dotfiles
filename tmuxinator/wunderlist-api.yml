@@ -1,5 +1,7 @@
-name: dox-messaging
-root: ~/GitHubRepos/dox-messaging
+# ~/.tmuxinator/wunderlist-api.yml
+
+name: wunderlist-api
+root: ~/GitHubRepos/wunderlist-api
 # needed for pane-base-index 1 config
 startup_pane: 1
 
@@ -11,4 +13,4 @@ windows:
       # synchronize: after
       panes:
         - vim .
-        - master
+        -

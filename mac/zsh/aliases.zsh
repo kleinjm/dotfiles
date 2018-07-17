@@ -30,6 +30,7 @@ alias sequelize="node_modules/.bin/sequelize"
 # Rails
 alias resolve-rails="master && bundle install && rails db:migrate && rails db:test:prepare"
 alias rc!="spring stop && rails console"
+alias rT="bundle exec rake -T | ag " # search rake tasks
 
 # Misc, Personal
 alias get-song="$DOTFILES_DIR/mac/scripts/get_song.sh"

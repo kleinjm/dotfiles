@@ -1,8 +1,9 @@
-# Dotfiles
+# Mac
+## Setup
+* Run `mac/scripts/dependencies.sh`
+* Run `mac/scripts/symlink_to_dotfiles_repo.sh`
 
-## Mac
 ### Installing Fonts
-* Run the `bin/dependencies.sh` file
 * Open the font file saved in `mac_config` and install it to the Mac Font Book
   * `open mac_config/Fura\ Mono\ Regular\ Nerd\ Font\ Complete.otf`
 * In iTerm, set the font to that font for the current profile
@@ -39,6 +40,7 @@ Music is synced to my personal server space using `/mac/scripts/upload_music`. T
 
 ### SSH
 To set up ssh and rsync without asking for a password. See [this guide](https://www.thegeekstuff.com/2011/07/rsync-over-ssh-without-password/)
+NOTE: the same `id_rsa.pub` is shared so this should not be necessary
 ```
 ssh-copy-id -i ~/.ssh/id_rsa.pub jamesmkl@jamesmklein.com
 ```

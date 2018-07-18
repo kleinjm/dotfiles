@@ -19,7 +19,10 @@ fi
 
 # tmux is required for oh-my-zsh to source it's plugin correctly
 # NOTE: keep this before `source ~/.zshrc`
-brew install tmux
+brew list | grep tmux
+if [ $? != 0 ]; then
+  brew install tmux
+fi
 
 # make sure python is installed so we have pip
 # NOTE: it's also a macvim dependency

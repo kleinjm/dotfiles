@@ -151,49 +151,6 @@
 		<key>AllCriteriaMustBeSatisfied</key>
 		<false/>
 		<key>AutoResponseType</key>
-		<integer>2</integer>
-		<key>Criteria</key>
-		<array>
-			<dict>
-				<key>CriterionUniqueId</key>
-				<string>B094AA8B-0124-4285-A0C8-9FC7971C2C3E</string>
-				<key>Expression</key>
-				<string>wwvsi@hzf.org</string>
-				<key>Header</key>
-				<string>From</string>
-				<key>Qualifier</key>
-				<string>IsEqualTo</string>
-			</dict>
-		</array>
-		<key>Deletes</key>
-		<true/>
-		<key>HighlightTextUsingColor</key>
-		<false/>
-		<key>MarkFlagged</key>
-		<false/>
-		<key>MarkRead</key>
-		<false/>
-		<key>NotifyUser</key>
-		<false/>
-		<key>ResponseMessage</key>
-		<string>Fuck you</string>
-		<key>RuleId</key>
-		<string>AC520F9A-E2A3-49AA-A029-6E0DF2B98406</string>
-		<key>RuleName</key>
-		<string>block jison spam emails</string>
-		<key>SendNotification</key>
-		<false/>
-		<key>ShouldCopyMessage</key>
-		<false/>
-		<key>ShouldTransferMessage</key>
-		<false/>
-		<key>TimeStamp</key>
-		<integer>405447826</integer>
-	</dict>
-	<dict>
-		<key>AllCriteriaMustBeSatisfied</key>
-		<false/>
-		<key>AutoResponseType</key>
 		<integer>0</integer>
 		<key>Criteria</key>
 		<array>
@@ -4261,6 +4218,57 @@
 		<string>10C38691-6C44-4523-8644-EC2F9C6E2FA1</string>
 		<key>RuleName</key>
 		<string>dox alooma request received</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>89F4A863-A69E-4575-BDEE-659AD332C929</string>
+				<key>Expression</key>
+				<string>webdev@doximity.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>EB62B88E-87DC-4181-BC3B-3DA4ADC4C44B</string>
+				<key>Expression</key>
+				<string>[Totango]</string>
+				<key>Header</key>
+				<string>Subject</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>ResponseMessage</key>
+		<string>Fuck you</string>
+		<key>RuleId</key>
+		<string>681CA7AF-0E9B-4DB9-8346-09BE1E1D6710</string>
+		<key>RuleName</key>
+		<string>dox Totango</string>
 		<key>SendNotification</key>
 		<false/>
 		<key>ShouldCopyMessage</key>

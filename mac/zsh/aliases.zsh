@@ -19,6 +19,7 @@ alias \$=''
 
 # Git
 alias develop='git fetch --prune && git checkout develop && git pull origin develop'
+alias gl='git log'
 alias gpod='git pull origin develop'
 alias gpom='git pull origin master'
 alias gs='git s'
@@ -28,9 +29,10 @@ alias master='git fetch --prune && git checkout master && git pull origin master
 alias sequelize="node_modules/.bin/sequelize"
 
 # Rails
-alias resolve-rails="master && bundle install && rails db:migrate && rails db:test:prepare"
-alias rc!="spring stop && rails console"
 alias rT="bundle exec rake -T | ag " # search rake tasks
+alias rc!="spring stop && rails console"
+alias rdm="bundle && rails db:migrate"
+alias resolve-rails="master && bundle install && rails db:migrate && rails db:test:prepare"
 
 # Misc, Personal
 alias get-song="$DOTFILES_DIR/mac/scripts/get_song.sh"

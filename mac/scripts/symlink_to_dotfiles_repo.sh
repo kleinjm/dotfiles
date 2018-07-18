@@ -19,7 +19,6 @@ rm -f ~/.vim/plugins.vim
 rm -f ~/.vimrc
 rm -f ~/.zshenv
 rm -f ~/.zshrc
-rm -f ~/Library/Mail/V5/MailData/SyncedRules.plist
 rm -rf ~/.git_template
 rm -rf ~/.oh-my-zsh/custom/plugins
 rm -rf ~/.oh-my-zsh/themes # this may get in the way of pulling updates
@@ -33,7 +32,6 @@ ln -s `pwd`/Default\ \(OSX\).sublime-keymap ~/Library/Application\ Support/Subli
 ln -s `pwd`/gitconfig ~/.gitconfig
 ln -s `pwd`/gitignore_global ~/.gitignore_global
 ln -s `pwd`/mac/git/git_template ~/.git_template
-ln -s `pwd`/mac/mail/SyncedRules.plist ~/Library/Mail/V5/MailData/SyncedRules.plist
 ln -s `pwd`/mac/psqlrc ~/.psqlrc
 ln -s `pwd`/mac/pyenv/version ~/.pyenv/version
 ln -s `pwd`/mac/rbenv/plugins ~/.rbenv/plugins

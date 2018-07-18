@@ -31,7 +31,6 @@ alias sequelize="node_modules/.bin/sequelize"
 # Rails
 alias rT="bundle exec rake -T | ag " # search rake tasks
 alias rc!="spring stop && rails console"
-alias rdm="bundle && rails db:migrate"
 alias resolve-rails="master && bundle install && rails db:migrate && rails db:test:prepare"
 
 # Misc, Personal

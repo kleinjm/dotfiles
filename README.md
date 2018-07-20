@@ -2,6 +2,11 @@
 ## Setup
 * Run `mac/scripts/dependencies.sh`
 * Run `mac/scripts/symlink_to_dotfiles_repo.sh`
+* This repo assumes the home dir is `jklein`
+  ```sh
+  cd /Users
+  sudo ln -s james jklein
+  ```
 
 ### Installing Fonts
 * Open the font file saved in `mac_config` and install it to the Mac Font Book

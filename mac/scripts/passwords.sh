@@ -3,7 +3,7 @@
 set -e
 set -o pipefail
 
-cd ~/Dropbox
+cd $DROPBOX_DIR
 
 unzip unandpw.zip
 vim unandpw.txt

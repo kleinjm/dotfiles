@@ -19,6 +19,7 @@ alias \$=''
 
 # Git
 alias develop='git fetch --prune && git checkout develop && git pull origin develop'
+alias ga='git add'
 alias gl='git log'
 alias gpod='git pull origin develop'
 alias gpom='git pull origin master'

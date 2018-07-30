@@ -55,8 +55,9 @@ brew tap divoxx/brewery caskroom/fonts
 # muggler - run rails migrations when switching branches.
 #   Run `muggler install` in each repo. See https://github.com/divoxx/muggler
 # ffmpeg - dependency for youtube-dl
+# sqlite3 and w3m - dependencies of vmail
 brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl \
-  yarn reattach-to-user-namespace muggler rbenv ctags
+  yarn reattach-to-user-namespace muggler rbenv ctags sqlite3 w3m
 
 until
   rbenv ctags

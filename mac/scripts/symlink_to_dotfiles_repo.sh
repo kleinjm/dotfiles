@@ -25,9 +25,11 @@ rm -rf ~/.oh-my-zsh/themes # this may get in the way of pulling updates
 rm -rf ~/.rbenv/plugins
 rm -rf ~/.tmuxinator
 rm -rf ~/.vim/ftplugin
+rm -rf ~/.vmail
 rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 sudo rm -f ~/.ssh/config
 
+ln -s $DROPBOX_DIR/EnvironmentConfigurations/vmail ~/.vmail
 ln -s `pwd`/Default\ \(OSX\).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 ln -s `pwd`/gitconfig ~/.gitconfig
 ln -s `pwd`/gitignore_global ~/.gitignore_global

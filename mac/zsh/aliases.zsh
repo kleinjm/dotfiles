@@ -34,6 +34,7 @@ alias rT="bundle exec rake -T | ag " # search rake tasks
 alias rake='noglob rake' # https://github.com/robbyrussell/oh-my-zsh/issues/433#issuecomment-1670663
 alias rc!="spring stop && rails console"
 alias resolve-rails="master && bundle install && rails db:migrate && rails db:test:prepare"
+alias resolve-vue="nvm use && master && yarn install"
 
 # Misc, Personal
 alias get-song="$DOTFILES_DIR/mac/scripts/get_song.sh"

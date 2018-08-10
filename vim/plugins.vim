@@ -28,6 +28,7 @@ Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim
 Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
 Plug 'maksimr/vim-jsbeautify'                       " format js and html pages
 Plug 'mattn/emmet-vim'                              " html and css editing
+Plug 'mhinz/vim-startify'                           " fancy startup screen
 Plug 'michaeljsmith/vim-indent-object'              " vii to highlight lines at same indent level
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
 Plug 'nelstrom/vim-textobj-rubyblock'               " provide ruby text objects

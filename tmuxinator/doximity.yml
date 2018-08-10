@@ -13,7 +13,7 @@ windows:
       # synchronize: after
       panes:
         # include nvm so node and coffeelint get loaded and used in linting
-        - nvm use && vim .
+        - nvm use && vim -c "silent VtrAttachToPane 2"
         - nvm use
   - servers:
       layout: c5ae,272x59,0,0[272x38,0,0{136x38,0,0,6,135x38,137,0,25},272x20,0,39{135x20,0,39,9,136x20,136,39,10}]

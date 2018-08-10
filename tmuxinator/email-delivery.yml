@@ -39,7 +39,7 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - vim .
+        - vim -c "silent VtrAttachToPane 2"
         -
   - servers:
       layout: c8b6,238x57,0,0{119x57,0,0,82,118x57,120,0,83}

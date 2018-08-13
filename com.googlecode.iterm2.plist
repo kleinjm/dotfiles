@@ -170,7 +170,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 499 620 392 0 0 1920 1058 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>212 346 918 512 0 0 1920 1058 </string>
+	<string>212 281 796 486 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1920 1058 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -399,7 +399,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>Recycle</string>
+			<string>Yes</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
@@ -736,7 +736,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -799,7 +799,7 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/jklein/GitHubRepos</string>
+			<string>~/GitHubRepos</string>
 		</dict>
 	</array>
 	<key>NoSyncHaveUsedCopyMode</key>
@@ -866,7 +866,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-07-16T16:33:01Z</date>
+	<date>2018-08-11T11:40:00Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
@@ -882,6 +882,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.7</string>
+	<string>3.2.0</string>
 </dict>
 </plist>

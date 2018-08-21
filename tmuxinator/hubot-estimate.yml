@@ -11,4 +11,4 @@ windows:
       # synchronize: after
       panes:
         - nvm use && vim .
-        -
+        - nvm use

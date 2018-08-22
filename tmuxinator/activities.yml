@@ -25,4 +25,9 @@ windows:
         - bundle exec rake consumers:run
         - bundle exec rake events:run_listener
         - bundle exec rake data:kafka_bridge
+  - kafka-ads:
+      layout: 58e2,272x59,0,0{136x59,0,0,114,135x59,137,0,115}
+      panes:
+        - bundle exec rake consumers:run_ads_priority
+        - bundle exec rake consumers:run_ads
   - console: bundle && bin/rails c

@@ -22,5 +22,10 @@ windows:
         - bundle && bundle exec sidekiq
         - docker-compose up
         - docker-compose -f docker-compose-test.yml up
-  - kafka: bundle exec rake ads:consumers:run
+  - kafka:
+      layout: 18e9,272x59,0,0{136x59,0,0,93,135x59,137,0,95}
+      panes:
+        - bundle exec rake ads:consumers:run
+        - bundle exec rake email_delivery:events_tracker
+  - webpacker: bin/webpack-dev-server
   - consoles: rails c

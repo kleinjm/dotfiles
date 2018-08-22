@@ -39,4 +39,15 @@ windows:
         - vim .
         - resolve-rails && nvm use && npm install
   - server: foreman start
+      layout: 58e9,272x59,0,0{136x59,0,0,82,135x59,137,0,97}
+      panes:
+        - bundle exec puma -v -p 5020
+        - bundle exec sidekiq
+  - kafka:
+      layout: 331a,272x59,0,0{136x59,0,0[136x29,0,0,98,136x29,0,30,100],135x59,137,0[135x29,137,0,99,135x29,137,30,101]}
+      panes:
+        - bundle exec rake messages:listen
+        - bundle exec rake messages:listen_email_delivery
+        - bundle exec rake messages:listen_for_messages
+        - bundle exec rake messages:listen_for_compacted_messages
   - console: bundle && bin/rails c

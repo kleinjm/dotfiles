@@ -14,4 +14,3 @@ windows:
         - vim -c "silent VtrAttachToPane 2"
         -
   - server: bundle exec unicorn -c config/unicorn.rb -p 5040
-  - console: bin/rails c

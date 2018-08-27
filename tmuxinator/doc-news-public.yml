@@ -11,7 +11,7 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       synchronize: after
       panes:
-        - vim .
+        - vim -c "silent VtrAttachToPane 2"
         -
   - server: bundle exec unicorn -c config/unicorn.rb -p 5040
   - console: bin/rails c

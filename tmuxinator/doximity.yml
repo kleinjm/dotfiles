@@ -25,7 +25,7 @@ windows:
   - kafka:
       layout: 18e9,272x59,0,0{136x59,0,0,93,135x59,137,0,95}
       panes:
-        - bundle exec rake ads:consumers:run
-        - bundle exec rake email_delivery:events_tracker
-  - webpacker: bin/webpack-dev-server
+        - bundle && bundle exec rake ads:consumers:run
+        - bundle && bundle exec rake email_delivery:events_tracker
+  - webpacker: nvm use && yarn && bin/webpack-dev-server
   - consoles: rails c

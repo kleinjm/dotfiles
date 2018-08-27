@@ -17,17 +17,17 @@ windows:
   - server:
       layout: 18e5,272x59,0,0{136x59,0,0,31,135x59,137,0,35}
       panes:
-        - PORT=5150 bundle exec rails server -p5150
-        - bundle exec sidekiq
+        - bundle && PORT=5150 bundle exec rails server -p5150
+        - bundle && bundle exec sidekiq
   - kafka:
       layout: c449,272x59,0,0{90x59,0,0,40,90x59,91,0,41,90x59,182,0,42}
       panes:
-        - bundle exec rake consumers:run
-        - bundle exec rake events:run_listener
-        - bundle exec rake data:kafka_bridge
+        - bundle && bundle exec rake consumers:run
+        - bundle && bundle exec rake events:run_listener
+        - bundle && bundle exec rake data:kafka_bridge
   - kafka-ads:
       layout: 58e2,272x59,0,0{136x59,0,0,114,135x59,137,0,115}
       panes:
-        - bundle exec rake consumers:run_ads_priority
-        - bundle exec rake consumers:run_ads
+        - bundle && bundle exec rake consumers:run_ads_priority
+        - bundle && bundle exec rake consumers:run_ads
   - console: bundle && bin/rails c

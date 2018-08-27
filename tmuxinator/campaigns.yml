@@ -38,7 +38,7 @@ windows:
       panes:
         - vim .
         - resolve-rails && nvm use && npm install
-  - server: foreman start
+  - server:
       layout: 58e9,272x59,0,0{136x59,0,0,82,135x59,137,0,97}
       panes:
         - bundle exec puma -v -p 5020

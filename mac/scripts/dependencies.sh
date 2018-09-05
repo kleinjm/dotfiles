@@ -76,7 +76,9 @@ pip3 install speedtest-cli
 # https://github.com/ryanoasis/nerd-fonts#option-3-install-script
 # corelocationcli - alfred google maps workflow
 # insomnia - OOS rest client
-brew cask install font-hack-nerd-font font-devicons corelocationcli insomnia
+# keybase - for doximity AWS keys https://wiki.doximity.com/articles/keybase
+brew cask install font-hack-nerd-font font-devicons corelocationcli insomnia \
+  keybase
 
 # ruby
 gem install bundler # if this command fails, run `rbenv init`

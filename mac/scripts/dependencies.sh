@@ -56,8 +56,9 @@ brew tap divoxx/brewery caskroom/fonts
 #   Run `muggler install` in each repo. See https://github.com/divoxx/muggler
 # ffmpeg - dependency for youtube-dl
 # sqlite3 and w3m - dependencies of vmail
+# awscli - for doximity
 brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl \
-  yarn reattach-to-user-namespace muggler rbenv ctags sqlite3 w3m
+  yarn reattach-to-user-namespace muggler rbenv ctags sqlite3 w3m awscli
 
 until
   rbenv ctags

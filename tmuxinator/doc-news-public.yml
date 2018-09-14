@@ -13,4 +13,4 @@ windows:
       panes:
         - vim -c "silent VtrAttachToPane 2"
         -
-  - server: bundle exec unicorn -c config/unicorn.rb -p 5040
+  - server: rails s -p 5040

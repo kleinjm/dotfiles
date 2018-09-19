@@ -53,3 +53,6 @@ alias e2e-single="TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules
 
 # Global aliases
 alias -g G="| ag " # ie. "rails routes G user" vs "rails routes | ag user"
+
+# Temporary
+alias read="open ~/Dropbox/Programming\ Resources/Enterprise\ Integration\ Patterns\ -\ Designing,\ Building\ And\ Deploying\ Messaging\ Solutions\ -\ With\ Notes.pdf"

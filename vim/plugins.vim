@@ -36,6 +36,7 @@ Plug 'nelstrom/vim-visual-star-search'              " * to serach current word
 Plug 'onemanstartup/vim-slim'                       " syntax for slim. Use this over the official slim-template/vim-slim plugin for way better speed. See https://github.com/slim-template/vim-slim/issues/19#issuecomment-50607474
 Plug 'posva/vim-vue'                                " syntax highlighting for vueJS
 Plug 'ryanoasis/vim-devicons'                       " font icon integration
+Plug 'sunaku/vim-ruby-minitest'                     " highlighting for minitest
 Plug 'szw/vim-tags'                                 " generate tag files on save
 Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
 Plug 'tpope/vim-bundler'                            " support helpers for bundler

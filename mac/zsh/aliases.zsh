@@ -23,8 +23,7 @@ alias ga='git add'
 alias gl='git log'
 alias gpod='git pull origin develop'
 alias gpom='git pull origin master'
-alias gs='git s'
-alias master='git fetch --prune && git checkout master && git pull origin master'
+alias master='git master'
 
 # NodeJS, NPM
 alias sequelize="node_modules/.bin/sequelize"

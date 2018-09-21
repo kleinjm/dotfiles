@@ -2,20 +2,22 @@
   name = James Klein
   email = kleinjm007@gmail.com
 [alias]
-    l = log
     a = add -A
     ap = add -p
     c = commit --verbose
     ca = commit -a --verbose
-    cm = commit -m
     cam = commit -a -m
-    m = commit --amend --verbose
-    d = diff
-    ds = diff --stat
-    dc = diff --cached
-    s = status -s
+    cm = commit -m
     co = checkout
     cob = checkout -b
+    d = diff
+    dc = diff --cached
+    del = "master && git branch -D "
+    ds = diff --stat
+    l = log
+    m = commit --amend --verbose
+    master = git fetch --prune && git checkout master && git pull origin master
+    s = status -s
 
     # push the current branch
     publish = push -u origin HEAD
@@ -34,7 +36,7 @@
 	mergeoptions = --no-edit
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

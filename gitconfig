@@ -12,11 +12,11 @@
     cob = checkout -b
     d = diff
     dc = diff --cached
-    del = "master && git branch -D "
+    del = fetch --prune && checkout master && pull origin master && branch -D
     ds = diff --stat
     l = log
     m = commit --amend --verbose
-    master = git fetch --prune && git checkout master && git pull origin master
+    master = fetch --prune && checkout master && pull origin master
     s = status -s
 
     # push the current branch

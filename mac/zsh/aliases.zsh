@@ -30,6 +30,7 @@ alias master='git fetch --prune && git checkout master && git pull origin master
 alias sequelize="node_modules/.bin/sequelize"
 
 # Rails
+alias mini="rails test" # minitest
 alias rT="bundle exec rake -T | ag " # search rake tasks
 alias rake='noglob rake' # https://github.com/robbyrussell/oh-my-zsh/issues/433#issuecomment-1670663
 alias rc!="spring stop && rails console"

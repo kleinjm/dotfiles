@@ -23,6 +23,7 @@ alias ga='git add'
 alias gl='git log'
 alias gpod='git pull origin develop'
 alias gpom='git pull origin master'
+alias gs='git status'
 alias master='git master'
 
 # NodeJS, NPM

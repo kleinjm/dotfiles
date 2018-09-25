@@ -34,11 +34,17 @@ if [ $? != 0 ]; then
 fi
 
 # plugin to enable `pyenv install-latest`
-git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
-pyenv install-latest
+ls "$(pyenv root)"/plugins/pyenv-install-latest
+if [ $? != 0 ]; then
+  git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
+  pyenv install-latest
+fi
 
 # NOTE: **You must open the XCode app and click install when prompted**
-brew install macvim --with-override-system-vim
+brew list | grep macvim
+if [ $? != 0 ]; then
+  brew install macvim --with-override-system-vim
+fi
 
 # oh-my-zsh
 ls ~/.oh-my-zsh
@@ -57,8 +63,9 @@ brew tap divoxx/brewery caskroom/fonts
 # ffmpeg - dependency for youtube-dl
 # sqlite3 and w3m - dependencies of vmail
 # awscli - for doximity
+# || true will continue the dependency script even if all brew's are installed
 brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl \
-  yarn reattach-to-user-namespace muggler rbenv ctags sqlite3 w3m awscli
+  yarn reattach-to-user-namespace muggler rbenv ctags sqlite3 w3m awscli || true
 
 until
   rbenv ctags
@@ -70,7 +77,7 @@ do
   rbenv ctags # see https://github.com/tpope/rbenv-ctags
 done
 
-# Aliased to `speed` in zshrc
+# Aliased to `speed` in zsh aliases
 pip3 install speedtest-cli
 
 # font related casks - Needed for nerd fonts and devicons
@@ -90,11 +97,17 @@ gem ctags # index every rubygem installed on the system. Will run automatically 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 # TODO: handle error code 3 here
 
-# get the latest version with "node"
-nvm install node
-npm install -g sass-lint coffeelint coffeelint-prefer-double-quotes
-
 # zsh-autosuggestions on develop branch
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+ls ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+if [ $? != 0 ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
 cd $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git checkout develop
+cd $DOTFILES_DIR
+
+# get the latest version with "node"
+source ~/.zshrc
+nvm install node
+nvm use
+npm install -g sass-lint coffeelint coffeelint-prefer-double-quotes

@@ -93,10 +93,6 @@ gem install bundler # if this command fails, run `rbenv init`
 bundle
 gem ctags # index every rubygem installed on the system. Will run automatically after the first time
 
-# nvm and npm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-# TODO: handle error code 3 here
-
 # zsh-autosuggestions on develop branch
 ls ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 if [ $? != 0 ]; then
@@ -106,6 +102,16 @@ cd $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git checkout develop
 cd $DOTFILES_DIR
 
+# tpm = tmux plugin manager
+ls ~/.tmux/plugins/tpm/tpm
+if [ $? != 0 ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+# nvm and npm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
+# TODO: sourcing fails and then nvm fails
 # get the latest version with "node"
 source ~/.zshrc
 nvm install node

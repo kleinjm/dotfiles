@@ -9,7 +9,7 @@ windows:
       layout: 93f5,272x59,0,0[272x30,0,0,163,272x28,0,31,166]
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      synchronize: after
+      # synchronize: after
       panes:
         - vim -c "silent VtrAttachToPane 2"
         -

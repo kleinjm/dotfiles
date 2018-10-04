@@ -3,9 +3,10 @@
 " Author: James Klein [http://www.jamesmklein.com]
 "==============================================================================
 
-source ~/.vim/plugins.vim " load vim-plug and plugins
-source ~/.vim/lightline.vim " configure lightline and status bar
 source ~/.vim/functions.vim " define functions to map to
+source ~/.vim/lightline.vim " configure lightline and status bar
+source ~/.vim/plugins.vim " load vim-plug and plugins
+source $DOTFILES_DIR/vim/skel.vim " define leader key mappings
 
 let mapleader=" "                     " set leader key to space
 colorscheme jellybeans                " set color scheme
@@ -85,10 +86,6 @@ runtime macros/matchit.vim " use % to switch between if/else/end
 nnoremap =j :call FormatJSON()<cr>
 nnoremap =x :%!XMLLINT_INDENT='    ' xmllint --format %<cr>
 nnoremap <silent>K :call FindWordUnderCursor()<cr>
-" Switch between the last two files
-nnoremap <leader><leader> <c-^>
-" copy current relative file path to system clipboard
-nnoremap <leader>cf :let @+ = expand("%")<cr>
 
 " hit s while highlighting to sort a list
 vnoremap s :!sort<cr>
@@ -97,54 +94,16 @@ vnoremap s :!sort<cr>
 map <CR> o<Esc>
 " Don't use Ex mode, use Q for formatting
 map Q gq
-" leader + i inserts binding.pry
-map <Leader>i orequire "pry"; binding.pry<ESC>0
-" leader + d inserts debugger;
-map <Leader>db odebugger;<ESC>
-" insert a frozen string literal tag at the top of the document and returns
-" cursor to current position
-map <Leader>r ggO# frozen_string_literal: true<ESC><cr>D<C-o>
-" reindent the entire file
-map <leader>= mzgg=G`z
-" create parent directories. Good for new files in new dir
-map <Leader>mk :call mkdir(expand('%:h'), 'p')<ESC>:w<cr>
-" close all other tabs and splits but this one
-map <leader>cl :only<esc>
-" open the filepath of the current file to rename it
-map <Leader>n :call RenameFile()<cr>
 " map 0 to go to first char on line
 nmap 0 ^
-" reload vimrc with leader+so
-nmap <leader>so :source $MYVIMRC<cr>
-" Split edit your vimrc. Type space, v, r in sequence to trigger
-nmap <leader>vr :tabe $MYVIMRC<cr>
-" Pre-populate a split command with the current directory
-nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 " Move up and down by visible lines if current line is wrapped
 " NOTE: this messes with with jumping up and down relative line numbers
 nmap j gj
 nmap k gk
-" Edit the db/schema.rb Rails file in a split
-nmap <leader>sc :vsp db/schema.rb<cr>
 
 " save
 inoremap <C-p> <esc>:w<cr>
 noremap <C-p> <esc>:w<cr>
-
-" change all single ' to double " in current file
-nmap <leader>" :%s/\'/\"/g<cr><C-@><Esc>
-" change all double " to single ' in current file
-nmap <leader>' :%s/\"/\'/g<cr><C-@><Esc>
-" show the current file on github
-nmap <leader>br :.Gbrowse<cr>
-" git blame
-nmap <leader>bl :Gblame<cr>
-" open temp file to scratch on
-map <Leader>tmp :vsp ~/.tempfile<CR>
-" open my local zsh config
-map <Leader>lcl :vsp $LOCAL_CONFIG<CR>
-" open the url anywhere on the current line
-map <Leader>url :call OpenUrlOnCurrentLineInBrowser()<CR><CR>
 
 " ctrl+space exits out of search and everything
 nnoremap <C-@> <Esc>:noh<CR>
@@ -237,14 +196,8 @@ endif " has("autocmd")
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1  " Turn on case insensitive feature
 
-map <Leader> <Plug>(easymotion-prefix)
-
 " Jump to anywhere with `s{char}{label}`
 nmap s <Plug>(easymotion-overwin-f)
-
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
 
 " give a choice to which char to perform a verb on if there is more than one
 " on that line. ie. dfn = delete find 'n' and will highlight all n's
@@ -286,10 +239,6 @@ let g:ale_set_highlights = 0
 " ##### RSpec.vim mappings #####
 let g:rspec_command = "VtrSendCommand! bin/rspec {spec}"
 let g:rspec_runner = "os_x_iterm"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
 " ##### END RSpec.vim mappings #####
 
 
@@ -315,13 +264,22 @@ command! -bang -nargs=* Ag
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \                 <bang>0)
 
-nnoremap <leader>f :Files<cr>
-
 " Search only the files that are on the current and uncommitted branch
 command! Fzfc call fzf#run(fzf#wrap({'source': 'git diff origin/master --name-only'}))
-noremap <Leader>g :Fzfc<cr>
 
 let g:fzf_files_options =
       \ '--reverse ' .
       \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 " ##### END AG & FZF #####
+
+" ##### UltiSnips #####
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+" ##### END UltiSnips #####
+
+" Source these last because they depend on the other definitions
+source $DOTFILES_DIR/vim/leader_mappings.vim " define leader key mappings

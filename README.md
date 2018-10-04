@@ -39,6 +39,7 @@ Default config taken from [oh-my-tmux](https://github.com/gpakosz/.tmux)
 
 ### VIM
 - Followed [this guide](https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html) to set up ctags using git hooks
+- Use [vim-projections](https://github.com/tpope/vim-projectionist) to define alternate files as explained [here](https://noahfrederick.com/log/vim-templates-with-ultisnips-and-projectionist). Each project has a `.projections.json` defined and globally git ignored.
 
 ### Music
 Music is synced to my personal server space using `/mac/scripts/upload_music`. This only uploads the file difference and deletes any deleted songs. My server plan comes with 100GB of space.

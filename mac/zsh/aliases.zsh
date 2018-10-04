@@ -26,6 +26,9 @@ alias gpom='git pull origin master'
 alias gs='git s'
 alias master='git master'
 
+# Vim
+alias projections="cp $DOTFILES_DIR/vim/projections.json .projections.json"
+
 # NodeJS, NPM
 alias sequelize="node_modules/.bin/sequelize"
 

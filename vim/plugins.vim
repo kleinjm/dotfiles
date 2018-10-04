@@ -9,9 +9,10 @@ endif
 " highlight all and :sort to sort
 call plug#begin('~/.vim/plugged') " Specify a directory for plugins
 
-" Make sure you use single quotes
+" Make sure to use single quotes
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " find or install fzf
 Plug 'AndrewRadev/vim-eco'                          " .eco syntax highlighting
+Plug 'SirVer/ultisnips'                             " snippets and skeltons
 Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
 Plug 'calebsmith/vim-lambdify'                      " conceal js functions with lambda
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell
@@ -41,6 +42,7 @@ Plug 'szw/vim-tags'                                 " generate tag files on save
 Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
 Plug 'tpope/vim-bundler'                            " support helpers for bundler
 Plug 'tpope/vim-fugitive'                           " look in .git/ctags for ctags index
+Plug 'tpope/vim-projectionist'                      " define alt files per project
 Plug 'tpope/vim-rails'                              " directory navigation and syntax for rails
 Plug 'tpope/vim-rake'                               " configures path for lib and ext directories on ruby and rails projects
 Plug 'tpope/vim-repeat'                             " allow . repeat on plugin commands

@@ -1,0 +1,16 @@
+{
+  "src/packages/profiles/components/*.vue": {
+    "alternate": "test/unit/specs/packages/profiles/components/{}.spec.js"
+  },
+  "test/unit/specs/packages/profiles/components/*.spec.js": {
+    "alternate": "src/packages/profiles/components/{}.vue"
+  },
+  "spec/*_spec.rb": {
+    "alternate": "app/{}.rb",
+    "skeleton": "spec"
+  },
+  "app/*.rb": {
+    "alternate": "spec/{}_spec.rb",
+    "test": "spec/{}_spec.rb"
+  }
+}

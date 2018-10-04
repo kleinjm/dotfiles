@@ -5,6 +5,9 @@
 .DS_Store
 .git
 
+# for vim-projectionist alt file mappings
+.projections.json
+
 npm-debug.log
 
 # temp fix for yarn issues in doximity app repo

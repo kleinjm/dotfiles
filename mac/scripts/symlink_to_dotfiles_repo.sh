@@ -24,6 +24,7 @@ rm -rf ~/.oh-my-zsh/custom/plugins
 rm -rf ~/.oh-my-zsh/themes # this may get in the way of pulling updates
 rm -rf ~/.rbenv/plugins
 rm -rf ~/.tmuxinator
+rm -rf ~/.vim/UltiSnips
 rm -rf ~/.vim/ftplugin
 rm -rf ~/.vmail
 rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
@@ -47,11 +48,13 @@ ln -s `pwd`/pryrc.rb ~/.pryrc
 ln -s `pwd`/tmux.conf ~/.tmux.conf
 ln -s `pwd`/tmux.local.conf ~/.tmux.conf.local
 ln -s `pwd`/tmuxinator ~/.tmuxinator
+ln -s `pwd`/vim/UltiSnips ~/.vim/UltiSnips
 ln -s `pwd`/vim/ftplugin ~/.vim/ftplugin
 ln -s `pwd`/vim/functions.vim ~/.vim/functions.vim
 ln -s `pwd`/vim/lightline.vim ~/.vim/lightline.vim
 ln -s `pwd`/vim/plugins.vim ~/.vim/plugins.vim
 ln -s `pwd`/vim/vimrc ~/.vimrc
+
 sudo ln -s `pwd`/ssh_config_mac ~/.ssh/config
 
 # update permissions

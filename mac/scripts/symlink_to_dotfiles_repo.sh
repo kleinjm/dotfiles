@@ -26,6 +26,7 @@ rm -rf ~/.rbenv/plugins
 rm -rf ~/.tmuxinator
 rm -rf ~/.vim/UltiSnips
 rm -rf ~/.vim/ftplugin
+rm -rf ~/.vim/pythonx
 rm -rf ~/.vmail
 rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 sudo rm -f ~/.ssh/config
@@ -53,6 +54,7 @@ ln -s `pwd`/vim/ftplugin ~/.vim/ftplugin
 ln -s `pwd`/vim/functions.vim ~/.vim/functions.vim
 ln -s `pwd`/vim/lightline.vim ~/.vim/lightline.vim
 ln -s `pwd`/vim/plugins.vim ~/.vim/plugins.vim
+ln -s `pwd`/vim/pythonx ~/.vim/pythonx
 ln -s `pwd`/vim/vimrc ~/.vimrc
 
 sudo ln -s `pwd`/ssh_config_mac ~/.ssh/config

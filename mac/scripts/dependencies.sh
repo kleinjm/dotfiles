@@ -33,6 +33,11 @@ if [ $? != 0 ]; then
   pyenv install 3.6.5
 fi
 
+pyenv versions | grep 2.7.15
+if [ $? != 0 ]; then
+  pyenv install 2.7.15
+fi
+
 # plugin to enable `pyenv install-latest`
 ls "$(pyenv root)"/plugins/pyenv-install-latest
 if [ $? != 0 ]; then

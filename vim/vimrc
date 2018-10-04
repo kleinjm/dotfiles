@@ -3,6 +3,13 @@
 " Author: James Klein [http://www.jamesmklein.com]
 "==============================================================================
 
+" Set python version to 2. To set to python 3, simply `has('python3')` instead.
+" If this in not set, the first thing that calls python will set the version
+" and it then cannot be switched. See
+" https://robertbasic.com/blog/force-python-version-in-vim/
+if has('python')
+endif
+
 source ~/.vim/functions.vim " define functions to map to
 source ~/.vim/lightline.vim " configure lightline and status bar
 source ~/.vim/plugins.vim " load vim-plug and plugins

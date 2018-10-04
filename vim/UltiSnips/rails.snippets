@@ -1,10 +1,74 @@
-# TODO: get the ruby helpers and get this working 100%
+# global
+
+global !p
+from snippet_helpers_ruby import *
+endglobal
+
+# templates
+
+snippet _controller "templates: rails controller" b
+# frozen_string_literal: true
+
+class `!p rb_class_name(path, snip)` < ApplicationController
+  def index
+    $0
+  end
+end
+endsnippet
+
 snippet _spec "templates: rspec" b
 # frozen_string_literal: true
 
 require "rails_helper"
 
-RSpec.describe ${1} do
+RSpec.describe `!p rb_spec_class_name(path, snip)` do
   $0
 end
+endsnippet
+
+snippet _operation_spec "templates: operation rspec" b
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe `!p rb_operation_spec_class_name(path, snip)` do
+  context "when success?" do
+    $0
+  end
+
+  context "when failure?" do
+
+  end
+end
+endsnippet
+
+snippet _trailblazer_cell "templates: trailblazer cell" b
+# frozen_string_literal: true
+
+module `!p rb_module_name(path, snip)`
+  class `!p rb_flat_class_name(path, snip)` < Trailblazer::Cell
+  end
+end
+endsnippet
+
+snippet _trailblazer_contract "templates: trailblazer contract" b
+# frozen_string_literal: true
+
+module `!p rb_module_name(path, snip)`
+  class `!p rb_flat_class_name(path, snip)` < Reform::Form
+  end
+end
+endsnippet
+
+snippet _trailblazer_operation "templates: trailblazer operation" b
+# frozen_string_literal: true
+
+class `!p rb_operation_name(path, snip)` < Trailblazer::Operation
+end
+endsnippet
+
+# debugging
+
+snippet rml "debugging: rails logger" b
+Rails.logger.info "RM-LOG: $1"
 endsnippet

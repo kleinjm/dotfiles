@@ -3,17 +3,17 @@
 " Author: James Klein [http://www.jamesmklein.com]
 "==============================================================================
 
-" Set python version to 2. To set to python 3, simply `has('python3')` instead.
+" Set python version to 3. To set to python 2, simply `has('python')` instead.
 " If this in not set, the first thing that calls python will set the version
 " and it then cannot be switched. See
 " https://robertbasic.com/blog/force-python-version-in-vim/
-if has('python')
+if has('python3')
+  silent! python3 1
 endif
 
 source ~/.vim/functions.vim " define functions to map to
 source ~/.vim/lightline.vim " configure lightline and status bar
 source ~/.vim/plugins.vim " load vim-plug and plugins
-source $DOTFILES_DIR/vim/skel.vim " define leader key mappings
 
 let mapleader=" "                     " set leader key to space
 colorscheme jellybeans                " set color scheme
@@ -59,6 +59,12 @@ let g:grep_cmd_opts = '--line-numbers --noheading'
 " enable mouse mode
 if has('mouse')
   set mouse=a
+endif
+
+" warn if directory does not have projections file
+if empty(glob(".projections.json"))
+  echo "Missing .projections.json"
+  !projections
 endif
 
 " Switch syntax highlighting on, when the terminal has colors

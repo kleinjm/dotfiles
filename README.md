@@ -40,11 +40,9 @@ Default config taken from [oh-my-tmux](https://github.com/gpakosz/.tmux)
 ### VIM
 - Followed [this guide](https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html) to set up ctags using git hooks
 - Use [vim-projections](https://github.com/tpope/vim-projectionist) to define alternate files as explained [here](https://noahfrederick.com/log/vim-templates-with-ultisnips-and-projectionist). Each project has a `.projections.json` defined and globally git ignored.
-- Install python dependencies with the following
+- Install pythonx dependencies with the following. Note that `vim-pyenv` takes care of using the pyenv, not system version of python.
 ```sh
-pyenv install 2.7.15 # must be on 2.x.x for vim plugins to work
-cd vim/pythonx
-pip install -r requirements.txt
+pip install -r vim/pythonx/requirements.txt
 ```
 
 ### Music

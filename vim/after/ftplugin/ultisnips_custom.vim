@@ -27,6 +27,8 @@ function! s:try_insert(skel)
 endfunction
 
 function! skel#InsertSkeleton() abort
+  echom "TESTING"
+
   let filename = expand('%')
 
   " abort on non-empty buffer or exitant file

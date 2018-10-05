@@ -1,3 +1,10 @@
 # This file loads in non-interactive shells
 # I've found that using this file slows down the shell, specifically
 # vim-tmux navigation. Instead, favor zshrc.
+
+# Load all .zshenv config files in this dir
+# aliases.zshenv should be available in all shells, not just interactive ones.
+# Ie. vim should have aliases
+for file in "$DOTFILES_DIR"/mac/zsh/*.zshenv; do
+  source "$file"
+done

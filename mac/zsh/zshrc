@@ -87,6 +87,9 @@ export ZSH_AUTOSUGGEST_USE_ASYNC=1 # do autosuggest async
 # use the default merge message so that EDITOR does not open
 export GIT_MERGE_AUTOEDIT=no
 
+# Pyenv
+export PYENV_VERSION=3.7.0
+
 # Load all .zsh config files in this dir
 # NOTE: must come after oh-my-zsh.sh is sourced
 for file in "$DOTFILES_DIR"/mac/zsh/*.zsh; do

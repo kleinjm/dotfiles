@@ -27,6 +27,7 @@ Plug 'jiangmiao/auto-pairs'                         " open and close brackets
 Plug 'joker1007/vim-ruby-heredoc-syntax'            " heredoc ruby highlighing
 Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
+Plug 'lambdalisue/vim-pyenv'                        " sync pyenv version
 Plug 'maksimr/vim-jsbeautify'                       " format js and html pages
 Plug 'mattn/emmet-vim'                              " html and css editing
 Plug 'mhinz/vim-startify'                           " fancy startup screen

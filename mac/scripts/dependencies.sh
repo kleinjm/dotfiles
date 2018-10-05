@@ -5,6 +5,8 @@
 set -e
 set -o pipefail
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
 # accept xcode agreement
 sudo xcodebuild -license accept
 xcode-select --install || true
@@ -24,26 +26,7 @@ if [ $? != 0 ]; then
   brew install tmux
 fi
 
-# make sure python is installed so we have pip
-# NOTE: it's also a macvim dependency
-pyenv versions | grep 3.6.5
-if [ $? != 0 ]; then
-  brew install pyenv
-  source ~/.zshrc
-  pyenv install 3.6.5
-fi
-
-pyenv versions | grep 2.7.15
-if [ $? != 0 ]; then
-  pyenv install 2.7.15
-fi
-
-# plugin to enable `pyenv install-latest`
-ls "$(pyenv root)"/plugins/pyenv-install-latest
-if [ $? != 0 ]; then
-  git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
-  pyenv install-latest
-fi
+$DIR/dependencies/python.sh
 
 # NOTE: **You must open the XCode app and click install when prompted**
 brew list | grep macvim
@@ -81,9 +64,6 @@ do
     ~/.rbenv/plugins/rbenv-ctags
   rbenv ctags # see https://github.com/tpope/rbenv-ctags
 done
-
-# Aliased to `speed` in zsh aliases
-pip3 install speedtest-cli
 
 # font related casks - Needed for nerd fonts and devicons
 # https://github.com/ryanoasis/nerd-fonts#option-3-install-script

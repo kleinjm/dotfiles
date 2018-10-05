@@ -51,7 +51,7 @@ def rb_operation_spec_class_name(path, snip):
 
 def rb_spec_class_name(path, snip):
     cwd = vim.eval("getcwd()") + "/"
-    path = path.split(cwd)[1]
+    # path = path.split(cwd)[1]
     path = path_without_first_dir(path)
     path = path_without_extension(path)
     path = path_as_class_name(path, separator="::")

@@ -41,13 +41,15 @@ alias resolve-rails="master && bundle install && rails db:migrate && rails db:te
 alias resolve-vue="nvm use && master && yarn install"
 
 # Misc, Personal
+alias dependencies="$DOTFILES_DIR/mac/scripts/dependencies.sh"
+alias download-music="$DOTFILES_DIR/mac/scripts/download_music.sh"
 alias get-song="$DOTFILES_DIR/mac/scripts/get_song.sh"
 alias pack="ruby $PROJECT_DIR/packing_checklist/app/run.rb"
 alias passwords="$DOTFILES_DIR/mac/scripts/passwords.sh"
 alias pomo="$DOTFILES_DIR/mac/scripts/vendor/pomodoro" # https://github.com/carlmjohnson/pomodoro
 alias speed="speedtest-cli" # run a speedtest
+alias symlink="$DOTFILES_DIR/mac/scripts/symlink_to_dotfiles_repo.sh"
 alias upload-music="$DOTFILES_DIR/mac/scripts/upload_music.sh"
-alias download-music="$DOTFILES_DIR/mac/scripts/download_music.sh"
 
 # Doximity
 alias dox="cd $PROJECT_DIR/doximity"

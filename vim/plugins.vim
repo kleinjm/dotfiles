@@ -42,6 +42,7 @@ Plug 'sunaku/vim-ruby-minitest'                     " highlighting for minitest
 Plug 'szw/vim-tags'                                 " generate tag files on save
 Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
 Plug 'tpope/vim-bundler'                            " support helpers for bundler
+Plug 'tpope/vim-endwise'                            " add `end` in ruby and other scripts
 Plug 'tpope/vim-fugitive'                           " look in .git/ctags for ctags index
 Plug 'tpope/vim-projectionist'                      " define alt files per project
 Plug 'tpope/vim-rails'                              " directory navigation and syntax for rails

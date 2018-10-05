@@ -19,6 +19,7 @@ let mapleader=" "                     " set leader key to space
 colorscheme jellybeans                " set color scheme
 
 set autoread                   " auto-reload the current file when switching to it
+set autoindent		             " autoindenting on
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set clipboard=unnamed          " copy to the system clipboard
 set cmdheight=1                " lines in the command bar
@@ -163,47 +164,10 @@ nnoremap <silent> <C-A> :ZoomToggle<CR>
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
-
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  " Needed for vim-textobj-rubyblock plugin to work correctly
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-    au!
-
-    " For all text files set 'textwidth' to 78 characters.
-    autocmd FileType text setlocal textwidth=78
-
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    autocmd BufReadPost *
-          \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-          \   exe "normal! g`\"" |
-          \ endif
-
-  augroup END
-
-  " trim trailing whitespace on save
-  autocmd BufWritePre * %s/\s\+$//e
-  " Bind `q` to close the buffer for help files
-  autocmd Filetype help nnoremap <buffer> q :q<CR>
-  " rebalance vim panes when window resizes
-  autocmd VimResized * :wincmd =
-  " force syntax highlighting for vue files
-  " https://github.com/posva/vim-vue#my-syntax-highlighting-stops-working-randomly
-  autocmd FileType vue syntax sync fromstart
-else
-  set autoindent		" always set autoindenting on
-endif " has("autocmd")
-
+  source $DOTFILES_DIR/vim/autocommands.vim " load autocommand settings if available
+endif
 
 " ##### EasyMotion Config #####
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -285,13 +249,14 @@ let g:fzf_files_options =
       \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 " ##### END AG & FZF #####
 
+" TODO: get this working!
 " ##### UltiSnips #####
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"
+" " If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
 " ##### END UltiSnips #####
 
 " Source these last because they depend on the other definitions

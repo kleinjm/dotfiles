@@ -64,8 +64,7 @@ endif
 
 " warn if directory does not have projections file
 if empty(glob(".projections.json"))
-  echo "Missing .projections.json"
-  !projections
+  echo "Missing .projections.json. Run `projections` to create it"
 endif
 
 " Switch syntax highlighting on, when the terminal has colors

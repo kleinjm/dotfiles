@@ -70,8 +70,9 @@ done
 # corelocationcli - alfred google maps workflow
 # insomnia - OOS rest client
 # keybase - for doximity AWS keys https://wiki.doximity.com/articles/keybase
+# mysql - for doximity. Do not install 8.x.x
 brew cask install font-hack-nerd-font font-devicons corelocationcli insomnia \
-  keybase
+  keybase mysql@5.7
 
 # ruby
 gem install bundler # if this command fails, run `rbenv init`

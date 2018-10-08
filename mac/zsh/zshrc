@@ -58,7 +58,9 @@ HISTSIZE=1000000 # amount of commands saved in history
 plugins=(git bundler osx rake ruby rails tmux docker zsh-autosuggestions)
 
 # QT added to path to fix gem install capybara-webkit issue
-export PATH=~/Qt5.5.1/5.5/clang_64/bin:~/.rbenv/shims:/usr/local/bin:/usr/bin:$PATH
+# openssl added to fix issue with brew installing over the system version
+# mysql added to fix issue with brew linking
+export PATH=/usr/local/opt/mysql@5.7/bin:/usr/local/opt/openssl/bin:~/Qt5.5.1/5.5/clang_64/bin:~/.rbenv/shims:/usr/local/bin:/usr/bin:$PATH
 
 # NOTE: PATH must be before this
 source $ZSH/oh-my-zsh.sh

@@ -17,6 +17,8 @@ alias sed="sed -E"
 # When copy-pasting a command, $ will be ignored. Ie. "$ ruby my_file.rb"
 alias \$=''
 
+alias -g G="| ag " # ie. "rails routes G user" vs "rails routes | ag user"
+
 # Git
 alias develop='git develop'
 alias ga='git add'
@@ -40,7 +42,11 @@ alias rc!="spring stop && rails console"
 alias resolve-rails="master && bundle install && rails db:migrate && rails db:test:prepare"
 alias resolve-vue="nvm use && master && yarn install"
 
-# Misc, Personal
+# Brew
+# Remove pyenv configs as not to interfere with brew
+alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+
+# Script shortcuts
 alias dependencies="$DOTFILES_DIR/mac/scripts/dependencies.sh"
 alias download-music="$DOTFILES_DIR/mac/scripts/download_music.sh"
 alias get-song="$DOTFILES_DIR/mac/scripts/get_song.sh"
@@ -56,6 +62,3 @@ alias dox="cd $PROJECT_DIR/doximity"
 alias doxserver='bin/rails s webrick -p5000'
 alias doxstart="$DOTFILES_DIR/tmuxinator/start_doximity.sh"
 alias e2e-single="TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules/.bin/wdio --spec"
-
-# Global aliases
-alias -g G="| ag " # ie. "rails routes G user" vs "rails routes | ag user"

@@ -20,7 +20,7 @@ Host aws-bastion
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
   User jklein
-  Hostname 52.86.108.110
+  Hostname usebas.dox.pub
   Port 45750
 Host *.dox.box
   User jklein
@@ -30,7 +30,7 @@ Host  *.amstel *.budweiser *.corona *.ember *.dogfish *.fischer *.guinness *.har
   Port 5750
   User jklein
 Host pre-prod-bastion
-  Hostname 34.199.173.65
+  Hostname pre-usebas.dox.pub
   Port 45750
   User jklein
   Protocol 2

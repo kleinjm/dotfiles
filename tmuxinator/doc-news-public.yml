@@ -14,3 +14,4 @@ windows:
         - vim -c "silent VtrAttachToPane 2"
         -
   - server: rails s -p 5040
+  - console: rails c

@@ -5,6 +5,9 @@
   "test/unit/specs/packages/profiles/components/*.spec.js": {
     "alternate": "src/packages/profiles/components/{}.vue"
   },
+  "app/javascript/pages/*.vue": {
+    "skeleton": "skel"
+  },
   "spec/*_spec.rb": {
     "alternate": "app/{}.rb",
     "skeleton": "spec"

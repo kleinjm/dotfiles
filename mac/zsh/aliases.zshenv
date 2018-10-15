@@ -1,5 +1,11 @@
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes.
+# Set personal aliases for any shell session
+#
+# NOTE: In an interactive shell, these are loaded before oh-my-zsh is sourced.
+# Thus some of them may be overridden by oh-my-zsh such as `ls`
+# https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/theme-and-appearance.zsh#L24
+# See https://github.com/robbyrussell/oh-my-zsh/issues/5783#issuecomment-275614664
+# Therefore, some aliases are also defined in aliases.zsh
+#
 # For a full list of active aliases, run `alias`.
 # Don't forget that zsh plugins like git include their own aliases
 

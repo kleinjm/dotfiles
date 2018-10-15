@@ -249,14 +249,14 @@ let g:fzf_files_options =
       \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 " ##### END AG & FZF #####
 
-" TODO: get this working!
 " ##### UltiSnips #####
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-"
-" " If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsListSnippets="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 " ##### END UltiSnips #####
 
 " Source these last because they depend on the other definitions

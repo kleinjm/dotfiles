@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged') " Specify a directory for plugins
 " Make sure to use single quotes
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " find or install fzf
 Plug 'AndrewRadev/vim-eco'                          " .eco syntax highlighting
-Plug 'SirVer/ultisnips'                             " snippets and skeltons
+Plug 'SirVer/ultisnips'                             " ultimate snippet solution for Vim
 Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
 Plug 'calebsmith/vim-lambdify'                      " conceal js functions with lambda
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell
@@ -20,6 +20,7 @@ Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigat
 Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
 Plug 'easymotion/vim-easymotion'                    " vim motions on speed
 Plug 'henrik/vim-indexed-search'                    " display search count
+Plug 'honza/vim-snippets'                           " snippets
 Plug 'itchyny/lightline.vim'                        " vim status bar coloring
 Plug 'jbgutierrez/vim-partial'                      " extract haml partials
 Plug 'jgdavey/vim-blockle'                          " toggle ruby do and {} blocks

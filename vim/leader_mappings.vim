@@ -58,3 +58,6 @@ map <Leader>a :call RunAllSpecs()<CR>
 nnoremap <leader>f :Files<cr>
 
 noremap <Leader>g :Fzfc<cr>
+
+" to edit the corresponding snippets file
+nnoremap <leader>se :UltiSnipsEdit<cr>

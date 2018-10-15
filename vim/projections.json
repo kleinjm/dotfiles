@@ -12,5 +12,8 @@
   "app/*.rb": {
     "alternate": "spec/{}_spec.rb",
     "test": "spec/{}_spec.rb"
+  },
+  "app/models/*.rb": {
+    "skeleton": "model"
   }
 }

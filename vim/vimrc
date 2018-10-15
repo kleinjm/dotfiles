@@ -63,10 +63,9 @@ if has('mouse')
 endif
 
 " warn if directory does not have projections file
-" TODO: reenable this once snippets are working
-" if empty(glob(".projections.json"))
-"   echo "Missing .projections.json. Run `projections` to create it"
-" endif
+if empty(glob(".projections.json"))
+  echo "Missing .projections.json. Run `projections` to create it"
+endif
 
 " Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2 || has("gui_running")

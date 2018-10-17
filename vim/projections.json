@@ -18,5 +18,8 @@
   },
   "app/models/*.rb": {
     "skeleton": "model"
+  },
+  "*.rb": {
+    "skeleton": "skel"
   }
 }

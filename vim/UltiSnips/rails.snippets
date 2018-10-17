@@ -5,6 +5,13 @@ from snippet_helpers_ruby import *
 endglobal
 
 # templates
+snippet _skel "fallback template" b
+# frozen_string_literal: true
+
+class `!p rb_class_name(path, snip)`
+end
+endsnippet
+
 
 snippet _controller "templates: rails controller" b
 # frozen_string_literal: true

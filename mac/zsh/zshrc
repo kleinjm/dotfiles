@@ -60,7 +60,7 @@ plugins=(git bundler osx rake ruby rails tmux docker zsh-autosuggestions)
 # QT added to path to fix gem install capybara-webkit issue
 # openssl added to fix issue with brew installing over the system version
 # mysql added to fix issue with brew linking
-export PATH=/usr/local/opt/mysql@5.7/bin:/usr/local/opt/openssl/bin:~/Qt5.5.1/5.5/clang_64/bin:~/.rbenv/shims:/usr/local/bin:/usr/bin:$PATH
+export PATH=/usr/local/opt/mysql@5.7/bin:/usr/local/opt/openssl/bin:$PATH
 
 # NOTE: PATH must be before this
 source $ZSH/oh-my-zsh.sh
@@ -103,11 +103,3 @@ done
 
 # tmuxinator autocomplete - allows `mux` in CLI
 source $DOTFILES_DIR/mac/zsh/plugins/tmuxinator.zsh
-
-# https://github.com/rbenv/rbenv/issues/142
-eval "$(rbenv init -)"
-
-### PYENV and Python - https://github.com/pyenv/pyenv ###
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi

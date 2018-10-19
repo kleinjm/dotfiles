@@ -51,8 +51,12 @@ def rb_operation_spec_class_name(path, snip):
 
 def rb_spec_class_name(path, snip):
     cwd = vim.eval("getcwd()") + "/"
-    # path = path.split(cwd)[1]
     path = path_without_first_dir(path)
     path = path_without_extension(path)
     path = path_as_class_name(path, separator="::")
     snip.rv = re.split('Spec$', path)[0]
+
+def rake_task_namespace(path, snip):
+    cwd = vim.eval("getcwd()") + "/"
+    path = path_without_first_dir(path)
+    snip.rv = path_without_extension(path)

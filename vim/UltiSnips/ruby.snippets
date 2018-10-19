@@ -14,6 +14,17 @@ snippet _model "A ruby model" b
 A model file!
 endsnippet
 
+snippet _rake_task "rake task template" b
+# frozen_string_literal: true
+
+namespace :`!p rake_task_namespace(path, snip)` do
+	desc "$0"
+	task $1: :environment do
+		$3
+	end
+end
+endsnippet
+
 # fzfe
 
 snippet fzexpect "fzf: rspec-expectations" b

@@ -36,6 +36,7 @@ Default config taken from [oh-my-tmux](https://github.com/gpakosz/.tmux)
 
 ### Alfred
 - Use [this script](https://github.com/stuartcryan/custom-iterm-applescripts-for-alfred) to get Alfred <> iTerm2 integration
+- Settings are stored in and synced via dropbox.
 
 ### VIM
 - Followed [this guide](https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html) to set up ctags using git hooks
@@ -45,8 +46,9 @@ Default config taken from [oh-my-tmux](https://github.com/gpakosz/.tmux)
 pip install -r vim/pythonx/requirements.txt
 ```
 
-### Music
-Music is synced to my personal server space using `/mac/scripts/upload_music`. This only uploads the file difference and deletes any deleted songs. My server plan comes with 100GB of space.
+### Music & iTunes
+- Music is synced to my personal server space using `/mac/scripts/upload_music`. This only uploads the file difference and deletes any deleted songs. My server plan comes with 100GB of space.
+- For Alfred iTunes miniplayer: In iTunes go to Preferences > Advanced > Share iTunes Library XML with other applications
 
 ### SSH
 To set up ssh and rsync without asking for a password. See [this guide](https://www.thegeekstuff.com/2011/07/rsync-over-ssh-without-password/)

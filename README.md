@@ -55,3 +55,18 @@ NOTE: the same `id_rsa.pub` is shared so this should not be necessary
 ssh-copy-id -i ~/.ssh/id_rsa.pub jamesmkl@jamesmklein.com
 ```
 - See `$LOCAL_CONFIG` (vim `leader + lcl`) for additional configurations
+
+### Neovim
+I'm not using neovim currently but to get it set up I used the following
+```
+brew install neovim
+created ~/.config/nvm/init.vim
+
+# run :checkhealth
+
+# https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
+sudo pip2 install --user neovim
+sudo pip3 install --user neovim
+
+gem install neovim
+```

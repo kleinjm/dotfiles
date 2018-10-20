@@ -103,3 +103,6 @@ done
 
 # tmuxinator autocomplete - allows `mux` in CLI
 source $DOTFILES_DIR/mac/zsh/plugins/tmuxinator.zsh
+
+# https://github.com/rbenv/rbenv/issues/142
+eval "$(rbenv init -)"

@@ -6,7 +6,10 @@
     "alternate": "src/packages/profiles/components/{}.vue"
   },
   "app/javascript/pages/*.vue": {
-    "skeleton": "skel"
+    "skeleton": "page"
+  },
+  "app/javascript/components/*.vue": {
+    "skeleton": "component"
   },
   "spec/*_spec.rb": {
     "alternate": "app/{}.rb",

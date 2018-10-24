@@ -48,10 +48,6 @@ alias rc!="spring stop && rails console"
 alias resolve-rails="master && bundle install && rails db:migrate && rails db:test:prepare"
 alias resolve-vue="nvm use && master && yarn install"
 
-# Brew
-# Remove pyenv configs as not to interfere with brew
-alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
-
 # Script shortcuts
 alias dependencies="$DOTFILES_DIR/mac/scripts/dependencies.sh"
 alias download-music="$DOTFILES_DIR/mac/scripts/download_music.sh"

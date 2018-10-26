@@ -40,7 +40,6 @@ Plug 'onemanstartup/vim-slim'                       " syntax for slim. Use this 
 Plug 'posva/vim-vue'                                " syntax highlighting for vueJS
 Plug 'ryanoasis/vim-devicons'                       " font icon integration
 Plug 'sunaku/vim-ruby-minitest'                     " highlighting for minitest
-Plug 'szw/vim-tags'                                 " generate tag files on save
 Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
 Plug 'tpope/vim-bundler'                            " support helpers for bundler
 Plug 'tpope/vim-endwise'                            " add `end` in ruby and other scripts

@@ -23,15 +23,16 @@ class `!p rb_class_name(path, snip)` < ApplicationController
 end
 endsnippet
 
-# snippet _spec "templates: rspec" b
-# # frozen_string_literal: true
-#
-# require "rails_helper"
-#
-# RSpec.describe `!p rb_spec_class_name(path, snip)` do
-#   $0
-# end
-# endsnippet
+snippet _spec "templates: rspec" b
+TEST RAILS
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe `!p rb_spec_class_name(path, snip)` do
+  $0
+end
+endsnippet
 
 # debugging
 

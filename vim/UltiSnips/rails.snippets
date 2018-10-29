@@ -24,13 +24,23 @@ end
 endsnippet
 
 snippet _spec "templates: rspec" b
-TEST RAILS
 # frozen_string_literal: true
 
 require "rails_helper"
 
 RSpec.describe `!p rb_spec_class_name(path, snip)` do
-  $0
+  describe "$0" do
+		it "$1"	do
+			$2
+		end
+	end
+end
+endsnippet
+
+snippet _factory "tempate: factory" b
+FactoryBot.define do
+	factory :$0 do
+	end
 end
 endsnippet
 

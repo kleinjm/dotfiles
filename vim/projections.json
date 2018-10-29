@@ -15,6 +15,10 @@
     "alternate": "app/{}.rb",
     "skeleton": "spec"
   },
+  "spec/factories/*.rb": {
+    "alternate": "app/{}.rb",
+    "skeleton": "factory"
+  },
   "app/*.rb": {
     "alternate": "spec/{}_spec.rb",
     "test": "spec/{}_spec.rb"

@@ -23,14 +23,13 @@ namespace :`!p rake_task_namespace(path, snip)` do
 end
 endsnippet
 
-# snippet _spec "templates: rspec" b
-# TEST RUBY
-# # frozen_string_literal: true
-#
-# RSpec.describe `!p rb_spec_class_name(path, snip)` do
-#   $0
-# end
-# endsnippet
+snippet _spec "templates: rspec" b
+# frozen_string_literal: true
+
+RSpec.describe `!p rb_spec_class_name(path, snip)` do
+  $0
+end
+endsnippet
 
 
 # fzfe

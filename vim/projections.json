@@ -16,7 +16,7 @@
     "skeleton": "spec"
   },
   "spec/factories/*.rb": {
-    "alternate": "app/{}.rb",
+    "alternate": "app/models/{}.rb",
     "skeleton": "factory"
   },
   "app/*.rb": {

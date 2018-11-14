@@ -52,10 +52,11 @@ brew tap divoxx/brewery caskroom/fonts
 # sqlite3 and w3m - dependencies of vmail
 # awscli - for doximity
 # graphviz - for rails-erd and other .svg generation tools
+# git-lfs parallel jq gawk - dox-compose dependencies
 # || true will continue the dependency script even if all brew's are installed
 brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl \
   yarn reattach-to-user-namespace muggler rbenv ctags sqlite3 w3m awscli \
-  graphviz || true
+  graphviz git-lfs parallel jq gawk || true
 
 until
   rbenv ctags

@@ -31,7 +31,8 @@ alias ga='git add'
 alias gl='git log'
 alias gpod='git pull origin develop'
 alias gpom='git pull origin master'
-alias gprune="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d" # delete local branches that do not exist on origin
+# TODO: fix by changing to script instead of alias
+alias gprune="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D" # delete local branches that do not exist on origin
 alias gs='git s'
 alias master='git master'
 

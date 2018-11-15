@@ -3,6 +3,7 @@
 source "https://rubygems.org"
 
 gem "brakeman"
+gem "docker-sync"
 gem "gem-ctags"
 gem "jcop", "~> 0.2.3", source: "https://gem.fury.io/kleinjm/"
 gem "jslint"

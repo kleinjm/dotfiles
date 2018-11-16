@@ -1,16 +1,39 @@
-# ~/.tmuxinator/dox-compose.yml
-
 name: dox-compose
-root: ~/GitHubRepos/dox-compose
+root: <%= ENV["PROJECT_DIR"] %>/dox-compose
 # needed for pane-base-index 1 config
 startup_pane: 1
 
+# Runs on project start, always
+on_project_start: git pull origin master; bin/dox-dc up -d network-frontend
+
+# Run on project start, the first time
+on_project_first_start: bin/dox-update
+
+# Run on project stop
+on_project_stop: dox-dc down; docker-sync stop
+
+# Controls whether the tmux session should be attached to automatically
+attach: false
+
+# Specifies (by name or index) which window will be selected on project startup
+startup_window: containers
+
 windows:
   - editor:
-      layout: e571,272x59,0,0[272x49,0,0,24,272x9,0,50,25]
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
+      layout: main-horizontal
       panes:
         - vim .
         -
+  - containers:
+      layout: tiled
+      panes:
+        # Auth API
+        - dox-dc build auth-api && dox-dc up auth-api
+        # Kafka
+        - dox-dc up kafka
+        # ElasticSearch
+        - dox-dc up elasticsearch
+        # Neo4j
+        - dox-dc up neo4j
+        # Bridge DB
+        - dox-dc up bridge-schema-database

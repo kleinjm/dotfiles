@@ -66,3 +66,4 @@ alias dox="cd $PROJECT_DIR/doximity"
 alias doxserver='bin/rails s webrick -p5000'
 alias doxstart="$DOTFILES_DIR/tmuxinator/start_doximity.sh"
 alias e2e-single="TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules/.bin/wdio --spec"
+alias wait_for_docker="$DOTFILES_DIR/mac/scripts/wait_for_docker.sh"

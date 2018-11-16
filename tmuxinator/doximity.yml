@@ -1,32 +1,31 @@
-# ~/.tmuxinator/doximity.yml
-
 name: doximity
-root: ~/GitHubRepos/doximity
+root: <%= ENV["PROJECT_DIR"] %>/doximity
 # needed for pane-base-index 1 config
 startup_pane: 1
+# Runs in each window and pane before window/pane specific commands
+pre_window: nvm use
 
 windows:
   - editor:
-      layout: 5359,272x59,0,0[272x45,0,0,2,272x13,0,46{136x13,0,46,72,135x13,137,46,92}]
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
+      layout: main-horizontal
       panes:
         # include nvm so node and coffeelint get loaded and used in linting
-        - nvm use && vim -c "silent VtrAttachToPane 2"
-        - nvm use
+        - vim -c "silent VtrAttachToPane 2"
+        - wait_for_docker doximity && dox-do sh
         - tail -f log/bullet.log
-  - servers:
-      layout: c5ae,272x59,0,0[272x38,0,0{136x38,0,0,6,135x38,137,0,25},272x20,0,39{135x20,0,39,9,136x20,136,39,10}]
+  - services:
+      layout: tiled
       panes:
-        - bundle && doxserver
-        - bundle && bundle exec sidekiq
-        - docker-compose up
-        - docker-compose -f docker-compose-test.yml up
-  - kafka:
-      layout: 18e9,272x59,0,0{136x59,0,0,93,135x59,137,0,95}
-      panes:
-        - bundle && bundle exec rake ads:consumers:run
-        - bundle && bundle exec rake email_delivery:events_tracker
-  - webpacker: nvm use && yarn && bin/webpack-dev-server
-  - consoles: rails c
+        # Doximity server (also causes other required services to start)
+        - dox-dc up doximity
+
+        # Start Docker Sync for the project
+        - (cd <%= ENV["PROJECT_DIR"] %>/dox-compose && docker-sync start -f -n doximity-sync)
+
+        # Tail database logs
+        - wait_for_docker doximity; dox-dc logs -f doximity-database
+
+        # Start workers
+        - wait_for_docker doximity; dox-dc up doximity-workers
+  - consoles:
+      - wait_for_docker doximity; dox-do rails c

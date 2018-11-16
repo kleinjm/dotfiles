@@ -102,7 +102,7 @@ done
 source $DOTFILES_DIR/mac/zsh/plugins/tmuxinator.zsh
 
 # Doximity specific
-eval "$("/Users/jklein/GitHubRepos/dox-compose/bin/dox-init")"
+eval "$("$PROJECT_DIR/dox-compose/bin/dox-init")"
 
 # https://github.com/rbenv/rbenv/issues/142
 eval "$(rbenv init -)"

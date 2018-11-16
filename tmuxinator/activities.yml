@@ -1,5 +1,3 @@
-# ~/.tmuxinator/activities.yml
-
 name: activities
 root: ~/GitHubRepos/activities
 # needed for pane-base-index 1 config
@@ -7,27 +5,25 @@ startup_pane: 1
 
 windows:
   - editor:
-      layout: c489,238x56,0,0[238x48,0,0,0,238x7,0,49,1]
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
+      layout: main-horizontal
       panes:
         - vim -c "silent VtrAttachToPane 2"
         -
-  - server:
-      layout: 18e5,272x59,0,0{136x59,0,0,31,135x59,137,0,35}
+  - services:
+      layout: tiled
       panes:
-        - bundle && PORT=5150 bundle exec rails server -p5150
-        - bundle && bundle exec sidekiq
+        - dox-dc up activities
+        - (cd <%= ENV["PROJECT_DIR"] %>/dox-compose && docker-sync start -f -n activities-sync)
+        - wait_for_docker activities; dox-dc up activities-workers
   - kafka:
-      layout: c449,272x59,0,0{90x59,0,0,40,90x59,91,0,41,90x59,182,0,42}
+      layout: even-horizontal
       panes:
-        - bundle && bundle exec rake consumers:run
-        - bundle && bundle exec rake events:run_listener
-        - bundle && bundle exec rake data:kafka_bridge
+        - wait_for_docker activities; dox-do rake consumers:run
+        - wait_for_docker activities; dox-do rake events:run_listener
+        - wait_for_docker activities; dox-do rake data:kafka_bridge
   - kafka-ads:
-      layout: 58e2,272x59,0,0{136x59,0,0,114,135x59,137,0,115}
+      layout: even-horizontal
       panes:
-        - bundle && bundle exec rake consumers:run_ads_priority
-        - bundle && bundle exec rake consumers:run_ads
-  - console: bundle && bin/rails c
+        - wait_for_docker activities; dox-do rake consumers:run_ads_priority
+        - wait_for_docker activities; dox-do rake consumers:run_ads
+  - consoles: wait_for_docker activities; dox-do rails c

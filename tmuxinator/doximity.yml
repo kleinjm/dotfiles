@@ -27,5 +27,4 @@ windows:
 
         # Start workers
         - wait_for_docker doximity; dox-dc up doximity-workers
-  - consoles:
-      - wait_for_docker doximity; dox-do rails c
+  - consoles: wait_for_docker doximity; dox-do rails c

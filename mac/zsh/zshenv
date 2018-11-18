@@ -11,15 +11,11 @@ export PROJECT_DIR=$HOME/GitHubRepos
 export DOTFILES_DIR=$PROJECT_DIR/dotfiles
 export DROPBOX_DIR=$HOME/Dropbox
 
-# Pyenv
-export PYENV_VERSION=3.7.0
-
 ### PYENV and Python - https://github.com/pyenv/pyenv#homebrew-on-mac-os-x ###
-# Step #3 here says to place in zshenv rather than zshrc
 # https://github.com/pyenv/pyenv#basic-github-checkout
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+export PYENV_VERSION=3.7.0
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 for file in "$DOTFILES_DIR"/mac/zsh/*.zshenv; do
   source "$file"

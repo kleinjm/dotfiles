@@ -106,3 +106,11 @@ eval "$("$PROJECT_DIR/dox-compose/bin/dox-init")"
 
 # https://github.com/rbenv/rbenv/issues/142
 eval "$(rbenv init -)"
+
+### PYENV and Python - https://github.com/pyenv/pyenv#homebrew-on-mac-os-x ###
+# NOTE: Step #2 & #3 here says to place in zshenv rather than zshrc but that did
+# not work. Leave it here
+# https://github.com/pyenv/pyenv#basic-github-checkout
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

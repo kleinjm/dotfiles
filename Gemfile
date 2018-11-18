@@ -2,7 +2,6 @@
 
 source "https://rubygems.org"
 
-gem "brakeman"
 gem "docker-sync"
 gem "gem-ctags"
 gem "jcop", "~> 0.2.3", source: "https://gem.fury.io/kleinjm/"
@@ -15,5 +14,4 @@ gem "rails_best_practices"
 gem "rubocop"
 gem "slim_lint"
 gem "tmuxinator"
-gem "vmail"
 gem "wunderlist-api", "1.3.0", git: "https://github.com/kleinjm/wunderlist-api.git"

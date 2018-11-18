@@ -19,31 +19,16 @@ if [ $? != 0 ]; then
   sudo chmod 777 /usr/local
 fi
 
-# tmux is required for oh-my-zsh to source it's plugin correctly
-# NOTE: keep this before `source ~/.zshrc`
-brew list | grep tmux
-if [ $? != 0 ]; then
-  brew install tmux
-fi
-
 $DIR/dependencies/python.sh
 
-# NOTE: **You must open the XCode app and click install when prompted**
-brew list | grep macvim
-if [ $? != 0 ]; then
-  brew install macvim --with-override-system-vim
-fi
-
-# oh-my-zsh
-ls ~/.oh-my-zsh
-if [ $? != 0 ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-  sudo chmod -R 777 $ZSH # ohmyzsh plugins
-fi
-
+## Brew
+# run `brew bundle dump` to update the Brewfile
+#
+### Taps
 # divoxx/brewery - muggler
-brew tap divoxx/brewery caskroom/fonts
-
+#
+### Brews
+# macvim - NOTE: **You must open the XCode app and click install when prompted**
 # gpg for github verified commits
 # tree for `tree` command for dir structure
 # muggler - run rails migrations when switching branches.
@@ -53,10 +38,23 @@ brew tap divoxx/brewery caskroom/fonts
 # awscli - for doximity
 # graphviz - for rails-erd and other .svg generation tools
 # git-lfs parallel jq gawk - dox-compose dependencies
-# || true will continue the dependency script even if all brew's are installed
-brew install bash fzf ripgrep the_silver_searcher tree gpg heroku youtube-dl \
-  yarn reattach-to-user-namespace muggler rbenv ctags sqlite3 w3m awscli \
-  graphviz git-lfs parallel jq gawk || true
+# tmux is required for oh-my-zsh to source it's plugin correctly
+#
+### Casks
+# font related casks - Needed for nerd fonts and devicons
+# https://github.com/ryanoasis/nerd-fonts#option-3-install-script
+# corelocationcli - alfred google maps workflow
+# insomnia - OOS rest client
+# keybase - for doximity AWS keys https://wiki.doximity.com/articles/keybase
+# mysql - for doximity. Do not install 8.x.x
+brew bundle
+
+# oh-my-zsh
+ls ~/.oh-my-zsh
+if [ $? != 0 ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sudo chmod -R 777 $ZSH # ohmyzsh plugins
+fi
 
 until
   rbenv ctags
@@ -67,15 +65,6 @@ do
     ~/.rbenv/plugins/rbenv-ctags
   rbenv ctags # see https://github.com/tpope/rbenv-ctags
 done
-
-# font related casks - Needed for nerd fonts and devicons
-# https://github.com/ryanoasis/nerd-fonts#option-3-install-script
-# corelocationcli - alfred google maps workflow
-# insomnia - OOS rest client
-# keybase - for doximity AWS keys https://wiki.doximity.com/articles/keybase
-# mysql - for doximity. Do not install 8.x.x
-brew cask install font-hack-nerd-font font-devicons corelocationcli insomnia \
-  keybase mysql@5.7
 
 # ruby
 gem install bundler # if this command fails, run `rbenv init`

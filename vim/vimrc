@@ -210,10 +210,6 @@ let g:ale_set_highlights = 0
 " ##### RSpec.vim mappings #####
 let g:rspec_command = "VtrSendCommand! bin/rspec {spec}"
 let g:rspec_runner = "os_x_iterm"
-" Run Rspec for current file
-nnoremap <LEADER>dt :VtrSendCommandToRunner RAILS_ENV=test bin/rspec <C-r>=expand("%")<CR><CR>
-" Run Rspec for current line
-nnoremap <LEADER>ds :VtrSendCommandToRunner RAILS_ENV=test bin/rspec <C-r>=expand("%")<CR>:<C-r>=line('.')<CR><CR>
 let g:VtrClearSequence=" "
 " ##### END RSpec.vim mappings #####
 

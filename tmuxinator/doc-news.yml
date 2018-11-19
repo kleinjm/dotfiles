@@ -1,23 +1,21 @@
-# ~/.tmuxinator/doc-news.yml
-
 name: doc-news
-root: ~/GitHubRepos/doc-news
+root: <%= ENV["PROJECT_DIR"] %>/doc-news
 # needed for pane-base-index 1 config
 startup_pane: 1
 
 windows:
   - editor:
-      layout: e572,272x59,0,0[272x49,0,0,24,272x9,0,50,27]
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
+      layout: main-horizontal
       panes:
         - vim -c "silent VtrAttachToPane 2"
         -
   - server:
-      layout: 8850,272x59,0,0[272x29,0,0,25,272x29,0,30{136x29,0,30,28,135x29,137,30,29}]
+      layout: tiled
       panes:
-        - bundle && bundle exec rails server -p 5190
-        - bundle exec sidekiq
-        - bundle exec rake consumers:run
-  - consoles: rails c
+        - dox-dc up doc-news
+        - sync:
+          - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
+          - docker-sync start -f -n doc-news-sync
+        - wait_for_docker doc-news; dox-dc up doc-news-workers
+  - kafka: wait_for_docker doc-news; dox-do rake consumers:run
+  - consoles: wait_for_docker doc-news; dox-do rails c

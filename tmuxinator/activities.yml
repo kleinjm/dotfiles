@@ -1,5 +1,5 @@
 name: activities
-root: ~/GitHubRepos/activities
+root: <%= ENV["PROJECT_DIR"] %>/activities
 # needed for pane-base-index 1 config
 startup_pane: 1
 

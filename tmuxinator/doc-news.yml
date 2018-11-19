@@ -17,5 +17,9 @@ windows:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n doc-news-sync
         - wait_for_docker doc-news; dox-dc up doc-news-workers
-  - kafka: wait_for_docker doc-news; dox-do rake consumers:run
+  - kafka:
+      layout: even-vertical
+      panes:
+        - wait_for_docker doc-news; dox-do rake consumers:run
+        - wait_for_docker doc-news; dox-do rake ads_consumers:run
   - consoles: wait_for_docker doc-news; dox-do rails c

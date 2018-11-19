@@ -10,21 +10,23 @@ windows:
       layout: main-horizontal
       panes:
         # include nvm so node and coffeelint get loaded and used in linting
-        - vim -c "silent VtrAttachToPane 2"
-        - wait_for_docker doximity && dox-do sh
-        - tail -f log/bullet.log
+        - vim -c "silent VtrAttachToPane 2" -c "VtrSendCommandToRunner wait_for_docker doximity && dox-do sh"
+        local_shell:
+          - wait_for_docker doximity
+          - dox-do bundle install
+        docker_shell:
+          - wait_for_docker doximity
+          - dox-do sh
   - services:
       layout: tiled
       panes:
         # Doximity server (also causes other required services to start)
         - dox-dc up doximity
-
         # Start Docker Sync for the project
         - (cd <%= ENV["PROJECT_DIR"] %>/dox-compose && docker-sync start -f -n doximity-sync)
-
         # Tail database logs
         - wait_for_docker doximity; dox-dc logs -f doximity-database
-
         # Start workers
         - wait_for_docker doximity; dox-dc up doximity-workers
+  - bullet: tail -f log/bullet.log
   - consoles: wait_for_docker doximity; dox-do rails c

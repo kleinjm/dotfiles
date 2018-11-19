@@ -9,8 +9,7 @@ windows:
   - editor:
       layout: main-horizontal
       panes:
-        # include nvm so node and coffeelint get loaded and used in linting
-        - vim -c "silent VtrAttachToPane 2" -c "VtrSendCommandToRunner wait_for_docker doximity && dox-do sh"
+        - vim -c "silent VtrAttachToPane 3"
         local_shell:
           - wait_for_docker doximity
           - dox-do bundle install

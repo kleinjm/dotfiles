@@ -7,19 +7,34 @@ windows:
   - editor:
       layout: main-horizontal
       panes:
-        - vim -c "silent VtrAttachToPane 2"
-        -
+        - vim -c "silent VtrAttachToPane 3"
+        local_shell:
+          - wait_for_docker doc-news
+          - dox-do bundle install
+        docker_shell:
+          - wait_for_docker doc-news
+          - dox-dc exec doc-news sh
   - server:
-      layout: tiled
+      layout: even-vertical
       panes:
         - dox-dc up doc-news
         - sync:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n doc-news-sync
-        - wait_for_docker doc-news; dox-dc up doc-news-workers
-  - kafka:
-      layout: even-vertical
+  - services:
+      layout: main-horizontal
       panes:
-        - wait_for_docker doc-news; dox-do rake consumers:run
-        - wait_for_docker doc-news; dox-do rake ads_consumers:run
-  - consoles: wait_for_docker doc-news; dox-do rails c
+        - sidekiq:
+          - wait_for_docker doc-news
+          - dox-dc exec doc-news bundle exec sidekiq
+        - consumers:
+          - wait_for_docker doc-news
+          - dox-dc exec doc-news bundle exec rake consumers:run
+        - ads_consumers:
+          - wait_for_docker doc-news
+          - dox-dc exec doc-news bundle exec rake ads_consumers:run
+  - consoles:
+      panes:
+        - rails_console:
+          - wait_for_docker doc-news
+          - dox-dc exec doc-news rails console

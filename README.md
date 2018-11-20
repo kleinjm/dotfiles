@@ -14,9 +14,9 @@
 * In iTerm, set the font to that font for the current profile
 * Restart vim and you should see devicons
 
-### Syncing Mac Mail Rules
-* To save local rule to the repo `mac_config/mail/upload_local_rules.sh`
-* To apply repo rules to the local mac mail `mac_config/mail/apply_dotfile_rules.sh`
+### Syncing Mac Settings
+* To save local settings to the repo `mac/scripts/backup_local_settings.sh`
+* To apply repo settings to the local mac `mac/scripts/apply_dotfile_settings.sh`
 
 ### Sequel Pro
 - Dark query scheme found in `mac_config/sequel-pro-master`

@@ -53,6 +53,122 @@
 		<key>AutoResponseType</key>
 		<integer>0</integer>
 		<key>CopyToMailboxURL</key>
+		<string>imap://kleinjm007%40gmail.com/Realestate/Research/Northern%20New%20Jersey/Jose's%20Search%20Results</string>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>83CC3A9E-A3D9-42DD-B395-17DDD0757342</string>
+				<key>Expression</key>
+				<string>Email@ParagonMessaging.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>61CB74BD-CFBE-4D08-909A-C2C8A1B2E7C8</string>
+				<key>Expression</key>
+				<string>kleinjm007@gmail.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>F45D4636-9EDD-4A45-B970-FBEB17659F39</string>
+				<key>Expression</key>
+				<string>Activity notification for your Collaboration Center Site</string>
+				<key>Header</key>
+				<string>Subject</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<false/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MailboxURL</key>
+		<string>imap://kleinjm007%40gmail.com/Realestate/Research/Northern%20New%20Jersey/Jose's%20Search%20Results</string>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>00BF17F9-431B-43AB-98B8-57003DB8E6C3</string>
+		<key>RuleName</key>
+		<string>jose's search results</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<true/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>C1E67CD8-8A3B-4690-A5A6-CF905C348703</string>
+				<key>Expression</key>
+				<string>customerservice@citibikenyc.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>617E9590-BA9B-4DB5-8730-8B6CE42A05A2</string>
+				<key>Expression</key>
+				<string>kleinjm007@gmail.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>1EE23349-5344-4ABE-9165-0AB8FE6D3CF8</string>
+		<key>RuleName</key>
+		<string>citi bike</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>CopyToMailboxURL</key>
 		<string>imap://jklein%40doximity.com/Weekly%20Digests</string>
 		<key>Criteria</key>
 		<array>
@@ -101,71 +217,6 @@
 		<string>27726096-0F3D-4E5B-B619-656C2514663C</string>
 		<key>RuleName</key>
 		<string>Weekly digests</string>
-		<key>SendNotification</key>
-		<false/>
-		<key>ShouldCopyMessage</key>
-		<false/>
-		<key>ShouldTransferMessage</key>
-		<true/>
-		<key>TimeStamp</key>
-		<integer>405447826</integer>
-	</dict>
-	<dict>
-		<key>AllCriteriaMustBeSatisfied</key>
-		<true/>
-		<key>AutoResponseType</key>
-		<integer>0</integer>
-		<key>CopyToMailboxURL</key>
-		<string>imap://kleinjm007%40gmail.com/Finance/Schwab</string>
-		<key>Criteria</key>
-		<array>
-			<dict>
-				<key>CriterionUniqueId</key>
-				<string>711709AB-7692-4191-946E-58EAE7DD32DA</string>
-				<key>Expression</key>
-				<string>donotreply-comm@schwab.com</string>
-				<key>Header</key>
-				<string>From</string>
-				<key>Qualifier</key>
-				<string>IsEqualTo</string>
-			</dict>
-			<dict>
-				<key>CriterionUniqueId</key>
-				<string>E48AA6B2-500C-410A-9390-D0C93D410DD3</string>
-				<key>Expression</key>
-				<string>Your Schwab eStatement is Ready</string>
-				<key>Header</key>
-				<string>Subject</string>
-				<key>Qualifier</key>
-				<string>IsEqualTo</string>
-			</dict>
-			<dict>
-				<key>CriterionUniqueId</key>
-				<string>F5418620-37CE-4DF4-9982-ACCB07037127</string>
-				<key>Expression</key>
-				<string>KLEINJM007@GMAIL.COM</string>
-				<key>Header</key>
-				<string>To</string>
-				<key>Qualifier</key>
-				<string>IsEqualTo</string>
-			</dict>
-		</array>
-		<key>Deletes</key>
-		<false/>
-		<key>HighlightTextUsingColor</key>
-		<false/>
-		<key>MailboxURL</key>
-		<string>imap://kleinjm007%40gmail.com/Finance/Schwab</string>
-		<key>MarkFlagged</key>
-		<false/>
-		<key>MarkRead</key>
-		<false/>
-		<key>NotifyUser</key>
-		<false/>
-		<key>RuleId</key>
-		<string>26FE7C6A-6539-414B-9D32-F94F6438755E</string>
-		<key>RuleName</key>
-		<string>shwab eStatement is ready</string>
 		<key>SendNotification</key>
 		<false/>
 		<key>ShouldCopyMessage</key>
@@ -464,6 +515,55 @@
 		<string>16B918ED-2ED7-4351-A336-2FDA30CC7AD4</string>
 		<key>RuleName</key>
 		<string>dox alooma</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>5F4A6407-2DC2-4CE8-8D5D-D629E9EFC730</string>
+				<key>Expression</key>
+				<string>webdev@doximity.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>16B9CA54-B57E-4F79-B977-4F91DF273D03</string>
+				<key>Expression</key>
+				<string>Request</string>
+				<key>Header</key>
+				<string>Subject</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>B0554767-B150-448B-85CB-10FBEF475D5E</string>
+		<key>RuleName</key>
+		<string>dox alooma [Request received]</string>
 		<key>SendNotification</key>
 		<false/>
 		<key>ShouldCopyMessage</key>
@@ -1538,17 +1638,7 @@
 		<array>
 			<dict>
 				<key>CriterionUniqueId</key>
-				<string>11304885-899B-40A0-9716-2E397E5E970D</string>
-				<key>Expression</key>
-				<string>SchwabAlerts.AccountActivity@schwab.com</string>
-				<key>Header</key>
-				<string>From</string>
-				<key>Qualifier</key>
-				<string>IsEqualTo</string>
-			</dict>
-			<dict>
-				<key>CriterionUniqueId</key>
-				<string>A1F2644D-F3B8-4E9D-AABE-2B71D0292967</string>
+				<string>848A003F-2AA2-4A42-9C9A-2E57C0E91857</string>
 				<key>Expression</key>
 				<string>KLEINJM007@GMAIL.COM</string>
 				<key>Header</key>
@@ -1558,9 +1648,19 @@
 			</dict>
 			<dict>
 				<key>CriterionUniqueId</key>
-				<string>1A6FF59B-7DE1-4B62-B381-5D5E7FFD5B32</string>
+				<string>19027047-E5F6-4FBC-B2B8-0FFECF296864</string>
 				<key>Expression</key>
-				<string>Your Schwab eStatement</string>
+				<string>donotreply-comm@schwab.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>6BD7E86C-78DF-4878-A786-F549CE02E84F</string>
+				<key>Expression</key>
+				<string>Your Schwab</string>
 				<key>Header</key>
 				<string>Subject</string>
 			</dict>
@@ -2546,65 +2646,6 @@
 		<string>5AD884D3-5E72-4062-9915-5056A7B9D82A</string>
 		<key>RuleName</key>
 		<string>dox pivitol recipt</string>
-		<key>SendNotification</key>
-		<false/>
-		<key>ShouldCopyMessage</key>
-		<false/>
-		<key>ShouldTransferMessage</key>
-		<false/>
-		<key>TimeStamp</key>
-		<integer>405447826</integer>
-	</dict>
-	<dict>
-		<key>AllCriteriaMustBeSatisfied</key>
-		<true/>
-		<key>AutoResponseType</key>
-		<integer>0</integer>
-		<key>Criteria</key>
-		<array>
-			<dict>
-				<key>CriterionUniqueId</key>
-				<string>353666CF-6CF3-49B2-9760-646EFD64D25C</string>
-				<key>Expression</key>
-				<string>SchwabAlerts.AccountActivity@schwab.com</string>
-				<key>Header</key>
-				<string>From</string>
-				<key>Qualifier</key>
-				<string>IsEqualTo</string>
-			</dict>
-			<dict>
-				<key>CriterionUniqueId</key>
-				<string>E383EBC0-9366-495B-9552-0CE29222C509</string>
-				<key>Expression</key>
-				<string>KLEINJM007@GMAIL.COM</string>
-				<key>Header</key>
-				<string>To</string>
-				<key>Qualifier</key>
-				<string>IsEqualTo</string>
-			</dict>
-			<dict>
-				<key>CriterionUniqueId</key>
-				<string>6D20D494-4B58-472B-A5A2-89FE207010C6</string>
-				<key>Expression</key>
-				<string>Your Schwab Bank eStatement is available</string>
-				<key>Header</key>
-				<string>Subject</string>
-			</dict>
-		</array>
-		<key>Deletes</key>
-		<true/>
-		<key>HighlightTextUsingColor</key>
-		<false/>
-		<key>MarkFlagged</key>
-		<false/>
-		<key>MarkRead</key>
-		<false/>
-		<key>NotifyUser</key>
-		<false/>
-		<key>RuleId</key>
-		<string>037B7221-72F8-436F-B0AC-19C0E43ED8B4</string>
-		<key>RuleName</key>
-		<string>schwab estatement ready</string>
 		<key>SendNotification</key>
 		<false/>
 		<key>ShouldCopyMessage</key>
@@ -4144,6 +4185,57 @@
 		<array>
 			<dict>
 				<key>CriterionUniqueId</key>
+				<string>C8001F2C-2AC3-4B3D-B984-989DC6A6D562</string>
+				<key>Expression</key>
+				<string>friends@segment.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>13D6ACAA-F613-492E-8BC1-3ADE99C6FA00</string>
+				<key>Expression</key>
+				<string>webdev@doximity.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>5EDEB4E3-C959-48B8-B64B-F8BED6F6A3D7</string>
+		<key>RuleName</key>
+		<string>dox segment (friends@segment)</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
 				<string>6C09D8B4-5702-47E3-8D92-620DDA3D0D2C</string>
 				<key>Expression</key>
 				<string>support@circleci.com</string>
@@ -4448,6 +4540,65 @@
 		<string>681CA7AF-0E9B-4DB9-8346-09BE1E1D6710</string>
 		<key>RuleName</key>
 		<string>dox Totango</string>
+		<key>SendNotification</key>
+		<false/>
+		<key>ShouldCopyMessage</key>
+		<false/>
+		<key>ShouldTransferMessage</key>
+		<false/>
+		<key>TimeStamp</key>
+		<integer>405447826</integer>
+	</dict>
+	<dict>
+		<key>AllCriteriaMustBeSatisfied</key>
+		<true/>
+		<key>AutoResponseType</key>
+		<integer>0</integer>
+		<key>Criteria</key>
+		<array>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>26273FBC-7F20-48BA-AC4C-730B7F25BC2C</string>
+				<key>Expression</key>
+				<string>support@cloudinary.com</string>
+				<key>Header</key>
+				<string>From</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>75304652-0241-49AA-94BE-E62F809A1D3B</string>
+				<key>Expression</key>
+				<string>webdev+staging@doximity.com</string>
+				<key>Header</key>
+				<string>To</string>
+				<key>Qualifier</key>
+				<string>IsEqualTo</string>
+			</dict>
+			<dict>
+				<key>CriterionUniqueId</key>
+				<string>8E7BE462-EEE3-4606-A0A9-416CC56B6132</string>
+				<key>Expression</key>
+				<string>Your Cloudinary usage stats</string>
+				<key>Header</key>
+				<string>Subject</string>
+			</dict>
+		</array>
+		<key>Deletes</key>
+		<true/>
+		<key>HighlightTextUsingColor</key>
+		<false/>
+		<key>MarkFlagged</key>
+		<false/>
+		<key>MarkRead</key>
+		<false/>
+		<key>NotifyUser</key>
+		<false/>
+		<key>RuleId</key>
+		<string>95CC2514-159B-4A92-B2F8-1B998F3873DF</string>
+		<key>RuleName</key>
+		<string>dox cloudinary</string>
 		<key>SendNotification</key>
 		<false/>
 		<key>ShouldCopyMessage</key>

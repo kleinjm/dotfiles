@@ -16,16 +16,14 @@ windows:
         docker_shell:
           - wait_for_docker doximity
           - dox-do sh
-  - services:
-      layout: tiled
+  - server:
+      layout: even-vertical
       panes:
         # Doximity server (also causes other required services to start)
         - dox-dc up doximity
-        # Start Docker Sync for the project
-        - (cd <%= ENV["PROJECT_DIR"] %>/dox-compose && docker-sync start -f -n doximity-sync)
-        # Tail database logs
-        - wait_for_docker doximity; dox-dc logs -f doximity-database
-        # Start workers
-        - wait_for_docker doximity; dox-dc up doximity-workers
+        dox_sync:
+          - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
+          - docker-sync start -f -n doximity-sync
+  - services: wait_for_docker doximity; dox-dc up doximity-workers
   - bullet: tail -f log/bullet.log
   - consoles: wait_for_docker doximity; dox-do rails c

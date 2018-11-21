@@ -9,21 +9,12 @@ windows:
       panes:
         - vim -c "silent VtrAttachToPane 2"
         -
-  - services:
-      layout: tiled
+  - server:
+      layout: even-vertical
       panes:
         - dox-dc up activities
-        - (cd <%= ENV["PROJECT_DIR"] %>/dox-compose && docker-sync start -f -n activities-sync)
-        - wait_for_docker activities; dox-dc up activities-workers
-  - kafka:
-      layout: even-horizontal
-      panes:
-        - wait_for_docker activities; dox-do rake consumers:run
-        - wait_for_docker activities; dox-do rake events:run_listener
-        - wait_for_docker activities; dox-do rake data:kafka_bridge
-  - kafka-ads:
-      layout: even-horizontal
-      panes:
-        - wait_for_docker activities; dox-do rake consumers:run_ads_priority
-        - wait_for_docker activities; dox-do rake consumers:run_ads
+        dox_sync:
+          - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
+          - docker-sync start -f -n activities-sync
+  - services: wait_for_docker activities; dox-dc up activities-workers
   - consoles: wait_for_docker activities; dox-do rails c

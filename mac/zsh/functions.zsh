@@ -1,6 +1,5 @@
 die () {
-    echo >&2 "$@"
-    exit 1
+  echo >&2 "$@"
 }
 
 # fd - cd to selected directory
@@ -44,15 +43,6 @@ bip() {
   fi
 }
 
-# fbr - checkout git branch (including remote branches)
-fbr() {
-  local branches branch
-  branches=$(git branch --all | grep -v HEAD) &&
-  branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-}
-
 # delete local branches that do not exist on origin
 gprune() {
   git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D
@@ -82,9 +72,9 @@ dox-attach() {
 # start doximity core apps, projects and services in tmux sessions
 doxstart() {
   # a lot of apps rely on the docker container in doximity so keep it at top
-  apps=(dox-compose doximity activities doc-news dotfiles)
+  local apps=(dox-compose doximity activities doc-news dotfiles)
 
-  for app in ${apps[@]}; do
+  for app in ${$apps[@]}; do
     echo "Starting $app"
     tmuxinator start $app --no-attach
   done

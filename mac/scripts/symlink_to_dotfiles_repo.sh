@@ -20,6 +20,7 @@ rm -f ~/.vim/plugins.vim
 rm -f ~/.vimrc
 rm -f ~/.zshenv
 rm -f ~/.zshrc
+rm -rf ~/.docker
 rm -rf ~/.git_template
 rm -rf ~/.oh-my-zsh/custom/plugins
 rm -rf ~/.oh-my-zsh/themes # this may get in the way of pulling updates
@@ -37,6 +38,7 @@ sudo rm -f ~/.ssh/config
 ln -s $DROPBOX_DIR/EnvironmentConfigurations/bundle/config ~/.bundle/config
 ln -s $DROPBOX_DIR/EnvironmentConfigurations/vmail ~/.vmail
 ln -s `pwd`/Default\ \(OSX\).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
+ln -s `pwd`/docker ~/.docker
 ln -s `pwd`/gitconfig ~/.gitconfig
 ln -s `pwd`/gitignore_global ~/.gitignore_global
 ln -s `pwd`/mac/git/git_template ~/.git_template

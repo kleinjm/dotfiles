@@ -17,7 +17,8 @@ windows:
   - server:
       layout: even-horizontal
       panes:
-        - dox-dc up doc-news
+        - dox-dc up -d doc-news
+        - dox-attach doc-news
         - sync:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n doc-news-sync

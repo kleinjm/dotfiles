@@ -1,0 +1,15 @@
+{
+  "HttpHeaders" : {
+    "User-Agent" : "Docker-Client/18.06.1-ce (darwin)"
+  },
+  "stackOrchestrator" : "swarm",
+  "credsStore" : "osxkeychain",
+  "credSstore" : "osxkeychain",
+  "detachKeys": "ctrl-c",
+  "auths" : {
+    "https://index.docker.io/v1/" : {
+
+    }
+  }
+}
+

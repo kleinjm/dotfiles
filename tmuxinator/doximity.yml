@@ -21,8 +21,7 @@ windows:
       panes:
         - dox_server:
           - dox-dc up -d doximity
-          - wait_for_docker doximity
-          - docker ps | grep -o "dox-compose_doximity_1\w*" | xargs docker attach
+          - dox-attach doximity
         - dox_sync:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n doximity-sync

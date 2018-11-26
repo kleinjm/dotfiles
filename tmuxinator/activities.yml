@@ -12,10 +12,19 @@ windows:
   - server:
       layout: even-horizontal
       panes:
-        - dox-dc up -d activities
-        - dox-attach activities
+        - server:
+          - dox-dc up -d activities
+          - dox-attach activities
         - dox_sync:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n activities-sync
-  - services: wait_for_docker activities; dox-dc up activities-workers
-  - consoles: wait_for_docker activities; dox-dc exec activities rails c
+  - services:
+      panes:
+        - dox_compose_workers:
+          - wait_for_docker activities
+          - dox-dc up activities-workers
+  - consoles:
+    panes:
+      - dox_compose_rails_console:
+        - wait_for_docker activities
+        - dox-dc exec activities rails console

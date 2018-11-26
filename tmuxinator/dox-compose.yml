@@ -28,7 +28,7 @@ windows:
       layout: tiled
       panes:
         # Auth API
-        - dox-dc build auth-api && dox-dc up auth-api
+        - dox-dc up auth-api
         # Kafka
         - dox-dc up kafka
         # ElasticSearch

@@ -1,0 +1,11 @@
+name: dnd-handbook
+root: <%= ENV["PROJECT_DIR"] %>/doc-news-digest-handbook
+# needed for pane-base-index 1 config
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim .
+        - master

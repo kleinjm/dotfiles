@@ -1,0 +1,11 @@
+name: terraform_github
+root: <%= ENV["PROJECT_DIR"] %>/terraform_github
+# needed for pane-base-index 1 config
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim .
+        - master

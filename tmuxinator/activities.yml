@@ -14,7 +14,7 @@ windows:
       panes:
         - dox-dc up -d activities
         - dox-attach activities
-        dox_sync:
+        - dox_sync:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n activities-sync
   - services: wait_for_docker activities; dox-dc up activities-workers

@@ -1,14 +1,16 @@
 name: dox-messaging
-root: ~/GitHubRepos/dox-messaging
+root: <%= ENV["PROJECT_DIR"] %>/dox-messaging
 # needed for pane-base-index 1 config
 startup_pane: 1
 
 windows:
   - editor:
-      layout: e571,272x59,0,0[272x49,0,0,24,272x9,0,50,25]
+      layout: main-horizontal
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
         - vim .
-        - master
+        - fetch_latest:
+          - master
+          - bundle

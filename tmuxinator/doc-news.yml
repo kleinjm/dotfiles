@@ -8,17 +8,18 @@ windows:
       layout: main-horizontal
       panes:
         - vim -c "silent VtrAttachToPane 3"
-        local_shell:
+        - local_shell:
           - wait_for_docker doc-news
           - dox-dc exec doc-news bundle install
-        docker_shell:
+        - docker_shell:
           - wait_for_docker doc-news
           - dox-dc exec doc-news sh
   - server:
       layout: even-horizontal
       panes:
-        - dox-dc up -d doc-news
-        - dox-attach doc-news
+        - server:
+          - dox-dc up -d doc-news
+          - dox-attach doc-news
         - sync:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n doc-news-sync

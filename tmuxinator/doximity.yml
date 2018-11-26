@@ -10,20 +10,20 @@ windows:
       layout: main-horizontal
       panes:
         - vim -c "silent VtrAttachToPane 3"
-        local_shell:
+        - local_shell:
           - wait_for_docker doximity
-          - dox-do bundle install
-        docker_shell:
+          - dox-dc exec doximity bundle install
+        - docker_shell:
           - wait_for_docker doximity
-          - dox-do sh
+          - dox-dc exec doximity sh
   - server:
-      layout: even-vertical
+      layout: even-horizontal
       panes:
-        # Doximity server (also causes other required services to start)
-        - dox-dc up -d doximity
-        - wait_for_docker doximity
-        - docker attach dox-compose_doximity_1 # TODO: get the full name with ID
-        dox_sync:
+        - dox_server:
+          - dox-dc up -d doximity
+          - wait_for_docker doximity
+          - docker ps | grep -o "dox-compose_doximity_1\w*" | xargs docker attach
+        - dox_sync:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n doximity-sync
   - services:
@@ -32,4 +32,4 @@ windows:
   - bullet: tail -f log/bullet.log
   - consoles:
     - wait_for_docker doximity
-    - dox-do rails c
+    - dox-dc exec doximity rails c

@@ -10,12 +10,12 @@ windows:
         - vim -c "silent VtrAttachToPane 3"
         local_shell:
           - wait_for_docker doc-news
-          - dox-do bundle install
+          - dox-dc exec doc-news bundle install
         docker_shell:
           - wait_for_docker doc-news
           - dox-dc exec doc-news sh
   - server:
-      layout: even-vertical
+      layout: even-horizontal
       panes:
         - dox-dc up doc-news
         - sync:

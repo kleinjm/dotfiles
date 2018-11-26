@@ -10,11 +10,11 @@ windows:
         - vim -c "silent VtrAttachToPane 2"
         -
   - server:
-      layout: even-vertical
+      layout: even-horizontal
       panes:
         - dox-dc up activities
         dox_sync:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n activities-sync
   - services: wait_for_docker activities; dox-dc up activities-workers
-  - consoles: wait_for_docker activities; dox-do rails c
+  - consoles: wait_for_docker activities; dox-dc exec activities rails c

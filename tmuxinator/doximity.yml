@@ -20,7 +20,9 @@ windows:
       layout: even-vertical
       panes:
         # Doximity server (also causes other required services to start)
-        - dox-dc up doximity
+        - dox-dc up -d doximity
+        - wait_for_docker doximity
+        - docker attach dox-compose_doximity_1 # TODO: get the full name with ID
         dox_sync:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n doximity-sync

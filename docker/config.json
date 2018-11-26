@@ -5,7 +5,7 @@
   "stackOrchestrator" : "swarm",
   "credsStore" : "osxkeychain",
   "credSstore" : "osxkeychain",
-  "detachKeys": "ctrl-c",
+  "detachKeys": "d,e,t,a,c,h",
   "auths" : {
     "https://index.docker.io/v1/" : {
 

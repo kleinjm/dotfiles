@@ -78,3 +78,16 @@ dox-attach() {
 
   docker ps | grep -o "dox-compose_$1_1\w*" | xargs docker attach
 }
+
+# start doximity core apps, projects and services in tmux sessions
+doxstart() {
+  # a lot of apps rely on the docker container in doximity so keep it at top
+  apps=(dox-compose doximity activities doc-news dotfiles)
+
+  for app in ${apps[@]}; do
+    echo "Starting $app"
+    tmuxinator start $app --no-attach
+  done
+
+  tmux attach -t doximity
+}

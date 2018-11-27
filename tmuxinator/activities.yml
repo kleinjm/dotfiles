@@ -19,10 +19,14 @@ windows:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n activities-sync
   - services:
+      layout: even-horizontal
       panes:
-        - dox_compose_workers:
+        - dox_compose_sidekiq:
           - wait_for_docker activities
           - dox-dc up activities-workers
+        - dox_compose_tasks:
+          - wait_for_docker activities
+          - dox-dc up activities-daemons
   - consoles:
     panes:
       - dox_compose_rails_console:

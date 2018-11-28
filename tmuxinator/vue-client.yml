@@ -1,19 +1,18 @@
-# ~/.tmuxinator/vue-client.yml
-
 name: vue-client
-root: ~/GitHubRepos/doximity-client-vue
+root: <%= ENV["PROJECT_DIR"] %>/doximity-client-vue
 # needed for pane-base-index 1 config
 startup_pane: 1
+pre_window: nvm use
 
 windows:
   - editor:
-      layout: e3b5,272x59,0,0[272x50,0,0,12,272x8,0,51{136x8,0,51,14,135x8,137,51,15}]
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
+      layout: main-horizontal
       panes:
-        - nvm use && vim .
+        - vim .
         - nvm use
-        - nvm use && yarn && yarn run unit:debug
-  - servers: nvm use && yarn && yarn run dev
-  - consoles: nvm use && cd ~/GitHubRepos/doximity && bundle && bundle exec rails c
+  - servers:
+      panes:
+        - server_worker:
+          - wait_for_docker doximity
+          - dox-dc up -d doximity-client-vue
+          - dox-attach doximity-client-vue

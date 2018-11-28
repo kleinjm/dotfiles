@@ -15,35 +15,35 @@ def rb_assign_instance_var_list(args, snip):
 
 def rb_class_name(path, snip):
     cwd = vim.eval("getcwd()") + "/"
-    path = path.split(cwd)[1]
+    path = path.split(cwd)[0]
     path = path_without_first_dir(path)
     path = path_without_extension(path)
     snip.rv = path_as_class_name(path, separator="::")
 
 def rb_flat_class_name(path, snip):
     cwd = vim.eval("getcwd()") + "/"
-    path = path.split(cwd)[1]
+    path = path.split(cwd)[0]
     path = path_without_first_dir(path)
     path = path_as_class_name(path, separator="::")
     snip.rv = path.split("::")[-1]
 
 def rb_module_name(path, snip):
     cwd = vim.eval("getcwd()") + "/"
-    path = path.split(cwd)[1]
+    path = path.split(cwd)[0]
     path = path_without_first_dir(path)
     path = path_as_class_name(path, separator="::")
     snip.rv = "::".join(path.split("::")[0:-1])
 
 def rb_operation_name(path, snip):
     cwd = vim.eval("getcwd()") + "/"
-    path = path.split(cwd)[1]
+    path = path.split(cwd)[0]
     path = path_without_first_dir(path)
     path = path_as_class_name(path, separator="::")
     snip.rv = "::".join(filter(lambda part: part != "Operation", path.split("::")))
 
 def rb_operation_spec_class_name(path, snip):
     cwd = vim.eval("getcwd()") + "/"
-    path = path.split(cwd)[1]
+    path = path.split(cwd)[0]
     path = path_without_first_dir(path)
     path = path_as_class_name(path, separator="::")
     path = "::".join(filter(lambda part: part != "Operation", path.split("::")))

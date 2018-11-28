@@ -1,7 +1,6 @@
 import inflection
 import os
 import re
-import vim
 
 def current_project_name():
     return re.sub(r".*\/([^/]*)$", "\\1", os.getcwd())

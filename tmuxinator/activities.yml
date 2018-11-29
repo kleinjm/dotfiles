@@ -7,7 +7,7 @@ windows:
   - editor:
       layout: main-horizontal
       panes:
-        - vim -c "silent VtrAttachToPane 2"
+        - vim -c "silent VtrAttachToPane 3"
         -
   - server:
       layout: even-horizontal

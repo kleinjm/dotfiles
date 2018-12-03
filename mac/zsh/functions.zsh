@@ -74,7 +74,7 @@ doxstart() {
   # a lot of apps rely on the docker container in doximity so keep it at top
   local apps=(dox-compose doximity activities doc-news dotfiles)
 
-  for app in ${$apps[@]}; do
+  for app in ${apps[@]}; do
     echo "Starting $app"
     tmuxinator start $app --no-attach
   done

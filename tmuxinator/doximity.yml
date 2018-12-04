@@ -15,6 +15,7 @@ windows:
           - dox-dc exec doximity bundle install
         - docker_shell:
           - wait_for_docker doximity
+          - dox-do bundle
           - dox-dc exec doximity sh
   - server:
       layout: even-horizontal

@@ -7,18 +7,22 @@
 # On slow systems, checking the cached .zcompdump file to see if it must be
 # regenerated adds a noticable delay to zsh startup.  This little hack restricts
 # it to once a day.  It should be pasted into your own completion file.
+# See https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2767420
 #
 # The globbing is a little complicated here:
 # - '#q' is an explicit glob qualifier that makes globbing work within zsh's [[ ]] construct.
 # - 'N' makes the glob pattern evaluate to nothing when it doesn't match (rather than throw a globbing error)
 # - '.' matches "regular files"
 # - 'mh+24' matches files (or directories or whatever) that are older than 24 hours.
-autoload -Uz compinit
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-	compinit;
-else
-	compinit -C;
-fi;
+setopt EXTENDEDGLOB
+for dump in $HOME/.zcompdump(#qN.m1); do
+  compinit
+  if [[ -s "$dump" && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
+    zcompile "$dump"
+  fi
+done
+unsetopt EXTENDEDGLOB
+compinit -C
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.

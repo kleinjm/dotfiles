@@ -17,7 +17,7 @@ windows:
           - wait_for_docker doximity
           - dox-do bundle
           - dox-do rails db:migrate
-          - dox-dc exec doximity sh
+          - dox-do bash
   - server:
       layout: even-horizontal
       panes:

@@ -1,5 +1,4 @@
 from snippet_helpers import *
-import re
 
 def rb_assign_instance_var_list(args, snip):
     handler = lambda arg: rb_assign_instance_var(arg, snip)

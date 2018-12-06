@@ -48,6 +48,11 @@ gprune() {
   git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D
 }
 
+# pull the latest remote changes for this branch and merge latest remote master
+gupdate() {
+  ggl && git pull origin master
+}
+
 # wait until the given docker container is up
 # ie. wait_for_docker doximity # => ......doximity service started
 wait_for_docker() {

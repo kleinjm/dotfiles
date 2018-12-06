@@ -28,8 +28,14 @@ windows:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n doximity-sync
   - services:
-    - wait_for_docker doximity
-    - dox-dc up doximity-workers
+      layout: even-horizontal
+      panes:
+        - workers:
+          - wait_for_docker doximity
+          - dox-dc up doximity-workers
+        - daemons:
+          - wait_for_docker doximity
+          - dox-dc up doximity-daemons
   - bullet: tail -f log/bullet.log
   - consoles:
     - wait_for_docker doximity

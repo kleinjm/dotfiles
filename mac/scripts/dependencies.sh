@@ -22,7 +22,7 @@ fi
 $DIR/dependencies/python.sh
 
 ## Brew
-# run `brew bundle dump` to update the Brewfile
+# run `brew bundle dump --force` to update the Brewfile
 #
 ### Taps
 # divoxx/brewery - muggler

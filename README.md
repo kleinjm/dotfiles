@@ -2,7 +2,7 @@
 ## Setup
 * Run `mac/scripts/dependencies.sh`
 * Run `mac/scripts/symlink_to_dotfiles_repo.sh`
-* This repo assumes the home dir is `jklein`
+* This repo assumes the home dir is `jklein`. If it's not, symlink it with the following
   ```sh
   cd /Users
   sudo ln -s james jklein
@@ -72,3 +72,6 @@ sudo pip3 install --user neovim
 
 gem install neovim
 ```
+
+### Brew
+Run `brew bundle dump --force` to update the Brewfile

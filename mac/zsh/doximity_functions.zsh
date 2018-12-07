@@ -43,12 +43,12 @@ ddrdm() {
 
 # grep routes
 ddrrg() {
-  dox-do rails routes | grep
+  dox-do rails routes | grep $0
 }
 
 # grep rake tasks
 ddrT() {
-  dox-do rake -T | grep
+  dox-do rake -T | grep $0
 }
 
 # bundle

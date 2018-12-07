@@ -215,7 +215,7 @@ let g:VtrClearSequence=" "
 
 
 " ##### AG & FZF #####
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+" Use ag (The Silver Searcher) https://github.com/ggreer/the_silver_searcher
 if executable("ag")
   let g:ackprg = 'ag --vimgrep'
   nnoremap \ :Ag!<SPACE>

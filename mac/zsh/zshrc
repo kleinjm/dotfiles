@@ -100,8 +100,7 @@ done
 
 # cd tab completion with fzf
 # taken from https://github.com/changyuheng/zsh-interactive-cd
-# NOTE: I copied manually but should write a git command for fetching this
-# source $DOTFILES_DIR/mac/zsh/plugins/zsh-interactive-cd.plugin.zsh
+source $DOTFILES_DIR/mac/zsh/plugins/zsh-interactive-cd.plugin.zsh
 
 # tmuxinator autocomplete - allows `mux` in CLI
 source $DOTFILES_DIR/mac/zsh/plugins/tmuxinator.zsh

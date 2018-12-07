@@ -35,3 +35,23 @@ doxstart() {
 
   tmux attach -t doximity
 }
+
+# rails db:migrate
+ddrdm() {
+  dox-do rails db:migrate
+}
+
+# grep routes
+ddrrg() {
+  dox-do rails routes | grep
+}
+
+# grep rake tasks
+ddrT() {
+  dox-do rake -T | grep
+}
+
+# bundle
+ddbundle() {
+  dox-do bundle install
+}

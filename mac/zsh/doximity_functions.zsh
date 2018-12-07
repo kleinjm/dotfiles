@@ -60,3 +60,8 @@ ddbundle() {
 ddsh() {
   dox-do bash
 }
+
+# rails console
+ddrc() {
+  dox-do rails console
+}

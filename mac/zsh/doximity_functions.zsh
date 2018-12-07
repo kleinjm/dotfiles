@@ -55,3 +55,8 @@ ddrT() {
 ddbundle() {
   dox-do bundle install
 }
+
+# bash shell
+ddsh() {
+  dox-do bash
+}

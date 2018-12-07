@@ -13,8 +13,6 @@ windows:
           - dox-dc exec doc-news bundle install
         - docker_shell:
           - wait_for_docker doc-news
-          - dox-do bundle
-          - dox-do rails db:migrate
           - dox-do bash
   - server:
       layout: even-horizontal

@@ -15,15 +15,13 @@ windows:
           - dox-dc exec doximity bundle install
         - docker_shell:
           - wait_for_docker doximity
-          - dox-do bundle
-          - dox-do rails db:migrate
           - dox-do bash
   - server:
       layout: even-horizontal
       panes:
         - dox_server:
           - dox-dc up -d doximity
-          - dox-attach doximity
+          - docker attach dox-compose_doximity_1
         - dox_sync:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n doximity-sync

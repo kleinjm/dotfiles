@@ -65,7 +65,7 @@ ln -s `pwd`/vim/plugins.vim ~/.vim/plugins.vim
 ln -s `pwd`/vim/pythonx ~/.vim/pythonx
 ln -s `pwd`/vim/vimrc ~/.vimrc
 
-sudo ln -s `pwd`/ssh_config_mac ~/.ssh/config
+sudo ln -s $DROPBOX_DIR/EnvironmentConfigurations/ssh_config_mac ~/.ssh/config
 
 # update permissions
 chmod -R 0755 `pwd`/mac/git/git_template/hooks

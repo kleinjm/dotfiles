@@ -1,3 +1,6 @@
+# See https://github.com/pry/pry/issues/1048#issuecomment-30567134
+Pry.pager = nil
+
 def my_account
   Account.find_by(login: "jklein@doximity.com")
 end

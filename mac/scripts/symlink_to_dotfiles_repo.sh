@@ -6,13 +6,12 @@ set -o pipefail
 # stow
 # v = verbose, t = target directory
 stow -v -t ~/ vim
+stow -v -t ~/ git
 
 # TODO: move the rest of dotfiles to stow
 
 # -r option = don't fail if file doesn't exist
 rm -f ~/.bundle/config
-rm -f ~/.gitconfig
-rm -f ~/.gitignore_global
 rm -f ~/.nvmrc
 rm -f ~/.pryrc
 rm -f ~/.psqlrc
@@ -23,7 +22,6 @@ rm -f ~/.tmux.conf.local
 rm -f ~/.zshenv
 rm -f ~/.zshrc
 rm -rf ~/.docker
-rm -rf ~/.git_template
 rm -rf ~/.oh-my-zsh/custom/plugins
 rm -rf ~/.oh-my-zsh/themes # this may get in the way of pulling updates
 rm -rf ~/.rbenv/plugins
@@ -36,9 +34,6 @@ ln -s $DROPBOX_DIR/EnvironmentConfigurations/bundle/config ~/.bundle/config
 ln -s $DROPBOX_DIR/EnvironmentConfigurations/vmail ~/.vmail
 ln -s `pwd`/Default\ \(OSX\).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 ln -s `pwd`/docker ~/.docker
-ln -s `pwd`/gitconfig ~/.gitconfig
-ln -s `pwd`/gitignore_global ~/.gitignore_global
-ln -s `pwd`/mac/git/git_template ~/.git_template
 ln -s `pwd`/mac/psqlrc ~/.psqlrc
 ln -s `pwd`/mac/pyenv/version ~/.pyenv/version
 ln -s `pwd`/mac/rbenv/plugins ~/.rbenv/plugins
@@ -55,8 +50,8 @@ ln -s `pwd`/tmuxinator ~/.tmuxinator
 
 sudo ln -s $DROPBOX_DIR/EnvironmentConfigurations/ssh_config_mac ~/.ssh/config
 
-# update permissions
-chmod -R 0755 `pwd`/mac/git/git_template/hooks
+# May need to update permissions
+# chmod -R 0755 ~/.git/git_template/hooks
 
 # Hidden files on Mac. Requires: hold 'alt' key, right click Finder, Relaunch
 defaults write com.apple.finder AppleShowAllFiles YES

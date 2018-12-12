@@ -3,6 +3,12 @@
 set -e
 set -o pipefail
 
+# stow
+# v = verbose, t = target directory
+stow -v -t ~/ vim
+
+# TODO: move the rest of dotfiles to stow
+
 # -r option = don't fail if file doesn't exist
 rm -f ~/.bundle/config
 rm -f ~/.gitconfig
@@ -14,10 +20,6 @@ rm -f ~/.pyenv/version
 rm -f ~/.rbenv/version
 rm -f ~/.tmux.conf
 rm -f ~/.tmux.conf.local
-rm -f ~/.vim/functions.vim
-rm -f ~/.vim/lightline.vim
-rm -f ~/.vim/plugins.vim
-rm -f ~/.vimrc
 rm -f ~/.zshenv
 rm -f ~/.zshrc
 rm -rf ~/.docker
@@ -26,11 +28,6 @@ rm -rf ~/.oh-my-zsh/custom/plugins
 rm -rf ~/.oh-my-zsh/themes # this may get in the way of pulling updates
 rm -rf ~/.rbenv/plugins
 rm -rf ~/.tmuxinator
-rm -rf ~/.vim/UltiSnips
-rm -rf ~/.vim/after/plugin # may need to add `mkdir -p ~/.vim/after/plugin`
-rm -rf ~/.vim/autoload/templates.vim
-rm -rf ~/.vim/ftplugin
-rm -rf ~/.vim/pythonx
 rm -rf ~/.vmail
 rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 sudo rm -f ~/.ssh/config
@@ -55,15 +52,6 @@ ln -s `pwd`/pryrc.rb ~/.pryrc
 ln -s `pwd`/tmux.conf ~/.tmux.conf
 ln -s `pwd`/tmux.local.conf ~/.tmux.conf.local
 ln -s `pwd`/tmuxinator ~/.tmuxinator
-ln -s `pwd`/vim/UltiSnips ~/.vim/UltiSnips
-ln -s `pwd`/vim/after/plugin ~/.vim/after/plugin
-ln -s `pwd`/vim/autoload/templates.vim ~/.vim/autoload/templates.vim
-ln -s `pwd`/vim/ftplugin ~/.vim/ftplugin
-ln -s `pwd`/vim/functions.vim ~/.vim/functions.vim
-ln -s `pwd`/vim/lightline.vim ~/.vim/lightline.vim
-ln -s `pwd`/vim/plugins.vim ~/.vim/plugins.vim
-ln -s `pwd`/vim/pythonx ~/.vim/pythonx
-ln -s `pwd`/vim/vimrc ~/.vimrc
 
 sudo ln -s $DROPBOX_DIR/EnvironmentConfigurations/ssh_config_mac ~/.ssh/config
 

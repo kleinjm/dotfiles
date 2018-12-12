@@ -160,7 +160,7 @@ inoremap <S-Tab> <c-n>
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-  source $DOTFILES_DIR/vim/autocommands.vim " load autocommand settings if available
+  source ~/.vim/autocommands.vim " load autocommand settings if available
 endif
 
 " ##### EasyMotion Config #####
@@ -256,4 +256,4 @@ let g:UltiSnipsEditSplit="vertical"
 " ##### END UltiSnips #####
 
 " Source these last because they depend on the other definitions
-source $DOTFILES_DIR/vim/leader_mappings.vim " define leader key mappings
+source ~/.vim/leader_mappings.vim " define leader key mappings

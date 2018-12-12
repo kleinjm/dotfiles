@@ -1,7 +1,7 @@
 # Mac
 ## Setup
 * Run `mac/scripts/dependencies.sh`
-* Run `mac/scripts/symlink_to_dotfiles_repo.sh`
+* Run `mac/scripts/symlink_to_dotfiles_repo.sh`. This uses [stow](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/) to symlink dotfiles to where they should go.
 * This repo assumes the home dir is `jklein`. If it's not, symlink it with the following
   ```sh
   cd /Users

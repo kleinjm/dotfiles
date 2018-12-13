@@ -98,12 +98,7 @@ for file in "$DOTFILES_DIR"/mac/zsh/*.zsh; do
   source "$file"
 done
 
-# cd tab completion with fzf
-# taken from https://github.com/changyuheng/zsh-interactive-cd
-source $DOTFILES_DIR/mac/zsh/plugins/zsh-interactive-cd.plugin.zsh
-
-# tmuxinator autocomplete - allows `mux` in CLI
-source $DOTFILES_DIR/mac/zsh/plugins/tmuxinator.zsh
+source $HOME/.oh-my-zsh/custom/plugins/*.zsh
 
 # Doximity specific
 eval "$("$PROJECT_DIR/dox-compose/bin/dox-init")"

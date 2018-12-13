@@ -34,7 +34,7 @@ $DIR/dependencies/python.sh
 # muggler - run rails migrations when switching branches.
 #   Run `muggler install` in each repo. See https://github.com/divoxx/muggler
 # ffmpeg - dependency for youtube-dl
-# sqlite3 and w3m - dependencies of vmail
+# sqlite - dependency of awscli, macvim, python, python@2, trash-cli and watchman
 # awscli - for doximity
 # graphviz - for rails-erd and other .svg generation tools
 # git-lfs parallel jq gawk - dox-compose dependencies

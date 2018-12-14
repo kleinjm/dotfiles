@@ -193,10 +193,10 @@ nmap <silent> ]r <Plug>(ale_next_wrap)
 " Linting on all changes felt too aggressive. The below settings calls lint on
 " certain events, either when I stop interacting or when entering / leaving
 " insert mode
-autocmd CursorHold * call ale#Lint()
-autocmd CursorHoldI * call ale#Lint()
-autocmd InsertLeave * call ale#Lint()
-autocmd TextChanged * call ale#Lint()
+autocmd CursorHold * call ale#Queue(0, 'lint_file')
+autocmd CursorHoldI * call ale#Queue(0, 'lint_file')
+autocmd InsertLeave * call ale#Queue(0, 'lint_file')
+autocmd TextChanged * call ale#Queue(0, 'lint_file')
 
 let g:ale_lint_delay = 1000
 let g:ale_lint_on_save = 1

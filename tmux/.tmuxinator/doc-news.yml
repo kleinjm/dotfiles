@@ -24,17 +24,14 @@ windows:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n doc-news-sync
   - services:
-      layout: main-horizontal
+      layout: even-horizontal
       panes:
-        - sidekiq:
+        - workers:
           - wait_for_docker doc-news
-          - dox-dc exec doc-news bundle exec sidekiq
-        - consumers:
+          - dox-dc up doc-news-workers
+        - daemons: # ie. kafka consumers
           - wait_for_docker doc-news
-          - dox-dc exec doc-news bundle exec rake consumers:run
-        - ads_consumers:
-          - wait_for_docker doc-news
-          - dox-dc exec doc-news bundle exec rake ads_consumers:run
+          - dox-dc up doc-news-daemons
   - consoles:
       panes:
         - rails_console:

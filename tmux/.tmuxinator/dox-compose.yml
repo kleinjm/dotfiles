@@ -4,10 +4,7 @@ root: <%= ENV["PROJECT_DIR"] %>/dox-compose
 startup_pane: 1
 
 # Runs on project start, always
-on_project_start: bin/dox-dc up -d network-frontend
-
-# Run on project start, the first time
-on_project_first_start: bin/dox-update
+on_project_start: dox-dc up -d network-frontend
 
 # Run on project stop
 on_project_stop: dox-dc down; docker-sync stop

@@ -27,13 +27,8 @@ windows:
   - containers:
       layout: tiled
       panes:
-        # Auth API
         - dox-dc up auth-api
-        # Kafka
         - dox-dc up kafka
-        # ElasticSearch
         - dox-dc up elasticsearch
-        # Neo4j
         - dox-dc up neo4j
-        # Bridge DB
         - dox-dc up bridge-schema-database

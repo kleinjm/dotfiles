@@ -9,8 +9,6 @@ set -o pipefail
 # NOTE: it's also a macvim dependency
 pyenv versions | grep $PYENV_VERSION
 if [ $? != 0 ]; then
-  brew install pyenv
-  source ~/.zshrc
   pyenv install $PYENV_VERSION
 fi
 
@@ -20,7 +18,7 @@ if [ $? != 0 ]; then
   git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
 fi
 
-pip install -r vim/pythonx/requirements.txt
+pip install -r vim/.vim/pythonx/requirements.txt
 
 # Aliased to `speed` in zsh aliases
 pip install speedtest-cli

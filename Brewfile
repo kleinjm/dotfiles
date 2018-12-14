@@ -3,6 +3,7 @@ tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 brew "openssl"
@@ -23,8 +24,8 @@ brew "imagemagick@6", link: true
 brew "jq"
 brew "kafka"
 brew "macvim", args: ["with-override-system-vim"]
+brew "mas"
 brew "mysql@5.7"
-brew "neovim"
 brew "node", link: false
 brew "parallel"
 brew "postgresql"
@@ -47,7 +48,15 @@ brew "zlib"
 brew "divoxx/brewery/muggler"
 brew "heroku/brew/heroku"
 cask "corelocationcli"
+cask "docker"
 cask "font-devicons"
 cask "font-hack-nerd-font"
 cask "insomnia"
+cask "java8"
 cask "keybase"
+mas "1Password 7", id: 1333542190
+mas "LastPass", id: 926036361
+mas "Quiver", id: 866773894
+mas "Slack", id: 803453959
+mas "Wunderlist", id: 410628904
+mas "Xcode", id: 497799835

@@ -3,8 +3,6 @@
 set -e
 set -o pipefail
 
-MAC_PREFERENCES_PATH=$HOME/Library/Preferences
-
 # v = verbose, t = target directory, d = current directory
 stow -v -t $HOME -d $PRIVATE_CONFIGS_DIR bundle
 stow -v -t $HOME docker
@@ -17,7 +15,6 @@ stow -v -t $HOME rbenv
 stow -v -t $HOME tmux
 stow -v -t $HOME vim
 stow -v -t $HOME zsh
-stow -v -t $MAC_PREFERENCES_PATH sqlpro
 sudo stow -v -t $HOME -d $PRIVATE_CONFIGS_DIR ssh
 
 # May need to update permissions

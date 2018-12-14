@@ -14,7 +14,6 @@ set -g prefix2 "None" # remove prefix2 binding from oh-my-zsh
 set -g status-interval 5 # refresh the status bar every n seconds
 set -g status-keys "emacs" # standard shell commands in tmux : command bar
 
-set-window-option -g pane-base-index 1 # start window numbers at 1
 setw -g mode-keys vi # act like vim
 
 ### Oh-my-tmux config ###

@@ -35,8 +35,8 @@ I set the system ~/.nvmrc -> dotfiles/nvmrc and have that fetching `node` which 
 Default config taken from [oh-my-tmux](https://github.com/gpakosz/.tmux)
 
 ### Alfred
-- Use [this script](https://github.com/stuartcryan/custom-iterm-applescripts-for-alfred) to get Alfred <> iTerm2 integration
-- Settings are stored in and synced via dropbox.
+- Settings are stored in the private env config path in dropbox.
+- This should already be stored in settings but if not, use [this script](https://github.com/stuartcryan/custom-iterm-applescripts-for-alfred) to get Alfred <> iTerm2 integration
 
 ### VIM
 - Followed [this guide](https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html) to set up ctags using git hooks
@@ -75,3 +75,9 @@ gem install neovim
 
 ### Brew
 Run `brew bundle dump --force` to update the Brewfile
+
+### Quiver
+- Quiver settings are stored in the root dir with default file name `Quiver-settings.json`
+
+### Troubleshooting
+- If you're getting a message about `__init_nvm` not being defined, nvm likely added something to the .zshrc. Check the bottom of the file.

@@ -6,11 +6,14 @@ set -o pipefail
 # NOTE: I tried doing these as symlinks but Mail and other apps overwrite the
 # files.
 
+DOTFILES_PREFERENCES_PATH=./mac/Preferences
+MAC_PREFERENCES_PATH=./mac/Preferences
+
 # mail rules
-cp ~/Library/Mail/V6/MailData/SyncedRules.plist ./mac/settings/SyncedRules.plist
+cp ~/Library/Mail/V6/MailData/SyncedRules.plist $DOTFILES_PREFERENCES_PATH/SyncedRules.plist
 
 # keyboard settings
-cp ~/Library/Preferences/.GlobalPreferences.plist ./mac/settings/GlobalPreferences.plist
+cp $MAC_PREFERENCES_PATH/.GlobalPreferences.plist $DOTFILES_PREFERENCES_PATH/GlobalPreferences.plist
 
 # sequel pro settings
-cp ~/Library/Preferences/com.sequelpro.SequelPro.plist ./sqlpro/com.sequelpro.SequelPro.plist
+cp $MAC_PREFERENCES_PATH/com.sequelpro.SequelPro.plist $DOTFILES_PREFERENCES_PATH/com.sequelpro.SequelPro.plist

@@ -18,6 +18,8 @@ export PYENV_VERSION=3.7.0
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-for file in "$DOTFILES_DIR"/mac/zsh/*.zshenv; do
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+for file in $DIR/zsh/*.zshenv; do
   source "$file"
 done

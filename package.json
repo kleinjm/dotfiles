@@ -1,0 +1,13 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "main": "",
+  "repository": "https://github.com/kleinjm/dotfiles.git",
+  "author": "James Klein <kleinjm007@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "coffeelint": "^2.1.0",
+    "coffeelint-prefer-double-quotes": "^0.1.0",
+    "sass-lint": "^1.12.1"
+  }
+}

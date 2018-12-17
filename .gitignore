@@ -1,3 +1,4 @@
-vim/pythonx/__pycache__
+node_modules
 vim/.vim/.netrwhist
 vim/.vim/plugged
+vim/pythonx/__pycache__

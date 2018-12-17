@@ -25,8 +25,6 @@ done
 unsetopt EXTENDEDGLOB
 compinit -C
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -96,7 +94,7 @@ export GIT_MERGE_AUTOEDIT=no
 
 # Load all .zsh config files in this dir
 # NOTE: must come after oh-my-zsh.sh is sourced
-for file in $DIR/zsh/*.zsh; do
+for file in $DOTFILES_DIR/zsh/*.zsh; do
   source "$file"
 done
 

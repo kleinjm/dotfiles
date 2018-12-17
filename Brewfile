@@ -23,7 +23,7 @@ brew "graphviz"
 brew "imagemagick@6", link: true
 brew "jq"
 brew "kafka"
-brew "macvim", args: ["with-override-system-vim"]
+brew "macvim"
 brew "mas"
 brew "mysql@5.7"
 brew "node", link: false
@@ -55,8 +55,11 @@ cask "insomnia"
 cask "java8"
 cask "keybase"
 mas "1Password 7", id: 1333542190
+mas "Droplr", id: 498672703
+mas "Empire at War", id: 420787036
 mas "LastPass", id: 926036361
 mas "Quiver", id: 866773894
 mas "Slack", id: 803453959
+mas "Worms Special Edition", id: 441534443
 mas "Wunderlist", id: 410628904
 mas "Xcode", id: 497799835

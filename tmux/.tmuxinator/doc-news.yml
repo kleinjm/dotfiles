@@ -19,7 +19,7 @@ windows:
       panes:
         - server:
           - dox-dc up -d doc-news
-          - dox-attach doc-news
+          - docker attach dox-compose_doc-news_1
         - sync:
           - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
           - docker-sync start -f -n doc-news-sync
@@ -28,10 +28,12 @@ windows:
       panes:
         - workers:
           - wait_for_docker doc-news
-          - dox-dc up doc-news-workers
+          - dox-dc up -d doc-news-workers
+          - docker attach dox-compose_doc-news-workers_1
         - daemons: # ie. kafka consumers
           - wait_for_docker doc-news
-          - dox-dc up doc-news-daemons
+          - dox-dc up -d doc-news-daemons
+          - docker attach dox-compose_doc-news-daemons_1
   - consoles:
       panes:
         - rails_console:

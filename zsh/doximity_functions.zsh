@@ -41,6 +41,11 @@ ddrdm() {
   dox-do rails db:migrate
 }
 
+# rails db:rollback
+ddrdr() {
+  dox-do rails db:rollback
+}
+
 # grep routes
 ddrrg() {
   dox-do rails routes | grep $0

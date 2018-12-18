@@ -31,4 +31,4 @@ windows:
     panes:
       - dox_compose_rails_console:
         - wait_for_docker activities
-        - dox-dc exec activities rails console
+        - dox-do rails console

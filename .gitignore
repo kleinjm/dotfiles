@@ -1,4 +1,5 @@
 node_modules
+tmux-client-*.log
 vim/.vim/.netrwhist
 vim/.vim/plugged
-vim/pythonx/__pycache__
+vim/.vim/pythonx/__pycache__

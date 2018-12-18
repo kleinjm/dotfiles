@@ -12,7 +12,7 @@ windows:
         - vim -c "silent VtrAttachToPane 3"
         - local_shell:
           - wait_for_docker doximity
-          - dox-dc exec doximity bundle install
+          - dox-do bundle install
         - docker_shell:
           - wait_for_docker doximity
           - dox-do bash
@@ -37,4 +37,4 @@ windows:
   - bullet: tail -f log/bullet.log
   - consoles:
     - wait_for_docker doximity
-    - dox-dc exec doximity rails c
+    - dox-do rails c

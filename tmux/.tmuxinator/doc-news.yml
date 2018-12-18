@@ -10,7 +10,7 @@ windows:
         - vim -c "silent VtrAttachToPane 3"
         - local_shell:
           - wait_for_docker doc-news
-          - dox-dc exec doc-news bundle install
+          - dox-do bundle install
         - docker_shell:
           - wait_for_docker doc-news
           - dox-do bash
@@ -36,4 +36,4 @@ windows:
       panes:
         - rails_console:
           - wait_for_docker doc-news
-          - dox-dc exec doc-news rails console
+          - dox-do rails console

@@ -23,7 +23,7 @@
 
 ### Additional environment configurations
 * Chrome theme - Dark Theme v3
-* See `~/Dropbox/EnvironmentConfigurations/README.txt`
+* See `$PRIVATE_CONFIGS_DIR/README.txt`
 
 ### Userscripts
 Stored in bookmarks on my googlde chrome account.

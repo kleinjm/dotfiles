@@ -75,7 +75,7 @@ source $ZSH/oh-my-zsh.sh
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/theme-and-appearance.zsh#L24
 # thus, these files need to be defined after sourcing oh-my-zsh.sh
 # See https://github.com/robbyrussell/oh-my-zsh/issues/5783#issuecomment-275614664
-export LOCAL_CONFIG=$DROPBOX_DIR/EnvironmentConfigurations/zshrc.local
+export LOCAL_CONFIG=$PRIVATE_CONFIGS_DIR/zshrc.local
 if [ -f $LOCAL_CONFIG ]; then
   source $LOCAL_CONFIG
 fi

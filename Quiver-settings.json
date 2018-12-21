@@ -17,7 +17,7 @@
   "latexCellKeyBinding" : "ace",
   "latexCellTabSize" : 2,
   "latexCellUseSoftTabs" : true,
-  "markdownCellKeyBinding" : "ace",
+  "markdownCellKeyBinding" : "vim",
   "markdownCellLaTeXDisplayDelimiter1" : true,
   "markdownCellLaTeXDisplayDelimiter2" : true,
   "markdownCellLaTeXInlineDelimiter1" : true,

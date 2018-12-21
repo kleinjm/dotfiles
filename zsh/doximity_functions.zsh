@@ -15,12 +15,10 @@ wait_for_docker() {
   echo $1 service started
 }
 
-# docker attach with the full name of the container with the given name
-# ie. dox-attach doximity # => docker attach dox-compose_doximity_1_f8a98b0bfa9e
-dox-attach() {
+ddup() {
   [ "$#" -eq 1 ] || die "1 argument required, $# provided"
 
-  docker ps | grep -o "dox-compose_$1_1\w*" | xargs docker attach
+  dox-dc up -d $1 && docker attach "dox-compose_$1_1"
 }
 
 # start doximity core apps, projects and services in tmux sessions

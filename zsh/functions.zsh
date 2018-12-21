@@ -38,3 +38,8 @@ bip() {
     do; brew install $prog; done;
   fi
 }
+
+# Change the heat using radio thermostat for the upstairs bedrooms
+heat() {
+  curl -H 'Host: my.radiothermostat.com' -H 'Content-Type: application/json; charset=utf-8' -H 'X-Mobile-Auth: 37d560b9274fe1e1fb9de68552fa5e1c' -H 'Cookie: JSESSIONID=FA96C476E5DAFC3676BFC3D4E9A1A0A0' -H 'Accept: application/json' -H 'User-Agent: Mercury RTCOA 4.5.4.1 (iOS 12.1; en_US; iPhone)' -H 'Accept-Language: en-US;q=1, es-US;q=0.9' --data-binary "{\"t_heat\": $1}" --compressed 'https://my.radiothermostat.com/rtcoa/rest/gateways/5cdad455c026'
+}

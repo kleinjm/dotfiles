@@ -59,14 +59,3 @@ alias pomo="$DOTFILES_DIR/mac/scripts/vendor/pomodoro" # https://github.com/carl
 alias speed="speedtest-cli" # run a speedtest
 alias symlink="$DOTFILES_DIR/mac/scripts/symlink_to_dotfiles_repo.sh"
 alias upload-music="$DOTFILES_DIR/mac/scripts/upload_music.sh"
-
-# Doximity
-alias ddbundle="dox-do bundle install"
-alias dddep="dox-do bundle install && dox-do rails db:migrate"
-alias ddrT="dox-do rake -T | grep "
-alias ddrc="dox-do rails console"
-alias ddrdm="dox-do rails db:migrate"
-alias ddrdr="dox-do rails db:rollback"
-alias ddrrg="dox-do rails routes | grep "
-alias ddsh="dox-do bash"
-alias e2e-single="TEST_WEBDRIVER_TIMEOUT=99999999 SKIP_OAUTH=true ./node_modules/.bin/wdio --spec"

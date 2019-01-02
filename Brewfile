@@ -63,6 +63,7 @@ mas "Empire at War", id: 420787036
 mas "LastPass", id: 926036361
 mas "Quiver", id: 866773894
 mas "Slack", id: 803453959
+mas "Spark", id: 1176895641
 mas "Worms Special Edition", id: 441534443
 mas "Wunderlist", id: 410628904
 mas "Xcode", id: 497799835

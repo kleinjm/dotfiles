@@ -33,7 +33,7 @@ windows:
           - wait_for_docker activities
           - dox-dc up activities-daemons
   - consoles:
-    panes:
-      - dox_compose_rails_console:
-        - wait_for_docker activities
-        - dox-do rails console
+      panes:
+        - dox_compose_rails_console:
+          - wait_for_docker activities
+          - dox-do rails console

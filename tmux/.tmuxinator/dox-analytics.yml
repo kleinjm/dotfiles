@@ -1,5 +1,5 @@
-name: dox-style
-root: ~/GitHubRepos/dox-style
+name: dox-analytics
+root: ~/GitHubRepos/dox-analytics
 # needed for pane-base-index 1 config
 startup_pane: 1
 
@@ -7,5 +7,5 @@ windows:
   - editor:
       layout: main-horizontal
       panes:
-        - vim .rubocop.yml
+        - vim .
         - master

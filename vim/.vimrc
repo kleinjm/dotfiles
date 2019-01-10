@@ -18,8 +18,8 @@ source ~/.vim/plugins.vim " load vim-plug and plugins
 let mapleader=" "                     " set leader key to space
 colorscheme jellybeans                " set color scheme
 
-set autoread                   " auto-reload the current file when switching to it
 set autoindent		             " autoindenting on
+set autoread                   " auto-reload the current file when switching to it
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set clipboard=unnamed          " copy to the system clipboard
 set cmdheight=1                " lines in the command bar
@@ -38,6 +38,7 @@ set lazyredraw                 " Don't update while executing macros
 set nobackup 		               " do not keep a backup file. Set for unandpw.txt
 set nocompatible               " Use Vim settings, rather than Vi settings. Needed for vim-textobj-rubyblock plugin
 set noswapfile                 " Turn off swap (.swp) files
+set noundofile                 " Turn off undo (.un~) files
 set nowritebackup	             " don't make backup when overwriting file
 set number                     " display line numbers
 set numberwidth=5              " give space between relative and static line numbers

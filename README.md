@@ -81,3 +81,10 @@ Run `brew bundle dump --force` to update the Brewfile
 
 ### Troubleshooting
 - If you're getting a message about `__init_nvm` not being defined, nvm likely added something to the .zshrc. Check the bottom of the file.
+
+# Linux
+## Setup
+- Run `linux/scripts/dependencies.sh`
+
+### Shortkeys
+- `linux/shortkeys.json` contains the shortcuts for the Shortkeys chrome extension

@@ -3,3 +3,4 @@ tmux-client-*.log
 vim/.vim/.netrwhist
 vim/.vim/plugged
 vim/.vim/pythonx/__pycache__
+tmux/.tmux/plugins

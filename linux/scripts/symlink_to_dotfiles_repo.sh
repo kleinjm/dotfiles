@@ -11,6 +11,8 @@ stow -v -t $HOME -d shared git
 stow -v -t $HOME -d linux git
 stow -v -t $HOME -d shared zsh
 stow -v -t $HOME -d linux zsh
+stow -v -t $HOME -d shared vim
+stow -v -t $HOME -d linux vim
 sudo stow -v -t /etc -d linux etc
 # stow -v -t $HOME nvm
 # stow -v -t $HOME pry
@@ -18,7 +20,6 @@ sudo stow -v -t /etc -d linux etc
 # stow -v -t $HOME pyenv
 # stow -v -t $HOME rbenv
 stow -v -t $HOME tmux
-stow -v -t $HOME vim
 # sudo stow -v -t $HOME -d $PRIVATE_CONFIGS_DIR ssh
 
 # May need to update permissions

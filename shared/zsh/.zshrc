@@ -56,6 +56,7 @@ HISTSIZE=1000000 # amount of commands saved in history
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # NOTE: zsh-syntax-highlighting was affecting boot performance
+# NOTE: The dependency scripts should handle zsh-autosuggestions
 # NOTE: Follow the oh-my-zsh install instructions and check out `develop` branch
 # https://github.com/zsh-users/zsh-autosuggestions#oh-my-zsh
 # Currently there is an issue on master

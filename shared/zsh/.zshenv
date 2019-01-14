@@ -18,6 +18,6 @@ export PYENV_VERSION=3.7.0
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-for file in $DOTFILES_DIR/zsh/*.zshenv; do
+for file in $DOTFILES_DIR/shared/zsh/*.zshenv; do
   source "$file"
 done

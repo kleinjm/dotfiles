@@ -94,7 +94,7 @@ export GIT_MERGE_AUTOEDIT=no
 
 # Load all .zsh config files in this dir
 # NOTE: must come after oh-my-zsh.sh is sourced
-for file in $DOTFILES_DIR/zsh/*.zsh; do
+for file in $HOME/*.zsh; do
   source "$file"
 done
 

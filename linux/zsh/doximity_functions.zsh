@@ -7,7 +7,7 @@ die () {
 wait_for_docker() {
   [ "$#" -eq 1 ] || die "1 argument required, $# provided"
 
-  while ! { docker ps | grep -q dox-compose_$1_1 ; } ; do
+  while ! { docker ps | grep -q doxcompose_$1_1 ; } ; do
       printf '.'
       sleep 1
   done
@@ -18,7 +18,7 @@ wait_for_docker() {
 ddup() {
   [ "$#" -eq 1 ] || die "1 argument required, $# provided"
 
-  dox-dc up -d $1 && docker attach "dox-compose_$1_1"
+  dox-dc up -d $1 && docker attach "doxcompose_$1_1"
 }
 
 # start doximity core apps, projects and services in tmux sessions

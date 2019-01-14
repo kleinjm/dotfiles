@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 set -o pipefail
@@ -7,7 +7,8 @@ set -o pipefail
 # stow -v -t $HOME -d $PRIVATE_CONFIGS_DIR bundle
 # stow -v -t $HOME -d $PRIVATE_CONFIGS_DIR aws
 # stow -v -t $HOME docker
-stow -v -t $HOME git
+stow -v -t $HOME -d linux git
+stow -v -t $HOME -d shared git
 # stow -v -t $HOME nvm
 # stow -v -t $HOME pry
 # stow -v -t $HOME psql

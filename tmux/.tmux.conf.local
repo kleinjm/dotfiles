@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# DEPENDENCIES: brew install reattach-to-user-namespace
+# Mac DEPENDENCIES: brew install reattach-to-user-namespace
 # Main config sourced from oh-my-tmux @ https://github.com/gpakosz/.tmux
 
 unbind C-b # unbind default prefix

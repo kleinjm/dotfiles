@@ -9,6 +9,7 @@ set -o pipefail
 # stow -v -t $HOME docker
 stow -v -t $HOME -d linux git
 stow -v -t $HOME -d shared git
+sudo stow -v -t /etc -d linux etc
 # stow -v -t $HOME nvm
 # stow -v -t $HOME pry
 # stow -v -t $HOME psql

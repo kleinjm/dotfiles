@@ -7,3 +7,4 @@ DEPENDENCIES_SCRIPTS_PATH=$DOTFILES_DIR/linux/scripts/dependencies
 #
 # H - Enable ! style history substitution
 bash $DEPENDENCIES_SCRIPTS_PATH/apt_get.sh -H
+bash $DEPENDENCIES_SCRIPTS_PATH/brew.sh -H

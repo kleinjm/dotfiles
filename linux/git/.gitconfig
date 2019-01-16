@@ -1,0 +1,53 @@
+[user]
+  name = James Klein
+  email = kleinjm007@gmail.com
+[alias]
+    a = add -A
+    ap = add -p
+    c = commit --verbose
+    ca = commit -a --verbose
+    cam = commit -a -m
+    cm = commit -m
+    co = checkout
+    cob = checkout -b
+    d = diff
+    dc = diff --cached
+    del = !git fetch --prune && git checkout master && git pull origin master && git branch -D
+    ds = diff --stat
+    l = log
+    m = commit --amend --verbose
+    master = !git fetch --prune && git checkout master && git pull origin master && :
+    develop = !git fetch --prune && git checkout develop && git pull origin develop && :
+    s = status -s
+
+    # push the current branch
+    publish = push -u origin HEAD
+
+    # list branches sorted by last modified
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+    br = branch
+
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+	mergeoptions = --no-edit
+	askpass = /usr/bin/ksshaskpass
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[init]
+	templatedir = ~/.git_template
+[web]
+	browser = open
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

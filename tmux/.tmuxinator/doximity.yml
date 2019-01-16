@@ -11,29 +11,18 @@ windows:
       panes:
         - vim -c "silent VtrAttachToPane 3"
         - local_shell:
-          - wait_for_docker doximity
-          - dox-do bundle install
+          -
         - docker_shell:
           - wait_for_docker doximity
-          - dox-do bash
+          - ddsh
   - server:
-      layout: even-horizontal
       panes:
-        - dox_server:
-          - dox-dc up -d doximity
-          - docker attach dox-compose_doximity_1
-        - dox_sync:
-          - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
-          - docker-sync start -f -n doximity-sync
+        - dox_server: ddup doximity
   - services:
       layout: even-horizontal
       panes:
-        - workers:
-          - wait_for_docker doximity
-          - dox-dc up doximity-workers
-        - daemons:
-          - wait_for_docker doximity
-          - dox-dc up doximity-daemons
+        - workers: ddup doximity-workers
+        - daemons: ddup doximity-daemons
   - bullet: tail -f log/bullet.log
   - consoles:
     - wait_for_docker doximity

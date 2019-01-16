@@ -21,7 +21,6 @@ colorscheme jellybeans                " set color scheme
 set autoindent		             " autoindenting on
 set autoread                   " auto-reload the current file when switching to it
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set clipboard=unnamed          " copy to the system clipboard
 set cmdheight=1                " lines in the command bar
 set complete-=i                " do not scan included files such as all ruby gems. Faster tab completion
 set encoding=utf8              " set to show fonts and glyphs
@@ -187,16 +186,11 @@ vmap m <plug>(easymotion-s)
 
 
 " ##### ALE async linting config #####
-nmap <silent> [r <Plug>(ale_previous_wrap)
-nmap <silent> ]r <Plug>(ale_next_wrap)
 
 " Linting on all changes felt too aggressive. The below settings calls lint on
 " certain events, either when I stop interacting or when entering / leaving
 " insert mode
-autocmd CursorHold * call ale#Queue(0, 'lint_file')
-autocmd CursorHoldI * call ale#Queue(0, 'lint_file')
-autocmd InsertLeave * call ale#Queue(0, 'lint_file')
-autocmd TextChanged * call ale#Queue(0, 'lint_file')
+
 
 let g:ale_lint_delay = 1000
 let g:ale_lint_on_save = 1

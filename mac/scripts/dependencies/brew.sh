@@ -13,4 +13,4 @@ if [ $? != 0 ]; then
   sudo chmod 777 /usr/local
 fi
 
-brew bundle || true
+brew bundle --file=$DOTFILES_DIR/mac/Brewfile || true

@@ -7,7 +7,8 @@ set -o pipefail
 stow -v -t $HOME -d $PRIVATE_CONFIGS_DIR bundle
 stow -v -t $HOME -d $PRIVATE_CONFIGS_DIR aws
 stow -v -t $HOME docker
-stow -v -t $HOME git
+stow -v -t $HOME -d shared git
+stow -v -t $HOME -d mac git
 stow -v -t $HOME nvm
 stow -v -t $HOME pry
 stow -v -t $HOME psql
@@ -15,7 +16,8 @@ stow -v -t $HOME pyenv
 stow -v -t $HOME rbenv
 stow -v -t $HOME tmux
 stow -v -t $HOME vim
-stow -v -t $HOME zsh
+stow -v -t $HOME -d shared zsh
+stow -v -t $HOME -d mac zsh
 sudo stow -v -t $HOME -d $PRIVATE_CONFIGS_DIR ssh
 
 # May need to update permissions

@@ -88,3 +88,6 @@ Run `brew bundle dump --force` to update the Brewfile
 
 ### Shortkeys
 - `linux/shortkeys.json` contains the shortcuts for the Shortkeys chrome extension
+
+### Apt-get
+- Packages and sources are backed up as part of the scripts in linux/scripts/backup_apt_get.sh and restored as part of linux/scripts/dependencies/apt_get.sh.

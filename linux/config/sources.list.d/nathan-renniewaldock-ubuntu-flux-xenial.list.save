@@ -1,0 +1,2 @@
+deb http://ppa.launchpad.net/nathan-renniewaldock/flux/ubuntu bionic main # disabled on upgrade to bionic
+# deb-src http://ppa.launchpad.net/nathan-renniewaldock/flux/ubuntu xenial main

@@ -181,7 +181,7 @@ findutils					install
 firefox						install
 firefox-locale-en				install
 flatpak						install
-fluxgui						install
+fluxgui						deinstall
 font-manager					install
 fontconfig					install
 fontconfig-config				install
@@ -595,7 +595,6 @@ libao4:amd64					install
 libapache2-mod-dnssd				install
 libapparmor-perl				install
 libapparmor1:amd64				install
-libappindicator1				install
 libappindicator3-1				install
 libappstream-glib8:amd64			install
 libappstream4:amd64				install
@@ -631,7 +630,6 @@ libatk1.0-0:amd64				install
 libatk1.0-data					install
 libatk1.0-dev:amd64				install
 libatkmm-1.6-1v5:amd64				install
-libatkmm-1.6-dev:amd64				install
 libatm1:amd64					install
 libatomic1:amd64				install
 libatspi2.0-0:amd64				install
@@ -694,7 +692,6 @@ libcairo-script-interpreter2:amd64		install
 libcairo2:amd64					install
 libcairo2-dev:amd64				install
 libcairomm-1.0-1v5:amd64			install
-libcairomm-1.0-dev:amd64			install
 libcamel-1.2-61:amd64				install
 libcanberra-gtk-module:amd64			install
 libcanberra-gtk0:amd64				install
@@ -939,7 +936,6 @@ libglib2.0-data					install
 libglib2.0-dev:amd64				install
 libglib2.0-dev-bin				install
 libglibmm-2.4-1v5:amd64				install
-libglibmm-2.4-dev:amd64				install
 libglibmm-2.4-doc				install
 libglu1-mesa:amd64				install
 libglvnd0:amd64					install
@@ -1005,6 +1001,7 @@ libgtk2.0-dev					install
 libgtk3-nocsd0:amd64				install
 libgtk3-perl					install
 libgtkmm-2.4-1v5:amd64				install
+libgtkmm-2.4-doc				install
 libgtkmm-3.0-1v5:amd64				install
 libgtkmm-3.0-doc				install
 libgtksourceview-3.0-1:amd64			install
@@ -1061,7 +1058,6 @@ libijs-0.35:amd64				install
 libilmbase12:amd64				install
 libimobiledevice6:amd64				install
 libindicator3-7					install
-libindicator7					install
 libinput-bin					install
 libinput10:amd64				install
 libio-html-perl					install
@@ -1317,7 +1313,6 @@ libpango1.0-dev					install
 libpangocairo-1.0-0:amd64			install
 libpangoft2-1.0-0:amd64				install
 libpangomm-1.4-1v5:amd64			install
-libpangomm-1.4-dev:amd64			install
 libpangox-1.0-0:amd64				install
 libpangoxft-1.0-0:amd64				install
 libpaper-utils					install
@@ -1493,7 +1488,6 @@ libshine3:amd64					install
 libshout3:amd64					install
 libsidplay2					install
 libsigc++-2.0-0v5:amd64				install
-libsigc++-2.0-dev:amd64				install
 libsignon-extension1:amd64			install
 libsignon-glib1:amd64				install
 libsignon-plugins-common1:amd64			install
@@ -1933,7 +1927,6 @@ pulseaudio-module-bluetooth			install
 pulseaudio-utils				install
 pyotherside					install
 python						install
-python-appindicator				install
 python-apt-common				install
 python-asn1crypto				install
 python-backports.ssl-match-hostname		install
@@ -1951,7 +1944,6 @@ python-docopt					install
 python-enum34					install
 python-funcsigs					install
 python-functools32				install
-python-gconf					install
 python-gi					install
 python-glade2					install
 python-gobject					install
@@ -1968,16 +1960,13 @@ python-minimal					install
 python-mock					install
 python-openssl					install
 python-pbr					install
-python-pexpect					install
 python-pkg-resources				install
-python-ptyprocess				install
 python-requests					install
 python-six					install
 python-talloc					install
 python-texttable				install
 python-urllib3					install
 python-websocket				install
-python-xdg					install
 python-yaml					install
 python2.7					install
 python2.7-dev					install

@@ -3,6 +3,8 @@
 set -e
 set -o pipefail
 
+: "${DOTFILES_DIR:=$HOME/GitHubRepos/dotfiles}"
+
 DEPENDENCIES_SCRIPTS_PATH=$DOTFILES_DIR/linux/scripts/dependencies
 SHARED_DEPENDENCIES_SCRIPTS_PATH=$DOTFILES_DIR/shared/scripts/dependencies
 

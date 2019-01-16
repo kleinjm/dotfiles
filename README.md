@@ -91,3 +91,4 @@ Run `brew bundle dump --force` to update the Brewfile
 
 ### Apt-get
 - Packages and sources are backed up as part of the scripts in linux/scripts/backup_apt_get.sh and restored as part of linux/scripts/dependencies/apt_get.sh.
+- Use `gdm3` display manager

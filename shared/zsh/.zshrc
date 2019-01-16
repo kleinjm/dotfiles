@@ -54,14 +54,17 @@ HIST_STAMPS="mm/dd/yyyy"
 
 HISTSIZE=1000000 # amount of commands saved in history
 
+TERM=xterm-256color
+
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # NOTE: zsh-syntax-highlighting was affecting boot performance
-# NOTE: The dependency scripts should handle zsh-autosuggestions
-# NOTE: Follow the oh-my-zsh install instructions and check out `develop` branch
-# https://github.com/zsh-users/zsh-autosuggestions#oh-my-zsh
-# Currently there is an issue on master
-# See https://github.com/zsh-users/zsh-autosuggestions/issues/241
-plugins=(git bundler osx rake ruby rails tmux docker zsh-autosuggestions)
+plugins=(git bundler osx rake ruby rails tmux docker)
+
+# manually trigger autosuggestions
+AUTOSUGGESTIONS_DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestion
+if [ -d "$AUTOSUGGESTIONS_DIR" ]; then
+  source $AUTOSUGGESTIONS_DIR/zsh-autosuggestions.zsh
+fi
 
 # QT added to path to fix gem install capybara-webkit issue
 # openssl added to fix issue with brew installing over the system version

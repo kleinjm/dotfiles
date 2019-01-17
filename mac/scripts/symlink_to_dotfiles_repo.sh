@@ -15,9 +15,10 @@ stow -v -t $HOME psql
 stow -v -t $HOME pyenv
 stow -v -t $HOME rbenv
 stow -v -t $HOME tmux
-stow -v -t $HOME vim
-stow -v -t $HOME -d shared zsh
-stow -v -t $HOME -d mac zsh
+stow -v -t "$HOME" -d shared vim
+stow -v -t "$HOME" -d mac vim
+stow -v -t "$HOME" -d shared zsh
+stow -v -t "$HOME" -d mac zsh
 sudo stow -v -t $HOME -d $PRIVATE_CONFIGS_DIR ssh
 
 # May need to update permissions

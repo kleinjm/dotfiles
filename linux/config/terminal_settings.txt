@@ -10,12 +10,14 @@ paste='<Super>v'
 next-tab='<Super>Right'
 
 [legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
-background-color='rgb(0,0,0)'
-use-theme-colors=true
-palette=['rgb(0,0,0)', 'rgb(205,0,0)', 'rgb(0,205,0)', 'rgb(205,205,0)', 'rgb(0,0,238)', 'rgb(205,0,205)', 'rgb(0,205,205)', 'rgb(229,229,229)', 'rgb(127,127,127)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(92,92,255)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
-use-theme-transparency=false
 foreground-color='rgb(131,148,150)'
 visible-name='James'
+palette=['rgb(0,0,0)', 'rgb(205,0,0)', 'rgb(0,205,0)', 'rgb(205,205,0)', 'rgb(0,0,238)', 'rgb(205,0,205)', 'rgb(0,205,205)', 'rgb(229,229,229)', 'rgb(127,127,127)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(92,92,255)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
+use-system-font=false
+use-theme-colors=true
+use-theme-transparency=false
+font='Monospace 10'
+background-color='rgb(0,0,0)'
 audible-bell=false
 
 [legacy]

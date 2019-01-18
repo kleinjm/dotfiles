@@ -52,6 +52,7 @@ alias resolve-vue="nvm use && master && yarn install"
 # Script shortcuts
 alias dependencies="$DOTFILES_DIR/mac/scripts/dependencies.sh"
 alias download-music="$DOTFILES_DIR/mac/scripts/download_music.sh"
+alias fixmouse="$DOTFILES_DIR/linux/scripts/fixmouse.sh"
 alias get-song="$DOTFILES_DIR/mac/scripts/get_song.sh"
 alias pack="ruby $PROJECT_DIR/packing_checklist/app/run.rb"
 alias passwords="$DOTFILES_DIR/mac/scripts/passwords.sh"

@@ -7,4 +7,4 @@ set -o pipefail
 # It seems to work fine on the same computer but because there are drivers
 # involved in the backup, they do not work between computers.
 
-sudo apt install vim-gtk curl stow zsh ksshaskpass gnome-tweak-tool
+sudo apt install vim-gtk curl stow zsh ksshaskpass gnome-tweak-tool tmux rbenv

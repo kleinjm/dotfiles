@@ -20,7 +20,6 @@ app-install-data				install
 app-install-data-partner			install
 apparmor					install
 appmenu-qt:amd64				install
-appmenu-qt5					deinstall
 apport						install
 apport-gtk					install
 apport-symptoms					install
@@ -181,7 +180,6 @@ findutils					install
 firefox						install
 firefox-locale-en				install
 flatpak						install
-fluxgui						deinstall
 font-manager					install
 fontconfig					install
 fontconfig-config				install
@@ -558,7 +556,6 @@ jayatana					install
 jq						install
 kbd						install
 kerneloops					install
-kerneloops-daemon				deinstall
 keyboard-configuration				install
 kinit						install
 kio						install
@@ -781,7 +778,6 @@ libdns-export1100				install
 libdns1100:amd64				install
 libdotconf0:amd64				install
 libdouble-conversion1:amd64			install
-libdouble-conversion1v5:amd64			deinstall
 libdpkg-perl					install
 libdrm-amdgpu1:amd64				install
 libdrm-common					install
@@ -1240,6 +1236,8 @@ libmtp9:amd64					install
 libmuparser2v5:amd64				install
 libmutter-2-0:amd64				install
 libmwaw-0.3-3:amd64				install
+libmysqlclient-dev				install
+libmysqlclient20:amd64				install
 libmythes-1.2-0:amd64				install
 libnatpmp1					install
 libnautilus-extension1a:amd64			install
@@ -1333,7 +1331,6 @@ libpcrecpp0v5:amd64				install
 libpcsclite1:amd64				install
 libpeas-1.0-0:amd64				install
 libpeas-common					install
-libperl5.22:amd64				deinstall
 libperl5.26:amd64				install
 libperlio-gzip-perl				install
 libphonenumber7:amd64				install
@@ -1827,6 +1824,7 @@ mtr-tiny					install
 multiarch-support				install
 mutter						install
 mutter-common					install
+mysql-common					install
 mysql-workbench-community			install
 mythes-en-us					install
 nano						install
@@ -1976,7 +1974,6 @@ python3-apport					install
 python3-apt					install
 python3-aptdaemon				install
 python3-aptdaemon.gtk3widgets			install
-python3-aptdaemon.pkcompat			deinstall
 python3-asn1crypto				install
 python3-blinker					install
 python3-brlapi					install
@@ -2261,8 +2258,6 @@ unity-scopes-runner				install
 unity-services					install
 unity-session					install
 unity-settings-daemon				install
-unity-webapps-common				deinstall
-unity-webapps-service				deinstall
 uno-libs3					install
 unzip						install
 update-inetd					install
@@ -2271,7 +2266,6 @@ update-manager-core				install
 update-notifier					install
 update-notifier-common				install
 upower						install
-upstart						deinstall
 ure						install
 ureadahead					install
 usb-creator-common				install
@@ -2299,7 +2293,6 @@ vlc-plugin-base:amd64				install
 vlc-plugin-video-output:amd64			install
 wamerican					install
 wbritish					install
-webbrowser-app					deinstall
 wget						install
 whiptail					install
 whoopsie					install

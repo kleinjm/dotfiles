@@ -7,17 +7,11 @@ echo "***Installing apt-get packages***"
 
 CONFIG_PATH=$DOTFILES_DIR/linux/config
 
-# Taken from https://askubuntu.com/a/99151/911936
-# NOTE: these lists are build from the linux/scripts/backup_apt_get.sh script
-sudo apt-key add $CONFIG_PATH/Repo.keys
-sudo cp -R $CONFIG_PATH/sources.list* /etc/apt/
-sudo apt-get update
-sudo apt-get install dselect
-sudo dselect update
+# Taken from https://askubuntu.com/a/486634/911936
+# NOTE: if this script is failing, you're on a different release
+sudo apt-clone restore "$CONFIG_PATH"/apt-clone-state-ubuntu-"$(lsb_release -sr)".tar.gz
 
-# apt-cache dumpavail > ~/temp_avail
-# sudo dpkg --merge-avail ~/temp_avail
-# rm ~/temp_avail
+# Restore to newer release
+# sudo apt-clone restore-new-distro path-to/apt-clone-state-ubuntu.tar.gz $(lsb_release -sc)
 
-sudo dpkg --set-selections < $CONFIG_PATH/Package.list
-sudo apt-get dselect-upgrade -y
+echo "Finshed restoring apt get packages"

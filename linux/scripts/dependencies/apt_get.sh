@@ -3,21 +3,11 @@
 set -e
 set -o pipefail
 
-echo "***Installing apt-get packages***"
+# WARNING: Do not try to use `apt-clone`
+# It seems to work fine on the same computer but because there are drivers
+# involved in the backup, they do not work between computers.
 
-CONFIG_PATH=$DOTFILES_DIR/linux/config
-
-# Taken from https://askubuntu.com/a/99151/911936
-# NOTE: these lists are build from the linux/scripts/backup_apt_get.sh script
-sudo apt-key add $CONFIG_PATH/Repo.keys
-sudo cp -R $CONFIG_PATH/sources.list* /etc/apt/
+sudo apt-add-repository ppa:rodsmith/refind
 sudo apt-get update
-sudo apt-get install dselect
-sudo dselect update
 
-# apt-cache dumpavail > ~/temp_avail
-# sudo dpkg --merge-avail ~/temp_avail
-# rm ~/temp_avail
-
-sudo dpkg --set-selections < $CONFIG_PATH/Package.list
-sudo apt-get dselect-upgrade -y
+sudo apt install vim-gtk curl stow zsh ksshaskpass gnome-tweak-tool tmux rbenv refind

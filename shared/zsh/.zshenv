@@ -18,6 +18,9 @@ export PYENV_VERSION=3.7.0
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+# See https://stackoverflow.com/a/49462622/2418828
+export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE="true"
+
 for file in $DOTFILES_DIR/shared/zsh/*.zshenv; do
   source "$file"
 done

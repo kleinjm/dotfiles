@@ -15,10 +15,10 @@ stow -v -t "$HOME" -d shared vim
 stow -v -t "$HOME" -d linux vim
 sudo stow -v -t /etc -d linux etc
 stow -v -t "$HOME" nvm
-# stow -v -t "$HOME" pry
+stow -v -t "$HOME" pry
 # stow -v -t "$HOME" psql
 # stow -v -t "$HOME" pyenv
-# stow -v -t "$HOME" rbenv
+stow -v -t "$HOME" rbenv
 stow -v -t "$HOME" tmux
 # sudo stow -v -t "$HOME" -d $PRIVATE_CONFIGS_DIR ssh
 

@@ -592,6 +592,7 @@ libao4:amd64					install
 libapache2-mod-dnssd				install
 libapparmor-perl				install
 libapparmor1:amd64				install
+libappindicator1				install
 libappindicator3-1				install
 libappstream-glib8:amd64			install
 libappstream4:amd64				install
@@ -1054,6 +1055,7 @@ libijs-0.35:amd64				install
 libilmbase12:amd64				install
 libimobiledevice6:amd64				install
 libindicator3-7					install
+libindicator7					install
 libinput-bin					install
 libinput10:amd64				install
 libio-html-perl					install
@@ -1925,6 +1927,7 @@ pulseaudio-module-bluetooth			install
 pulseaudio-utils				install
 pyotherside					install
 python						install
+python-appindicator				install
 python-apt-common				install
 python-asn1crypto				install
 python-backports.ssl-match-hostname		install
@@ -1942,6 +1945,7 @@ python-docopt					install
 python-enum34					install
 python-funcsigs					install
 python-functools32				install
+python-gconf					install
 python-gi					install
 python-glade2					install
 python-gobject					install
@@ -1958,13 +1962,16 @@ python-minimal					install
 python-mock					install
 python-openssl					install
 python-pbr					install
+python-pexpect					install
 python-pkg-resources				install
+python-ptyprocess				install
 python-requests					install
 python-six					install
 python-talloc					install
 python-texttable				install
 python-urllib3					install
 python-websocket				install
+python-xdg					install
 python-yaml					install
 python2.7					install
 python2.7-dev					install

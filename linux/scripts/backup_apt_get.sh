@@ -3,6 +3,7 @@
 set -e
 set -o pipefail
 
+: "${DOTFILES_DIR:=$HOME/GitHubRepos/dotfiles}"
 CONFIG_PATH=$DOTFILES_DIR/linux/config
 
 # WARNING: ensure `deinstall`-ed packages are not included.

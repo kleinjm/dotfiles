@@ -7,4 +7,7 @@ set -o pipefail
 # It seems to work fine on the same computer but because there are drivers
 # involved in the backup, they do not work between computers.
 
-sudo apt install vim-gtk curl stow zsh ksshaskpass gnome-tweak-tool tmux rbenv
+sudo apt-add-repository ppa:rodsmith/refind
+sudo apt-get update
+
+sudo apt install vim-gtk curl stow zsh ksshaskpass gnome-tweak-tool tmux rbenv refind

@@ -9,6 +9,7 @@ CONFIG_PATH=$DOTFILES_DIR/linux/config
 
 # Taken from https://askubuntu.com/a/486634/911936
 # NOTE: if this script is failing, you're on a different release
+sudo apt-get install apt-clone
 sudo apt-clone restore "$CONFIG_PATH"/apt-clone-state-ubuntu-"$(lsb_release -sr)".tar.gz
 
 # Restore to newer release

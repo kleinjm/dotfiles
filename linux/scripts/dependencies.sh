@@ -16,7 +16,7 @@ sudo chmod u+x "$SHARED_DEPENDENCIES_SCRIPTS_PATH"
 # files in the scripts dir are order dependent
 #
 # H - Enable ! style history substitution
-bash "$DEPENDENCIES_SCRIPTS_PATH"/apt_get.sh -H
+# bash "$DEPENDENCIES_SCRIPTS_PATH"/apt_get.sh -H
 bash "$DEPENDENCIES_SCRIPTS_PATH"/brew.sh -H
 bash "$SHARED_DEPENDENCIES_SCRIPTS_PATH"/node.sh -H
 bash "$SHARED_DEPENDENCIES_SCRIPTS_PATH"/zsh_autosuggestions.sh -H

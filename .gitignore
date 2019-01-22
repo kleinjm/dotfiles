@@ -4,3 +4,4 @@ shared/vim/.vim/.netrwhist
 shared/vim/.vim/plugged
 vim/.vim/pythonx/__pycache__
 tmux/.tmux/plugins
+tmp

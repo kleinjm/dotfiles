@@ -12,4 +12,5 @@ echo "***Installing apt-get packages***"
 sudo apt-add-repository ppa:rodsmith/refind
 sudo apt-get update
 
-sudo apt install vim-gtk curl stow zsh ksshaskpass gnome-tweak-tool tmux rbenv refind git-lfs jq gawk parallel
+# Ensure packages added here are not part of the brew bundle
+sudo apt install vim-gtk curl zsh ksshaskpass gnome-tweak-tool refind

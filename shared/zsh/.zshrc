@@ -58,7 +58,9 @@ TERM=xterm-256color
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # NOTE: zsh-syntax-highlighting was affecting boot performance
-plugins=(git bundler osx rake ruby rails tmux docker)
+# NOTE: rails plugin temporarily removed so because `rg` shortcut messed
+# with ripgrep
+plugins=(git bundler osx rake ruby tmux docker)
 
 # manually trigger autosuggestions
 AUTOSUGGESTIONS_DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestion

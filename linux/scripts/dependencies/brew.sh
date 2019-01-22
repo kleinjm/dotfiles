@@ -5,9 +5,6 @@ set -o pipefail
 
 echo "***Installing Linuxbrew and Brew bundling***"
 
-which brew
-if [ $? != 0 ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-fi
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 
 brew bundle --file=$DOTFILES_DIR/linux/Brewfile || true

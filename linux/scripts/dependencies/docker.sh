@@ -27,6 +27,13 @@ sudo apt-get install docker-ce
 # Solve a permissions isssue
 # https://techoverflow.net/2017/03/01/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/
 # NOTE: requires a restart
-sudo usermod -a -G docker $USER
+sudo usermod -a -G docker "$USER"
+
+# Docker compose - https://docs.docker.com/compose/install/
+# NOTE: Use the latest Compose release number in the download command
+#   See https://github.com/docker/compose/releases
+sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
 
 echo "***Docker installed - Please Restart***"

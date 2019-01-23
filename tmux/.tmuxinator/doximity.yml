@@ -15,9 +15,7 @@ windows:
         - docker_shell:
           - wait_for_docker doximity
           - ddsh
-  - server:
-      panes:
-        - dox_server: ddup doximity
+  - server: ddup doximity
   - services:
       layout: even-horizontal
       panes:

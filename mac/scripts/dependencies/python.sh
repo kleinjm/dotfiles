@@ -18,5 +18,5 @@ if [ $? != 0 ]; then
   git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
 fi
 
-pip install -r vim/.vim/pythonx/requirements.txt
+pip install -r shared/vim/.vim/pythonx/requirements.txt
 pip install -r requirements.txt

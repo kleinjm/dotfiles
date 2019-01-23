@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged') " Specify a directory for plugins
 " Make sure to use single quotes
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " find or install fzf
 Plug 'AndrewRadev/vim-eco'                          " .eco syntax highlighting
-Plug 'SirVer/ultisnips'                             " ultimate snippet solution for Vim
+" Plug 'SirVer/ultisnips'                             " ultimate snippet solution for Vim
 Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
 Plug 'calebsmith/vim-lambdify'                      " conceal js functions with lambda
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell

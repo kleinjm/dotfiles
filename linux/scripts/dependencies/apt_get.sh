@@ -13,4 +13,4 @@ sudo apt-add-repository ppa:rodsmith/refind
 sudo apt-get update
 
 # Ensure packages added here are not part of the brew bundle
-sudo apt install vim-gtk curl zsh ksshaskpass gnome-tweak-tool refind libffi-dev
+sudo apt install vim-gtk curl zsh ksshaskpass gnome-tweak-tool refind libffi-dev xclip

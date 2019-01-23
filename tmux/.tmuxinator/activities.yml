@@ -14,15 +14,7 @@ windows:
         - docker_shell:
           - wait_for_docker activities
           - dox-do bash
-  - server:
-      layout: even-horizontal
-      panes:
-        - server:
-          - dox-dc up -d activities
-          - docker attach dox-compose_activities_1
-        - dox_sync:
-          - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
-          - docker-sync start -f -n activities-sync
+  - server: ddup activities
   - services:
       layout: even-horizontal
       panes:

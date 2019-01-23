@@ -21,4 +21,5 @@ sudo apt install vim-gtk curl zsh ksshaskpass gnome-tweak-tool refind libffi-dev
 
 # dropbox - https://www.dropbox.com/install-linux
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-~/.dropbox-dist/dropboxd
+
+echo "Start dropbox with ~/.dropbox-dist/dropboxd"

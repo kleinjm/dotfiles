@@ -22,8 +22,10 @@ rm -f "$MAC_PREFERENCES_PATH"/com.sequelpro.SequelPro.plist
 cp "$DOTFILES_PREFERENCES_PATH"/com.sequelpro.SequelPro.plist "$MAC_PREFERENCES_PATH"/com.sequelpro.SequelPro.plist
 
 # sequel pro favorites
-rm -f "$HOME"/Library/Application\ Support/Sequel\ Pro/Data/Favorites.plist
-cp "$DOTFILES_PREFERENCES_PATH"/Favorites.plist "$HOME"/Library/Application\ Support/Sequel\ Pro/Data/Favorites.plist
+TARGET_PATH="$HOME"/Library/Application\ Support/Sequel\ Pro/Data
+rm -f "$TARGET_PATH"/Favorites.plist
+mkdir -p "$TARGET_PATH"
+cp "$DOTFILES_PREFERENCES_PATH"/Favorites.plist "$TARGET_PATH"/Favorites.plist
 
 # Hidden files on Mac. Requires:
 defaults write com.apple.finder AppleShowAllFiles YES

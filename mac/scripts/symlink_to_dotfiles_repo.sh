@@ -23,6 +23,3 @@ sudo stow -v -t $HOME -d $PRIVATE_CONFIGS_DIR ssh
 
 # May need to update permissions
 # chmod -R 0755 ~/.git/git_template/hooks
-
-# Hidden files on Mac. Requires: hold 'alt' key, right click Finder, Relaunch
-defaults write com.apple.finder AppleShowAllFiles YES

@@ -24,3 +24,8 @@ cp $DOTFILES_PREFERENCES_PATH/com.sequelpro.SequelPro.plist $MAC_PREFERENCES_PAT
 # sequel pro favorites
 rm $HOME/Library/Application\ Support/Sequel\ Pro/Data/Favorites.plist
 cp $DOTFILES_PREFERENCES_PATH/Favorites.plist $HOME/Library/Application\ Support/Sequel\ Pro/Data/Favorites.plist
+
+# Hidden files on Mac. Requires:
+defaults write com.apple.finder AppleShowAllFiles YES
+
+echo "For hidden files, hold 'alt' key, right click Finder, Relaunch"

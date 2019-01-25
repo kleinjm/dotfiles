@@ -15,4 +15,5 @@ dconf dump /org/gnome/terminal/ > "$CONFIG_PATH"/terminal_settings.txt
 dconf dump / > "$CONFIG_PATH"/gnome_tweaks_settings.dconf
 
 # All user settings
+# See https://askubuntu.com/a/746262/911936
 dconf dump / > "$CONFIG_PATH"/user.conf

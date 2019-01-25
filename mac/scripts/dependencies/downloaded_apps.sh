@@ -13,3 +13,6 @@ open vlc.dmg
 
 # TODO: get boost note working
 # curl https://github.com/BoostIO/boost-releases/releases/download/v0.11.12/Boostnote-mac.zip -o boostnote.zip
+
+# dropbox
+# chrome

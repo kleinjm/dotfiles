@@ -22,7 +22,6 @@ echo "Open XCode, accept the agreement, and let extensions install"
 read -n 1 -s -r -p  "Press any key to continue"
 echo
 
-bash "$DEPENDENCIES_SCRIPTS_PATH"/xcode.sh -H
 bash "$DEPENDENCIES_SCRIPTS_PATH"/zsh.sh -H
 bash "$DEPENDENCIES_SCRIPTS_PATH"/python.sh -H
 bash "$DEPENDENCIES_SCRIPTS_PATH"/ctags.sh -H

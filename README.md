@@ -91,3 +91,10 @@ Run `brew bundle dump --force` to update the Brewfile
 
 ### Apt-get
 - Packages and sources are backed up as part of the dependency scripts
+
+### Apple Magic Mouse
+- The apt_get.sh dependency script installs a tool called Ukuu that can be used to manage the kernel version
+- Type `uname -a` to find out your version. It needs to be >= 4.18.0. See https://github.com/rohitpid/Linux-Magic-Trackpad-2-Driver#installation-with-dkms
+- Start Ukuu and select kernel 4.20.0 (tested with this one and it works)
+- Restart
+- Run `linux/scripts/setup_magic_mouse.sh`

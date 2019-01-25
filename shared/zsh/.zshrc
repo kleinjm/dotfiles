@@ -108,7 +108,10 @@ done
 source $HOME/.oh-my-zsh/custom/plugins/*.zsh
 
 # Doximity specific
-eval "$("$PROJECT_DIR/dox-compose/bin/dox-init")"
+DOX_INIT=$PROJECT_DIR/dox-compose/bin/dox-init
+if [ -e "$DOX_INIT" ]; then
+  eval "$("$DOX_INIT")"
+fi
 
 # https://github.com/rbenv/rbenv/issues/142
 eval "$(rbenv init -)"

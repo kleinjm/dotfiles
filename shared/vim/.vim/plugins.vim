@@ -24,7 +24,7 @@ Plug 'honza/vim-snippets'                           " snippets
 Plug 'itchyny/lightline.vim'                        " vim status bar coloring
 Plug 'jbgutierrez/vim-partial'                      " extract haml partials
 Plug 'jgdavey/vim-blockle'                          " toggle ruby do and {} blocks
-Plug 'jiangmiao/auto-pairs'                         " open and close brackets
+" Plug 'jiangmiao/auto-pairs'                         " open and close brackets
 Plug 'joker1007/vim-ruby-heredoc-syntax'            " heredoc ruby highlighing
 Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript

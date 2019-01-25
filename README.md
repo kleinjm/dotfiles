@@ -1,5 +1,6 @@
 # Mac
 ## Setup
+* Make sure you're on the latest Mac OS
 * Run `mac/make.sh`
 * This repo assumes the home dir is `jklein`. If it's not, symlink it with the following
   ```sh

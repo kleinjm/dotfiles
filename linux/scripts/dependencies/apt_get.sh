@@ -26,7 +26,4 @@ sudo apt install vim-gtk curl zsh ksshaskpass gnome-tweak-tool refind \
 # dropbox - https://www.dropbox.com/install-linux
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 
-# Wunderlist https://itsfoss.com/linux-client-wunderlist/
-wget -O - https://raw.githubusercontent.com/edipox/wunderlistux/master/bin/install.sh | sudo bash
-
 echo "Start dropbox with ~/.dropbox-dist/dropboxd"

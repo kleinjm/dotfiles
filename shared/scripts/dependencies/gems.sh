@@ -3,7 +3,10 @@
 set -e
 set -o pipefail
 
-echo "***Installing Bundler and Gems***"
+echo "***Installing Ruby, Bundler and Gems***"
+
+# install the project's ruby version
+< .ruby-version rbenv install
 
 # TODO: may need to check if rbenv ruby version is installed here
 gem install bundler # if this command fails, run `rbenv init`

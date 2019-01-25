@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 set -e
 set -o pipefail
@@ -17,6 +17,11 @@ sudo chmod u+x "$SHARED_DEPENDENCIES_SCRIPTS_PATH"
 #
 # H - Enable ! style history substitution
 bash "$DEPENDENCIES_SCRIPTS_PATH"/brew.sh -H
+
+echo "Open XCode, accept the agreement, and let extensions install"
+read -n 1 -s -r -p  "Press any key to continue"
+echo
+
 bash "$DEPENDENCIES_SCRIPTS_PATH"/xcode.sh -H
 bash "$DEPENDENCIES_SCRIPTS_PATH"/zsh.sh -H
 bash "$DEPENDENCIES_SCRIPTS_PATH"/python.sh -H

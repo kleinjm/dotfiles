@@ -72,7 +72,7 @@ fi
 # openssl added to fix issue with brew installing over the system version
 # mysql added to fix issue with brew linking
 # TODO: linuxbrew is linux specific, remove it on mac
-export PATH=/usr/local/opt/mysql@5.7/bin:/usr/local/opt/openssl/bin:/home/linuxbrew/.linuxbrew/bin:$PATH
+export PATH=/usr/local/opt/mysql@5.7/bin:/usr/local/opt/openssl/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
 
 # NOTE: PATH must be before this
 source $ZSH/oh-my-zsh.sh

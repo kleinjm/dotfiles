@@ -8,7 +8,12 @@ echo "***Installing Ruby, Bundler and Gems***"
 # install the project's ruby version
 < .ruby-version rbenv install
 
-# TODO: may need to check if rbenv ruby version is installed here
+# See https://stackoverflow.com/questions/5380671/getting-the-warning-insecure-world-writable-dir-home-chance-in-path-mode-04
+sudo chmod go-w /usr/local
+
+# TODO: change the order of running this script vs symlinking
+# At this point, the rbenv ruby version is not the one being used because zshrc
+# is not symlinked and has not added it to the path
 gem install bundler # if this command fails, run `rbenv init`
 
 # If bundler is broken and you're seeing this trace, see this link

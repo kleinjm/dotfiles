@@ -3,6 +3,8 @@
 set -e
 set -o pipefail
 
+: "${PRIVATE_CONFIGS_DIR:=$HOME/Dropbox/EnvironmentConfigurations}"
+
 # v = verbose, t = target directory, d = current directory
 stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" bundle
 stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" aws
@@ -20,4 +22,4 @@ stow -v -t "$HOME" psql
 stow -v -t "$HOME" pyenv
 stow -v -t "$HOME" rbenv
 stow -v -t "$HOME" tmux
-stow -v -t "$HOME" -d $PRIVATE_CONFIGS_DIR ssh
+stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" ssh

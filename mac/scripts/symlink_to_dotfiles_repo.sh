@@ -3,6 +3,8 @@
 set -e
 set -o pipefail
 
+: "${PRIVATE_CONFIGS_DIR:=$HOME/Dropbox/EnvironmentConfigurations}"
+
 # v = verbose, t = target directory, d = current directory
 stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" bundle
 stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" aws

@@ -16,9 +16,9 @@ sudo chmod u+x "$SHARED_DEPENDENCIES_SCRIPTS_PATH"
 # files in the scripts dir are order dependent
 #
 # H - Enable ! style history substitution
+bash "$DEPENDENCIES_SCRIPTS_PATH"/brew.sh -H
 bash "$DEPENDENCIES_SCRIPTS_PATH"/xcode.sh -H
 bash "$DEPENDENCIES_SCRIPTS_PATH"/zsh.sh -H
-bash "$DEPENDENCIES_SCRIPTS_PATH"/brew.sh -H
 bash "$DEPENDENCIES_SCRIPTS_PATH"/python.sh -H
 bash "$DEPENDENCIES_SCRIPTS_PATH"/ctags.sh -H
 bash "$SHARED_DEPENDENCIES_SCRIPTS_PATH"/gems.sh -H

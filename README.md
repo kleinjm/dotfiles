@@ -1,7 +1,6 @@
 # Mac
 ## Setup
-* Run `mac/scripts/dependencies.sh`
-* Run `mac/scripts/symlink_to_dotfiles_repo.sh`. This uses [stow](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/) to symlink dotfiles to where they should go.
+* Run `mac/make.sh`
 * This repo assumes the home dir is `jklein`. If it's not, symlink it with the following
   ```sh
   cd /Users
@@ -15,8 +14,8 @@
 * Restart vim and you should see devicons
 
 ### Syncing Mac Settings
-* To save local settings to the repo `mac/scripts/backup_local_settings.sh`
-* To apply repo settings to the local mac `mac/scripts/apply_dotfile_settings.sh`
+* To save local settings to the repo `mac/scripts/backup_settings.sh`
+* To apply repo settings to the local mac `mac/scripts/restore_settings.sh` (part of `make` script)
 
 ### Sequel Pro
 - Dark query scheme found in `mac_config/sequel-pro-master`

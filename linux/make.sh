@@ -14,3 +14,4 @@ export DOTFILES_DIR=$DOTFILES_DIR
 "$DOTFILES_DIR"/linux/scripts/fontconfig.sh
 
 echo "Everything set up. Check linux/scripts for any additional setup"
+echo "Follow the readme steps for magic mouse setup"

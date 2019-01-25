@@ -19,6 +19,7 @@ stow -v -t "$HOME" rbenv
 stow -v -t "$HOME" tmux
 stow -v -t "$HOME" -d shared vim
 stow -v -t "$HOME" -d mac vim
+# may need to `rm $HOME/.zshrc`
 stow -v -t "$HOME" -d shared zsh
 stow -v -t "$HOME" -d mac zsh
 sudo stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" ssh

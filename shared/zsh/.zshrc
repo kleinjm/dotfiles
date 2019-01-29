@@ -58,7 +58,9 @@ TERM=xterm-256color
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # NOTE: zsh-syntax-highlighting was affecting boot performance
-plugins=(git bundler osx rake ruby rails tmux docker)
+# NOTE: rails plugin temporarily removed so because `rg` shortcut messed
+# with ripgrep
+plugins=(git bundler osx rake ruby tmux docker)
 
 # manually trigger autosuggestions
 AUTOSUGGESTIONS_DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestion
@@ -70,7 +72,7 @@ fi
 # openssl added to fix issue with brew installing over the system version
 # mysql added to fix issue with brew linking
 # TODO: linuxbrew is linux specific, remove it on mac
-export PATH=/usr/local/opt/mysql@5.7/bin:/usr/local/opt/openssl/bin:/home/linuxbrew/.linuxbrew/bin:$PATH
+export PATH=/usr/local/opt/mysql@5.7/bin:/usr/local/opt/openssl/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
 
 # NOTE: PATH must be before this
 source $ZSH/oh-my-zsh.sh
@@ -106,7 +108,10 @@ done
 source $HOME/.oh-my-zsh/custom/plugins/*.zsh
 
 # Doximity specific
-eval "$("$PROJECT_DIR/dox-compose/bin/dox-init")"
+DOX_INIT=$PROJECT_DIR/dox-compose/bin/dox-init
+if [ -e "$DOX_INIT" ]; then
+  eval "$("$DOX_INIT")"
+fi
 
 # https://github.com/rbenv/rbenv/issues/142
 eval "$(rbenv init -)"

@@ -239,14 +239,14 @@ let g:fzf_files_options =
 " ##### END AG & FZF #####
 
 " ##### UltiSnips #####
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsListSnippets="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-l>"
-let g:UltiSnipsJumpBackwardTrigger="<c-h>"
-let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsListSnippets="<c-k>"
+" let g:UltiSnipsJumpForwardTrigger="<c-l>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+" let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+"
+" " If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
 " ##### END UltiSnips #####
 
 " Source these last because they depend on the other definitions

@@ -7,16 +7,7 @@ echo "***Installing Python and Requirements***"
 
 # make sure python is installed so we have pip
 # NOTE: it's also a macvim dependency
-pyenv versions | grep $PYENV_VERSION
-if [ $? != 0 ]; then
-  pyenv install $PYENV_VERSION
-fi
+< "$DOTFILES_DIR"/pyenv/.pyenv/version pyenv install
 
-# plugin to enable `pyenv install-latest`
-ls "$(pyenv root)"/plugins/pyenv-install-latest > /dev/null
-if [ $? != 0 ]; then
-  git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
-fi
-
-pip install -r vim/.vim/pythonx/requirements.txt
+pip install -r shared/vim/.vim/pythonx/requirements.txt
 pip install -r requirements.txt

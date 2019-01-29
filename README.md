@@ -1,7 +1,7 @@
 # Mac
 ## Setup
-* Run `mac/scripts/dependencies.sh`
-* Run `mac/scripts/symlink_to_dotfiles_repo.sh`. This uses [stow](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/) to symlink dotfiles to where they should go.
+* Make sure you're on the latest Mac OS
+* Run `mac/make.sh`
 * This repo assumes the home dir is `jklein`. If it's not, symlink it with the following
   ```sh
   cd /Users
@@ -15,8 +15,8 @@
 * Restart vim and you should see devicons
 
 ### Syncing Mac Settings
-* To save local settings to the repo `mac/scripts/backup_local_settings.sh`
-* To apply repo settings to the local mac `mac/scripts/apply_dotfile_settings.sh`
+* To save local settings to the repo `mac/scripts/backup_settings.sh`
+* To apply repo settings to the local mac `mac/scripts/restore_settings.sh` (part of `make` script)
 
 ### Sequel Pro
 - Dark query scheme found in `mac_config/sequel-pro-master`
@@ -90,5 +90,11 @@ Run `brew bundle dump --force` to update the Brewfile
 - `linux/shortkeys.json` contains the shortcuts for the Shortkeys chrome extension
 
 ### Apt-get
-- Packages and sources are backed up as part of the scripts in linux/scripts/backup_apt_get.sh and restored as part of linux/scripts/dependencies/apt_get.sh.
-- Use `gdm3` display manager
+- Packages and sources are backed up as part of the dependency scripts
+
+### Apple Magic Mouse
+- The apt_get.sh dependency script installs a tool called Ukuu that can be used to manage the kernel version
+- Type `uname -a` to find out your version. It needs to be >= 4.18.0. See https://github.com/rohitpid/Linux-Magic-Trackpad-2-Driver#installation-with-dkms
+- Start Ukuu and select kernel 4.20.0 (tested with this one and it works)
+- Restart
+- Run `linux/scripts/setup_magic_mouse.sh`

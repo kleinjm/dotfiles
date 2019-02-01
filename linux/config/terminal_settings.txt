@@ -24,4 +24,5 @@ audible-bell=false
 
 [legacy]
 schema-version=uint32 3
+default-show-menubar=false
 theme-variant='dark'

@@ -17,3 +17,6 @@ open vlc.dmg
 # dropbox
 # chrome
 # dash
+
+# refind
+open https://sourceforge.net/projects/refind/files/latest/download

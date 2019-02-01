@@ -102,4 +102,5 @@ set -g @tpm_plugins '          \
    tmux-plugins/tmux-sensible   \
    tmux-plugins/tpm             \
    tmux-plugins/tmux-net-speed  \
+   tmux-plugins/tmux-online-status \
  '

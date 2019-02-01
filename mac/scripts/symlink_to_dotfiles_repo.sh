@@ -22,7 +22,7 @@ stow -v -t "$HOME" -d mac vim
 # may need to `rm $HOME/.zshrc`
 stow -v -t "$HOME" -d shared zsh
 stow -v -t "$HOME" -d mac zsh
-sudo stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" ssh
+sudo stow -v -t "$HOME" -d mac ssh
 
 # May need to update permissions
 # chmod -R 0755 ~/.git/git_template/hooks

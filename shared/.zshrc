@@ -13,7 +13,7 @@
 # - '#q' is an explicit glob qualifier that makes globbing work within zsh's [[ ]] construct.
 # - 'N' makes the glob pattern evaluate to nothing when it doesn't match (rather than throw a globbing error)
 # - '.' matches "regular files"
-# - 'mh+24' matches files (or directories or whatever) that are older than 24 hours.
+# - 'm1' matches files (or directories or whatever) that are older than 24 hours.
 autoload -Uz compinit
 setopt EXTENDEDGLOB
 for dump in $HOME/.zcompdump(#qN.m1); do

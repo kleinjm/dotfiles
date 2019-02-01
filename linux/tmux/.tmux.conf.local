@@ -8,6 +8,7 @@
 # NOTE: git status plugin does not work
 # https://github.com/kristijanhusak/tmux-simple-git-status/issues/1
 tmux_conf_theme_status_right=' \
+#[fg=colour127]#{net_speed} \
 #{pairing}#{prefix} \
 #{battery_status} #{battery_bar} #{battery_percentage} , \
 CPU:#{cpu_fg_color}#{cpu_percentage} #{cpu_fg_color}#{cpu_icon} , \

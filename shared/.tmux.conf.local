@@ -101,4 +101,5 @@ set -g @tpm_plugins '          \
    tmux-plugins/tmux-cpu        \
    tmux-plugins/tmux-sensible   \
    tmux-plugins/tpm             \
+   tmux-plugins/tmux-net-speed  \
  '

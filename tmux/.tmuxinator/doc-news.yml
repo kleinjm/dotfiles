@@ -8,34 +8,18 @@ windows:
       layout: main-horizontal
       panes:
         - vim -c "silent VtrAttachToPane 3"
-        - local_shell:
-          - wait_for_docker doc-news
-          - dox-do bundle install
+        -
         - docker_shell:
           - wait_for_docker doc-news
-          - dox-do bash
-  - server:
-      layout: even-horizontal
-      panes:
-        - server:
-          - dox-dc up -d doc-news
-          - docker attach dox-compose_doc-news_1
-        - sync:
-          - cd <%= ENV["PROJECT_DIR"] %>/dox-compose
-          - docker-sync start -f -n doc-news-sync
+          - ddsh
+  - server: ddup doc-news
   - services:
       layout: even-horizontal
       panes:
-        - workers:
-          - wait_for_docker doc-news
-          - dox-dc up -d doc-news-workers
-          - docker attach dox-compose_doc-news-workers_1
-        - daemons: # ie. kafka consumers
-          - wait_for_docker doc-news
-          - dox-dc up -d doc-news-daemons
-          - docker attach dox-compose_doc-news-daemons_1
+        - workers: ddup doc-news-workers
+        - daemons: ddup doc-news-daemons
   - consoles:
       panes:
         - rails_console:
           - wait_for_docker doc-news
-          - dox-do rails console
+          - ddrc

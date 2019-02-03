@@ -18,3 +18,7 @@ open vlc.dmg
 # chrome
 # iterm
 # boostnote
+# dash
+
+# refind
+open https://sourceforge.net/projects/refind/files/latest/download

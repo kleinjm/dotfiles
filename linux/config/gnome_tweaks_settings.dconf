@@ -1,6 +1,44 @@
+[org/gnome/terminal/legacy/keybindings]
+new-tab='<Super>t'
+copy='<Super>c'
+prev-tab='<Super>Left'
+new-window='<Shift><Super>n'
+close-tab='<Super>w'
+move-tab-left='<Super>Left'
+close-window='<Super>q'
+find-next='<Primary><Super>BackSpace'
+move-tab-right='<Super>Right'
+paste='<Super>v'
+next-tab='<Super>Right'
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+foreground-color='rgb(131,148,150)'
+visible-name='James'
+palette=['rgb(0,0,0)', 'rgb(205,0,0)', 'rgb(0,205,0)', 'rgb(205,205,0)', 'rgb(0,0,238)', 'rgb(205,0,205)', 'rgb(0,205,205)', 'rgb(229,229,229)', 'rgb(127,127,127)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(92,92,255)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
+use-system-font=false
+use-theme-colors=true
+use-theme-transparency=false
+font='Monospace 10'
+background-color='rgb(0,0,0)'
+audible-bell=false
+
+[org/gnome/terminal/legacy]
+schema-version=uint32 3
+default-show-menubar=false
+theme-variant='dark'
+
 [org/gnome/settings-daemon/plugins/color]
 night-light-schedule-automatic=true
 night-light-enabled=true
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+screensaver='<Alt><Super>PowerOff'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Super>space'
+command='albert toggle'
+name='albert toggle'
 
 [org/gnome/settings-daemon/plugins/xsettings]
 overrides={'Gtk/ShellShowsAppMenu': <1>}
@@ -16,19 +54,38 @@ had-bluetooth-devices-setup=true
 
 [org/gnome/shell/extensions/dash-to-dock]
 dock-fixed=false
-dock-position='BOTTOM'
+dock-position='RIGHT'
+hot-keys=false
 
 [org/gnome/shell/keybindings]
 toggle-message-tray=@as []
 
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/plugins/filebrowser]
+virtual-root='file:///home/james/Downloads/dbus-1.8.12'
+tree-view=true
+root='file:///'
+
+[org/gnome/gedit/plugins]
+active-plugins=['filebrowser', 'time', 'spell', 'docinfo', 'modelines']
+
+[org/gnome/gedit/state/window]
+size=(900, 700)
+state=87168
+bottom-panel-size=140
+side-panel-size=200
+side-panel-active-page='GeditWindowDocumentsPanel'
+
 [org/gnome/nautilus/preferences]
 search-view='list-view'
-default-folder-viewer='icon-view'
+default-folder-viewer='list-view'
 search-filter-time-type='last_modified'
 
 [org/gnome/nautilus/window-state]
 sidebar-width=196
-geometry='890x547+53+80'
+geometry='788x547+53+80'
 maximized=false
 
 [org/gnome/file-roller/listing]
@@ -75,27 +132,33 @@ gtk-im-module='gtk-im-context-simple'
 gtk-theme='Adwaita-dark'
 
 [org/gnome/desktop/notifications]
-application-children=['gnome-control-center', 'slack', 'org-gnome-software', 'albert', 'org-gnome-nautilus', 'org-gnome-tweaks']
+application-children=['gnome-control-center', 'slack', 'org-gnome-software', 'albert', 'org-gnome-nautilus', 'org-gnome-tweaks', 'apport-gtk', 'update-manager']
 show-banners=false
 show-in-lock-screen=false
 
 [org/gnome/desktop/notifications/application/org-gnome-tweaks]
 application-id='org.gnome.tweaks.desktop'
 
+[org/gnome/desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-control-center]
+application-id='gnome-control-center.desktop'
+
 [org/gnome/desktop/notifications/application/org-gnome-software]
 application-id='org.gnome.Software.desktop'
+
+[org/gnome/desktop/notifications/application/update-manager]
+application-id='update-manager.desktop'
+
+[org/gnome/desktop/notifications/application/apport-gtk]
+application-id='apport-gtk.desktop'
 
 [org/gnome/desktop/notifications/application/albert]
 application-id='albert.desktop'
 
 [org/gnome/desktop/notifications/application/slack]
 application-id='slack.desktop'
-
-[org/gnome/desktop/notifications/application/gnome-control-center]
-application-id='gnome-control-center.desktop'
-
-[org/gnome/desktop/notifications/application/org-gnome-nautilus]
-application-id='org.gnome.Nautilus.desktop'
 
 [org/gnome/desktop/app-folders]
 folder-children=['Utilities', 'Sundry']
@@ -114,7 +177,7 @@ name='X-GNOME-Sundry.directory'
 
 [org/gnome/desktop/peripherals/mouse]
 natural-scroll=true
-speed=-0.875
+speed=-1.0
 
 [org/gnome/desktop/search-providers]
 sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
@@ -128,12 +191,18 @@ button-layout=':appmenu,minimize,maximize,close'
 num-workspaces=1
 
 [org/gnome/desktop/wm/keybindings]
-close=['<Super>q']
-move-to-monitor-right=['<Primary><Alt>Right']
-switch-to-workspace-1=['<Super>Home']
 maximize=['<Primary><Alt><Super>m']
-show-desktop=['<Control><Super>d']
+close=['<Super>q']
+switch-to-workspace-1=['<Super>Home']
+switch-input-source=@as []
+switch-input-source-backward=@as []
+switch-to-workspace-down=@as []
 move-to-monitor-left=['<Primary><Alt>Left']
+show-desktop=['<Control><Super>d']
+move-to-monitor-down=['<Primary><Alt>Down']
+move-to-monitor-right=['<Primary><Alt>Right']
+move-to-monitor-up=['<Primary><Alt>Up']
+switch-to-workspace-up=@as []
 
 [org/gnome/desktop/background]
 picture-uri='file:///usr/share/backgrounds/Wall_with_door_on_Gozo_by_Matthias_Niess.jpg'
@@ -143,7 +212,7 @@ sources=[('xkb', 'us')]
 xkb-options=['caps:ctrl_modifier']
 
 [org/gnome/control-center]
-last-panel='datetime'
+last-panel='display'
 
 [org/gnome/font-manager]
 compare-foreground-color='rgb(0,0,0)'
@@ -154,7 +223,7 @@ compare-background-color='rgb(255,255,255)'
 window-size=(900, 600)
 
 [org/gnome/software]
-check-timestamp=int64 1548421695
+check-timestamp=int64 1549105208
 
 [org/gnome/mutter]
 dynamic-workspaces=false
@@ -164,41 +233,28 @@ workspaces-only-on-primary=false
 toggle-tiled-right=['<Primary><Alt><Super>Right']
 toggle-tiled-left=['<Primary><Alt><Super>Left']
 
-[org/gnome/terminal/legacy/keybindings]
-new-tab='<Super>t'
-copy='<Super>c'
-prev-tab='<Super>Left'
-new-window='<Shift><Super>n'
-close-tab='<Super>w'
-move-tab-left='<Super>Left'
-close-window='<Super>q'
-find-next='<Primary><Super>BackSpace'
-move-tab-right='<Super>Right'
-paste='<Super>v'
-next-tab='<Super>Right'
+[org/gnome/gnome-system-monitor]
+show-dependencies=false
+current-tab='resources'
+cpu-colors=[(uint32 0, '#FF6E00'), (1, '#CB0C29'), (2, '#49A835'), (3, '#2D7DB3'), (4, '#f25915e815e8'), (5, '#f25915e815e8'), (6, '#f25915e815e8'), (7, '#f25915e815e8')]
+show-whose-processes='user'
 
-[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
-foreground-color='rgb(131,148,150)'
-visible-name='James'
-palette=['rgb(0,0,0)', 'rgb(205,0,0)', 'rgb(0,205,0)', 'rgb(205,205,0)', 'rgb(0,0,238)', 'rgb(205,0,205)', 'rgb(0,205,205)', 'rgb(229,229,229)', 'rgb(127,127,127)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(92,92,255)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
-use-system-font=false
-use-theme-colors=true
-use-theme-transparency=false
-font='Monospace 10'
-background-color='rgb(0,0,0)'
-audible-bell=false
+[org/gnome/gnome-system-monitor/disktreenew]
+col-6-visible=true
+col-6-width=0
 
-[org/gnome/terminal/legacy]
-schema-version=uint32 3
-theme-variant='dark'
+[org/gnome/gnome-system-monitor/proctree]
+columns-order=[0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+sort-order=0
+sort-col=15
 
 [org/gtk/settings/file-chooser]
 sort-column='name'
 clock-format='12h'
 sidebar-width=196
-window-position=(369, 107)
+window-position=(359, 101)
 show-size-column=true
-show-hidden=false
+show-hidden=true
 window-size=(1203, 831)
 sort-directories-first=true
 date-format='regular'
@@ -297,7 +353,8 @@ active-plugins=['core', 'composite', 'opengl', 'imgpng', 'resize', 'regex', 'sna
 
 [apps/update-manager]
 first-run=false
-launch-time=int64 1547837281
+launch-time=int64 1549144086
+launch-count=2
 
 [apps/seahorse/windows/key-manager]
 width=640
@@ -316,7 +373,7 @@ text-scale-factor=1.0
 favorites=['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://firefox.desktop', 'application://libreoffice-writer.desktop', 'application://libreoffice-calc.desktop', 'application://libreoffice-impress.desktop', 'application://org.gnome.Software.desktop', 'application://unity-control-center.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']
 
 [com/ubuntu/update-notifier]
-release-check-time=uint32 1547838745
+release-check-time=uint32 1549049264
 
 [com/ubuntu/SoftwareProperties]
 goa-account-id='account_1547839061_0'

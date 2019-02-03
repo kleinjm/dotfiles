@@ -13,7 +13,7 @@
 # - '#q' is an explicit glob qualifier that makes globbing work within zsh's [[ ]] construct.
 # - 'N' makes the glob pattern evaluate to nothing when it doesn't match (rather than throw a globbing error)
 # - '.' matches "regular files"
-# - 'mh+24' matches files (or directories or whatever) that are older than 24 hours.
+# - 'm1' matches files (or directories or whatever) that are older than 24 hours.
 autoload -Uz compinit
 setopt EXTENDEDGLOB
 for dump in $HOME/.zcompdump(#qN.m1); do
@@ -71,8 +71,7 @@ fi
 # QT added to path to fix gem install capybara-webkit issue
 # openssl added to fix issue with brew installing over the system version
 # mysql added to fix issue with brew linking
-# TODO: linuxbrew is linux specific, remove it on mac
-export PATH=/usr/local/opt/mysql@5.7/bin:/usr/local/opt/openssl/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
+export PATH=/usr/local/opt/mysql@5.7/bin:/usr/local/opt/openssl/bin:$PATH
 
 # NOTE: PATH must be before this
 source $ZSH/oh-my-zsh.sh

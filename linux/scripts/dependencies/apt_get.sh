@@ -21,7 +21,7 @@ sudo apt-get update
 
 # Ensure packages added here are not part of the brew bundle
 sudo apt install vim-gtk curl zsh ksshaskpass gnome-tweak-tool refind \
-  libffi-dev xclip albert ukuu
+  libffi-dev xclip albert ukuu copyq
 
 # dropbox - https://www.dropbox.com/install-linux
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -

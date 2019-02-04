@@ -3,29 +3,9 @@ root: <%= ENV["PROJECT_DIR"] %>/dox-compose
 # needed for pane-base-index 1 config
 startup_pane: 1
 
-# Runs on project start, always
-on_project_start: dox-dc up -d network-frontend
-
-# Run on project stop
-on_project_stop: dox-dc down; docker-sync stop
-
-# Controls whether the tmux session should be attached to automatically
-attach: false
-
-# Specifies (by name or index) which window will be selected on project startup
-startup_window: containers
-
 windows:
   - editor:
       layout: main-horizontal
       panes:
-        - vim .
+        - vim docker-compose.yml
         -
-  - containers:
-      layout: tiled
-      panes:
-        - dox-dc up auth-api
-        - dox-dc up kafka
-        - dox-dc up elasticsearch
-        - dox-dc up neo4j
-        - dox-dc up bridge-schema-database

@@ -98,3 +98,6 @@ Run `brew bundle dump --force` to update the Brewfile
 - Start Ukuu and select kernel 4.20.0 (tested with this one and it works)
 - Restart
 - Run `linux/scripts/setup_magic_mouse.sh`
+
+### Dropbox
+- To get dropbox to run at startup, go to Startup Items and add the `~/.dropbox-dist/dropbox...` file to the list

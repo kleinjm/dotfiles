@@ -16,6 +16,8 @@ open vlc.dmg
 
 # dropbox
 # chrome
+# iterm
+# boostnote
 # dash
 
 # refind

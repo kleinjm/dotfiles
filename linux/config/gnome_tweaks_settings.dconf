@@ -27,6 +27,12 @@ schema-version=uint32 3
 default-show-menubar=false
 theme-variant='dark'
 
+[org/gnome/settings-daemon/plugins/power]
+power-button-action='suspend'
+sleep-inactive-ac-timeout=3600
+sleep-inactive-ac-type='nothing'
+sleep-inactive-battery-timeout=900
+
 [org/gnome/settings-daemon/plugins/color]
 night-light-schedule-automatic=true
 night-light-enabled=true
@@ -191,6 +197,9 @@ sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gn
 [org/gnome/desktop/calendar]
 show-weekdate=false
 
+[org/gnome/desktop/session]
+idle-delay=uint32 900
+
 [org/gnome/desktop/wm/preferences]
 mouse-button-modifier='<Super>'
 button-layout=':appmenu,minimize,maximize,close'
@@ -211,14 +220,18 @@ move-to-monitor-up=['<Primary><Alt>Up']
 switch-to-workspace-up=@as []
 
 [org/gnome/desktop/background]
-picture-uri='file:///usr/share/backgrounds/Wall_with_door_on_Gozo_by_Matthias_Niess.jpg'
+picture-uri='file:///usr/share/backgrounds/Black_hole_by_Marek_Koteluk.jpg'
+color-shading-type='solid'
+primary-color='#000000'
+picture-options='zoom'
+secondary-color='#000000'
 
 [org/gnome/desktop/input-sources]
 sources=[('xkb', 'us')]
 xkb-options=['caps:ctrl_modifier']
 
 [org/gnome/control-center]
-last-panel='keyboard'
+last-panel='power'
 
 [org/gnome/font-manager]
 compare-foreground-color='rgb(0,0,0)'
@@ -229,7 +242,7 @@ compare-background-color='rgb(255,255,255)'
 window-size=(900, 600)
 
 [org/gnome/software]
-check-timestamp=int64 1549306013
+check-timestamp=int64 1549375844
 
 [org/gnome/mutter]
 dynamic-workspaces=false
@@ -240,7 +253,7 @@ toggle-tiled-right=['<Primary><Alt><Super>Right']
 toggle-tiled-left=['<Primary><Alt><Super>Left']
 
 [org/gnome/gnome-system-monitor]
-current-tab='resources'
+current-tab='processes'
 show-whose-processes='user'
 window-state=(1680, 1003, 1920, 1080)
 maximized=true

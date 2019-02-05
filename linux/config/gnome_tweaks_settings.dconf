@@ -32,8 +32,14 @@ night-light-schedule-automatic=true
 night-light-enabled=true
 
 [org/gnome/settings-daemon/plugins/media-keys]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
 screensaver='<Alt><Super>PowerOff'
+area-screenshot-clip='<Primary><Shift><Super>dollar'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Primary><Super>v'
+command="albert show 'cq '"
+name='copy paste buffer'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Super>space'
@@ -64,7 +70,7 @@ toggle-message-tray=@as []
 show-tabs-mode='auto'
 
 [org/gnome/gedit/plugins/filebrowser]
-virtual-root='file:///home/james/Downloads/dbus-1.8.12'
+virtual-root='file:///usr/share/albert/org.albert.extension.python/modules'
 tree-view=true
 root='file:///'
 
@@ -85,7 +91,7 @@ search-filter-time-type='last_modified'
 
 [org/gnome/nautilus/window-state]
 sidebar-width=196
-geometry='788x547+53+80'
+geometry='788x547+1997+87'
 maximized=false
 
 [org/gnome/file-roller/listing]
@@ -212,7 +218,7 @@ sources=[('xkb', 'us')]
 xkb-options=['caps:ctrl_modifier']
 
 [org/gnome/control-center]
-last-panel='display'
+last-panel='keyboard'
 
 [org/gnome/font-manager]
 compare-foreground-color='rgb(0,0,0)'
@@ -223,7 +229,7 @@ compare-background-color='rgb(255,255,255)'
 window-size=(900, 600)
 
 [org/gnome/software]
-check-timestamp=int64 1549105208
+check-timestamp=int64 1549306013
 
 [org/gnome/mutter]
 dynamic-workspaces=false
@@ -234,25 +240,27 @@ toggle-tiled-right=['<Primary><Alt><Super>Right']
 toggle-tiled-left=['<Primary><Alt><Super>Left']
 
 [org/gnome/gnome-system-monitor]
-show-dependencies=false
 current-tab='resources'
-cpu-colors=[(uint32 0, '#FF6E00'), (1, '#CB0C29'), (2, '#49A835'), (3, '#2D7DB3'), (4, '#f25915e815e8'), (5, '#f25915e815e8'), (6, '#f25915e815e8'), (7, '#f25915e815e8')]
 show-whose-processes='user'
-
-[org/gnome/gnome-system-monitor/disktreenew]
-col-6-visible=true
-col-6-width=0
+window-state=(1680, 1003, 1920, 1080)
+maximized=true
+show-dependencies=false
+cpu-colors=[(uint32 0, '#FF6E00'), (1, '#CB0C29'), (2, '#49A835'), (3, '#2D7DB3'), (4, '#f25915e815e8'), (5, '#f25915e815e8'), (6, '#f25915e815e8'), (7, '#f25915e815e8')]
 
 [org/gnome/gnome-system-monitor/proctree]
 columns-order=[0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
 sort-order=0
 sort-col=15
 
+[org/gnome/gnome-system-monitor/disktreenew]
+col-6-visible=true
+col-6-width=0
+
 [org/gtk/settings/file-chooser]
 sort-column='name'
 clock-format='12h'
 sidebar-width=196
-window-position=(359, 101)
+window-position=(591, 125)
 show-size-column=true
 show-hidden=true
 window-size=(1203, 831)

@@ -101,3 +101,7 @@ Run `brew bundle dump --force` to update the Brewfile
 
 ### Dropbox
 - To get dropbox to run at startup, go to Startup Items and add the `~/.dropbox-dist/dropbox...` file to the list
+
+### Albert
+- Albert and CopyQ will get installed as part of dependencies. The linux restore settings script will provide the custom keyboard shortcut to open the paste buffer.
+- The only thing you need to do is make sure the python scripts, specifically copyq, is enabled in alfred preferences. Settings -> Extensions -> Python -> CopyQ

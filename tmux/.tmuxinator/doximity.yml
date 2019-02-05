@@ -10,8 +10,7 @@ windows:
       layout: main-horizontal
       panes:
         - vim -c "silent VtrAttachToPane 3"
-        - local_shell:
-          -
+        -
         - docker_shell:
           - wait_for_docker doximity
           - ddsh

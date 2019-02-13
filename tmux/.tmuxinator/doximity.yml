@@ -1,7 +1,7 @@
 name: doximity
 root: <%= ENV["PROJECT_DIR"] %>/doximity
 # needed for pane-base-index 1 config
-startup_pane: 1
+startup_pane: 2
 # Runs in each window and pane before window/pane specific commands
 pre_window: nvm use
 

@@ -24,6 +24,10 @@ tmux_conf_theme_focused_pane_fg=colour250
 tmux_conf_theme_focused_pane_bg=black
 tmux_conf_theme_highlight_focused_pane=true
 
+# Add zoom indicator to the status bar for any focused panes
+tmux_conf_theme_window_status_format='#I #W#{?window_bell_flag,🔔,}#{?window_zoomed_flag, 🔍,}'
+tmux_conf_theme_window_status_current_format='#I #W#{?window_zoomed_flag, 🔍,}'
+
 # set separators using custom font instead of | pipe
 # see https://github.com/gpakosz/.tmux#enabling-the-powerline-look
 tmux_conf_theme_left_separator_main=''

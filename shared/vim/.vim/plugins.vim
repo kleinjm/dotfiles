@@ -10,21 +10,22 @@ endif
 call plug#begin('~/.vim/plugged') " Specify a directory for plugins
 
 " Make sure to use single quotes
+" Plug 'SirVer/ultisnips'                             " ultimate snippet solution for Vim
+" Plug 'jiangmiao/auto-pairs'                         " open and close brackets
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " find or install fzf
 Plug 'AndrewRadev/vim-eco'                          " .eco syntax highlighting
-" Plug 'SirVer/ultisnips'                             " ultimate snippet solution for Vim
 Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
 Plug 'calebsmith/vim-lambdify'                      " conceal js functions with lambda
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell
 Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
 Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
 Plug 'easymotion/vim-easymotion'                    " vim motions on speed
+Plug 'elixir-editors/vim-elixir'                      " elixir support
 Plug 'henrik/vim-indexed-search'                    " display search count
 Plug 'honza/vim-snippets'                           " snippets
 Plug 'itchyny/lightline.vim'                        " vim status bar coloring
 Plug 'jbgutierrez/vim-partial'                      " extract haml partials
 Plug 'jgdavey/vim-blockle'                          " toggle ruby do and {} blocks
-" Plug 'jiangmiao/auto-pairs'                         " open and close brackets
 Plug 'joker1007/vim-ruby-heredoc-syntax'            " heredoc ruby highlighing
 Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript

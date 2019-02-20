@@ -89,6 +89,8 @@ fi
 export EDITOR='vim' # Preferred editor for local and remote sessions
 export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh
 export MYVIMRC='~/.vimrc'
+# something was setting RBENV_VERSION and it was preventing using .ruby-version
+export RBENV_VERSION=
 
 # See https://github.com/zsh-users/zsh-autosuggestions#usage
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20 # turn off autosuggest for large paste
@@ -112,9 +114,6 @@ if [ -e "$DOX_INIT" ]; then
   eval "$("$DOX_INIT")"
 fi
 
-# https://github.com/rbenv/rbenv/issues/142
-eval "$(rbenv init -)"
-
 ### PYENV and Python - https://github.com/pyenv/pyenv#homebrew-on-mac-os-x ###
 # NOTE: Step #2 & #3 here says to place in zshenv rather than zshrc but that did
 # not work. Leave it here
@@ -124,3 +123,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+eval "$(rbenv init -)"

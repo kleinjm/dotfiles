@@ -24,4 +24,4 @@ windows:
       panes:
         - dox_compose_rails_console:
           - wait_for_docker activities
-          - ddrc
+          - ddrc activities

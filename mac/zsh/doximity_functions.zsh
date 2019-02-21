@@ -1,5 +1,6 @@
 die () {
   echo >&2 "$@"
+  return 1
 }
 
 # wait until the given docker container is up
@@ -16,7 +17,7 @@ wait_for_docker() {
 }
 
 ddup() {
-  [ "$#" -eq 1 ] || die "1 argument required, $# provided"
+  [ "$#" -eq 1 ] || die "Please provide the name of the container, ie. doximity"
 
   dox-dc up -d $1 && docker attach "dox-compose_$1_1"
 }
@@ -32,4 +33,13 @@ doxstart() {
   done
 
   tmux attach -t doximity
+}
+
+# start a rails console with pryrc files copied into the container
+ddrc() {
+  [ "$#" -eq 1 ] || die "Please provide the name of the container, ie. doximity"
+
+  docker cp $DOTFILES_DIR/pry/. "dox-compose_$1_1":/root
+
+  dox-do rails console
 }

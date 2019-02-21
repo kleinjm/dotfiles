@@ -20,4 +20,4 @@ windows:
       panes:
         - rails_console:
           - wait_for_docker email-delivery
-          - ddrc
+          - ddrc email-delivery

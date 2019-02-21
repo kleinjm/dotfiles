@@ -22,4 +22,4 @@ windows:
       panes:
         - rails_console:
           - wait_for_docker doc-news
-          - ddrc
+          - ddrc doc-news

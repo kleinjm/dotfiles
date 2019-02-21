@@ -1,0 +1,18 @@
+name: lemontree-payments
+root: <%= ENV["PROJECT_DIR"] %>/lemontree-payments
+# needed for pane-base-index 1 config
+startup_pane: 2
+# Runs in each window and pane before window/pane specific commands
+pre_window: nvm use
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim -c "silent VtrAttachToPane 2"
+        -
+  - server:
+      layout: even-horizontal
+      panes:
+        - bin/server
+        - bin/watch-scss

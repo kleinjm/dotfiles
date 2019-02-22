@@ -17,8 +17,10 @@ windows:
       layout: even-horizontal
       panes:
         - dox_compose_sidekiq:
+          - wait_for_docker activities
           - ddup activities-workers
         - dox_compose_tasks:
+          - wait_for_docker activities
           - ddup activities-daemons
   - consoles:
       panes:

@@ -14,6 +14,7 @@ call plug#begin('~/.vim/plugged') " Specify a directory for plugins
 " Plug 'jiangmiao/auto-pairs'                         " open and close brackets
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " find or install fzf
 Plug 'AndrewRadev/vim-eco'                          " .eco syntax highlighting
+Plug 'AoLab/vim-avro'                               " sytnax highlighting for avro schemas
 Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
 Plug 'calebsmith/vim-lambdify'                      " conceal js functions with lambda
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell

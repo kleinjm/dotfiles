@@ -18,8 +18,12 @@ windows:
   - services:
       layout: even-horizontal
       panes:
-        - workers: ddup doximity-workers
-        - daemons: ddup doximity-daemons
+        - workers:
+          - wait_for_docker doximity
+          - ddup doximity-workers
+        - daemons:
+          - wait_for_docker doximity
+          - ddup doximity-daemons
   - bullet: tail -f log/bullet.log
   - consoles:
     - wait_for_docker doximity

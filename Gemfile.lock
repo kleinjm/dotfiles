@@ -40,6 +40,9 @@ GEM
     gem_update_checker (0.2.0)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
+    iStats (1.6.1)
+      parseconfig (~> 1.0)
+      sparkr (~> 0.4)
     jcop (0.2.3)
       rubocop (~> 0.56.0)
     jslint (1.2.0)
@@ -50,6 +53,7 @@ GEM
     multipart-post (2.0.0)
     os (1.0.0)
     parallel (1.12.1)
+    parseconfig (1.0.8)
     parser (2.5.1.2)
       ast (~> 2.4.0)
     pluginator (1.5.0)
@@ -94,6 +98,7 @@ GEM
       slim (~> 3.0)
       sysexits (~> 1.1)
     slop (3.6.0)
+    sparkr (0.4.1)
     sysexits (1.2.0)
     temple (0.8.0)
     terminal-notifier (2.0.0)
@@ -116,6 +121,7 @@ PLATFORMS
 DEPENDENCIES
   docker-sync
   gem-ctags
+  iStats
   jcop (~> 0.2.3)!
   jslint
   pre-commit

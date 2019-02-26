@@ -17,6 +17,10 @@ cp "$DOTFILES_PREFERENCES_PATH"/SyncedRules.plist ~/Library/Mail/V6/MailData/Syn
 rm -f "$MAC_PREFERENCES_PATH"/.GlobalPreferences.plist
 cp "$DOTFILES_PREFERENCES_PATH"/.GlobalPreferences.plist "$MAC_PREFERENCES_PATH"/.GlobalPreferences.plist
 
+# Finder settings
+rm -f "$MAC_PREFERENCES_PATH"/com.apple.finder.plist
+cp "$DOTFILES_PREFERENCES_PATH"/com.apple.finder.plist "$MAC_PREFERENCES_PATH"/com.apple.finder.plist
+
 # sequel pro settings
 rm -f "$MAC_PREFERENCES_PATH"/com.sequelpro.SequelPro.plist
 cp "$DOTFILES_PREFERENCES_PATH"/com.sequelpro.SequelPro.plist "$MAC_PREFERENCES_PATH"/com.sequelpro.SequelPro.plist

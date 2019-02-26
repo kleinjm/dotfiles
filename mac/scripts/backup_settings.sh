@@ -15,6 +15,9 @@ cp $HOME/Library/Mail/V6/MailData/SyncedRules.plist $DOTFILES_PREFERENCES_PATH/S
 # keyboard settings
 cp $MAC_PREFERENCES_PATH/.GlobalPreferences.plist $DOTFILES_PREFERENCES_PATH/.GlobalPreferences.plist
 
+# Finder settings
+cp $MAC_PREFERENCES_PATH/com.apple.finder.plist $DOTFILES_PREFERENCES_PATH/com.apple.finder.plist
+
 # sequel pro settings
 cp $MAC_PREFERENCES_PATH/com.sequelpro.SequelPro.plist $DOTFILES_PREFERENCES_PATH/com.sequelpro.SequelPro.plist
 

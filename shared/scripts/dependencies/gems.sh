@@ -29,3 +29,5 @@ echo "Run gem install bundler -v '...' if bundle fails"
 bundle
 
 gem ctags # index every rubygem installed on the system. Will run automatically after the first time
+
+istats scan # set up all istats sensors

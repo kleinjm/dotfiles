@@ -4,6 +4,7 @@ source "https://rubygems.org"
 
 gem "docker-sync"
 gem "gem-ctags"
+gem "iStats"
 gem "jcop", "~> 0.2.3", source: "https://gem.fury.io/kleinjm/"
 gem "jslint"
 gem "pre-commit"

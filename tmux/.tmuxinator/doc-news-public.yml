@@ -1,15 +1,11 @@
 name: doc-news-public
-root: ~/GitHubRepos/doc-news-public
+root: <%= ENV["PROJECT_DIR"] %>/doc-news-public
 # needed for pane-base-index 1 config
 startup_pane: 1
 
 windows:
   - editor:
-      # run tmux list-windows to get this value
-      layout: 93f5,272x59,0,0[272x30,0,0,163,272x28,0,31,166]
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
+      layout: main-horizontal
       panes:
         - vim -c "silent VtrAttachToPane 2"
         -

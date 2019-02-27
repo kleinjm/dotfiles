@@ -11,3 +11,8 @@ windows:
       panes:
         - vim .
         -
+  - server:
+      layout: even-vertical
+      panes:
+        - rails s
+        - rake jobs:work

@@ -3,25 +3,6 @@ die () {
   return 1
 }
 
-# wait until the given docker container is up
-# ie. wait_for_docker doximity # => ......doximity service started
-wait_for_docker() {
-  [ "$#" -eq 1 ] || die "1 argument required, $# provided"
-
-  while ! { docker ps | grep -q dox-compose_$1_1 ; } ; do
-      printf '.'
-      sleep 1
-  done
-
-  echo $1 service started
-}
-
-ddup() {
-  [ "$#" -eq 1 ] || die "Please provide the name of the container, ie. doximity"
-
-  dox-dc up -d $1 && docker attach "dox-compose_$1_1"
-}
-
 # start doximity core apps, projects and services in tmux sessions
 doxstart() {
   # a lot of apps rely on the docker container in doximity so keep it at top
@@ -35,11 +16,32 @@ doxstart() {
   tmux attach -t doximity
 }
 
-# start a rails console with pryrc files copied into the container
-ddrc() {
+# wait until the given docker container is up
+# ie. wait_for_docker doximity # => ......doximity service started
+wait_for_docker() {
+  [ "$#" -eq 1 ] || die "1 argument required, $# provided"
+
+  while ! { docker ps | grep -q dox-compose_$1_1 ; } ; do
+      printf '.'
+      sleep 1
+  done
+
+  echo $1 service started
+}
+
+# starts the given service. Not using the repo name because this can be used
+# for workers and daemons as well
+ddup() {
   [ "$#" -eq 1 ] || die "Please provide the name of the container, ie. doximity"
 
-  docker cp $DOTFILES_DIR/pry/. "dox-compose_$1_1":/root
+  dox-dc up -d $1 && docker attach "dox-compose_$1_1"
+}
+
+# start a rails console with pryrc files copied into the container
+ddrc() {
+  service=$(basename "$(git rev-parse --show-toplevel)")
+
+  docker cp $DOTFILES_DIR/pry/. "dox-compose_${service}_1":/root
 
   dox-do rails console
 }

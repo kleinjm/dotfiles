@@ -11,7 +11,6 @@ call plug#begin('~/.vim/plugged') " Specify a directory for plugins
 
 " Make sure to use single quotes
 " Plug 'SirVer/ultisnips'                             " ultimate snippet solution for Vim
-" Plug 'jiangmiao/auto-pairs'                         " open and close brackets
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " find or install fzf
 Plug 'AndrewRadev/vim-eco'                          " .eco syntax highlighting
 Plug 'AoLab/vim-avro'                               " sytnax highlighting for avro schemas
@@ -27,6 +26,7 @@ Plug 'honza/vim-snippets'                           " snippets
 Plug 'itchyny/lightline.vim'                        " vim status bar coloring
 Plug 'jbgutierrez/vim-partial'                      " extract haml partials
 Plug 'jgdavey/vim-blockle'                          " toggle ruby do and {} blocks
+Plug 'jiangmiao/auto-pairs'                         " open and close brackets
 Plug 'joker1007/vim-ruby-heredoc-syntax'            " heredoc ruby highlighing
 Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript

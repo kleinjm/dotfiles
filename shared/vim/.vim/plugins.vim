@@ -33,6 +33,7 @@ Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
 Plug 'lambdalisue/vim-pyenv'                        " sync pyenv version. NOTE: known slow performance (only on boot time)
 Plug 'maksimr/vim-jsbeautify'                       " format js and html pages
 Plug 'mattn/emmet-vim'                              " html and css editing
+Plug 'maximbaz/lightline-ale'                       " ale indicator for lightline
 Plug 'mhinz/vim-startify'                           " fancy startup screen
 Plug 'michaeljsmith/vim-indent-object'              " vii to highlight lines at same indent level
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme

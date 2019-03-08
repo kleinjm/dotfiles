@@ -191,10 +191,9 @@ vmap m <plug>(easymotion-s)
 " certain events, either when I stop interacting or when entering / leaving
 " insert mode
 
-
 let g:ale_lint_delay = 1000
 let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1 " run linters when you open a file
 let g:ale_lint_on_text_changed = 0
 " disable ale highlighting on errors (still get the column indicator)
 let g:ale_set_highlights = 0

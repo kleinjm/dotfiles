@@ -2,7 +2,12 @@
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'relativepath' ], ['modified'] ],
-      \   'right': [ [ 'neomake', 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
+      \   'right': [
+      \     [ 'neomake', 'lineinfo' ],
+      \     [ 'percent' ],
+      \     [ 'filetype' ],
+      \     [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]
+      \   ],
       \ },
       \ 'colorscheme': 'wombat',
       \ 'component_function': {
@@ -20,6 +25,27 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
       \ }
+
+" Ale linting
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+
+let g:lightline#ale#indicator_checking = ' '
+let g:lightline#ale#indicator_warnings = ' '
+let g:lightline#ale#indicator_errors = ' '
+let g:lightline#ale#indicator_ok = ' '
+" Finish Ale linting
 
 function! LightlineModified()
   return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'

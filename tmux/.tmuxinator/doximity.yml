@@ -12,19 +12,25 @@ windows:
         - vim -c "silent VtrAttachToPane 3"
         -
         - docker_shell:
-          - wait_for_docker doximity
+          - wait_for_docker
           - ddsh
-  - server: ddup doximity
+  - servers:
+      layout: even-horizontal
+      panes:
+        - ddup doximity
+        - webpacker:
+          - wait_for_docker
+          - dox-do bin/webpack-dev-server
   - services:
       layout: even-horizontal
       panes:
         - workers:
-          - wait_for_docker doximity
+          - wait_for_docker
           - ddup doximity-workers
         - daemons:
-          - wait_for_docker doximity
+          - wait_for_docker
           - ddup doximity-daemons
   - bullet: tail -f log/bullet.log
   - consoles:
-    - wait_for_docker doximity
+    - wait_for_docker
     - ddrc doximity

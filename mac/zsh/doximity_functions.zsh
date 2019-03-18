@@ -17,16 +17,16 @@ doxstart() {
 }
 
 # wait until the given docker container is up
-# ie. wait_for_docker doximity # => ......doximity service started
+# ie. wait_for_docker # => ......doximity service started
 wait_for_docker() {
-  [ "$#" -eq 1 ] || die "1 argument required, $# provided"
+  service=$(basename "$(git rev-parse --show-toplevel)")
 
-  while ! { docker ps | grep -q dox-compose_$1_1 ; } ; do
+  while ! { docker ps | grep -q dox-compose_${service}_1 ; } ; do
       printf '.'
       sleep 1
   done
 
-  echo $1 service started
+  echo ${service} service started
 }
 
 # starts the given service. Not using the repo name because this can be used

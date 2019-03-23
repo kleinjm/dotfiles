@@ -60,7 +60,7 @@ TERM=xterm-256color
 # NOTE: zsh-syntax-highlighting was affecting boot performance
 # NOTE: rails plugin temporarily removed so because `rg` shortcut messed
 # with ripgrep
-plugins=(git bundler osx rake ruby tmux)
+plugins=(git bundler osx rake ruby tmux docker)
 
 # manually trigger autosuggestions
 AUTOSUGGESTIONS_DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestion

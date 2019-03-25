@@ -29,8 +29,9 @@ wait_for_docker() {
   echo ${service} service started
 }
 
-# starts the given service. Not using the repo name because this can be used
-# for workers and daemons as well
+# Starts the GIVEN service
+# NOTE: Not using the repo name because this can be used
+#   for workers and daemons as well
 ddup() {
   [ "$#" -eq 1 ] || die "Please provide the name of the container, ie. doximity"
 
@@ -45,3 +46,12 @@ ddrc() {
 
   dox-do rails console
 }
+
+# start a docker bash shell with select dotfiles copied over
+# ddsh() {
+#   service=$(basename "$(git rev-parse --show-toplevel)")
+#
+#   docker cp $DOTFILES_DIR/docker_debian/.zshrc "dox-compose_${service}_1":/root
+#
+#   dox-do bash
+# }

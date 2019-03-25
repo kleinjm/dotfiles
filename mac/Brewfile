@@ -59,9 +59,11 @@ cask "font-hack-nerd-font"
 cask "insomnia"
 cask "keybase"
 mas "1Password 7", id: 1333542190
+mas "Disk Diag", id: 672206759
 mas "Droplr", id: 498672703
 mas "Empire at War", id: 420787036
 mas "LastPass", id: 926036361
+mas "Network Speed Monitor", id: 525944153
 mas "Quiver", id: 866773894
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641

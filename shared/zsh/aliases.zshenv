@@ -56,7 +56,6 @@ alias fixmouse="$DOTFILES_DIR/linux/scripts/fixmouse.sh"
 alias get-song="$DOTFILES_DIR/mac/scripts/get_song.sh"
 alias pack="ruby $PROJECT_DIR/packing_checklist/app/run.rb"
 alias passwords="$DOTFILES_DIR/mac/scripts/passwords.sh"
-alias pomo="$DOTFILES_DIR/mac/scripts/vendor/pomodoro" # https://github.com/carlmjohnson/pomodoro
 alias speed="speedtest-cli" # run a speedtest
 alias symlink="$DOTFILES_DIR/mac/scripts/symlink_to_dotfiles_repo.sh"
 alias upload-music="$DOTFILES_DIR/mac/scripts/upload_music.sh"

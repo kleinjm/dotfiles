@@ -32,6 +32,8 @@ mkdir -p "$HOME"/.ssh
 stow -v -t "$HOME"/.ssh -d "$PRIVATE_CONFIGS_DIR"/mac/ssh .ssh
 stow -v -t "$HOME"/.ssh -d "$PRIVATE_CONFIGS_DIR"/ssh .ssh
 
+ln -sf "$DOTFILES_DIR"/mac/scripts/vendor/* /usr/local/bin
+
 # May need to update permissions
 # chmod -R 0755 ~/.git/git_template/hooks
 

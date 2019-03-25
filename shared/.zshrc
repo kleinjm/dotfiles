@@ -88,7 +88,6 @@ fi
 
 export EDITOR='vim' # Preferred editor for local and remote sessions
 export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh
-export MYVIMRC='~/.vimrc'
 # something was setting RBENV_VERSION and it was preventing using .ruby-version
 export RBENV_VERSION=
 

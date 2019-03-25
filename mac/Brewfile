@@ -20,12 +20,12 @@ brew "fzf"
 brew "gawk"
 brew "git"
 brew "git-lfs"
-brew "gnu-sed", args: ["with-default-names"]
 brew "gnupg"
 brew "graphviz"
 brew "imagemagick@6", link: true
 brew "jq"
 brew "kafka"
+brew "lastpass-cli"
 brew "macvim"
 brew "mas"
 brew "mysql@5.7"

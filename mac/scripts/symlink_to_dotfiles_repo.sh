@@ -16,7 +16,6 @@ stow -v -t "$HOME" -d mac git
 stow -v -t "$HOME" nvm
 stow -v -t "$HOME" pry
 stow -v -t "$HOME" psql
-stow -v -t "$HOME" pyenv
 stow -v -t "$HOME" rbenv
 stow -v -t "$HOME" -d shared tmux
 stow -v -t "$HOME" -d mac tmux
@@ -33,6 +32,9 @@ stow -v -t "$HOME"/.ssh -d "$PRIVATE_CONFIGS_DIR"/mac/ssh .ssh
 stow -v -t "$HOME"/.ssh -d "$PRIVATE_CONFIGS_DIR"/ssh .ssh
 
 ln -sf "$DOTFILES_DIR"/mac/scripts/vendor/* /usr/local/bin
+
+mkdir -p "$HOME"/.pyenv
+ln -sf "$DOTFILES_DIR"/shared/pyenv/version "$HOME"/.pyenv/version
 
 # May need to update permissions
 # chmod -R 0755 ~/.git/git_template/hooks

@@ -7,7 +7,12 @@ windows:
   - editor:
       layout: main-horizontal
       panes:
-        - vim -c "silent VtrAttachToPane 2"
+        - vim -c "silent VtrAttachToPane 3"
         -
-  - server: rails s -p 5040
-  - console: rails c
+        - docker_shell:
+          - wait_for_docker
+          - ddsh
+  - server: ddup doc-news-public
+  - console:
+    - wait_for_docker
+    - ddrc

@@ -33,4 +33,4 @@ windows:
   - bullet: tail -f log/bullet.log
   - consoles:
     - wait_for_docker
-    - ddrc doximity
+    - ddrc

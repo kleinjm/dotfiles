@@ -7,3 +7,9 @@ gprune() {
 gupdate() {
   ggl && git pull origin master
 }
+
+# Put a list of all the specs on the current branch into the copy buffer.
+# Useful for testing a branch inside a docker container
+gspec() {
+  git diff origin/master --name-only | grep _spec | tr '\n' ' ' | sed -e 's/^/bin\/rspec /' | pbcopy
+}

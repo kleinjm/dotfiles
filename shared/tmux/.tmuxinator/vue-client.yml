@@ -10,9 +10,4 @@ windows:
       panes:
         - vim .
         - nvm use
-  - servers:
-      panes:
-        - server_worker:
-          - wait_for_docker doximity
-          - dox-dc up -d doximity-client-vue
-          - dox-attach doximity-client-vue
+  - servers: ddup doximity-client-vue

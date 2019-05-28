@@ -12,9 +12,6 @@ windows:
         - vim -c "silent VtrAttachToPane 2"
         -
         - tail -f log/bullet.log
-  - server:
-      layout: even-horizontal
-      panes:
-        - rails s --early-hints
-        - bin/webpack-dev-server
+  - server: rails s --early-hints
+  - webpacker: bin/webpack-dev-server
   - console: rails c

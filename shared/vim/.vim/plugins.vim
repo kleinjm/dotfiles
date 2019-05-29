@@ -19,6 +19,7 @@ Plug 'calebsmith/vim-lambdify'                      " conceal js functions with 
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell
 Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
 Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
+Plug 'crusoexia/vim-javascript-lib'                 " syntax highlighting for common JS libraries
 Plug 'easymotion/vim-easymotion'                    " vim motions on speed
 Plug 'elixir-editors/vim-elixir'                      " elixir support
 Plug 'henrik/vim-indexed-search'                    " display search count

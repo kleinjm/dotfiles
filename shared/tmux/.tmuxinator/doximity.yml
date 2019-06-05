@@ -14,13 +14,7 @@ windows:
         - docker_shell:
           - wait_for_docker
           - ddsh
-  - servers:
-      layout: even-horizontal
-      panes:
-        - ddup doximity
-        - webpacker:
-          - wait_for_docker
-          - dox-do bin/webpack-dev-server
+  - servers: ddup doximity
   - services:
       layout: even-horizontal
       panes:
@@ -30,7 +24,9 @@ windows:
         - daemons:
           - wait_for_docker
           - ddup doximity-daemons
-  - bullet: tail -f log/bullet.log
-  - consoles:
+  - webpacker:
     - wait_for_docker
-    - ddrc
+    - dox-do bin/webpack-dev-server
+  - consoles:
+      - wait_for_docker
+      - ddrc

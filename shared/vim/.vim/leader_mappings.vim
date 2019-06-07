@@ -61,3 +61,6 @@ noremap <Leader>g :Fzfc<cr>
 
 " to edit the corresponding snippets file
 nnoremap <leader>se :UltiSnipsEdit<cr>
+
+" sort words on one line. See https://stackoverflow.com/a/1329899/2418828
+vnoremap a d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>

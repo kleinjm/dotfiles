@@ -6,7 +6,7 @@ die () {
 # start doximity core apps, projects and services in tmux sessions
 doxstart() {
   # a lot of apps rely on the docker container in doximity so keep it at top
-  local apps=(doximity doc-news)
+  local apps=(doximity activities vue-client)
 
   for app in ${apps[@]}; do
     echo "Starting $app"

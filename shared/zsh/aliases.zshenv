@@ -25,6 +25,7 @@ alias sed="sed -E"
 alias \$=''
 
 alias -g G="| ag " # ie. "rails routes G user" vs "rails routes | ag user"
+alias ag="ag --path-to-ignore ~/.ag_ignore"
 
 # Git
 alias develop='git develop'

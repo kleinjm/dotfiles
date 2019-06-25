@@ -17,6 +17,7 @@ stow -v -t "$HOME" nvm
 stow -v -t "$HOME" pry
 stow -v -t "$HOME" psql
 stow -v -t "$HOME" rbenv
+stow -v -t "$HOME" -d shared ag
 stow -v -t "$HOME" -d shared tmux
 stow -v -t "$HOME" -d mac tmux
 

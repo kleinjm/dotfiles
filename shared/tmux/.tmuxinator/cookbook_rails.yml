@@ -11,5 +11,5 @@ windows:
       panes:
         - vim -c "silent VtrAttachToPane 2"
         -
-  - server: rails s --early-hints
+  - server: rails s --early-hints -p=3001
   - console: rails c

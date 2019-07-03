@@ -9,5 +9,7 @@ windows:
   - editor:
       layout: main-horizontal
       panes:
-        - vim -c "silent VtrAttachToPane 2"
+        - vim .
         -
+        - yarn test
+  - server: yarn dev

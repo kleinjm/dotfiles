@@ -1,6 +1,7 @@
 # delete local branches that do not exist on origin
 gprune() {
-  git fetch --prune &&
+  git prune &&
+    git fetch --prune &&
     git branch -r |
     awk '{print $1}' |
     egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) |

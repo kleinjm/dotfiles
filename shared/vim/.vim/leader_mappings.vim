@@ -5,8 +5,8 @@ nnoremap <leader>cf :let @+ = expand("%")<cr>
 
 " leader + i inserts binding.pry
 map <Leader>i orequire "pry"; binding.pry<ESC>0
-" leader + d inserts debugger;
-map <Leader>db odebugger;<ESC>
+" leader + d inserts debugger
+map <Leader>db odebugger<ESC>
 " insert a frozen string literal tag at the top of the document and returns
 " cursor to current position
 map <Leader>r ggO# frozen_string_literal: true<ESC><cr>D<C-o>

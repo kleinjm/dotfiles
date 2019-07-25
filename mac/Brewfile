@@ -6,7 +6,6 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
-cask "java8"
 brew "openssl"
 brew "readline"
 brew "sqlite"
@@ -14,6 +13,7 @@ brew "xz"
 brew "awscli"
 brew "bash"
 brew "chamber"
+brew "cmake"
 brew "coreutils"
 brew "ctags"
 brew "elixir"
@@ -60,16 +60,17 @@ cask "docker"
 cask "font-devicons"
 cask "font-hack-nerd-font"
 cask "insomnia"
+cask "java8"
 cask "keybase"
-mas "com.agilebits.onepassword7", id: 1333542190
-mas "com.apple.dt.Xcode", id: 497799835
-mas "com.aspyr.empireatwar", id: 420787036
-mas "com.cokesoft.networkspeedmonitor", id: 525944153
-mas "com.droplr.droplr-mac", id: 498672703
-mas "com.happenapps.Quiver", id: 866773894
-mas "com.lastpass.LastPass", id: 926036361
-mas "com.readdle.smartemail-Mac", id: 1176895641
-mas "com.rockysandstudio.Disk-Diag", id: 672206759
-mas "com.team17.wormsspecialedition", id: 441534443
-mas "com.tinyspeck.slackmacgap", id: 803453959
-mas "com.wunderkinder.wunderlistdesktop", id: 410628904
+mas "1Password 7", id: 1333542190
+mas "Disk Diag", id: 672206759
+mas "Droplr", id: 498672703
+mas "Empire at War", id: 420787036
+mas "LastPass", id: 926036361
+mas "Network Speed Monitor", id: 525944153
+mas "Quiver", id: 866773894
+mas "Slack", id: 803453959
+mas "Spark", id: 1176895641
+mas "Worms Special Edition", id: 441534443
+mas "Wunderlist", id: 410628904
+mas "Xcode", id: 497799835

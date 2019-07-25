@@ -24,7 +24,7 @@
 #   glob. This always overrides any other ignore logic. Multiple glob flags may be
 #   used. Globbing rules match .gitignore globs. Precede a glob with a ! to exclude
 #   it.
-export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files --no-ignore --hidden --follow --glob "!{.git/*,*/node_modules/*,**/*.un~,vim/.vim/plugged}" 2> /dev/null'
+export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files --no-ignore --hidden --follow --glob "!{.git/*,node_modules/*,**/*.un~,vim/.vim/plugged}" 2> /dev/null'
 
 export FZF_DEFAULT_OPTS="--height 100% --reverse --bind \"\
 ctrl-b:page-up,\

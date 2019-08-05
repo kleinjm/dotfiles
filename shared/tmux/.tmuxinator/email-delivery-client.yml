@@ -1,0 +1,13 @@
+# ~/.tmuxinator/email-delivery.yml
+
+name: email-delivery-client
+root: <%= ENV["PROJECT_DIR"] %>/email-delivery-client
+# needed for pane-base-index 1 config
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim .
+        - master

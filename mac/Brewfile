@@ -63,6 +63,7 @@ cask "insomnia"
 cask "java8"
 cask "keybase"
 mas "1Password 7", id: 1333542190
+mas "Bear", id: 1091189122
 mas "Disk Diag", id: 672206759
 mas "Droplr", id: 498672703
 mas "Empire at War", id: 420787036

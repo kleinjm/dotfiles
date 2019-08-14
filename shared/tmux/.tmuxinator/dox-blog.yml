@@ -1,0 +1,13 @@
+name: dox-blog
+root: <%= ENV["PROJECT_DIR"] %>/dox-blog
+# needed for pane-base-index 1 config
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim .
+        - fetch_latest:
+          - master
+          - bundle

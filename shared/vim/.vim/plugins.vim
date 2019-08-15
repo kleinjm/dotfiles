@@ -57,6 +57,7 @@ Plug 'tpope/vim-surround'                           " add paren and quote helper
 Plug 'tpope/vim-unimpaired'                         " handy bracket mappings
 Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
+Plug 'vim-utils/vim-ruby-fold'                      " code folding in ruby
 Plug 'w0rp/ale'                                     " async linter
 Plug 'yegappan/greplace'                            " global search and replace
 

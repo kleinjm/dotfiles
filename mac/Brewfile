@@ -64,14 +64,17 @@ cask "java8"
 cask "keybase"
 mas "1Password 7", id: 1333542190
 mas "Bear", id: 1091189122
+mas "Clocker", id: 1056643111
 mas "Disk Diag", id: 672206759
 mas "Droplr", id: 498672703
 mas "Empire at War", id: 420787036
 mas "LastPass", id: 926036361
 mas "Network Speed Monitor", id: 525944153
+mas "Paprika Recipe Manager 3", id: 1303222628
 mas "Quiver", id: 866773894
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
+mas "WhatsApp", id: 1147396723
 mas "Worms Special Edition", id: 441534443
 mas "Wunderlist", id: 410628904
 mas "Xcode", id: 497799835

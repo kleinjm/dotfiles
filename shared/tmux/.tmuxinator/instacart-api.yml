@@ -1,0 +1,10 @@
+name: instacart_api
+root: ~/GitHubRepos/instacart_api
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim .
+        -

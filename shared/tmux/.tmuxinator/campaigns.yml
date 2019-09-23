@@ -6,10 +6,11 @@ startup_pane: 1
 windows:
   - editor:
       layout: main-horizontal
-      - vim -c "silent VtrAttachToPane 3"
-      -
-      - docker_shell:
-        - wait_for_docker
-        - ddsh
+      panes:
+        - vim -c "silent VtrAttachToPane 3"
+        -
+        - docker_shell:
+          - wait_for_docker
+          - ddsh
   - server: ddup campaigns
   - console: ddrc

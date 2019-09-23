@@ -9,5 +9,6 @@ windows:
       layout: main-horizontal
       panes:
         - vim .
-        - nvm use
+        -
+        -
   - servers: ddup doximity-client-vue

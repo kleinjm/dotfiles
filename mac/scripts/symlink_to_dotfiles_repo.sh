@@ -8,7 +8,6 @@ set -o pipefail
 # v = verbose, t = target directory, d = current directory
 stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" bundle --ignore='.bundle/cache/*'
 stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" aws
-stow -v -t "$HOME" -d mac docker
 
 stow -v -t "$HOME" -d shared git
 stow -v -t "$HOME" -d mac git

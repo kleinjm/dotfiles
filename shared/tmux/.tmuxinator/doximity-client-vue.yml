@@ -1,4 +1,4 @@
-name: vue-client
+name: doximity-client-vue
 root: <%= ENV["PROJECT_DIR"] %>/doximity-client-vue
 # needed for pane-base-index 1 config
 startup_pane: 1

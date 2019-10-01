@@ -1,0 +1,15 @@
+name: dox-dut-service
+root: <%= ENV["PROJECT_DIR"] %>/dox-dut-service
+# needed for pane-base-index 1 config
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim .
+        -
+  - server: ddup dox-dut-service
+  - daemons:
+    - wait_for_docker
+    - ddup dox-dut-service-grpc

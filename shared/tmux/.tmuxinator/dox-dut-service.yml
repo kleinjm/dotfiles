@@ -10,4 +10,6 @@ windows:
         - vim .
         -
   - server: ddup dox-dut-service
-  - daemons: ddup dox-dut-service-grpc
+  - daemons:
+    - wait_for_docker
+    - ddup dox-dut-service-grpc

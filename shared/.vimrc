@@ -21,6 +21,7 @@ colorscheme jellybeans                " set color scheme
 set autoindent		             " autoindenting on
 set autoread                   " auto-reload the current file when switching to it
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set clipboard=unnamed          " sync with system clipboard
 set cmdheight=1                " lines in the command bar
 set complete-=i                " do not scan included files such as all ruby gems. Faster tab completion
 set encoding=utf8              " set to show fonts and glyphs
@@ -49,7 +50,7 @@ set shiftwidth=2               " use spaces for indenting with '>'
 set showcmd		                 " display incomplete commands
 set synmaxcol=256              " stop syntax highlighting on long lines
 set tabstop=2                  " set tab size to 2
-set tags=tags;/                " check the current folder for tags file and keep going up
+set tags^=./.git/tags          " check the current folder for tags file and keep going up
 set undofile		               " keep an undo file (undo changes after closing)
 set updatetime=1000            " slow update for linting
 set wildmode=list:longest,list:full " used for smart tab completion

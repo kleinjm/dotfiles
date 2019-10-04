@@ -1,0 +1,10 @@
+name: dox-app-doximity
+root: <%= ENV["PROJECT_DIR"] %>/dox-app-doximity
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim .
+        -

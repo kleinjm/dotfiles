@@ -1,0 +1,10 @@
+name: activities_client_ruby
+root: <%= ENV["PROJECT_DIR"] %>/activities_client_ruby
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim .
+        -

@@ -1,0 +1,10 @@
+name: auth-api
+root: <%= ENV["PROJECT_DIR"] %>/auth-api
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim .
+        -

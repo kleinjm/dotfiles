@@ -1,0 +1,12 @@
+name: paprika_instacart_orderer
+root: <%= ENV["PROJECT_DIR"] %>/paprika_instacart_orderer
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim .
+        -
+  - server: rails s --early-hints
+  - console: rails c

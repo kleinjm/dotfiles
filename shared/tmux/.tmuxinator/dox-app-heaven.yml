@@ -1,0 +1,10 @@
+name: dox-app-heaven
+root: <%= ENV["PROJECT_DIR"] %>/dox-app-heaven
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim .
+        -

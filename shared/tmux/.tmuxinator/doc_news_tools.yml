@@ -1,5 +1,5 @@
-name: doc_news_service
-root: <%= ENV["PROJECT_DIR"] %>/doc_news_service
+name: doc_news_tools
+root: <%= ENV["PROJECT_DIR"] %>/doc_news_tools
 startup_pane: 1
 
 windows:

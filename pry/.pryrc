@@ -25,7 +25,8 @@ def clear_sidekiq
   Sidekiq.redis(&:flushdb)
 end
 
-if defined?(Pry)
+if defined?(PryNav)
+  Pry.commands.alias_command "c", "continue"
   Pry.commands.alias_command "n", "next"
   Pry.commands.alias_command "s", "step"
 end

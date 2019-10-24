@@ -1,5 +1,5 @@
-name: dox-doc_news_tools
-root: <%= ENV["PROJECT_DIR"] %>/dox-doc_news_tools
+name: dox-news_digest_tools
+root: <%= ENV["PROJECT_DIR"] %>/dox-news_digest_tools
 startup_pane: 1
 
 windows:

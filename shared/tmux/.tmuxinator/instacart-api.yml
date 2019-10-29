@@ -6,5 +6,5 @@ windows:
   - editor:
       layout: main-horizontal
       panes:
-        - vim .
+        - vim -c "silent VtrAttachToPane 2"
         -

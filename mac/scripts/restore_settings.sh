@@ -9,10 +9,6 @@ set -o pipefail
 DOTFILES_PREFERENCES_PATH="$PRIVATE_CONFIGS_DIR"/mac/Preferences
 MAC_PREFERENCES_PATH="$HOME"/Library/Preferences
 
-# mail rules
-rm -f "$HOME"/Library/Mail/V6/MailData/SyncedRules.plist
-cp "$DOTFILES_PREFERENCES_PATH"/SyncedRules.plist ~/Library/Mail/V6/MailData/SyncedRules.plist
-
 # keyboard settings
 rm -f "$MAC_PREFERENCES_PATH"/.GlobalPreferences.plist
 cp "$DOTFILES_PREFERENCES_PATH"/.GlobalPreferences.plist "$MAC_PREFERENCES_PATH"/.GlobalPreferences.plist

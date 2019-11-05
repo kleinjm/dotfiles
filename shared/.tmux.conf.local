@@ -96,7 +96,7 @@ bind b break-pane -d
 # NOTE: after adding a new one, prefix + I (capital I). To update, prefix + U
 # See here for commands https://github.com/tmux-plugins/tpm#installing-plugins
 # NOTE: if installations are not working, run `sudo chown -R $(whoami) ~/.tmux`
-# You can check ~/.tmux/plugins to see what is installed
+# You can check `ls ~/.tmux/plugins` to see what is installed
 # NOTE: MUST use this syntax for installing with oh-my-tmux
 # See https://github.com/tmux-plugins/tpm/issues/141
 # List of plugins

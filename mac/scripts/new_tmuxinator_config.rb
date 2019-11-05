@@ -15,7 +15,11 @@ template = <<~TEMPLATE
 
   windows:
     - editor:
-        layout: main-horizontal
+        # main-horizontal causes tmux to crash
+        # this layout is for 2 panes
+        # use 49e3,272x67,0,0[272x48,0,0,2,272x18,0,49{136x18,0,49,8,135x18,137,49,10}]
+        # for 3 panes
+        layout: e571,272x59,0,0[272x49,0,0,24,272x9,0,50,25]
         panes:
           - vim .
           -

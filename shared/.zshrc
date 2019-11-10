@@ -54,8 +54,6 @@ HIST_STAMPS="mm/dd/yyyy"
 
 HISTSIZE=1000000 # amount of commands saved in history
 
-TERM=xterm-256color
-
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # NOTE: zsh-syntax-highlighting was affecting boot performance
 # NOTE: rails plugin temporarily removed so because `rg` shortcut messed

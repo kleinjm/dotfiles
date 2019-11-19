@@ -5,9 +5,8 @@
 # https://github.com/samoshkin/tmux-plugin-sysstat/pull/7 should fix it
 # NOTE: https://github.com/tmux-plugins/tmux-net-speed does not appear to work
 # and there is no way of reporting issues on the repo
-# NOTE: git status plugin does not work
-# https://github.com/kristijanhusak/tmux-simple-git-status/issues/1
 tmux_conf_theme_status_right=' \
+#{simple_git_status} \
 #{pairing}#{prefix} \
 #{battery_status} #{battery_bar} #{battery_percentage} , \
 CPU:#{cpu_fg_color}#{cpu_percentage} #{cpu_fg_color}#{cpu_icon} , \

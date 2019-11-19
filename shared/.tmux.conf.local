@@ -107,4 +107,5 @@ set -g @tpm_plugins '          \
    tmux-plugins/tpm             \
    tmux-plugins/tmux-net-speed  \
    tmux-plugins/tmux-online-status \
+   kristijanhusak/tmux-simple-git-status \
  '

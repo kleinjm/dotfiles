@@ -6,7 +6,7 @@
 # NOTE: https://github.com/tmux-plugins/tmux-net-speed does not appear to work
 # and there is no way of reporting issues on the repo
 tmux_conf_theme_status_right=' \
-#{simple_git_status} \
+#{simple_git_status} \
 #{pairing}#{prefix} \
 #{battery_status} #{battery_bar} #{battery_percentage} , \
 CPU:#{cpu_fg_color}#{cpu_percentage} #{cpu_fg_color}#{cpu_icon} , \

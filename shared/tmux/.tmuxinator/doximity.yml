@@ -26,9 +26,6 @@ windows:
         - daemons:
           - wait_for_docker
           - ddup doximity-daemons
-  - webpacker:
-    - wait_for_docker
-    - dox-do bin/webpack-dev-server
   - consoles:
       - wait_for_docker
       - ddrc

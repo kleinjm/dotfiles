@@ -21,8 +21,7 @@ brew "erlang"
 brew "elixir"
 brew "gnutls"
 brew "harfbuzz"
-brew "openssl"
-brew "ffmpeg"
+brew "ffmpeg", link: false
 brew "fzf"
 brew "gawk"
 brew "git"
@@ -38,13 +37,14 @@ brew "lastpass-cli"
 brew "macvim"
 brew "mas"
 brew "mysql@5.7"
-brew "node", link: false
+brew "node"
 brew "parallel"
 brew "postgresql"
 brew "pyenv"
 brew "ruby-build"
 brew "rbenv"
 brew "reattach-to-user-namespace"
+brew "redis"
 brew "ripgrep"
 brew "rmtrash"
 brew "shellcheck"
@@ -71,12 +71,12 @@ cask "keybase"
 mas "1Password 7", id: 1333542190
 mas "Disk Diag", id: 672206759
 mas "Droplr", id: 498672703
-mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
 mas "LastPass", id: 926036361
 mas "Network Speed Monitor", id: 525944153
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Paprika Recipe Manager 3", id: 1303222628
 mas "Pocket", id: 568494494
+mas "TickTick", id: 966085870
+mas "WhatsApp", id: 1147396723

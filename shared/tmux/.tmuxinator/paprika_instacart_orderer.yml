@@ -9,8 +9,8 @@ windows:
         - vim -c "silent VtrAttachToPane 2"
         -
   - server:
-    layout: even-horizontal
-    panes:
-      - foreman start
-      - redis-server
+      layout: even-horizontal
+      panes:
+        - foreman start
+        - redis-server
   - console: rails c

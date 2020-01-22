@@ -1,5 +1,5 @@
 alias ddbundle="dox-do bundle install"
-alias ddep="dox-do bundle install && dox-do rails db:migrate"
+alias ddep="dox-do bundle install && dox-do rails db:migrate && dox-do rails db:test:prepare"
 alias dyarn="yarn && dox-do yarn"
 alias ddrT="dox-do rake -T | grep "
 alias ddrdm="dox-do rails db:migrate"

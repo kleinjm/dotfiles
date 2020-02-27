@@ -110,6 +110,7 @@ DOX_INIT=$PROJECT_DIR/dox-compose/bin/dox-init
 if [ -e "$DOX_INIT" ]; then
   eval "$("$DOX_INIT")"
 fi
+source $HOME/.config/doxcompose.sh
 
 ### PYENV and Python - https://github.com/pyenv/pyenv#homebrew-on-mac-os-x ###
 # NOTE: Step #2 & #3 here says to place in zshenv rather than zshrc but that did

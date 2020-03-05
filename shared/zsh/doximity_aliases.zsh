@@ -1,4 +1,4 @@
-alias asa="stf login && ssh"
+alias asa="sft login && ssh"
 alias ddbundle="dox-do bundle install"
 alias ddep="dox-do bundle install && dox-do rails db:migrate"
 alias ddrT="dox-do rake -T | grep "

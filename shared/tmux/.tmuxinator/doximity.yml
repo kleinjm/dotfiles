@@ -17,23 +17,12 @@ windows:
         - docker_shell:
           - wait_for_docker
           - ddsh
-  - servers:
-      layout: even-horizontal
-      panes:
-        - server: ddup doximity
-        - webpacker:
-          - wait_for_docker
-          - ddsh
-          - ./bin/webpack-dev-server --watch
+  - servers: ddup doximity
   - services:
       layout: even-horizontal
       panes:
-        - workers:
-          - wait_for_docker
-          - ddup doximity-workers
-        - daemons:
-          - wait_for_docker
-          - ddup doximity-daemons
+        - workers: wait_for_docker
+        - daemons: wait_for_docker
   - consoles:
       - wait_for_docker
       - ddrc

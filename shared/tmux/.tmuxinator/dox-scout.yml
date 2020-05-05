@@ -9,5 +9,6 @@ windows:
       panes:
         - vim .
         -
+  - scout-scraper: cd ../scout-scraper
   - server: rails s -p=3010
   - console: rails c

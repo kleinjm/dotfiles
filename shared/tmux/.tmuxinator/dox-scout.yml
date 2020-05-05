@@ -9,6 +9,10 @@ windows:
       panes:
         - vim .
         -
-  - scout-scraper: cd ../scout-scraper
+  - scout-scraper:
+      layout: e571,272x59,0,0[272x49,0,0,24,272x9,0,50,25]
+      panes:
+        - cd ../scout-scraper && vim .
+        -
   - server: rails s -p=3010
   - console: rails c

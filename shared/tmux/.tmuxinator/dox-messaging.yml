@@ -11,6 +11,4 @@ windows:
       # synchronize: after
       panes:
         - vim .
-        - fetch_latest:
-          - master
-          - bundle
+        - fetch_latest: master

@@ -1,5 +1,5 @@
-name: dox-messaging
-root: <%= ENV["PROJECT_DIR"] %>/dox-messaging
+name: pair-a-dox
+root: <%= ENV["PROJECT_DIR"] %>/pair-a-dox
 # needed for pane-base-index 1 config
 startup_pane: 1
 
@@ -10,5 +10,5 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - vim .
-        - master
+        - vim -c "silent VtrAttachToPane 2"
+        -

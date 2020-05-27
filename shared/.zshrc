@@ -97,6 +97,9 @@ export ZSH_AUTOSUGGEST_USE_ASYNC=1 # do autosuggest async
 # use the default merge message so that EDITOR does not open
 export GIT_MERGE_AUTOEDIT=no
 
+# mysql2 gem - https://stackoverflow.com/a/30837897/2418828
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
+
 # Load all .zsh config files in this dir
 # NOTE: must come after oh-my-zsh.sh is sourced
 for file in $HOME/*.zsh; do

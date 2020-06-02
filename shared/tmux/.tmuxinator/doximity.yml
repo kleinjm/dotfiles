@@ -21,8 +21,12 @@ windows:
   - services:
       layout: even-horizontal
       panes:
-        - workers: wait_for_docker
-        - daemons: wait_for_docker
+        - workers:
+          - wait_for_docker
+          - read && ddup doximity-workers
+        - daemons:
+          - wait_for_docker
+          - read && ddup doximity-daemons
   - consoles:
       - wait_for_docker
       - ddrc

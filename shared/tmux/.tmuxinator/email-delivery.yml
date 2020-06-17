@@ -17,9 +17,3 @@ windows:
           - wait_for_docker email-delivery
           - ddsh
   - server: ddup email-delivery
-  - services: ddup email-delivery-workers
-  - consoles:
-      panes:
-        - rails_console:
-          - wait_for_docker email-delivery
-          - ddrc email-delivery

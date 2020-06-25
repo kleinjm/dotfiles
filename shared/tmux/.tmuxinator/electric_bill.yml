@@ -1,0 +1,17 @@
+name: electric_bill
+root: <%= ENV["PROJECT_DIR"] %>/electric_bill
+# needed for pane-base-index 1 config
+startup_pane: 1
+# Runs in each window and pane before window/pane specific commands
+pre_window: nvm use
+
+windows:
+  - editor:
+      # main-horizontal causes tmux to crash
+      # this layout is for 3 panes
+      # TODO: See if I can fix - https://github.com/tmux/tmux/issues/1970
+      layout: 1181,272x67,0,0[272x53,0,0,43,272x13,0,54,45]
+      panes:
+        - vim -c "silent VtrAttachToPane 2"
+        -
+  - server: foreman start

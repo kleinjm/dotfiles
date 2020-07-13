@@ -23,10 +23,5 @@ sudo apt-get update
 sudo apt install vim-gtk curl zsh ksshaskpass gnome-tweak-tool refind \
   libffi-dev xclip albert ukuu copyq
 
-# dropbox - https://www.dropbox.com/install-linux
-cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-
 sudo curl -L -o /usr/local/bin/aws-vault https://github.com/99designs/aws-vault/releases/download/v4.2.0/aws-vault-linux-amd64
 sudo chmod 755 /usr/local/bin/aws-vault
-
-echo "Start dropbox with ~/.dropbox-dist/dropboxd"

@@ -17,7 +17,7 @@ cd "$DOTFILES_DIR"/tmp
 # TODO: get boost note working
 # curl https://github.com/BoostIO/boost-releases/releases/download/v0.11.12/Boostnote-mac.zip -o boostnote.zip
 
-# dropbox
+# google drive
 # chrome
 # iterm
 # boostnote

@@ -3,7 +3,7 @@
 set -e
 set -o pipefail
 
-: "${PRIVATE_CONFIGS_DIR:=$HOME/Dropbox/EnvironmentConfigurations}"
+: "${PRIVATE_CONFIGS_DIR:=$HOME/Google\ Drive/EnvironmentConfigurations}"
 
 # v = verbose, t = target directory, d = current directory
 stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" bundle --ignore='.bundle/cache/*'

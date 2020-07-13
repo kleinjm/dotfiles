@@ -5,5 +5,5 @@ set -o pipefail
 
 DATE=`date +%m_%d_%Y`
 
-cd $DROPBOX_DIR
-zip -r ./Quiver\ backup/quiver.qvlibrary_$DATE.zip quiver.qvlibrary
+cd "${GOOGLE_DRIVE_DIR}/Quiver"
+zip -r ./quiver.qvlibrary_$DATE.zip quiver.qvlibrary

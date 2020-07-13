@@ -35,7 +35,7 @@ I set the system ~/.nvmrc -> dotfiles/nvmrc and have that fetching `node` which 
 Default config taken from [oh-my-tmux](https://github.com/gpakosz/.tmux)
 
 ### Alfred
-- Settings are stored in the private env config path in dropbox.
+- Settings are stored in the private env config path in Google Drive.
 - This should already be stored in settings but if not, use [this script](https://github.com/stuartcryan/custom-iterm-applescripts-for-alfred) to get Alfred <> iTerm2 integration
 
 ### VIM
@@ -98,9 +98,6 @@ Run `brew bundle dump --force` to update the Brewfile
 - Start Ukuu and select kernel 4.20.0 (tested with this one and it works)
 - Restart
 - Run `linux/scripts/setup_magic_mouse.sh`
-
-### Dropbox
-- To get dropbox to run at startup, go to Startup Items and add the `~/.dropbox-dist/dropbox...` file to the list
 
 ### Albert
 - Albert and CopyQ will get installed as part of dependencies. The linux restore settings script will provide the custom keyboard shortcut to open the paste buffer.

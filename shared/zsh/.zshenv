@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh # Path to your oh-my-zsh installation.
 export PROJECT_DIR=$HOME/GitHubRepos
 export DOTFILES_DIR=$PROJECT_DIR/dotfiles
 export GOOGLE_DRIVE_DIR=$HOME/Google\ Drive
-export PRIVATE_CONFIGS_DIR=$HOME/Dropbox/EnvironmentConfigurations
+export PRIVATE_CONFIGS_DIR=$HOME/Google\ Drive/EnvironmentConfigurations
 
 ### PYENV and Python - https://github.com/pyenv/pyenv#homebrew-on-mac-os-x ###
 # https://github.com/pyenv/pyenv#basic-github-checkout

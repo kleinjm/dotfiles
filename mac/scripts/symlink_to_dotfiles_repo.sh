@@ -11,6 +11,7 @@ stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" aws
 
 stow -v -t "$HOME" -d shared git
 stow -v -t "$HOME" -d mac git
+stow -v -t "$HOME" -d mac redis
 
 stow -v -t "$HOME" nvm
 stow -v -t "$HOME" pry

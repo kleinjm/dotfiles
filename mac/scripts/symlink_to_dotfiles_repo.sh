@@ -3,11 +3,25 @@
 set -e
 set -o pipefail
 
-: "${PRIVATE_CONFIGS_DIR:=$HOME/Google\ Drive/EnvironmentConfigurations}"
+echo "Include private configurations? Ie. stored in Google Drive"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes )
+          : "${PRIVATE_CONFIGS_DIR:=$HOME/Google\ Drive/EnvironmentConfigurations}"
+
+          stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" bundle --ignore='.bundle/cache/*'
+          stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" aws
+
+          mkdir -p "$HOME"/.ssh
+          stow -v -t "$HOME"/.ssh -d "$PRIVATE_CONFIGS_DIR"/mac/ssh .ssh
+          stow -v -t "$HOME"/.ssh -d "$PRIVATE_CONFIGS_DIR"/ssh .ssh
+
+          break;;
+        No ) break;;
+    esac
+done
 
 # v = verbose, t = target directory, d = current directory
-stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" bundle --ignore='.bundle/cache/*'
-stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" aws
 
 stow -v -t "$HOME" -d shared git
 stow -v -t "$HOME" -d mac git
@@ -16,7 +30,6 @@ stow -v -t "$HOME" -d mac redis
 stow -v -t "$HOME" nvm
 stow -v -t "$HOME" pry
 stow -v -t "$HOME" psql
-stow -v -t "$HOME" rbenv
 stow -v -t "$HOME" -d shared ag
 stow -v -t "$HOME" -d shared tmux
 stow -v -t "$HOME" -d mac tmux
@@ -28,14 +41,13 @@ stow -v -t "$HOME" -d mac vim
 stow -v -t "$HOME" -d shared zsh
 stow -v -t "$HOME" -d mac zsh
 
-mkdir -p "$HOME"/.ssh
-stow -v -t "$HOME"/.ssh -d "$PRIVATE_CONFIGS_DIR"/mac/ssh .ssh
-stow -v -t "$HOME"/.ssh -d "$PRIVATE_CONFIGS_DIR"/ssh .ssh
-
 ln -sf "$DOTFILES_DIR"/mac/scripts/vendor/* /usr/local/bin
 
 mkdir -p "$HOME"/.pyenv
 ln -sf "$DOTFILES_DIR"/shared/pyenv/version "$HOME"/.pyenv/version
+
+mkdir -p "$HOME"/.rbenv
+ln -sf "$DOTFILES_DIR"/rbenv/.rbenv/version "$HOME"/.rbenv/version
 
 # May need to update permissions
 # chmod -R 0755 ~/.git/git_template/hooks

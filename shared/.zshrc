@@ -61,7 +61,7 @@ HISTSIZE=1000000 # amount of commands saved in history
 plugins=(git bundler osx rake ruby tmux docker zsh_reload command-not-found colored-man-pages)
 
 # manually trigger autosuggestions
-AUTOSUGGESTIONS_DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestion
+AUTOSUGGESTIONS_DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 if [ -d "$AUTOSUGGESTIONS_DIR" ]; then
   source $AUTOSUGGESTIONS_DIR/zsh-autosuggestions.zsh
 fi

@@ -1,0 +1,11 @@
+name: interview_questions
+root: ~/GitHubRepos/interview_questions
+# needed for pane-base-index 1 config
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim .
+        -

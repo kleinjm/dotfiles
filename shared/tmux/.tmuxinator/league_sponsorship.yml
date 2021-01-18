@@ -1,0 +1,15 @@
+name: league_sponsorship
+root: <%= ENV["PROJECT_DIR"] %>/league_sponsorship
+# needed for pane-base-index 1 config
+startup_pane: 1
+# Runs in each window and pane before window/pane specific commands
+pre_window: nvm use
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim -c "silent VtrAttachToPane 2"
+        -
+  - server: rails s --early-hints -p=3000
+  - console: rails c

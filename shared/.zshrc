@@ -69,7 +69,7 @@ fi
 # QT added to path to fix gem install capybara-webkit issue
 # openssl added to fix issue with brew installing over the system version
 # mysql added to fix issue with brew linking
-export PATH=/usr/local/sbin:/usr/local/opt/mysql@5.7/bin:/usr/local/opt/openssl/bin:$PATH
+export PATH=$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/opt/mysql@5.7/bin:/usr/local/opt/openssl/bin:$PATH
 
 # NOTE: PATH must be before this
 source $ZSH/oh-my-zsh.sh

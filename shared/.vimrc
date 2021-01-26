@@ -114,11 +114,11 @@ inoremap <C-p> <esc>:w<cr>
 noremap <C-p> <esc>:w<cr>
 
 " ctrl+space exits out of search and everything
-nnoremap <C-Space> <Esc>:noh<CR>
-vnoremap <C-Space> <Esc>gV
-onoremap <C-Space> <Esc>
-cnoremap <C-Space> <C-c>
-inoremap <C-Space> <Esc>
+nnoremap <C-@> <Esc>:noh<CR>
+vnoremap <C-@> <Esc>gV
+onoremap <C-@> <Esc>
+cnoremap <C-@> <C-c>
+inoremap <C-@> <Esc>
 
 " Don't use arrow keys
 nnoremap <Left> :echoe "Use h"<CR>

@@ -27,7 +27,7 @@
 #
 # For node_module fix see
 #   https://github.com/BurntSushi/ripgrep/issues/830#issuecomment-367843670
-export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules,*.un~}" 2> /dev/null'
+export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules,coverage,*.un~}" 2> /dev/null'
 
 export FZF_DEFAULT_OPTS="--height 100% --reverse --bind \"\
 ctrl-b:page-up,\

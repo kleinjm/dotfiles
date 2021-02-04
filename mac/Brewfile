@@ -21,7 +21,7 @@ brew "erlang"
 brew "elixir"
 brew "gnutls"
 brew "harfbuzz"
-brew "ffmpeg", link: false
+brew "ffmpeg"
 brew "fzf"
 brew "gawk"
 brew "git"
@@ -46,7 +46,6 @@ brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "redis"
 brew "ripgrep"
-brew "rmtrash"
 brew "shellcheck"
 brew "stow"
 brew "terraform"
@@ -66,8 +65,6 @@ cask "docker"
 cask "font-devicons"
 cask "font-hack-nerd-font"
 cask "insomnia"
-cask "java8"
-cask "keybase"
 mas "1Password 7", id: 1333542190
 mas "Disk Diag", id: 672206759
 mas "Droplr", id: 498672703
@@ -78,5 +75,7 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Paprika Recipe Manager 3", id: 1303222628
 mas "Pocket", id: 568494494
+mas "Slack", id: 803453959
 mas "TickTick", id: 966085870
 mas "WhatsApp", id: 1147396723
+mas "Xcode", id: 497799835

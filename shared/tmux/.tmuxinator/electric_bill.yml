@@ -14,4 +14,3 @@ windows:
       panes:
         - vim -c "silent VtrAttachToPane 2"
         -
-  - server: foreman start

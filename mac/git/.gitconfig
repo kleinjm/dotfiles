@@ -54,3 +54,5 @@
 	required = true
 [diff]
 	colorMoved = zebra
+[pull]
+	rebase = false

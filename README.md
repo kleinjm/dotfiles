@@ -9,9 +9,9 @@
   ```
 
 ### Installing Fonts
-* Open the font file saved in `mac_config` and install it to the Mac Font Book
-  * `open mac_config/Fura\ Mono\ Regular\ Nerd\ Font\ Complete.otf`
-* In iTerm, set the font to that font for the current profile
+* Open the font file and install it to the Mac Font Book
+  * `open mac/config/Fura\ Mono\ Regular\ Nerd\ Font\ Complete\ Mono\ Windows\ Compatible.otf`
+* In iTerm, set the font to that font for the current profile. Profiles > Text > Font
 * Restart vim and you should see devicons
 
 ### Syncing Mac Settings

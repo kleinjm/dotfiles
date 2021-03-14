@@ -56,3 +56,4 @@
 	colorMoved = zebra
 [pull]
 	rebase = false
+	ff = only

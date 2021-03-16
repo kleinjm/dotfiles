@@ -14,6 +14,7 @@ windows:
         - vim -c "silent VtrAttachToPane 3"
         -
         -
+  - console: rails c
   # the procfile.hot decompossed
   - server: REACT_ON_RAILS_ENV=HOT rails s -b 0.0.0.0
   - webpack: sh -c 'rm app/assets/webpack/* || true && HOT_RAILS_PORT=3500 yarn run hot-assets'

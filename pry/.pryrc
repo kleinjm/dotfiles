@@ -3,22 +3,8 @@ Pry.pager = nil
 
 require_relative "./copy_to_clipboard"
 
-def my_account
-  Account.find_by(login: "jklein@doximity.com")
-end
-
 def my_user
-  my_account.user
-end
-
-def make_admin
-  my_account.roles << Role.first
-  # doc news admin
-  my_account.roles << Role.find(20)
-end
-
-def make_pleeb
-  my_account.roles = []
+  User.find_by(email: "james.klein@asktrim.com")
 end
 
 def clear_sidekiq

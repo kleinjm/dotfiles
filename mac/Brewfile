@@ -56,7 +56,7 @@ brew "redis", restart_service: true
 brew "ripgrep"
 brew "shellcheck"
 brew "stow"
-brew "terraform"
+brew "terraform@0.13", link: true
 brew "the_silver_searcher"
 brew "tmux"
 brew "trash-cli"

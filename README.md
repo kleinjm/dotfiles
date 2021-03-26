@@ -7,6 +7,7 @@
   cd /Users
   sudo ln -s james jklein
   ```
+* Show hidden files in Finder with `defaults write com.apple.Finder AppleShowAllFiles true && killall Finder`
 
 ### Installing Fonts
 * Open the font file and install it to the Mac Font Book

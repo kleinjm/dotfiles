@@ -61,3 +61,9 @@ alias print-cmd="$DOTFILES_DIR/mac/scripts/print-cmd.sh"
 alias speed="speedtest-cli" # run a speedtest
 alias symlink="$DOTFILES_DIR/mac/scripts/symlink_to_dotfiles_repo.sh"
 alias upload-music="$DOTFILES_DIR/mac/scripts/upload_music.sh"
+
+# Convox
+alias prod_console="convox switch convoxprod && convox run web bundle exec rails console"
+alias dev_console="convox switch dev && convox run web bundle exec rails console"
+alias prod_bash="convox switch convoxprod && convox run web bash"
+alias dev_bash="convox switch dev && convox run web bash"

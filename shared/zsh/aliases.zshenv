@@ -63,7 +63,12 @@ alias symlink="$DOTFILES_DIR/mac/scripts/symlink_to_dotfiles_repo.sh"
 alias upload-music="$DOTFILES_DIR/mac/scripts/upload_music.sh"
 
 # Convox
-alias prod_console="convox switch convoxprod && convox run web bundle exec rails console"
-alias dev_console="convox switch dev && convox run web bundle exec rails console"
-alias prod_bash="convox switch convoxprod && convox run web bash"
-alias dev_bash="convox switch dev && convox run web bash"
+alias prod_console="convox switch trim-prod-org/convoxprod && convox run web bundle exec rails console"
+alias staging_console="convox switch trim-prod-org/dev && convox run web bundle exec rails console"
+alias exp_prod_console="convox switch trim-prod-org/experian && convox run web bundle exec rails console"
+alias exp_staging_console="convox switch trim-prod-org/experian-staging && convox run web bundle exec rails console"
+
+alias prod_bash="convox switch trim-prod-org/convoxprod && convox run web bash"
+alias staging_bash="convox switch trim-prod-org/dev && convox run web bash"
+alias exp_prod_bash="convox switch trim-prod-org/experian && convox run web bash"
+alias exp_staging_bash="convox switch trim-prod-org/experian-staging && convox run web bash"

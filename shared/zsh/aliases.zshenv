@@ -31,8 +31,7 @@ alias ag="ag --path-to-ignore ~/.ag_ignore"
 alias develop='git develop'
 alias ga='git add'
 alias gl='git log'
-alias gpod='git pull origin develop'
-alias gpom='git pull origin master'
+alias gpom='git rebase origin master'
 alias gs='git s'
 alias master='git master'
 

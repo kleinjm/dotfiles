@@ -31,7 +31,8 @@ alias ag="ag --path-to-ignore ~/.ag_ignore"
 alias develop='git develop'
 alias ga='git add'
 alias gl='git log'
-alias gpom='git rebase origin master'
+alias gpom='git pull origin master'
+alias grom='git rebase origin master'
 alias gs='git s'
 alias master='git master'
 
@@ -62,12 +63,22 @@ alias symlink="$DOTFILES_DIR/mac/scripts/symlink_to_dotfiles_repo.sh"
 alias upload-music="$DOTFILES_DIR/mac/scripts/upload_music.sh"
 
 # Convox
+## Swtich envs
+alias prod="convox switch trim-prod-org/convoxprod"
+alias staging="convox switch trim-prod-org/dev"
+alias exp_prod="convox switch trim-prod-org/experian"
+alias exp_staging="convox switch trim-prod-org/exp-staging"
+
+## Rails console
 alias prod_console="convox switch trim-prod-org/convoxprod && convox run web bundle exec rails console"
 alias staging_console="convox switch trim-prod-org/dev && convox run web bundle exec rails console"
 alias exp_prod_console="convox switch trim-prod-org/experian && convox run web bundle exec rails console"
 alias exp_staging_console="convox switch trim-prod-org/experian-staging && convox run web bundle exec rails console"
+alias go_upgrades_console="convox switch trim-prod-org/dev && convox run -a trim-app-upgrades web bundle exec rails console"
 
+## Bash
 alias prod_bash="convox switch trim-prod-org/convoxprod && convox run web bash"
 alias staging_bash="convox switch trim-prod-org/dev && convox run web bash"
 alias exp_prod_bash="convox switch trim-prod-org/experian && convox run web bash"
 alias exp_staging_bash="convox switch trim-prod-org/experian-staging && convox run web bash"
+alias go_upgrades_bash="convox switch trim-prod-org/dev && convox run -a trim-app-upgrades web bash"

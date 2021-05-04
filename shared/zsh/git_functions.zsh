@@ -18,3 +18,16 @@ gupdate() {
 gspec() {
   git diff origin/master --name-only | grep _spec | tr '\n' ' ' | sed -e 's/^/bin\/rspec /' | pbcopy
 }
+
+# Merge current branch to staging env
+push_staging() {
+  branch=$(\
+    git for-each-ref \
+    --format='%(objectname) %(refname:short)' refs/heads \
+    | awk "/^$(git rev-parse HEAD)/ {print \$2}"\
+  )
+
+  git checkout deploy-staging
+  git merge $branch
+  git push origin deploy-staging
+}

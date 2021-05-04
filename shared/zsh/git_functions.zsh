@@ -30,4 +30,5 @@ push_staging() {
   git checkout deploy-staging
   git merge $branch
   git push origin deploy-staging
+  git checkout $branch
 }

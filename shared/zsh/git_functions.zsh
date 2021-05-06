@@ -19,16 +19,23 @@ gspec() {
   git diff origin/master --name-only | grep _spec | tr '\n' ' ' | sed -e 's/^/bin\/rspec /' | pbcopy
 }
 
-# Merge current branch to staging env
+# Merge either the given branch name or current branch (if none given) to the
+# staging environment
 push_staging() {
-  branch=$(\
+  current_branch=$(\
     git for-each-ref \
     --format='%(objectname) %(refname:short)' refs/heads \
     | awk "/^$(git rev-parse HEAD)/ {print \$2}"\
   )
 
+  if [[ "$1" != "" ]]; then
+      branch_to_push="$1"
+  else
+      branch_to_push=$current_branch
+  fi
+
   git checkout deploy-staging
-  git merge $branch
+  git merge $branch_to_push
   git push origin deploy-staging
-  git checkout $branch
+  git checkout $current_branch
 }

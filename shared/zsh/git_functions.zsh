@@ -34,10 +34,7 @@ push_staging() {
     branch_to_push=$current_branch
   fi
 
-  checkout_result=$(git checkout deploy-staging)
-  if [[ checkout_result =~ "[error]" ]]; then
-    return 1
-  fi
+  git checkout deploy-staging
   git merge $branch_to_push
 
   if [[ "$1" == "-f" || "$2" == "-f" ]]; then

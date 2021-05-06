@@ -28,17 +28,20 @@ push_staging() {
     | awk "/^$(git rev-parse HEAD)/ {print \$2}"\
   )
 
-  if [[ "$1" == "" ]]; then
-    branch_to_push=$current_branch
-  else
+  if [[ "$1" != "" && "$1" != "-f" ]]; then
     branch_to_push="$1"
+  else
+    branch_to_push=$current_branch
   fi
 
-  git checkout deploy-staging
+  checkout_result=$(git checkout deploy-staging)
+  if [[ checkout_result =~ "[error]" ]]; then
+    return 1
+  fi
   git merge $branch_to_push
 
   if [[ "$1" == "-f" || "$2" == "-f" ]]; then
-    git push origin deploy-staging -f
+    git push -f origin deploy-staging
   else
     git push origin deploy-staging
   fi

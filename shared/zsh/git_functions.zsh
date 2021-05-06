@@ -20,7 +20,7 @@ gspec() {
 }
 
 # Merge either the given branch name or current branch (if none given) to the
-# staging environment
+# staging environment. Pass -f to force push as needed.
 push_staging() {
   current_branch=$(\
     git for-each-ref \
@@ -36,6 +36,6 @@ push_staging() {
 
   git checkout deploy-staging
   git merge $branch_to_push
-  git push origin deploy-staging
+  git push origin deploy-staging $2
   git checkout $current_branch
 }

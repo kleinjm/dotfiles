@@ -32,7 +32,7 @@ alias develop='git develop'
 alias ga='git add'
 alias gl='git log'
 alias gpom='git pull origin master'
-alias grom='git rebase origin master'
+alias grom='git pull origin master --rebase'
 alias gs='git s'
 alias master='git master'
 

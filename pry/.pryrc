@@ -3,10 +3,6 @@ Pry.pager = nil
 
 require_relative "./copy_to_clipboard"
 
-def my_user
-  User.find_by(email: "james.klein@asktrim.com")
-end
-
 def clear_sidekiq
   Sidekiq.redis(&:flushdb)
 end

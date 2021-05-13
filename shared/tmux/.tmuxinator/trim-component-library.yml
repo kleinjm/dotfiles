@@ -11,4 +11,4 @@ windows:
       panes:
         - vim -c "silent VtrAttachToPane 3"
         -
-        - yarn test
+        - npm test

@@ -1,0 +1,14 @@
+name: trim-component-library
+root: <%= ENV["PROJECT_DIR"] %>/trim-component-library
+# needed for pane-base-index 1 config
+startup_pane: 1
+# Runs in each window and pane before window/pane specific commands
+pre_window: nvm use
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim -c "silent VtrAttachToPane 3"
+        -
+        - yarn test

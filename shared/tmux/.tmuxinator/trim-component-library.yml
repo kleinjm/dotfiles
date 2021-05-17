@@ -12,3 +12,4 @@ windows:
         - vim -c "silent VtrAttachToPane 3"
         -
         - npm test
+  - server: npm start

@@ -25,6 +25,10 @@ done
 unsetopt EXTENDEDGLOB
 compinit -C
 
+# Allows running rake commands in ZSH with arguments.
+# See https://thoughtbot.com/blog/how-to-use-arguments-in-a-rake-task
+unsetopt nomatch
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes

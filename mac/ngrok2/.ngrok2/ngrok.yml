@@ -1,0 +1,19 @@
+authtoken: AUTHTOKEN
+tunnels:
+  localserver:
+    proto: http
+    addr: 3000
+    subdomain: trim-dev-jamesklein
+  assets:
+    proto: http
+    addr: 3500
+    subdomain: trim-dev-jamesklein-assets
+  www:
+    proto: http
+    addr: 3001
+    subdomain: trim-dev-jamesklein-www
+  vgs:
+    proto: http
+    addr: 3000
+    subdomain: trim-dev-jamesklein-vgs
+  # Add other tunnel definitions here, as needed

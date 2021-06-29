@@ -67,7 +67,7 @@ alias upload-music="$DOTFILES_DIR/mac/scripts/upload_music.sh"
 alias prod="convox switch trim-prod-org/convoxprod"
 alias staging="convox switch trim-prod-org/dev"
 alias exp_prod="convox switch trim-prod-org/experian"
-alias exp_staging="convox switch trim-prod-org/exp-staging"
+alias exp_staging="convox switch trim-prod-org/experian-staging"
 
 ## Rails console
 alias prod_console="convox switch trim-prod-org/convoxprod && convox run web bundle exec rails console"

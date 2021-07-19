@@ -17,6 +17,7 @@
     l = log
     m = commit --amend --verbose
     master = !git fetch --prune && git checkout master && git pull origin master && :
+    main = !git fetch --prune && git checkout main && git pull origin main && :
     s = status -s
 
     # push the current branch

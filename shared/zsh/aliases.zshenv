@@ -35,6 +35,7 @@ alias gpom='git pull origin master'
 alias grom='git pull origin master --rebase'
 alias gs='git s'
 alias master='git master'
+alias main='git main'
 
 # Vim
 alias projections="cp $DOTFILES_DIR/projections.json .projections.json"

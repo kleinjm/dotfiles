@@ -12,5 +12,8 @@ windows:
         - vim -c "silent VtrAttachToPane 3"
         -
         -
-  - server: bundle exec rails s -p 3001 -b 0.0.0.0
-  - console: bundle exec rails c
+  - server: bundle exec rails server
+  - console: bundle exec rails console
+  - workers: bundle exec sidekiq
+  - webpack: bin/webpack-dev-server
+  - redis: foreman start redis-server

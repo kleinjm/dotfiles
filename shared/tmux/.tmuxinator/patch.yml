@@ -16,4 +16,4 @@ windows:
   - console: bundle exec rails console
   - workers: bundle exec sidekiq
   - webpack: bin/webpack-dev-server
-  - redis: foreman start redis-server
+  - redis: redis-server

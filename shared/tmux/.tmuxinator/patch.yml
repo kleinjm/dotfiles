@@ -17,3 +17,4 @@ windows:
   - workers: bundle exec sidekiq
   - webpack: bin/webpack-dev-server
   - redis: redis-server
+  - bullet: tail -f log/bullet.log

@@ -62,7 +62,7 @@ HISTSIZE=1000000 # amount of commands saved in history
 # NOTE: zsh-syntax-highlighting was affecting boot performance
 # NOTE: rails plugin temporarily removed so because `rg` shortcut messed
 # with ripgrep
-plugins=(docker-compose git bundler osx rake ruby tmux docker zsh_reload command-not-found colored-man-pages)
+plugins=(docker-compose git bundler osx rake ruby tmux docker command-not-found colored-man-pages)
 
 # manually trigger autosuggestions
 AUTOSUGGESTIONS_DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions

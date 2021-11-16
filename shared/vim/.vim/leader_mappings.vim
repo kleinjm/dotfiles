@@ -36,7 +36,7 @@ nmap <leader>' :%s/\"/\'/g<cr><C-@><Esc>
 " show the current file on github
 nmap <leader>br :.Gbrowse<cr>
 " git blame
-nmap <leader>bl :Gblame<cr>
+nmap <leader>bl :Git blame<cr>
 " open temp file to scratch on
 map <Leader>tmp :vsp ~/.tempfile<CR>
 " open my local zsh config

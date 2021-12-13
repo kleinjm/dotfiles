@@ -55,6 +55,7 @@ Plug 'tpope/vim-repeat'                             " allow . repeat on plugin c
 Plug 'tpope/vim-rhubarb'                            " :Gbrowse to get GH url
 Plug 'tpope/vim-surround'                           " add paren and quote helpers
 Plug 'tpope/vim-unimpaired'                         " handy bracket mappings
+Plug 'leafgarland/typescript-vim'                   " Typescript support for vim
 Plug 'vim-ruby/vim-ruby'                            " support for running ruby
 Plug 'vim-scripts/tComment'                         " comment with `gc`
 Plug 'w0rp/ale'                                     " async linter

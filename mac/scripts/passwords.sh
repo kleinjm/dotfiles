@@ -3,7 +3,7 @@
 set -e
 set -o pipefail
 
-cd $GOOGLE_DRIVE_DIR
+cd "$GOOGLE_DRIVE_DIR"
 
 unzip unandpw.zip
 vim unandpw.txt

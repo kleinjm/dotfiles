@@ -1,6 +1,7 @@
 # Mac
 ## Setup
 * Make sure you're on the latest Mac OS
+* Clone the private `environment_configurations` repo in the same parent directory as this `dotfiles` repo
 * Run `mac/make.sh`
 * This repo assumes the home dir is `jklein`. If it's not, symlink it with the following
   ```sh

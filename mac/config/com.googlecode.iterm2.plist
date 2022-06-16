@@ -707,7 +707,7 @@
 			<key>Semantic History</key>
 			<dict>
 				<key>action</key>
-				<string>editor</string>
+				<string>best editor</string>
 				<key>editor</key>
 				<string>org.vim.MacVim</string>
 				<key>text</key>

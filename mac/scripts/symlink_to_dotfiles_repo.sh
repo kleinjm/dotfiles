@@ -3,11 +3,11 @@
 set -e
 set -o pipefail
 
-echo "Include private configurations? Ie. stored in Google Drive"
+echo "Include private configurations? (stored in environment_configurations repo)"
 select yn in "Yes" "No"; do
     case $yn in
         Yes )
-          : "${PRIVATE_CONFIGS_DIR:=$HOME/Google\ Drive/EnvironmentConfigurations}"
+          : "${PRIVATE_CONFIGS_DIR:=$HOME/GitHubRepos/environment_configurations}"
 
           stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" bundle --ignore='.bundle/cache/*'
           stow -v -t "$HOME" -d "$PRIVATE_CONFIGS_DIR" aws

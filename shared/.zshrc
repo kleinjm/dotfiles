@@ -127,4 +127,8 @@ if [[ -z "$TMUX" ]]; then
   tmux new-session -A -s "$USER"
 fi
 
+# Terraform autocomplete installed via `terraform -install-autocomplete`
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+
 eval "$(rbenv init -)"

@@ -22,6 +22,7 @@ Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to
 Plug 'crusoexia/vim-javascript-lib'                 " syntax highlighting for common JS libraries
 Plug 'easymotion/vim-easymotion'                    " vim motions on speed
 Plug 'elixir-editors/vim-elixir'                      " elixir support
+Plug 'hashivim/vim-terraform'                       " terraform syntax and :Terraform command
 Plug 'henrik/vim-indexed-search'                    " display search count
 Plug 'honza/vim-snippets'                           " snippets
 Plug 'itchyny/lightline.vim'                        " vim status bar coloring

@@ -1,0 +1,16 @@
+name: personal_finance
+root: <%= ENV["PROJECT_DIR"] %>/personal_finance
+# needed for pane-base-index 1 config
+startup_pane: 1
+# Runs in each window and pane before window/pane specific commands
+pre_window: nvm use
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim -c "silent VtrAttachToPane 3"
+        -
+        -
+  - server: bundle exec rails server
+  - console: bundle exec rails console

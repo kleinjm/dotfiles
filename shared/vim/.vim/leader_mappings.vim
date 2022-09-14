@@ -34,7 +34,7 @@ nmap <leader>" :%s/\'/\"/g<cr><C-@><Esc>
 " change all double " to single ' in current file
 nmap <leader>' :%s/\"/\'/g<cr><C-@><Esc>
 " show the current file on github
-nmap <leader>br :.Gbrowse<cr>
+nmap <leader>br :.GBrowse<cr>
 " git blame
 nmap <leader>bl :Git blame<cr>
 " open temp file to scratch on

@@ -17,7 +17,7 @@ Plug 'AoLab/vim-avro'                               " sytnax highlighting for av
 Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
 Plug 'calebsmith/vim-lambdify'                      " conceal js functions with lambda
 Plug 'christoomey/vim-run-interactive'              " allow interactive shell
-Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmus
+Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmux
 Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
 Plug 'crusoexia/vim-javascript-lib'                 " syntax highlighting for common JS libraries
 Plug 'easymotion/vim-easymotion'                    " vim motions on speed

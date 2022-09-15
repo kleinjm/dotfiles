@@ -13,11 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " Don't forget to source the .vimrc file before running :PluginInstall
 
-" NOTE: FZF is installed via brew and set as a runtime path in .vimrc via
-" set rtp+=/usr/local/opt/fzf
-" (see https://github.com/junegunn/fzf/blob/master/README-VIM.md#installation)
-
-" Plugin 'SirVer/ultisnips'                             " ultimate snippet solution for Vim
+" Plugin 'SirVer/ultisnips'                           " ultimate snippet solution for Vim
 Plugin 'AndrewRadev/vim-eco'                          " .eco syntax highlighting
 Plugin 'AoLab/vim-avro'                               " sytnax highlighting for avro schemas
 Plugin 'airblade/vim-gitgutter'                       " show git changes in gutter
@@ -36,9 +32,12 @@ Plugin 'jbgutierrez/vim-partial'                      " extract haml partials
 Plugin 'jgdavey/vim-blockle'                          " toggle ruby do and {} blocks
 Plugin 'jiangmiao/auto-pairs'                         " open and close brackets
 Plugin 'joker1007/vim-ruby-heredoc-syntax'            " heredoc ruby highlighing
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } } " set fzf executable in the vim runtime path
+Plugin 'junegunn/fzf.vim'                             " fzf vim integration
 Plugin 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plugin 'kchmck/vim-coffee-script'                     " syntax for coffeescript
 Plugin 'lambdalisue/vim-pyenv'                        " sync pyenv version. NOTE: known slow performance (only on boot time)
+Plugin 'leafgarland/typescript-vim'                   " Typescript support for vim
 Plugin 'maksimr/vim-jsbeautify'                       " format js and html pages
 Plugin 'mattn/emmet-vim'                              " html and css editing
 Plugin 'maximbaz/lightline-ale'                       " ale indicator for lightline
@@ -62,7 +61,6 @@ Plugin 'tpope/vim-repeat'                             " allow . repeat on plugin
 Plugin 'tpope/vim-rhubarb'                            " :Gbrowse to get GH url
 Plugin 'tpope/vim-surround'                           " add paren and quote helpers
 Plugin 'tpope/vim-unimpaired'                         " handy bracket mappings
-Plugin 'leafgarland/typescript-vim'                   " Typescript support for vim
 Plugin 'vim-ruby/vim-ruby'                            " support for running ruby
 Plugin 'vim-scripts/tComment'                         " comment with `gc`
 Plugin 'w0rp/ale'                                     " async linter

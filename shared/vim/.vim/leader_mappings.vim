@@ -55,7 +55,7 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-nnoremap <leader>f :Files<cr>
+nnoremap <leader>f :FZF<cr>
 
 noremap <Leader>g :Fzfc<cr>
 

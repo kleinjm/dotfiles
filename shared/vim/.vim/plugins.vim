@@ -1,65 +1,84 @@
-" make sure vim-plug is installed so plugins can be installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" after adding new plugins write, source, and run :PlugInstall
-" highlight all and :sort to sort
-call plug#begin('~/.vim/plugged') " Specify a directory for plugins
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" Make sure to use single quotes
-" Plug 'SirVer/ultisnips'                             " ultimate snippet solution for Vim
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " find or install fzf
-Plug 'AndrewRadev/vim-eco'                          " .eco syntax highlighting
-Plug 'AoLab/vim-avro'                               " sytnax highlighting for avro schemas
-Plug 'airblade/vim-gitgutter'                       " show git changes in gutter
-Plug 'calebsmith/vim-lambdify'                      " conceal js functions with lambda
-Plug 'christoomey/vim-run-interactive'              " allow interactive shell
-Plug 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmux
-Plug 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
-Plug 'crusoexia/vim-javascript-lib'                 " syntax highlighting for common JS libraries
-Plug 'easymotion/vim-easymotion'                    " vim motions on speed
-Plug 'elixir-editors/vim-elixir'                      " elixir support
-Plug 'hashivim/vim-terraform'                       " terraform syntax and :Terraform command
-Plug 'henrik/vim-indexed-search'                    " display search count
-Plug 'honza/vim-snippets'                           " snippets
-Plug 'itchyny/lightline.vim'                        " vim status bar coloring
-Plug 'jbgutierrez/vim-partial'                      " extract haml partials
-Plug 'jgdavey/vim-blockle'                          " toggle ruby do and {} blocks
-Plug 'jiangmiao/auto-pairs'                         " open and close brackets
-Plug 'joker1007/vim-ruby-heredoc-syntax'            " heredoc ruby highlighing
-Plug 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
-Plug 'kchmck/vim-coffee-script'                     " syntax for coffeescript
-Plug 'lambdalisue/vim-pyenv'                        " sync pyenv version. NOTE: known slow performance (only on boot time)
-Plug 'maksimr/vim-jsbeautify'                       " format js and html pages
-Plug 'mattn/emmet-vim'                              " html and css editing
-Plug 'maximbaz/lightline-ale'                       " ale indicator for lightline
-Plug 'mhinz/vim-startify'                           " fancy startup screen
-Plug 'michaeljsmith/vim-indent-object'              " vii to highlight lines at same indent level
-Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
-Plug 'nelstrom/vim-textobj-rubyblock'               " provide ruby text objects
-Plug 'nelstrom/vim-visual-star-search'              " * to serach current word
-Plug 'onemanstartup/vim-slim'                       " syntax for slim. Use this over the official slim-template/vim-slim plugin for way better speed. See https://github.com/slim-template/vim-slim/issues/19#issuecomment-50607474
-Plug 'posva/vim-vue'                                " syntax highlighting for vueJS
-Plug 'ryanoasis/vim-devicons'                       " font icon integration
-Plug 'sunaku/vim-ruby-minitest'                     " highlighting for minitest
-Plug 'thoughtbot/vim-rspec'                         " allow tests running from vim
-Plug 'tpope/vim-bundler'                            " support helpers for bundler
-Plug 'tpope/vim-endwise'                            " add `end` in ruby and other scripts
-Plug 'tpope/vim-fugitive'                           " look in .git/ctags for ctags index
-Plug 'tpope/vim-projectionist'                      " define alt files per project
-Plug 'tpope/vim-rails'                              " directory navigation and syntax for rails
-Plug 'tpope/vim-rake'                               " configures path for lib and ext directories on ruby and rails projects
-Plug 'tpope/vim-repeat'                             " allow . repeat on plugin commands
-Plug 'tpope/vim-rhubarb'                            " :Gbrowse to get GH url
-Plug 'tpope/vim-surround'                           " add paren and quote helpers
-Plug 'tpope/vim-unimpaired'                         " handy bracket mappings
-Plug 'leafgarland/typescript-vim'                   " Typescript support for vim
-Plug 'vim-ruby/vim-ruby'                            " support for running ruby
-Plug 'vim-scripts/tComment'                         " comment with `gc`
-Plug 'w0rp/ale'                                     " async linter
-Plug 'yegappan/greplace'                            " global search and replace
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-call plug#end() " Initialize plugin system
+" Keep Plugin commands between vundle#begin/end.
+" Don't forget to source the .vimrc file before running :PluginInstall
+
+" NOTE: FZF is installed via brew and set as a runtime path in .vimrc via
+" set rtp+=/usr/local/opt/fzf
+" (see https://github.com/junegunn/fzf/blob/master/README-VIM.md#installation)
+
+" Plugin 'SirVer/ultisnips'                             " ultimate snippet solution for Vim
+Plugin 'AndrewRadev/vim-eco'                          " .eco syntax highlighting
+Plugin 'AoLab/vim-avro'                               " sytnax highlighting for avro schemas
+Plugin 'airblade/vim-gitgutter'                       " show git changes in gutter
+Plugin 'calebsmith/vim-lambdify'                      " conceal js functions with lambda
+Plugin 'christoomey/vim-run-interactive'              " allow interactive shell
+Plugin 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmux
+Plugin 'christoomey/vim-tmux-runner'                  " allows sending commands to tmux from vim
+Plugin 'crusoexia/vim-javascript-lib'                 " syntax highlighting for common JS libraries
+Plugin 'easymotion/vim-easymotion'                    " vim motions on speed
+Plugin 'elixir-editors/vim-elixir'                      " elixir support
+Plugin 'hashivim/vim-terraform'                       " terraform syntax and :Terraform command
+Plugin 'henrik/vim-indexed-search'                    " display search count
+Plugin 'honza/vim-snippets'                           " snippets
+Plugin 'itchyny/lightline.vim'                        " vim status bar coloring
+Plugin 'jbgutierrez/vim-partial'                      " extract haml partials
+Plugin 'jgdavey/vim-blockle'                          " toggle ruby do and {} blocks
+Plugin 'jiangmiao/auto-pairs'                         " open and close brackets
+Plugin 'joker1007/vim-ruby-heredoc-syntax'            " heredoc ruby highlighing
+Plugin 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
+Plugin 'kchmck/vim-coffee-script'                     " syntax for coffeescript
+Plugin 'lambdalisue/vim-pyenv'                        " sync pyenv version. NOTE: known slow performance (only on boot time)
+Plugin 'maksimr/vim-jsbeautify'                       " format js and html pages
+Plugin 'mattn/emmet-vim'                              " html and css editing
+Plugin 'maximbaz/lightline-ale'                       " ale indicator for lightline
+Plugin 'mhinz/vim-startify'                           " fancy startup screen
+Plugin 'michaeljsmith/vim-indent-object'              " vii to highlight lines at same indent level
+Plugin 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }   " color scheme
+Plugin 'nelstrom/vim-textobj-rubyblock'               " provide ruby text objects
+Plugin 'nelstrom/vim-visual-star-search'              " * to serach current word
+Plugin 'onemanstartup/vim-slim'                       " syntax for slim. Use this over the official slim-template/vim-slim plugin for way better speed. See https://github.com/slim-template/vim-slim/issues/19#issuecomment-50607474
+Plugin 'posva/vim-vue'                                " syntax highlighting for vueJS
+Plugin 'ryanoasis/vim-devicons'                       " font icon integration
+Plugin 'sunaku/vim-ruby-minitest'                     " highlighting for minitest
+Plugin 'thoughtbot/vim-rspec'                         " allow tests running from vim
+Plugin 'tpope/vim-bundler'                            " support helpers for bundler
+Plugin 'tpope/vim-endwise'                            " add `end` in ruby and other scripts
+Plugin 'tpope/vim-fugitive'                           " look in .git/ctags for ctags index
+Plugin 'tpope/vim-projectionist'                      " define alt files per project
+Plugin 'tpope/vim-rails'                              " directory navigation and syntax for rails
+Plugin 'tpope/vim-rake'                               " configures path for lib and ext directories on ruby and rails projects
+Plugin 'tpope/vim-repeat'                             " allow . repeat on plugin commands
+Plugin 'tpope/vim-rhubarb'                            " :Gbrowse to get GH url
+Plugin 'tpope/vim-surround'                           " add paren and quote helpers
+Plugin 'tpope/vim-unimpaired'                         " handy bracket mappings
+Plugin 'leafgarland/typescript-vim'                   " Typescript support for vim
+Plugin 'vim-ruby/vim-ruby'                            " support for running ruby
+Plugin 'vim-scripts/tComment'                         " comment with `gc`
+Plugin 'w0rp/ale'                                     " async linter
+Plugin 'yegappan/greplace'                            " global search and replace
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line

@@ -43,6 +43,7 @@ set nowritebackup	             " don't make backup when overwriting file
 set number                     " display line numbers
 set numberwidth=5              " give space between relative and static line numbers
 set re=1                       " use old regex engine to speed up ruby syntax hightlighting
+set rtp+=/usr/local/opt/fzf    " add fzf runtime path to vim (see https://github.com/junegunn/fzf/blob/master/README-VIM.md#installation)
 set ruler		                   " show the cursor position all the time
 set scrolloff=5                " prevent hitting the bottom of the screen
 set shell=/bin/zsh             " set vi internal shell to zsh

@@ -13,10 +13,10 @@ windows:
       # synchronize: after
       panes:
         - vim .
-        -
+        - main
   - private_configs:
       root: <%= "#{ENV['PROJECT_DIR']}/environment_configurations" %>
       layout: main-horizontal
       panes:
         - vim .
-        -
+        - main

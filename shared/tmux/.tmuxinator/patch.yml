@@ -15,6 +15,10 @@ windows:
   - server: bundle exec rails server
   - console: bundle exec rails console
   - workers: bundle exec sidekiq
-  - webpack: bin/webpack-dev-server
+  - webpack:
+      layout: even-vertical
+      panes:
+        - yarn build --watch     # javascript
+        - yarn build:css --watch # css
   - redis: redis-server
   - bullet: tail -f log/bullet.log

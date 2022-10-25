@@ -16,7 +16,7 @@ windows:
   - console: bundle exec rails console
   - workers: DISABLE_SIDEKIQ_ALIVE=true bundle exec sidekiq
   - webpack:
-      layout: even-vertical
+      layout: even-horizontal
       panes:
         - yarn build --watch     # javascript
         - yarn build:css --watch # css

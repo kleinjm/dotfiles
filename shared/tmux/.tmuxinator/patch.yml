@@ -14,7 +14,7 @@ windows:
         -
   - server: bundle exec rails server
   - console: bundle exec rails console
-  - workers: bundle exec sidekiq
+  - workers: DISABLE_SIDEKIQ_ALIVE=true bundle exec sidekiq
   - webpack:
       layout: even-vertical
       panes:

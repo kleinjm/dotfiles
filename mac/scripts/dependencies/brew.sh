@@ -5,8 +5,6 @@ set -o pipefail
 
 echo "***Installing Brew and Brew bundle***"
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-mkdir -p /usr/local/include
-sudo chmod 777 /usr/local
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew bundle --file="$DOTFILES_DIR"/mac/Brewfile || true

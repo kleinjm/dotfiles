@@ -29,4 +29,3 @@ bash "$SHARED_DEPENDENCIES_SCRIPTS_PATH"/node.sh -H
 bash "$SHARED_DEPENDENCIES_SCRIPTS_PATH"/zsh_autosuggestions.sh -H
 bash "$DEPENDENCIES_SCRIPTS_PATH"/phoenix.sh -H
 bash "$DEPENDENCIES_SCRIPTS_PATH"/downloaded_apps.sh -H
-# bash "$DEPENDENCIES_SCRIPTS_PATH"/python.sh -H

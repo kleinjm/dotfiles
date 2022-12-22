@@ -1,0 +1,12 @@
+name: airbnb_automation
+root: <%= ENV["PROJECT_DIR"] %>/airbnb_automation
+# needed for pane-base-index 1 config
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim -c "silent VtrAttachToPane 3"
+        -
+        -

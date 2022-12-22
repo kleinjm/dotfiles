@@ -28,37 +28,21 @@ alias -g G="| ag " # ie. "rails routes G user" vs "rails routes | ag user"
 alias ag="ag --path-to-ignore ~/.ag_ignore"
 
 # Git
-alias develop='git develop'
 alias ga='git add'
 alias gl='git log'
-alias gpom='git pull origin master'
-alias grom='git pull origin master --rebase'
 alias gs='git s'
-alias master='git master'
 alias main='git main'
 
 # Vim
 alias projections="cp $DOTFILES_DIR/projections.json .projections.json"
 
-# NodeJS, NPM
-alias sequelize="node_modules/.bin/sequelize"
-
 # Rails
-alias mini="rails test" # minitest
 alias rT="bundle exec rake -T | grep " # search rake tasks
 alias rake='noglob rake' # https://github.com/robbyrussell/oh-my-zsh/issues/433#issuecomment-1670663
 alias rc!="spring stop && rails console"
-alias resolve-rails="master && bundle install && rails db:migrate && rails db:test:prepare"
-alias resolve-vue="nvm use && master && yarn install"
+alias update="bundle && yarn && rails db:migrate"
 
 # Script shortcuts
-alias dependencies="$DOTFILES_DIR/mac/scripts/dependencies.sh"
-alias download-music="$DOTFILES_DIR/mac/scripts/download_music.sh"
-alias fixmouse="$DOTFILES_DIR/linux/scripts/fixmouse.sh"
-alias get-song="$DOTFILES_DIR/mac/scripts/get_song.sh"
-alias pack="ruby $PROJECT_DIR/packing_checklist/app/run.rb"
-alias passwords="$DOTFILES_DIR/mac/scripts/passwords.sh"
 alias print-cmd="$DOTFILES_DIR/mac/scripts/print-cmd.sh"
-alias speed="speedtest-cli" # run a speedtest
+alias speed="speedtest" # run a speedtest
 alias symlink="$DOTFILES_DIR/mac/scripts/symlink_to_dotfiles_repo.sh"
-alias upload-music="$DOTFILES_DIR/mac/scripts/upload_music.sh"

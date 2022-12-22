@@ -2,33 +2,35 @@ tap "divoxx/brewery"
 tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "teamookla/speedtest"
 brew "xz"
 brew "awscli"
 brew "bash"
 brew "bluetoothconnector"
+brew "gettext"
 brew "glib"
 brew "cairo"
 brew "chamber"
 brew "cmake"
 brew "coreutils"
 brew "ctags"
+brew "folly"
 brew "erlang"
 brew "elixir"
 brew "guile"
 brew "p11-kit"
 brew "unbound"
 brew "gnutls"
-brew "gobject-introspection"
 brew "harfbuzz"
 brew "leptonica"
 brew "libass"
 brew "srt"
 brew "tesseract"
 brew "ffmpeg"
-brew "folly"
 brew "fzf"
 brew "gawk"
 brew "gdk-pixbuf"
@@ -36,6 +38,7 @@ brew "git"
 brew "git-lfs"
 brew "gnu-sed"
 brew "gnupg"
+brew "gobject-introspection"
 brew "gts"
 brew "pango"
 brew "graphviz"
@@ -44,12 +47,12 @@ brew "jq"
 brew "zookeeper"
 brew "kafka"
 brew "kubernetes-cli"
-brew "nghttp2"
 brew "lastpass-cli"
 brew "ruby"
 brew "macvim"
 brew "mas"
 brew "mysql@5.7"
+brew "nghttp2"
 brew "node"
 brew "parallel"
 brew "php"
@@ -75,14 +78,23 @@ brew "youtube-dl"
 brew "zlib"
 brew "divoxx/brewery/muggler"
 brew "heroku/brew/heroku"
+brew "teamookla/speedtest/speedtest"
 cask "aws-vault"
 cask "corelocationcli"
 mas "1Password 7", id: 1333542190
 mas "Disk Diag", id: 672206759
+mas "Droplr", id: 498672703
+mas "GarageBand", id: 682658836
+mas "Grammarly for Safari", id: 1462114288
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
 mas "LastPass", id: 926036361
 mas "Network Speed Monitor", id: 525944153
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
 mas "Paprika Recipe Manager 3", id: 1303222628
 mas "Pocket", id: 568494494
 mas "Slack", id: 803453959
+mas "Time Out", id: 402592703
 mas "WhatsApp", id: 1147396723
 mas "Xcode", id: 497799835

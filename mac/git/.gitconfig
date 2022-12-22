@@ -12,11 +12,9 @@
     cob = checkout -b
     d = diff
     dc = diff --cached
-    del = !git fetch --prune && git checkout master && git pull origin master && git branch -D
     ds = diff --stat
     l = log
     m = commit --amend --verbose
-    master = !git fetch --prune && git checkout master && git pull origin master && :
     main = !git fetch --prune && git checkout main && git pull origin main && :
     s = status -s
 

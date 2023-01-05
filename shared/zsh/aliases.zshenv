@@ -40,7 +40,7 @@ alias projections="cp $DOTFILES_DIR/projections.json .projections.json"
 alias rT="bundle exec rake -T | grep " # search rake tasks
 alias rake='noglob rake' # https://github.com/robbyrussell/oh-my-zsh/issues/433#issuecomment-1670663
 alias rc!="spring stop && rails console"
-alias update="main && gprune && bundle && yarn && rails db:migrate"
+alias update="main && gprune && bundle && yarn && rails db:migrate && rails restart"
 
 # Script shortcuts
 alias print-cmd="$DOTFILES_DIR/mac/scripts/print-cmd.sh"

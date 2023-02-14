@@ -60,7 +60,7 @@ HISTSIZE=1000000 # amount of commands saved in history
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # NOTE: zsh-syntax-highlighting was affecting boot performance
-# NOTE: rails plugin temporarily removed so because `rg` shortcut messed
+# NOTE: rails plugin temporarily removed because `rg` shortcut messed
 # with ripgrep
 plugins=(docker-compose git bundler rake ruby tmux docker command-not-found colored-man-pages)
 

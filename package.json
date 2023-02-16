@@ -8,6 +8,7 @@
   "dependencies": {
     "coffeelint": "^2.1.0",
     "coffeelint-prefer-double-quotes": "^0.1.0",
+    "neovim": "^4.10.1",
     "sass-lint": "^1.12.1"
   }
 }

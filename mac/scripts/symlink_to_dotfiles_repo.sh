@@ -37,6 +37,9 @@ stow -v -t "$HOME" -d mac tmux
 stow -v -t "$HOME" -d shared vim
 stow -v -t "$HOME" -d mac vim
 
+mkdir -p "$HOME"/.config/nvim
+stow -v -t "$HOME"/.config/nvim -d mac nvim
+
 # may need to `rm $HOME/.zshrc`
 stow -v -t "$HOME" -d shared zsh
 stow -v -t "$HOME" -d mac zsh

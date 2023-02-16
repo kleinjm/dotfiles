@@ -5,6 +5,11 @@ GEM
     erubis (2.7.0)
     gem-ctags (1.0.9)
     method_source (0.9.2)
+    msgpack (1.6.0)
+    multi_json (1.15.0)
+    neovim (0.9.0)
+      msgpack (~> 1.1)
+      multi_json (~> 1.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -26,6 +31,7 @@ PLATFORMS
 
 DEPENDENCIES
   gem-ctags
+  neovim
   pry
   pry-doc
   pry-nav

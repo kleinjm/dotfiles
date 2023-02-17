@@ -4,7 +4,7 @@ nnoremap <leader><leader> <c-^>
 nnoremap <leader>cf :let @+ = expand("%")<cr>
 
 " leader + i inserts binding.pry
-map <Leader>i orequire "pry"; binding.pry<ESC>0
+map <Leader>i obinding.pry<ESC>0
 " leader + d inserts debugger
 map <Leader>db odebugger; // eslint-disable-line no-debugger<ESC>
 " insert a frozen string literal tag at the top of the document and returns

@@ -114,11 +114,11 @@ inoremap <C-p> <esc>:w<cr>
 noremap <C-p> <esc>:w<cr>
 
 " ctrl+space exits out of search and everything
-nnoremap <C-@> <Esc>:noh<CR>
-vnoremap <C-@> <Esc>gV
-onoremap <C-@> <Esc>
-cnoremap <C-@> <C-c>
-inoremap <C-@> <Esc>
+nnoremap <C-Space> <Esc>:noh<CR>
+vnoremap <C-Space> <Esc>gV
+onoremap <C-Space> <Esc>
+cnoremap <C-Space> <C-c>
+inoremap <C-Space> <Esc>
 
 " Don't use arrow keys
 nnoremap <Left> :echoe "Use h"<CR>
@@ -192,12 +192,21 @@ vmap m <plug>(easymotion-s)
 " certain events, either when I stop interacting or when entering / leaving
 " insert mode
 
+let g:ale_fix_on_save = 1 " run fixers on save
 let g:ale_lint_delay = 1000
-let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 1 " run linters when you open a file
+let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
-" disable ale highlighting on errors (still get the column indicator)
-let g:ale_set_highlights = 0
+let g:ale_ruby_rubocop_auto_correct_all = 1 " autocorrect rubocop errors on save
+let g:ale_set_highlights = 0 " disable ale highlighting on errors (still get the column indicator)
+
+" Fixers are different than linters and need to be explicitly set
+let g:ale_fixers = {
+\   'css': ['prettier'],
+\   'javascript': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'eslint'],
+\   'ruby': ['rubocop'],
+\}
 " ##### END ALE async linting config #####
 
 

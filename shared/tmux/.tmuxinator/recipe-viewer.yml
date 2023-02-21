@@ -9,7 +9,7 @@ windows:
   - editor:
       layout: e571,272x59,0,0[272x49,0,0,24,272x9,0,50,25]
       panes:
-        - vim -c "silent VtrAttachToPane 2"
+        - nvim -c "silent VtrAttachToPane 2"
         -
         - tail -f log/bullet.log
   - server: rails s --early-hints

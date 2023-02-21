@@ -12,11 +12,11 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - vim .
+        - nvim .
         - main
   - private_configs:
       root: <%= "#{ENV['PROJECT_DIR']}/environment_configurations" %>
       layout: main-horizontal
       panes:
-        - vim .
+        - nvim .
         - main

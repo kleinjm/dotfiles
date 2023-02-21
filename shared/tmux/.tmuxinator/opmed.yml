@@ -12,7 +12,7 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - vim .
+        - nvim .
         -
   - server: BLOG_THEME="opmed" rails s -p 5210
   - console: bin/rails c

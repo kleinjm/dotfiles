@@ -9,7 +9,7 @@ windows:
   - editor:
       layout: main-horizontal
       panes:
-        - vim -c "silent VtrAttachToPane 2"
+        - nvim -c "silent VtrAttachToPane 2"
         -
   - server: rails s --early-hints -p=3000
   - console: rails c

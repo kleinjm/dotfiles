@@ -12,5 +12,5 @@ windows:
       # TODO: See if I can fix - https://github.com/tmux/tmux/issues/1970
       layout: 1181,272x67,0,0[272x53,0,0,43,272x13,0,54,45]
       panes:
-        - vim -c "silent VtrAttachToPane 2"
+        - nvim -c "silent VtrAttachToPane 2"
         -

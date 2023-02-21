@@ -38,7 +38,7 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - vim .
+        - nvim .
         -
   - server:
       layout: 36e1,272x59,0,0{135x59,0,0,164,136x59,136,0,167}

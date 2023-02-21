@@ -7,5 +7,5 @@ windows:
   - editor:
       layout: main-horizontal
       panes:
-        - vim .
+        - nvim .
         -

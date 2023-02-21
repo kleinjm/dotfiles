@@ -199,6 +199,7 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_ruby_rubocop_auto_correct_all = 1 " autocorrect rubocop errors on save
 let g:ale_set_highlights = 0 " disable ale highlighting on errors (still get the column indicator)
+let g:ale_virtualtext_cursor = 0 " disable inline error messages
 
 " Fixers are different than linters and need to be explicitly set
 let g:ale_fixers = {

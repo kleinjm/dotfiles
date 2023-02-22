@@ -1,0 +1,14 @@
+name: danger-patch_rules
+root: <%= ENV["PROJECT_DIR"] %>/danger-patch_rules
+# needed for pane-base-index 1 config
+startup_pane: 1
+# Runs in each window and pane before window/pane specific commands
+pre_window: nvm use
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - nvim -c "silent VtrAttachToPane 3"
+        -
+        -

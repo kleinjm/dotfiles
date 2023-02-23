@@ -261,7 +261,7 @@ let g:fzf_files_options =
 
 " Create alternate file if it doesn't exist
 " https://github.com/tpope/vim-rails/issues/503#issuecomment-1158877143
-command AC :execute "e " . eval('rails#buffer().alternate()')
+command AC :execute "vsp " . eval('rails#buffer().alternate()')
 
 " Source these last because they depend on the other definitions
 source ~/.vim/leader_mappings.vim " define leader key mappings

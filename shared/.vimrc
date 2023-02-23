@@ -259,8 +259,8 @@ let g:fzf_files_options =
 " let g:UltiSnipsEditSplit="vertical"
 " ##### END UltiSnips #####
 
-# Create alternate file if it doesn't exist
-# https://github.com/tpope/vim-rails/issues/503#issuecomment-1158877143
+" Create alternate file if it doesn't exist
+" https://github.com/tpope/vim-rails/issues/503#issuecomment-1158877143
 command AC :execute "e " . eval('rails#buffer().alternate()')
 
 " Source these last because they depend on the other definitions

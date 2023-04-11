@@ -203,7 +203,8 @@ let g:ale_virtualtext_cursor = 0 " disable inline error messages
 
 " Fixers are different than linters and need to be explicitly set
 let g:ale_fixers = {
-\   'css': ['prettier'],
+\   'css': ['prettier', 'stylelint'],
+\   'scss': ['prettier', 'stylelint'],
 \   'javascript': ['prettier', 'eslint'],
 \   'typescript': ['prettier', 'eslint'],
 \   'ruby': ['rubocop'],

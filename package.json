@@ -6,6 +6,7 @@
   "author": "James Klein <kleinjm007@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@githubnext/github-copilot-cli": "^0.1.33",
     "coffeelint": "^2.1.0",
     "coffeelint-prefer-double-quotes": "^0.1.0",
     "neovim": "^4.10.1",

@@ -88,7 +88,7 @@ if [ -f $LOCAL_CONFIG ]; then
   source $LOCAL_CONFIG
 fi
 
-export EDITOR='vim' # Preferred editor for local and remote sessions
+export EDITOR='nvim' # Preferred editor for local and remote sessions
 export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh
 # something was setting RBENV_VERSION and it was preventing using .ruby-version
 export RBENV_VERSION=

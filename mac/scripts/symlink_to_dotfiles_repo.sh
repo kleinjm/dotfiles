@@ -44,8 +44,11 @@ stow -v -t "$HOME"/.config/nvim -d mac nvim
 stow -v -t "$HOME" -d shared zsh
 stow -v -t "$HOME" -d mac zsh
 
-# sudo needed to write hosts file
-sudo stow -v -t /etc -d mac etc
+# sudo needed to delete and write hosts file
+# Symlink cannot be used. Must use a hard link
+# https://superuser.com/a/1362442
+sudo rm /etc/hosts
+sudo ln -f "$PRIVATE_CONFIGS_DIR"/mac/etc/hosts /etc/hosts
 
 ln -sf "$DOTFILES_DIR"/mac/scripts/vendor/* /usr/local/bin
 

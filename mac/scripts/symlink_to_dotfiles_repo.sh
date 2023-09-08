@@ -44,6 +44,9 @@ stow -v -t "$HOME"/.config/nvim -d mac nvim
 stow -v -t "$HOME" -d shared zsh
 stow -v -t "$HOME" -d mac zsh
 
+# sudo needed to write hosts file
+sudo stow -v -t /etc -d mac etc
+
 ln -sf "$DOTFILES_DIR"/mac/scripts/vendor/* /usr/local/bin
 
 mkdir -p "$HOME"/.pyenv

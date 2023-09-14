@@ -31,7 +31,7 @@ set -g prefix C-s # set prefix to ctrl+s
 set -g prefix2 "None" # remove prefix2 binding from oh-my-zsh
 set -g status-interval 5 # refresh the status bar every n seconds
 set -g status-keys "emacs" # standard shell commands in tmux : command bar
-set -g @ticker_stock "DOCS" # stock ticker symbol for https://github.com/Brutuski/tmux-ticker plugin
+set -g @ticker_stock "NDAQ" # stock ticker symbol for https://github.com/Brutuski/tmux-ticker plugin
 
 setw -g mode-keys vi # act like vim
 

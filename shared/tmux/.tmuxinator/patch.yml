@@ -15,11 +15,12 @@ windows:
   - server: bundle exec rails server
   - console: bundle exec rails console
   - workers: DISABLE_SIDEKIQ_ALIVE=true bundle exec sidekiq
-  - esbuild:
-      layout: even-horizontal
+  - frontend:
+      layout: tiled
       panes:
-        - yarn build --watch     # javascript
-        - yarn build:css --watch # css
-  - storybook: bin/watch_storybook
+        - yarn build --watch     # javascript / esbuild
+        - yarn build:css --watch # scss -> css
+        - yarn tsc --watch       # typescript compiler
+        - bin/watch_storybook    # storybook
   - redis: redis-server
   - bullet: tail -f log/bullet.log

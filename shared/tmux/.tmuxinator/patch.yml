@@ -20,5 +20,6 @@ windows:
       panes:
         - yarn build --watch     # javascript
         - yarn build:css --watch # css
+  - storybook: bin/watch_storybook
   - redis: redis-server
   - bullet: tail -f log/bullet.log

@@ -1,0 +1,11 @@
+{
+    "window.commandCenter": 1,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "terminal.external.osxExec": "iTerm.app",
+    "editor.formatOnSave": true,
+	"[ruby]":  {
+        "editor.defaultFormatter": "rubocop.vscode-rubocop"
+    },
+}

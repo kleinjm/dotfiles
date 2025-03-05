@@ -58,8 +58,10 @@ ln -sf "$DOTFILES_DIR"/shared/pyenv/version "$HOME"/.pyenv/version
 mkdir -p "$HOME"/.rbenv
 ln -sf "$DOTFILES_DIR"/rbenv/.rbenv/version "$HOME"/.rbenv/version
 
+# Cursor IDE settings
 mkdir -p "$HOME"/Library/Application\ Support/Cursor/User
 ln -sf "$DOTFILES_DIR"/mac/cursor/keybindings.json "$HOME"/Library/Application\ Support/Cursor/User/keybindings.json
+ln -sf "$DOTFILES_DIR"/mac/cursor/settings.json "$HOME"/Library/Application\ Support/Cursor/User/settings.json
 
 # May need to update permissions
 # chmod -R 0755 ~/.git/git_template/hooks

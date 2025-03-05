@@ -7,5 +7,9 @@
         "key": "ctrl+k",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+=",
+        "command": "notifications.focusToasts"
     }
 ]

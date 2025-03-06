@@ -7,5 +7,8 @@
     "editor.formatOnSave": true,
     "[ruby]": {
         "editor.defaultFormatter": "rubocop.vscode-rubocop"
-    }
+    },
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredLightColorTheme": "Default Light+",
+    "vim.useSystemClipboard": true
 }

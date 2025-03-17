@@ -120,9 +120,10 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Always put new terminal sessions in a tmux session if not already in one
-if [[ -z "$TMUX" ]]; then
-  tmux new-session -A -s "$USER"
-fi
+# (3/17/25) Disabled due to conflict with Cursor/VS Code
+# if [[ -z "$TMUX" ]]; then
+#   tmux new-session -A -s "$USER"
+# fi
 
 # Terraform autocomplete installed via `terraform -install-autocomplete`
 autoload -U +X bashcompinit && bashcompinit

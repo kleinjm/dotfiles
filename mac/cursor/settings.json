@@ -10,5 +10,9 @@
     },
     "window.autoDetectColorScheme": true,
     "workbench.preferredLightColorTheme": "Default Light+",
-    "vim.useSystemClipboard": true
+    "vim.useSystemClipboard": true,
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "$HOME/.vimrc",
+    "sync.gist": "6dc02523361e0893b35243f84371dec8",
+    "sync.autoUpload": true
 }

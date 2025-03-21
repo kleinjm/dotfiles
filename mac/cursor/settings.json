@@ -14,5 +14,7 @@
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "$HOME/.vimrc",
     "sync.gist": "6dc02523361e0893b35243f84371dec8",
-    "sync.autoUpload": true
+    "sync.autoUpload": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
 }

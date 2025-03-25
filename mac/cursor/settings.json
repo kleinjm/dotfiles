@@ -17,4 +17,7 @@
     "sync.autoUpload": true,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
+    "dotfiles.repository": "https://github.com/kleinjm/vscode_dotfiles.git",
+    "dotfiles.targetPath": "~/dotfiles",
+    "dotfiles.installCommand": "install.sh"
 }

@@ -9,7 +9,20 @@
         "when": "terminalFocus"
     },
     {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
         "key": "ctrl+shift+=",
         "command": "notifications.focusToasts"
-    }
+    },
+    // Unmap the aichat focus in favor of vscode-run-rspec-file shortcut for running the current line
+    {
+        "key": "cmd+l",
+        "command": "-aichat.newchataction"
+    },
 ]

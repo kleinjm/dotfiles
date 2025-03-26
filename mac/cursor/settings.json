@@ -19,5 +19,6 @@
     "explorer.confirmDelete": false,
     "dotfiles.repository": "https://github.com/kleinjm/vscode_dotfiles.git",
     "dotfiles.targetPath": "~/dotfiles",
-    "dotfiles.installCommand": "install.sh"
+    "dotfiles.installCommand": "install.sh",
+    "terminal.integrated.defaultProfile.linux": "zsh"
 }

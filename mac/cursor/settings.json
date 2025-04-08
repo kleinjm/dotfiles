@@ -8,6 +8,7 @@
     "[ruby]": {
         "editor.defaultFormatter": "rubocop.vscode-rubocop"
     },
+    "editor.wordWrap": "on",
     "window.autoDetectColorScheme": true,
     "workbench.preferredLightColorTheme": "Default Light+",
     "vim.useSystemClipboard": true,
@@ -20,5 +21,8 @@
     "dotfiles.repository": "https://github.com/kleinjm/vscode_dotfiles.git",
     "dotfiles.targetPath": "~/dotfiles",
     "dotfiles.installCommand": "install.sh",
-    "terminal.integrated.defaultProfile.linux": "zsh"
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.removeFinalNewlines": true
 }

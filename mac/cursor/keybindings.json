@@ -29,4 +29,8 @@
         "key": "cmd+i",
         "command": "composerMode.agent"
     },
+    {
+        "key": "cmd+r",
+        "command": "rubyLsp.goToRelevantFile"
+    }
 ]

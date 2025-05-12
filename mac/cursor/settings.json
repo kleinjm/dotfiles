@@ -1,28 +1,60 @@
 {
-    "window.commandCenter": true,
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
+  "dotfiles.installCommand": "install.sh",
+  "dotfiles.repository": "https://github.com/kleinjm/vscode_dotfiles.git",
+  "dotfiles.targetPath": "~/dotfiles",
+  "editor.defaultFormatter": "rubocop.vscode-rubocop",
+  "editor.formatOnSave": true,
+  // Adhere to the POSIX standard on file render
+  //
+  // When "files.insertFinalNewline" is enabled and "editor.renderFinalNewline"
+  // is not enabled, VS Code renders a line after the final newline character.
+  // Per the POSIX standard, this additional rendered line is not actually a
+  // line because it doesn't terminate with a newline character.  Fix this by
+  // disabling this setting.
+  "editor.renderFinalNewline": "off",
+  "editor.tabSize": 2,
+  "editor.trimAutoWhitespace": true,
+  "editor.wordWrap": "on",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "files.insertFinalNewline": true,
+  "files.removeFinalNewlines": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "git.openRepositoryInParentFolders": "never",
+  "[ruby]": {
+    "editor.defaultFormatter": "rubocop.vscode-rubocop"
+  },
+  "sync.autoUpload": true,
+  "sync.gist": "6dc02523361e0893b35243f84371dec8",
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.profiles.linux": {
+    "zsh": {
+      "path": "/bin/zsh",
+      "args": ["-l"]
+    }
+  },
+  "terminal.integrated.scrollback": 99999,
+  "vim.useSystemClipboard": true,
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "$HOME/.vimrc",
+  "window.autoDetectColorScheme": true,
+  "window.commandCenter": true,
+  "workbench.colorCustomizations": {
+    "[Monokai]": {
+      "panel.background": "#0C0C0B",
+      "sideBar.background": "#1E1F1C",
+      "terminal.background": "#1E1F1C",
+      "terminalCursor.background": "#7EA2B4"
     },
-    "terminal.external.osxExec": "iTerm.app",
-    "editor.formatOnSave": true,
-    "[ruby]": {
-        "editor.defaultFormatter": "rubocop.vscode-rubocop"
-    },
-    "editor.wordWrap": "on",
-    "window.autoDetectColorScheme": true,
-    "workbench.preferredLightColorTheme": "Default Light+",
-    "vim.useSystemClipboard": true,
-    "vim.vimrc.enable": true,
-    "vim.vimrc.path": "$HOME/.vimrc",
-    "sync.gist": "6dc02523361e0893b35243f84371dec8",
-    "sync.autoUpload": true,
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "dotfiles.repository": "https://github.com/kleinjm/vscode_dotfiles.git",
-    "dotfiles.targetPath": "~/dotfiles",
-    "dotfiles.installCommand": "install.sh",
-    "terminal.integrated.defaultProfile.linux": "zsh",
-    "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true,
-    "files.removeFinalNewlines": true
+  },
+  "workbench.editor.showTabs": "single", // No open file tabs
+  "workbench.preferredDarkColorTheme": "Monokai",
+  "workbench.preferredLightColorTheme": "Default Light+",
+  "workbench.sideBar.location": "right" // AI on the left
 }

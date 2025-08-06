@@ -1,7 +1,4 @@
 {
-  "dotfiles.installCommand": "install.sh",
-  "dotfiles.repository": "https://github.com/kleinjm/vscode_dotfiles.git",
-  "dotfiles.targetPath": "~/dotfiles",
   "editor.defaultFormatter": "rubocop.vscode-rubocop",
   "editor.formatOnSave": true,
   // Adhere to the POSIX standard on file render
@@ -21,12 +18,11 @@
     "asvetliakov.vscode-neovim": 1
   },
   "files.insertFinalNewline": true,
-  "files.removeFinalNewlines": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "git.openRepositoryInParentFolders": "never",
   "[ruby]": {
-    "editor.defaultFormatter": "rubocop.vscode-rubocop"
+    "editor.defaultFormatter": "Shopify.ruby-lsp"
   },
   "sync.autoUpload": true,
   "sync.gist": "6dc02523361e0893b35243f84371dec8",
@@ -43,6 +39,16 @@
   "vim.useSystemClipboard": true,
   "vim.vimrc.enable": true,
   "vim.vimrc.path": "$HOME/.vimrc",
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["u"],
+      "commands": ["undo"]
+    },
+    {
+      "before": ["<C-r>"],
+      "commands": ["redo"]
+    }
+  ],
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
   "workbench.colorCustomizations": {
@@ -56,5 +62,19 @@
   "workbench.editor.showTabs": "single", // No open file tabs
   "workbench.preferredDarkColorTheme": "Monokai",
   "workbench.preferredLightColorTheme": "Default Light+",
-  "workbench.sideBar.location": "right" // AI on the left
+  "workbench.sideBar.location": "right",
+  "window.confirmBeforeClose": "always",
+  "remote.autoForwardPortsSource": "hybrid",
+  "files.exclude": {
+    "tmp/capybara/*": true
+  },
+  "task.allowAutomaticTasks": "on",
+  "git.autofetch": true,
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "none"
+  },
+  "totalTypeScript.hiddenTips": [
+    "basic-types",
+    "union-type"
+  ] // AI on the left
 }

@@ -32,5 +32,9 @@
     {
         "key": "cmd+r",
         "command": "rubyLsp.goToRelevantFile"
+    },
+    {
+        "key": "cmd+e",
+        "command": "composerMode.background"
     }
 ]

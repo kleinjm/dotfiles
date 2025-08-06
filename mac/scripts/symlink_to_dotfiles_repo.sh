@@ -42,7 +42,7 @@ stow -v -t "$HOME"/.config/nvim -d mac nvim
 
 # may need to `rm $HOME/.zshrc`
 stow -v -t "$HOME" -d shared zsh
-stow -v -t "$HOME" -d mac zsh
+stow -v -t "$HOME" -d mac zsh --ignore='.profile'
 
 # sudo needed to delete and write hosts file
 # Symlink cannot be used. Must use a hard link
@@ -65,5 +65,10 @@ ln -sf "$DOTFILES_DIR"/mac/cursor/settings.json "$HOME"/Library/Application\ Sup
 
 # May need to update permissions
 # chmod -R 0755 ~/.git/git_template/hooks
+
+# Symlink entire agent-os and claude directories
+# If directory exists, do not symlink
+ln -s "$DOTFILES_DIR"/mac/.agent-os "$HOME"
+ln -s "$DOTFILES_DIR"/mac/.claude "$HOME"
 
 echo "Symlinking completed successfully"

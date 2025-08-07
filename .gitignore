@@ -7,3 +7,22 @@ tmp
 
 # Ignore locally installed vundle plugins
 shared/vim/.vim/bundle
+
+# Claude AI sensitive files - SECURITY CRITICAL
+mac/.claude/.credentials.json
+mac/.claude/credentials.json
+mac/.claude/.credentials*
+mac/.claude/ide/*.lock
+mac/.claude/projects/
+mac/.claude/statsig/
+mac/.claude/todos/
+
+# General security patterns
+*.credentials.json
+*credentials.json
+*.lock
+.env
+.env.*
+*.key
+*.pem
+*.cert

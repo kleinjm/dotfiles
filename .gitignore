@@ -16,6 +16,7 @@ mac/.claude/ide/*.lock
 mac/.claude/projects/
 mac/.claude/statsig/
 mac/.claude/todos/
+mac/.claude/shell-snapshots/
 
 # General security patterns
 *.credentials.json

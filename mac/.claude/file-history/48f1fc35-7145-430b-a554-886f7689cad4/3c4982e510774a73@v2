@@ -1,7 +1,0 @@
-# frozen_string_literal: true
-
-class LegalEntityPresenter < SimpleDelegator
-  def entity_type_display
-    I18n.t("legal_entity.entity_types.#{entity_type}", default: entity_type.capitalize)
-  end
-end

@@ -1,7 +1,0 @@
-# frozen_string_literal: true
-
-class Admin::HomeController < Admin::BaseController
-  def index
-    # TODO: Gather some stats
-  end
-end

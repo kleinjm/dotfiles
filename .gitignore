@@ -18,6 +18,11 @@ mac/.claude/statsig/
 mac/.claude/todos/
 mac/.claude/shell-snapshots/
 
+# Claude AI ephemeral files
+mac/.claude/file-history/
+**/.claude/history.jsonl
+.claude/settings.local.json
+
 # General security patterns
 *.credentials.json
 *credentials.json
@@ -27,3 +32,12 @@ mac/.claude/shell-snapshots/
 *.key
 *.pem
 *.cert
+
+# Vim temporary files
+*.un~
+
+# IDE and editor files
+.ruby-lsp/
+
+# macOS system files
+.DS_Store

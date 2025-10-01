@@ -1,0 +1,130 @@
+# frozen_string_literal: true
+
+class CustomerEntitiesPresenter
+  include Memery
+
+  def initialize(escrow:, organization:, customer_type:)
+    @escrow = escrow
+    @organization = organization
+    @customer_type = customer_type
+  end
+
+  memoize def title
+    customer_type.pluralize.capitalize
+  end
+
+  memoize def customers
+    base_customers = case customer_type
+                     when Customer::BUYER
+                       escrow.buyers
+                     when Customer::SELLER
+                       escrow.sellers
+                     else
+                       escrow.customers.none
+                     end
+
+    # Filter to only customers with FinCEN feature enabled
+    base_customers.select { |customer| Feature.fincen_enabled?(customer) }
+  end
+
+  memoize def legal_entities
+    base_entities = case customer_type
+                    when Customer::BUYER
+                      escrow.buyer_legal_entities
+                    when Customer::SELLER
+                      escrow.seller_legal_entities
+                    else
+                      escrow.legal_entities.none
+                    end
+
+    base_entities.map { |entity| LegalEntityPresenter.new(entity) }
+  end
+
+  memoize def all_entities
+    customers + legal_entities
+  end
+
+  def customer_path(customer)
+    case customer_type
+    when Customer::BUYER
+      Rails.application.routes.url_helpers.organization_escrow_fincen_layout_buyer_path(organization, escrow, customer)
+    when Customer::SELLER
+      Rails.application.routes.url_helpers.organization_escrow_fincen_layout_seller_path(organization, escrow, customer)
+    end
+  end
+
+  memoize def add_customer_path
+    case customer_type
+    when Customer::BUYER
+      Rails.application.routes.url_helpers.new_organization_escrow_fincen_layout_buyer_entity_path(organization, escrow)
+    when Customer::SELLER
+      Rails.application.routes.url_helpers.new_organization_escrow_fincen_layout_seller_entity_path(organization, escrow)
+    end
+  end
+
+  memoize def add_customer_text
+    "+ Add Additional #{customer_type.capitalize}"
+  end
+
+  def customers_any?
+    customers.any?
+  end
+
+  def legal_entities_any?
+    legal_entities.any?
+  end
+
+  def entities_any?
+    all_entities.any?
+  end
+
+  def empty_state_message
+    'There are no customers yet'
+  end
+
+  def individual_customer?(entity)
+    entity.is_a?(Customer)
+  end
+
+  def legal_entity?(entity)
+    entity.is_a?(LegalEntity)
+  end
+
+  def authorized_signatories_for(legal_entity)
+    # Extract the wrapped entity if it's a presenter
+    entity = legal_entity.is_a?(LegalEntityPresenter) ? legal_entity.__getobj__ : legal_entity
+    entity.legal_ownerships
+      .includes(:customer)
+      .where(relationship_type: LegalOwnership::RELATIONSHIP_TYPES[:authorized_signatory])
+      .map(&:customer)
+  end
+
+  def beneficial_owners_for(legal_entity)
+    # Extract the wrapped entity if it's a presenter
+    entity = legal_entity.is_a?(LegalEntityPresenter) ? legal_entity.__getobj__ : legal_entity
+    entity.legal_ownerships
+      .includes(:customer)
+      .where(relationship_type: LegalOwnership::RELATIONSHIP_TYPES[:beneficial_owner])
+      .map(&:customer)
+  end
+
+  def add_authorized_signatory_path(legal_entity)
+    # Extract the wrapped entity if it's a presenter
+    entity = legal_entity.is_a?(LegalEntityPresenter) ? legal_entity.__getobj__ : legal_entity
+    Rails.application.routes.url_helpers.new_organization_escrow_fincen_layout_authorized_signatory_path(
+      organization, escrow, entity
+    )
+  end
+
+  def add_beneficial_owner_path(legal_entity)
+    # Extract the wrapped entity if it's a presenter
+    entity = legal_entity.is_a?(LegalEntityPresenter) ? legal_entity.__getobj__ : legal_entity
+    Rails.application.routes.url_helpers.new_organization_escrow_fincen_layout_beneficial_owner_path(
+      organization, escrow, entity
+    )
+  end
+
+  private
+
+  attr_reader :escrow, :organization, :customer_type
+end

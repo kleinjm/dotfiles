@@ -1,0 +1,378 @@
+# frozen_string_literal: true
+
+# == Schema Information
+#
+# Table name: customers
+#
+#  id                             :bigint           not null, primary key
+#  date_of_birth                  :string
+#  email                          :string           not null
+#  email_domain                   :string           not null
+#  first_login_at                 :datetime
+#  first_name                     :string           not null
+#  informed_wire_sent_at          :datetime
+#  invitation_cancelled_at        :datetime
+#  invitation_sent_at             :datetime
+#  last_name                      :string           not null
+#  memo                           :text
+#  org_wire_information_viewed_at :datetime
+#  passphrase_confirmed_at        :datetime
+#  passphrase_denied_at           :datetime
+#  phone_number                   :string           not null
+#  redacted_at                    :datetime
+#  ssn                            :string
+#  status                         :string           default("pending"), not null
+#  type                           :string           not null
+#  uuid                           :uuid             not null
+#  created_at                     :datetime         not null
+#  updated_at                     :datetime         not null
+#  escrow_id                      :bigint           not null
+#  organization_bank_account_id   :bigint
+#
+# Indexes
+#
+#  index_customers_on_email                         (email)
+#  index_customers_on_email_domain                  (email_domain)
+#  index_customers_on_escrow_id_and_email           (escrow_id,email) UNIQUE
+#  index_customers_on_escrow_id_and_phone_number    (escrow_id,phone_number) UNIQUE
+#  index_customers_on_organization_bank_account_id  (organization_bank_account_id)
+#  index_customers_on_redacted_at                   (redacted_at)
+#  index_customers_on_uuid                          (uuid) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (escrow_id => escrows.id)
+#  fk_rails_...  (organization_bank_account_id => bank_accounts.id) ON DELETE => nullify
+#
+require 'rails_helper'
+
+RSpec.describe Customer do
+  describe 'validations' do
+    it 'is invalid on create when email is taken by a Person' do
+      person = create(:person, email: 'jane@example.com')
+      escrow = create(:escrow)
+      customer = Buyer.new(
+        escrow:,
+        first_name: 'Jane',
+        last_name: 'Smith',
+        phone_number: '+15555555555',
+        email: person.email
+      )
+
+      expect(customer).not_to be_valid
+      expect(customer.errors.added?(:base, :taken_by_person)).to be true
+    end
+
+    it 'validates presence of email_domain' do
+      customer = build(:buyer, email: nil)
+      expect(customer).not_to be_valid
+      expect(customer.errors[:email_domain]).to include("can't be blank")
+    end
+  end
+
+  describe '#email_domain' do
+    it 'automatically sets email_domain when customer is created' do
+      customer = create(:buyer, email: 'test@example.com')
+      expect(customer.email_domain).to eq('example.com')
+    end
+
+    it 'updates email_domain when email changes' do
+      customer = create(:buyer, email: 'test@example.com')
+      expect(customer.email_domain).to eq('example.com')
+
+      customer.update!(email: 'updated@newdomain.org')
+      expect(customer.email_domain).to eq('newdomain.org')
+    end
+
+    it 'handles subdomains correctly' do
+      customer = create(:buyer, email: 'test@mail.example.com')
+      expect(customer.email_domain).to eq('mail.example.com')
+    end
+
+    it 'does not change email_domain if email does not change' do
+      customer = create(:buyer, email: 'test@example.com')
+      original_domain = customer.email_domain
+
+      customer.update!(first_name: 'Updated')
+      expect(customer.email_domain).to eq(original_domain)
+    end
+  end
+
+  describe 'associations' do
+    it { is_expected.to have_many(:addresses).dependent(:destroy) }
+    it { is_expected.to have_one(:primary_address).class_name('Address') }
+    it { is_expected.to have_many(:activities).through(:escrow) }
+    it { is_expected.to have_many(:entitlements).dependent(:destroy) }
+    it { is_expected.to have_many(:features).through(:entitlements) }
+    it { is_expected.to have_one(:personal_information).dependent(:destroy) }
+
+    describe '#organization_bank_account' do
+      it { is_expected.to belong_to(:organization_bank_account).class_name('BankAccount').optional }
+
+      it 'bank account MUST belong to the same organization' do
+        customer = create(:buyer)
+        buyer_organization = customer.organization
+        bank_account = create(:bank_account, organization: buyer_organization)
+        customer.update!(organization_bank_account: bank_account)
+        expect(customer.organization_bank_account).to eq(bank_account)
+      end
+
+      it 'bank account MUST NOT belong to a different organization' do
+        customer = create(:buyer)
+        customer.organization
+        bank_account = create(:bank_account, organization: create(:organization))
+        expect { customer.update!(organization_bank_account: bank_account) }.to raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
+  end
+
+  describe 'status predicates' do
+    Customer::STATUSES.each_key do |status|
+      it "#{status}? returns true when status is #{status}" do
+        customer = build(:buyer, status: status)
+        expect(customer.public_send("#{status}?")).to be true
+      end
+    end
+  end
+
+  describe 'scopes' do
+    describe '.invited' do
+      it 'returns customers with invitation_sent_at set' do
+        customer = create(:buyer, invitation_sent_at: Time.current)
+        expect(described_class.invited).to include(customer)
+      end
+
+      it 'returns customers with invitation_sent_at not set' do
+        customer = create(:buyer, invitation_sent_at: nil)
+        expect(described_class.invited).to include(customer)
+      end
+
+      it 'does not return customers with invitation_cancelled_at set' do
+        customer = create(:buyer, invitation_sent_at: Time.current, invitation_cancelled_at: Time.current)
+        expect(described_class.invited).not_to include(customer)
+      end
+    end
+
+    describe '.ready_for_flow' do
+      it 'returns customers with invitation_sent_at set and invitation_cancelled_at not set' do
+        customer = create(:buyer, invitation_sent_at: Time.current, invitation_cancelled_at: nil)
+        expect(described_class.ready_for_flow(email: customer.email, phone_number: customer.phone_number)).to include(customer)
+      end
+
+      it 'returns customers with invitation_sent_at not set' do
+        customer = create(:buyer, invitation_sent_at: nil, invitation_cancelled_at: nil)
+        expect(described_class.ready_for_flow(email: customer.email, phone_number: customer.phone_number)).to include(customer)
+      end
+
+      it 'does not return customers with invitation_cancelled_at set' do
+        customer = create(:buyer, invitation_sent_at: Time.current, invitation_cancelled_at: Time.current)
+        expect(described_class.ready_for_flow(email: customer.email, phone_number: customer.phone_number)).not_to include(customer)
+      end
+    end
+  end
+
+  describe '#changeable?' do
+    it 'cannot be changed after invitation is sent' do
+      customer = Buyer.new
+      expect { customer.invitation_sent_at = Time.current }
+        .to change { customer.changeable? }.from(true).to(false)
+    end
+
+    it 'cannot be changed after logging in for the first time' do
+      customer = Buyer.new
+      expect { customer.first_login_at = Time.current }
+        .to change { customer.changeable? }.from(true).to(false)
+    end
+  end
+
+  describe '#logged_in!' do
+    it 'calls Customer::LoginService with the customer and user session' do
+      customer = build(:buyer)
+      user_session = build(:user_session)
+
+      stub_service_success(Customer::TrackLoginService, success: customer)
+
+      expect(customer.logged_in!(user_session)).to eq(customer)
+    end
+  end
+
+  describe '#invite_resend_allowed?' do
+    it 'returns true when customer is invited but not logged in and invitation was sent more than 5 minutes ago' do
+      customer = build(:buyer,
+                       invitation_sent_at: Invitation::RESEND_INTERVAL.ago - 1.minute,
+                       first_login_at: nil)
+
+      expect(customer.invite_resend_allowed?).to be true
+    end
+
+    it 'returns true when customer is invited but not logged in and invitation was cancelled' do
+      customer = build(:buyer,
+                       invitation_sent_at: Time.current,
+                       first_login_at: nil,
+                       invitation_cancelled_at: Time.current)
+
+      expect(customer.invite_resend_allowed?).to be true
+    end
+
+    it 'returns false when customer has logged in' do
+      customer = build(:buyer,
+                       invitation_sent_at: Invitation::RESEND_INTERVAL.ago + 1.minute,
+                       first_login_at: Time.current)
+
+      expect(customer.invite_resend_allowed?).to be false
+    end
+
+    it 'returns false when customer has not been invited' do
+      customer = build(:buyer,
+                       invitation_sent_at: nil,
+                       first_login_at: nil)
+
+      expect(customer.invite_resend_allowed?).to be false
+    end
+
+    it 'returns false when invitation was sent less than 5 minutes ago' do
+      customer = build(:buyer,
+                       invitation_sent_at: Invitation::RESEND_INTERVAL.ago + 1.minute,
+                       first_login_at: nil)
+
+      expect(customer.invite_resend_allowed?).to be false
+    end
+  end
+
+  describe '#invitation_cancelled?' do
+    it 'returns true when invitation was cancelled' do
+      customer = build(:buyer, invitation_cancelled_at: Time.current)
+      expect(customer.invitation_cancelled?).to be true
+    end
+
+    it 'returns false when invitation was not cancelled' do
+      customer = build(:buyer, invitation_cancelled_at: nil)
+      expect(customer.invitation_cancelled?).to be false
+    end
+  end
+
+  describe '#invite!' do
+    it 'sends an invitation, tracks the invitation as an activity and performs a health check later' do
+      fake_customer_io!
+      customer = create(:seller)
+      officer = customer.officer
+
+      expect { customer.invite!(whodunnit: officer) }.to change(Invitation, :count).by(1).and change(EscrowActivity, :count).by(1)
+
+      expect(customer.status).to eq('in_progress')
+      expect(customer.invitation_sent_at).to be_present
+      expect(customer.invitation_cancelled_at).to be_nil
+      expect(customer.escrow.status).to eq('in_progress')
+      expect(Customers::HealthCheckInvitationJob).to have_been_enqueued.with(customer, customer.invitations.last.id)
+    end
+
+    it 'cancels any existing invitations' do
+      fake_customer_io!
+      customer = create(:seller)
+      first_invite = customer.invite!
+
+      travel_to(1.hour.from_now) do
+        expect { customer.invite! }.to change(Invitation, :count).by(1).and change(EscrowActivity, :count).by(1)
+      end
+
+      expect(customer.status).to eq('in_progress')
+      expect(customer.invitation_sent_at).to be_present
+      expect(customer.invitation_cancelled_at).to be_nil
+      expect(first_invite.reload.cancelled?).to be true
+    end
+
+    it 'noop when invitation has already been send and resend is not allowed' do
+      customer = create(:seller, invitation_sent_at: Time.current, first_login_at: nil)
+      allow(customer).to receive_messages(invite_resend_allowed?: false)
+
+      expect(Invitation).not_to receive(:deliver!)
+      expect(customer).not_to receive(:track_activity)
+
+      customer.invite!
+    end
+
+    it 'sends a new invitation if resend is allowed' do
+      customer = create(:seller, invitation_sent_at: Time.current, first_login_at: nil)
+      allow(customer).to receive_messages(invite_resend_allowed?: true)
+
+      allow(Invitation).to receive(:deliver!) { instance_double(Invitation, id: 1) }
+      expect(customer).to receive(:track_activity)
+
+      customer.invite!
+
+      expect(Invitation).to have_received(:deliver!)
+    end
+
+    it 'sends a statement of info invitation' do
+      fake_customer_io!
+      customer = create(:seller)
+      officer = customer.officer
+
+      expect do
+        customer.invite!(whodunnit: officer, kind: Invitation::KIND[:statement_of_info])
+      end.to change(Invitation, :count).by(1)
+        .and change(EscrowActivity, :count).by(1)
+
+      expect(customer.status).to eq('in_progress')
+      expect(customer.invitation_sent_at).to be_present
+      expect(customer.invitation_cancelled_at).to be_nil
+      expect(customer.escrow.status).to eq('in_progress')
+      expect(Customers::HealthCheckInvitationJob).to have_been_enqueued.with(customer, customer.invitations.last.id)
+      expect(customer.activities.last.event).to eq('invited_statement_of_info')
+    end
+  end
+
+  describe '#cancel_invitation!' do
+    it 'cancels the invitation and tracks the cancellation as an activity' do
+      customer = create(:seller, invitation_sent_at: Time.current)
+      invitation = create(:invitation, inviter: customer.officer, invitee: customer, kind: 'seller', organization: customer.organization)
+
+      expect { customer.cancel_invitation! }.to change(EscrowActivity, :count).by(1)
+      expect(customer.status).to eq('cancelled')
+      expect(invitation.reload).to be_cancelled
+    end
+
+    it 'notifies Slack when invitation is cancelled' do
+      customer = create(:seller, invitation_sent_at: Time.current)
+      officer = customer.officer
+      slack_message = instance_double(Integrations::Slack::ComposeableMessage).as_null_object
+
+      expect(Integrations::Slack::ComposeableMessage).to receive(:new).with(channel: :user_notifications) do |&block|
+        block.call(slack_message)
+        slack_message
+      end
+
+      expect(slack_message).to receive(:section).with(icon: :x, text: 'Invitation cancelled')
+      expect(slack_message).to receive(:post!)
+
+      customer.cancel_invitation!(whodunnit: officer)
+    end
+
+    it 'noop when invitation has not been sent' do
+      customer = build(:seller, invitation_sent_at: nil)
+
+      expect(Invitation).not_to receive(:cancel_all_active!)
+      expect(customer).not_to receive(:track_activity)
+
+      customer.cancel_invitation!
+    end
+
+    it 'noop when invitation has already been cancelled' do
+      customer = build(:seller, invitation_sent_at: Time.current, invitation_cancelled_at: Time.current)
+
+      expect(Invitation).not_to receive(:cancel_all_active!)
+      expect(customer).not_to receive(:track_activity)
+
+      customer.cancel_invitation!
+    end
+
+    it 'noop when customer has logged in' do
+      customer = build(:seller, invitation_sent_at: Time.current, first_login_at: Time.current)
+
+      expect(Invitation).not_to receive(:cancel_all_active!)
+      expect(customer).not_to receive(:track_activity)
+
+      customer.cancel_invitation!
+    end
+  end
+end

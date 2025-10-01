@@ -1,0 +1,1298 @@
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
+#
+# It's strongly recommended that you check this file into your version control system.
+
+<<<<<<< HEAD
+ActiveRecord::Schema[8.0].define(version: 2025_09_25_220612) do
+=======
+ActiveRecord::Schema[8.0].define(version: 2025_09_26_230316) do
+>>>>>>> origin/main
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
+
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "addressable_type", null: false
+    t.bigint "addressable_id", null: false
+    t.string "address"
+    t.string "address2"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.boolean "primary_address", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "address_type"
+    t.index ["address_type"], name: "index_addresses_on_address_type"
+    t.index ["addressable_type", "addressable_id", "primary_address"], name: "index_addresses_on_addressable_and_primary", unique: true, where: "(primary_address = true)"
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable"
+    t.index ["uuid"], name: "index_addresses_on_uuid", unique: true
+  end
+
+  create_table "analysed_addresses", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "source_type", null: false
+    t.bigint "source_id", null: false
+    t.jsonb "input", null: false
+    t.jsonb "gem_data"
+    t.jsonb "smarty_data"
+    t.jsonb "google_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["source_type", "source_id"], name: "index_analysed_addresses_on_source", unique: true
+  end
+
+  create_table "bank_account_changes", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.bigint "submitter_id", null: false
+    t.bigint "reviewer_id"
+    t.bigint "bank_account_id"
+    t.string "bank_name", null: false
+    t.string "bank_address", null: false
+    t.string "account_number", null: false
+    t.string "wire_routing_number", null: false
+    t.string "swift_code"
+    t.datetime "rejected_at"
+    t.datetime "applied_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "account_name", null: false
+    t.string "account_address", null: false
+    t.string "account_type", null: false
+    t.string "alias", null: false
+    t.boolean "delete_account", default: false, null: false
+    t.index ["bank_account_id"], name: "index_bank_account_changes_on_bank_account_id"
+    t.index ["organization_id"], name: "index_bank_account_changes_on_organization_id"
+    t.index ["reviewer_id"], name: "index_bank_account_changes_on_reviewer_id"
+    t.index ["submitter_id"], name: "index_bank_account_changes_on_submitter_id"
+  end
+
+  create_table "bank_accounts", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.string "account_number", null: false
+    t.string "wire_routing_number", null: false
+    t.string "swift_code"
+    t.string "bank_name", null: false
+    t.string "bank_address", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "account_name", null: false
+    t.string "account_address", null: false
+    t.string "account_type", null: false
+    t.string "alias", null: false
+    t.datetime "deleted_at"
+    t.index ["organization_id"], name: "index_non_unique_bank_accounts_on_organization_id"
+  end
+
+  create_table "csp_reports", force: :cascade do |t|
+    t.string "document_uri"
+    t.string "referrer"
+    t.string "violated_directive"
+    t.string "effective_directive"
+    t.string "original_policy"
+    t.string "disposition"
+    t.string "blocked_uri"
+    t.integer "line_number"
+    t.integer "column_number"
+    t.string "source_file"
+    t.integer "status_code"
+    t.string "script_sample"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_uri"], name: "index_csp_reports_on_document_uri"
+  end
+
+  create_table "customer_payment_items", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.decimal "amount", precision: 12, scale: 2, null: false
+    t.date "due_date"
+    t.integer "position", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id", "position"], name: "index_customer_payment_items_on_customer_id_and_position", unique: true
+  end
+
+  create_table "customerio_emails", force: :cascade do |t|
+    t.string "owner_type", null: false
+    t.bigint "owner_id", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "tmsg_id", null: false
+    t.string "to", null: false
+    t.string "subject"
+    t.text "identifiers", null: false
+    t.text "message_data", null: false
+    t.string "status", null: false
+    t.text "error"
+    t.text "cio_data"
+    t.text "cio_data_updated_at"
+    t.string "delivery_id"
+    t.datetime "delivered_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "redacted_at"
+    t.index ["delivery_id"], name: "index_customerio_emails_on_delivery_id", unique: true
+    t.index ["owner_id"], name: "index_customerio_emails_owner_id"
+    t.index ["owner_type", "owner_id"], name: "index_customerio_emails_on_owner"
+    t.index ["redacted_at"], name: "index_customerio_emails_on_redacted_at"
+    t.index ["uuid"], name: "index_customerio_emails_on_uuid", unique: true
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.bigint "escrow_id", null: false
+    t.string "type", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "phone_number", null: false
+    t.string "email", null: false
+    t.string "date_of_birth"
+    t.string "ssn"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.datetime "redacted_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "first_login_at"
+    t.datetime "passphrase_confirmed_at"
+    t.datetime "passphrase_denied_at"
+    t.datetime "org_wire_information_viewed_at"
+    t.string "status", default: "pending", null: false
+    t.text "memo"
+    t.datetime "informed_wire_sent_at"
+    t.datetime "invitation_cancelled_at"
+    t.bigint "organization_bank_account_id"
+    t.index ["email"], name: "index_customers_on_email"
+    t.index ["escrow_id", "email"], name: "index_customers_on_escrow_id_and_email", unique: true
+    t.index ["escrow_id", "phone_number"], name: "index_customers_on_escrow_id_and_phone_number", unique: true
+    t.index ["organization_bank_account_id"], name: "index_customers_on_organization_bank_account_id"
+    t.index ["redacted_at"], name: "index_customers_on_redacted_at"
+    t.index ["uuid"], name: "index_customers_on_uuid", unique: true
+  end
+
+  create_table "customers_bank_accounts", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "customer_id", null: false
+    t.text "account_name", null: false
+    t.string "bank_name", null: false
+    t.string "account_type", null: false
+    t.text "account_number", null: false
+    t.text "wire_routing_number", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "redacted_at"
+    t.text "swift_code"
+    t.text "bank_logo"
+    t.index ["customer_id"], name: "index_customers_bank_accounts_on_customer_id", unique: true
+    t.index ["redacted_at"], name: "index_customers_bank_accounts_on_redacted_at"
+    t.index ["uuid"], name: "index_customers_bank_accounts_on_uuid", unique: true
+  end
+
+  create_table "customers_bank_links", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.string "status", default: "pending", null: false
+    t.datetime "started_at"
+    t.datetime "completed_at"
+    t.datetime "processed_at"
+    t.datetime "redacted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_customers_bank_links_on_customer_id"
+  end
+
+  create_table "customers_funds_disbursements", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "customer_id", null: false
+    t.string "kind", null: false
+    t.text "data_enc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_customers_funds_disbursements_on_customer_id", unique: true
+    t.index ["uuid"], name: "index_customers_funds_disbursements_on_uuid", unique: true
+  end
+
+  create_table "customers_identity_report_checks", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "report_id", null: false
+    t.string "label", null: false
+    t.string "result", null: false
+    t.jsonb "data_raw", default: {}, null: false
+    t.text "data_enc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["report_id", "label"], name: "index_customers_identity_report_checks_on_report_id_and_label", unique: true
+    t.index ["uuid"], name: "index_customers_identity_report_checks_on_uuid", unique: true
+  end
+
+  create_table "customers_identity_reports", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "customer_id", null: false
+    t.datetime "refreshed_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_customers_identity_reports_on_customer_id", unique: true
+    t.index ["uuid"], name: "index_customers_identity_reports_on_uuid", unique: true
+  end
+
+  create_table "customers_identity_verification_document_images", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "document_id", null: false
+    t.string "identifier", null: false
+    t.string "plaid_url_hash", null: false
+    t.boolean "usable", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_id", "identifier"], name: "idx_on_document_id_identifier_66a8512e3e", unique: true
+    t.index ["uuid"], name: "index_customers_identity_verification_document_images_on_uuid", unique: true
+  end
+
+  create_table "customers_identity_verification_documents", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "idv_id", null: false
+    t.integer "attempt", null: false
+    t.string "status", null: false
+    t.text "extracted_data"
+    t.text "analysis"
+    t.datetime "redacted_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["idv_id", "attempt"], name: "idx_on_idv_id_attempt_bb121699e5", unique: true
+    t.index ["uuid"], name: "index_customers_identity_verification_documents_on_uuid", unique: true
+  end
+
+  create_table "customers_identity_verification_selfie_checks", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "idv_id", null: false
+    t.integer "attempt", null: false
+    t.string "status", null: false
+    t.text "analysis"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["idv_id", "attempt"], name: "idx_on_idv_id_attempt_a754aeada6", unique: true
+    t.index ["uuid"], name: "index_customers_identity_verification_selfie_checks_on_uuid", unique: true
+  end
+
+  create_table "customers_identity_verifications", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "customer_id", null: false
+    t.string "status", default: "pending", null: false
+    t.jsonb "plaid_template_info"
+    t.jsonb "steps"
+    t.text "identity"
+    t.text "kyc_check"
+    t.text "risk_check"
+    t.datetime "started_at"
+    t.datetime "documents_processed_at"
+    t.datetime "processed_at"
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "selfie_checks_processed_at"
+    t.text "watchlist_screening"
+    t.datetime "redacted_at"
+    t.index ["customer_id"], name: "index_customers_identity_verifications_on_customer_id", unique: true
+    t.index ["redacted_at"], name: "index_customers_identity_verifications_on_redacted_at"
+    t.index ["uuid"], name: "index_customers_identity_verifications_on_uuid", unique: true
+  end
+
+  create_table "customers_media_views", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "customer_id", null: false
+    t.string "viewer_type", null: false
+    t.bigint "viewer_id", null: false
+    t.bigint "user_session_id", null: false
+    t.string "object_type", null: false
+    t.bigint "object_id", null: false
+    t.string "format", null: false
+    t.string "ip", null: false
+    t.datetime "created_at", null: false
+    t.index ["customer_id"], name: "index_customers_media_views_on_customer_id"
+    t.index ["object_type", "object_id"], name: "index_customers_media_views_on_object"
+    t.index ["user_session_id"], name: "index_customers_media_views_on_user_session_id"
+    t.index ["uuid"], name: "index_customers_media_views_on_uuid", unique: true
+    t.index ["viewer_type", "viewer_id"], name: "index_customers_media_views_on_viewer"
+  end
+
+  create_table "email_subscriptions", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "role"
+    t.datetime "confirmed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "role_other"
+    t.jsonb "ip_geo", default: {}, null: false
+  end
+
+  create_table "entitlements", force: :cascade do |t|
+    t.bigint "feature_id", null: false
+    t.string "owner_type", null: false
+    t.bigint "owner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feature_id", "owner_id", "owner_type"], name: "index_entitlements_on_feature_id_and_owner_id_and_owner_type", unique: true
+    t.index ["owner_id", "owner_type"], name: "index_entitlements_on_owner_id_and_owner_type"
+    t.index ["owner_type", "owner_id"], name: "index_entitlements_on_owner"
+  end
+
+  create_table "escrow_activities", force: :cascade do |t|
+    t.bigint "escrow_id", null: false
+    t.string "whodunnit_type"
+    t.bigint "whodunnit_id"
+    t.bigint "user_session_id"
+    t.string "category", null: false
+    t.string "event", null: false
+    t.datetime "timestamp", null: false
+    t.string "ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "ip_geo"
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_escrow_activities_on_customer_id"
+    t.index ["escrow_id", "category", "timestamp", "whodunnit_type", "whodunnit_id"], name: "idx_on_escrow_id_category_timestamp_whodunnit_type__a7bc456f93"
+    t.index ["user_session_id"], name: "index_escrow_activities_on_user_session_id"
+    t.index ["whodunnit_type", "whodunnit_id"], name: "index_escrow_activities_on_whodunnit"
+  end
+
+  create_table "escrows", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "reference", null: false
+    t.date "closes_on"
+    t.string "address", null: false
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "officer_id", null: false
+    t.string "address2"
+    t.boolean "demo_mode", default: false, null: false
+    t.string "status", default: "pending", null: false
+    t.integer "customers_count", default: 0
+    t.boolean "open", default: true, null: false
+    t.boolean "closes_on_tbd", default: false, null: false
+    t.string "verifiable_contact_type"
+    t.bigint "verifiable_contact_id"
+    t.index ["closes_on"], name: "index_escrows_on_closes_on"
+    t.index ["officer_id"], name: "index_escrows_on_officer_id"
+    t.index ["organization_id"], name: "index_escrows_on_organization_id"
+    t.index ["uuid"], name: "index_escrows_on_uuid", unique: true
+    t.index ["verifiable_contact_type", "verifiable_contact_id"], name: "index_escrows_on_verifiable_contact"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_features_on_name", unique: true
+  end
+
+  create_table "flipper_features", force: :cascade do |t|
+    t.string "key", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_flipper_features_on_key", unique: true
+  end
+
+  create_table "flipper_gates", force: :cascade do |t|
+    t.string "feature_key", null: false
+    t.string "key", null: false
+    t.text "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feature_key", "key", "value"], name: "index_flipper_gates_on_feature_key_and_key_and_value", unique: true
+  end
+
+  create_table "identification_documents", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "type", null: false
+    t.string "id_number"
+    t.string "issuing_country"
+    t.string "issuing_state"
+    t.bigint "customer_id", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_identification_documents_on_customer_id", unique: true
+    t.index ["deleted_at"], name: "index_identification_documents_on_deleted_at"
+    t.index ["uuid"], name: "index_identification_documents_on_uuid", unique: true
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "kind", null: false
+    t.bigint "organization_id", null: false
+    t.bigint "inviter_id", null: false
+    t.string "invitee_type", null: false
+    t.bigint "invitee_id", null: false
+    t.datetime "email_sent_at", null: false
+    t.datetime "accepted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "resend_id"
+    t.datetime "resent_at"
+    t.datetime "canceled_at", precision: nil
+    t.index ["invitee_id"], name: "index_invitations_invitee_id"
+    t.index ["invitee_type", "invitee_id"], name: "index_invitations_on_invitee"
+    t.index ["inviter_id"], name: "index_invitations_on_inviter_id"
+    t.index ["organization_id", "kind", "invitee_type", "invitee_id"], name: "idx_on_organization_id_kind_invitee_type_invitee_id_f969aa8659"
+    t.index ["uuid"], name: "index_invitations_on_uuid", unique: true
+  end
+
+  create_table "legal_entities", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "entity_type", null: false
+    t.string "customer_type", null: false
+    t.string "slug", null: false
+    t.string "business_name", null: false
+    t.string "tax_id", null: false
+    t.string "jurisdiction"
+    t.date "date_created"
+    t.boolean "international", default: false, null: false
+    t.boolean "revokable", default: false, null: false
+    t.bigint "escrow_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["escrow_id"], name: "index_legal_entities_on_escrow_id"
+    t.index ["slug"], name: "index_legal_entities_on_slug", unique: true
+    t.index ["uuid"], name: "index_legal_entities_on_uuid", unique: true
+  end
+
+  create_table "legal_ownerships", force: :cascade do |t|
+    t.string "relationship_type", null: false
+    t.bigint "legal_entity_id", null: false
+    t.bigint "customer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_legal_ownerships_on_customer_id"
+    t.index ["legal_entity_id", "customer_id"], name: "index_legal_ownerships_on_legal_entity_id_and_customer_id", unique: true
+  end
+
+  create_table "lexisnexis_account_details", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "owner_type"
+    t.bigint "owner_id"
+    t.string "routing_number", null: false
+    t.string "account_number", null: false
+    t.text "output"
+    t.datetime "processed_at"
+    t.text "error"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_type", "owner_id"], name: "index_lexisnexis_account_details_on_owner"
+    t.index ["uuid"], name: "index_lexisnexis_account_details_on_uuid", unique: true
+  end
+
+  create_table "login_attempts", force: :cascade do |t|
+    t.bigint "user_device_id"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "kind", null: false
+    t.string "token", null: false
+    t.string "state", null: false
+    t.jsonb "details", null: false
+    t.string "invalid_emails_provided", default: [], null: false, array: true
+    t.datetime "password_auth_at"
+    t.datetime "failed_password_attempts", default: [], null: false, array: true
+    t.string "email", null: false
+    t.string "email_delivery_ref"
+    t.datetime "email_sent_at"
+    t.datetime "email_auth_at"
+    t.string "phone_number"
+    t.string "sms_delivery_ref"
+    t.datetime "sms_sent_at"
+    t.string "sms_auth_ref"
+    t.datetime "sms_auth_at"
+    t.datetime "expires_at", null: false
+    t.datetime "auth_completed_at"
+    t.datetime "revoked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "invalid_phone_numbers_provided", default: [], null: false, array: true
+    t.boolean "remember", default: false, null: false
+    t.index ["token"], name: "index_login_attempts_on_token", unique: true
+    t.index ["user_device_id", "expires_at", "revoked_at"], name: "idx_on_user_device_id_expires_at_revoked_at_a4d9606826"
+    t.index ["uuid"], name: "index_login_attempts_on_uuid", unique: true
+  end
+
+  create_table "organization_memberships", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.bigint "person_id", null: false
+    t.string "role", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "email_buyer_viewed_wire_info", default: true, null: false
+    t.boolean "email_buyer_sent_wire", default: true, null: false
+    t.boolean "email_seller_completed", default: true, null: false
+    t.boolean "buyer_email_invitation_healthcheck", default: true, null: false
+    t.index ["organization_id", "person_id"], name: "idx_on_organization_id_person_id_cd1ad4bbc4", unique: true
+    t.index ["person_id"], name: "index_organization_memberships_on_person_id"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "phone_number", null: false
+    t.text "address", null: false
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }
+    t.string "slug", null: false
+    t.text "website"
+    t.text "address2"
+    t.index ["slug"], name: "index_organizations_on_slug", unique: true
+    t.index ["uuid"], name: "index_organizations_on_uuid", unique: true
+  end
+
+  create_table "passphrase_views", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "passphrase_id", null: false
+    t.string "viewer_type", null: false
+    t.bigint "viewer_id", null: false
+    t.bigint "user_session_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["passphrase_id"], name: "index_passphrase_views_on_passphrase_id"
+    t.index ["user_session_id"], name: "index_passphrase_views_on_user_session_id"
+    t.index ["uuid"], name: "index_passphrase_views_on_uuid", unique: true
+    t.index ["viewer_type", "viewer_id"], name: "index_passphrase_views_on_viewer"
+  end
+
+  create_table "passphrases", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.text "words", null: false
+    t.bigint "escrow_id"
+    t.datetime "escrow_set_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "words_hash", null: false
+    t.index ["escrow_id"], name: "index_passphrases_on_escrow_id", unique: true
+    t.index ["uuid"], name: "index_passphrases_on_uuid", unique: true
+    t.index ["words_hash"], name: "index_passphrases_on_words_hash", unique: true
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "password_digest"
+    t.string "phone_number", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "super_admin", default: false, null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.datetime "deleted_at"
+    t.index ["email"], name: "index_people_on_email", unique: true
+    t.index ["uuid"], name: "index_people_on_uuid", unique: true
+  end
+
+  create_table "personal_informations", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "ssn"
+    t.string "date_of_birth"
+    t.string "alternative_names"
+    t.string "birth_city"
+    t.string "home_phone_number"
+    t.string "work_phone_number"
+    t.date "us_resident_since"
+    t.boolean "non_us_resident", default: false, null: false
+    t.bigint "customer_id", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "birth_state"
+    t.string "birth_zip"
+    t.index ["customer_id"], name: "index_personal_informations_on_customer_id", unique: true
+    t.index ["deleted_at"], name: "index_personal_informations_on_deleted_at"
+    t.index ["uuid"], name: "index_personal_informations_on_uuid", unique: true
+  end
+
+  create_table "plaid_bank_items", force: :cascade do |t|
+    t.bigint "customers_bank_link_id", null: false
+    t.string "plaid_id"
+    t.string "item_id"
+    t.string "access_token"
+    t.string "status", default: "pending", null: false
+    t.string "institution_id"
+    t.string "institution_name"
+    t.string "auth_method"
+    t.string "error"
+    t.datetime "error_timestamp"
+    t.text "account_data"
+    t.text "identity_data"
+    t.text "identity_match_data"
+    t.text "payload"
+    t.datetime "completed_at"
+    t.datetime "canceled_at"
+    t.datetime "data_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "auth_data"
+    t.text "institution_data"
+    t.index ["customers_bank_link_id"], name: "index_plaid_bank_items_customers_bank_link_id", unique: true
+    t.index ["item_id"], name: "index_plaid_bank_items_on_item_id", unique: true
+    t.index ["plaid_id"], name: "index_plaid_bank_items_on_plaid_id", unique: true
+  end
+
+  create_table "plaid_identity_verifications", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "owner_type", null: false
+    t.bigint "owner_id", null: false
+    t.bigint "customer_id", null: false
+    t.string "client_user_id", null: false
+    t.jsonb "template_info", null: false
+    t.text "payload", null: false
+    t.string "plaid_id", null: false
+    t.string "previous_attempt_id"
+    t.text "shareable_url", null: false
+    t.string "status", null: false
+    t.datetime "completed_at"
+    t.text "data"
+    t.datetime "data_updated_at"
+    t.datetime "retry_requested_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "selfie_check", default: true, null: false
+    t.index ["client_user_id"], name: "index_plaid_identity_verifications_on_client_user_id"
+    t.index ["customer_id"], name: "index_plaid_identity_verifications_on_customer_id", unique: true
+    t.index ["owner_type", "owner_id"], name: "index_plaid_identity_verifications_on_owner"
+    t.index ["plaid_id"], name: "index_plaid_identity_verifications_on_plaid_id"
+    t.index ["uuid"], name: "index_plaid_identity_verifications_on_uuid", unique: true
+  end
+
+  create_table "plaid_link_request_events", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "request_id", null: false
+    t.string "name", null: false
+    t.text "metadata"
+    t.string "timestamp", null: false
+    t.text "error"
+    t.datetime "created_at", null: false
+    t.index ["request_id"], name: "index_plaid_link_request_events_on_request_id"
+    t.index ["uuid"], name: "index_plaid_link_request_events_on_uuid", unique: true
+  end
+
+  create_table "plaid_link_requests", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "owner_type", null: false
+    t.bigint "owner_id", null: false
+    t.bigint "customer_id", null: false
+    t.string "client_user_id", null: false
+    t.text "payload", null: false
+    t.string "link_token"
+    t.string "link_session_id"
+    t.string "public_token"
+    t.datetime "started_at"
+    t.datetime "errored_at"
+    t.text "error"
+    t.datetime "completed_at"
+    t.datetime "expires_at", null: false
+    t.text "data"
+    t.datetime "data_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "redacted_at"
+    t.index ["client_user_id"], name: "index_plaid_link_requests_on_client_user_id"
+    t.index ["customer_id"], name: "index_plaid_link_requests_on_customer_id"
+    t.index ["owner_type", "owner_id"], name: "index_plaid_link_requests_on_owner"
+    t.index ["redacted_at"], name: "index_plaid_link_requests_on_redacted_at"
+    t.index ["uuid"], name: "index_plaid_link_requests_on_uuid", unique: true
+  end
+
+  create_table "plaid_links", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "request_id", null: false
+    t.bigint "customer_id", null: false
+    t.string "access_token", null: false
+    t.string "item_id", null: false
+    t.datetime "revoked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_plaid_links_on_customer_id"
+    t.index ["request_id"], name: "index_plaid_links_request_id", unique: true
+    t.index ["uuid"], name: "index_plaid_links_on_uuid", unique: true
+  end
+
+  create_table "plaid_watchlist_screenings", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "customer_id", null: false
+    t.bigint "idv_id"
+    t.string "plaid_id", null: false
+    t.string "status", null: false
+    t.text "data"
+    t.datetime "data_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_plaid_watchlist_screenings_on_customer_id"
+    t.index ["idv_id"], name: "index_plaid_watchlist_screenings_idv_id", unique: true
+    t.index ["plaid_id"], name: "index_plaid_watchlist_screenings_on_plaid_id", unique: true
+    t.index ["uuid"], name: "index_plaid_watchlist_screenings_on_uuid", unique: true
+  end
+
+  create_table "previous_passwords", force: :cascade do |t|
+    t.bigint "person_id", null: false
+    t.string "password_digest", null: false
+    t.datetime "created_at", null: false
+    t.index ["person_id"], name: "index_previous_passwords_on_person_id"
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "statement_of_info_id"
+    t.string "property_type", null: false
+    t.boolean "construction_6_months_or_less", default: false, null: false
+    t.boolean "loan_used_for_construction", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "escrow_id", null: false
+    t.text "legal_description"
+    t.string "parcel_id_number"
+    t.index ["escrow_id"], name: "index_properties_on_escrow_id", unique: true
+    t.index ["statement_of_info_id"], name: "index_properties_on_statement_of_info_id"
+    t.index ["uuid"], name: "index_properties_on_uuid", unique: true
+  end
+
+  create_table "slack_messages", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.jsonb "payload", null: false
+    t.datetime "timestamp"
+    t.jsonb "data"
+    t.text "error"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["uuid"], name: "index_slack_messages_on_uuid", unique: true
+  end
+
+  create_table "solid_queue_blocked_executions", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.string "queue_name", null: false
+    t.integer "priority", default: 0, null: false
+    t.string "concurrency_key", null: false
+    t.datetime "expires_at", null: false
+    t.datetime "created_at", null: false
+    t.index ["concurrency_key", "priority", "job_id"], name: "index_solid_queue_blocked_executions_for_release"
+    t.index ["expires_at", "concurrency_key"], name: "index_solid_queue_blocked_executions_for_maintenance"
+    t.index ["job_id"], name: "index_solid_queue_blocked_executions_on_job_id", unique: true
+  end
+
+  create_table "solid_queue_claimed_executions", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.bigint "process_id"
+    t.datetime "created_at", null: false
+    t.index ["job_id"], name: "index_solid_queue_claimed_executions_on_job_id", unique: true
+    t.index ["process_id", "job_id"], name: "index_solid_queue_claimed_executions_on_process_id_and_job_id"
+  end
+
+  create_table "solid_queue_failed_executions", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.text "error"
+    t.datetime "created_at", null: false
+    t.index ["job_id"], name: "index_solid_queue_failed_executions_on_job_id", unique: true
+  end
+
+  create_table "solid_queue_jobs", force: :cascade do |t|
+    t.string "queue_name", null: false
+    t.string "class_name", null: false
+    t.text "arguments"
+    t.integer "priority", default: 0, null: false
+    t.string "active_job_id"
+    t.datetime "scheduled_at"
+    t.datetime "finished_at"
+    t.string "concurrency_key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["active_job_id"], name: "index_solid_queue_jobs_on_active_job_id"
+    t.index ["class_name"], name: "index_solid_queue_jobs_on_class_name"
+    t.index ["finished_at"], name: "index_solid_queue_jobs_on_finished_at"
+    t.index ["queue_name", "finished_at"], name: "index_solid_queue_jobs_for_filtering"
+    t.index ["scheduled_at", "finished_at"], name: "index_solid_queue_jobs_for_alerting"
+  end
+
+  create_table "solid_queue_pauses", force: :cascade do |t|
+    t.string "queue_name", null: false
+    t.datetime "created_at", null: false
+    t.index ["queue_name"], name: "index_solid_queue_pauses_on_queue_name", unique: true
+  end
+
+  create_table "solid_queue_processes", force: :cascade do |t|
+    t.string "kind", null: false
+    t.datetime "last_heartbeat_at", null: false
+    t.bigint "supervisor_id"
+    t.integer "pid", null: false
+    t.string "hostname"
+    t.text "metadata"
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.index ["last_heartbeat_at"], name: "index_solid_queue_processes_on_last_heartbeat_at"
+    t.index ["name", "supervisor_id"], name: "index_solid_queue_processes_on_name_and_supervisor_id", unique: true
+    t.index ["supervisor_id"], name: "index_solid_queue_processes_on_supervisor_id"
+  end
+
+  create_table "solid_queue_ready_executions", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.string "queue_name", null: false
+    t.integer "priority", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.index ["job_id"], name: "index_solid_queue_ready_executions_on_job_id", unique: true
+    t.index ["priority", "job_id"], name: "index_solid_queue_poll_all"
+    t.index ["queue_name", "priority", "job_id"], name: "index_solid_queue_poll_by_queue"
+  end
+
+  create_table "solid_queue_recurring_executions", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.string "task_key", null: false
+    t.datetime "run_at", null: false
+    t.datetime "created_at", null: false
+    t.index ["job_id"], name: "index_solid_queue_recurring_executions_on_job_id", unique: true
+    t.index ["task_key", "run_at"], name: "index_solid_queue_recurring_executions_on_task_key_and_run_at", unique: true
+  end
+
+  create_table "solid_queue_recurring_tasks", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "schedule", null: false
+    t.string "command", limit: 2048
+    t.string "class_name"
+    t.text "arguments"
+    t.string "queue_name"
+    t.integer "priority", default: 0
+    t.boolean "static", default: true, null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_solid_queue_recurring_tasks_on_key", unique: true
+    t.index ["static"], name: "index_solid_queue_recurring_tasks_on_static"
+  end
+
+  create_table "solid_queue_scheduled_executions", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.string "queue_name", null: false
+    t.integer "priority", default: 0, null: false
+    t.datetime "scheduled_at", null: false
+    t.datetime "created_at", null: false
+    t.index ["job_id"], name: "index_solid_queue_scheduled_executions_on_job_id", unique: true
+    t.index ["scheduled_at", "priority", "job_id"], name: "index_solid_queue_dispatch_all"
+  end
+
+  create_table "solid_queue_semaphores", force: :cascade do |t|
+    t.string "key", null: false
+    t.integer "value", default: 1, null: false
+    t.datetime "expires_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expires_at"], name: "index_solid_queue_semaphores_on_expires_at"
+    t.index ["key", "value"], name: "index_solid_queue_semaphores_on_key_and_value"
+    t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
+  end
+
+  create_table "statement_of_info_bankruptcies", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "statement_of_info_id", null: false
+    t.bigint "financial_id", null: false
+    t.string "county"
+    t.string "state"
+    t.string "zip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["financial_id"], name: "index_statement_of_info_bankruptcies_on_financial_id"
+    t.index ["statement_of_info_id"], name: "index_statement_of_info_bankruptcies_on_statement_of_info_id"
+    t.index ["uuid"], name: "index_statement_of_info_bankruptcies_on_uuid", unique: true
+  end
+
+  create_table "statement_of_info_businesses", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "statement_of_info_id", null: false
+    t.bigint "financial_id", null: false
+    t.string "business_name"
+    t.string "tax_id"
+    t.boolean "currently_owner", default: false, null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["financial_id"], name: "index_statement_of_info_businesses_on_financial_id"
+    t.index ["statement_of_info_id"], name: "index_statement_of_info_businesses_on_statement_of_info_id"
+    t.index ["uuid"], name: "index_statement_of_info_businesses_on_uuid", unique: true
+  end
+
+  create_table "statement_of_info_employment_histories", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "statement_of_info_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["statement_of_info_id"], name: "idx_unique_on_soi_employment_histories_soi_id", unique: true
+    t.index ["uuid"], name: "index_statement_of_info_employment_histories_on_uuid", unique: true
+  end
+
+  create_table "statement_of_info_employments", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "statement_of_info_id", null: false
+    t.string "occupation"
+    t.string "employer_name"
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "is_current", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "employment_history_id", null: false
+    t.index ["employment_history_id"], name: "index_statement_of_info_employments_on_employment_history_id"
+    t.index ["statement_of_info_id"], name: "index_statement_of_info_employments_on_statement_of_info_id"
+    t.index ["uuid"], name: "index_statement_of_info_employments_on_uuid", unique: true
+  end
+
+  create_table "statement_of_info_families", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "statement_of_info_id", null: false
+    t.string "marital_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["statement_of_info_id"], name: "idx_unique_on_soi_families_soi_id", unique: true
+    t.index ["uuid"], name: "index_statement_of_info_families_on_uuid", unique: true
+  end
+
+  create_table "statement_of_info_family_members", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "statement_of_info_id", null: false
+    t.bigint "family_id", null: false
+    t.string "relationship_type", default: "spouse", null: false
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.string "date_of_birth"
+    t.string "alternative_names"
+    t.string "relationship_status"
+    t.date "relationship_status_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_statement_of_info_family_members_on_family_id"
+    t.index ["statement_of_info_id"], name: "index_statement_of_info_family_members_on_statement_of_info_id"
+    t.index ["uuid"], name: "index_statement_of_info_family_members_on_uuid", unique: true
+  end
+
+  create_table "statement_of_info_financials", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "statement_of_info_id", null: false
+    t.boolean "bankruptcy_filed", default: false, null: false
+    t.boolean "licensed_vehicle_owner", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["statement_of_info_id"], name: "idx_unique_on_soi_financials_soi_id", unique: true
+    t.index ["uuid"], name: "index_statement_of_info_financials_on_uuid", unique: true
+  end
+
+  create_table "statement_of_info_identities", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "statement_of_info_id", null: false
+    t.string "alternative_names"
+    t.string "home_phone_number"
+    t.string "work_phone_number"
+    t.string "birth_location"
+    t.boolean "non_us_resident", default: false, null: false
+    t.date "us_resident_since"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["statement_of_info_id"], name: "idx_unique_on_soi_identities_soi_id", unique: true
+    t.index ["uuid"], name: "index_statement_of_info_identities_on_uuid", unique: true
+  end
+
+  create_table "statement_of_info_residence_histories", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "statement_of_info_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["statement_of_info_id"], name: "idx_unique_on_soi_residence_histories_soi_id", unique: true
+    t.index ["uuid"], name: "index_statement_of_info_residence_histories_on_uuid", unique: true
+  end
+
+  create_table "statement_of_info_residences", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "statement_of_info_id", null: false
+    t.date "date_moved_in"
+    t.date "date_moved_out"
+    t.boolean "international", default: false, null: false
+    t.text "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "residence_history_id", null: false
+    t.index ["residence_history_id"], name: "index_statement_of_info_residences_on_residence_history_id"
+    t.index ["statement_of_info_id"], name: "index_statement_of_info_residences_on_statement_of_info_id"
+    t.index ["uuid"], name: "index_statement_of_info_residences_on_uuid", unique: true
+  end
+
+  create_table "statement_of_info_vehicles", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "statement_of_info_id", null: false
+    t.bigint "financial_id", null: false
+    t.string "vehicle_type"
+    t.string "id_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["financial_id"], name: "index_statement_of_info_vehicles_on_financial_id"
+    t.index ["statement_of_info_id"], name: "index_statement_of_info_vehicles_on_statement_of_info_id"
+    t.index ["uuid"], name: "index_statement_of_info_vehicles_on_uuid", unique: true
+  end
+
+  create_table "statement_of_infos", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "organization_id", null: false
+    t.bigint "escrow_id", null: false
+    t.bigint "customer_id", null: false
+    t.text "form_data"
+    t.datetime "completed_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "completed_steps", default: {}, null: false
+    t.index ["customer_id"], name: "index_statement_of_infos_on_customer_id", unique: true
+    t.index ["escrow_id"], name: "index_statement_of_infos_on_escrow_id"
+    t.index ["organization_id"], name: "index_statement_of_infos_on_organization_id"
+    t.index ["uuid"], name: "index_statement_of_infos_on_uuid", unique: true
+  end
+
+  create_table "terms_agreements", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "signatory_type", null: false
+    t.bigint "signatory_id", null: false
+    t.bigint "user_session_id", null: false
+    t.string "agreement_type", null: false
+    t.string "version", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["signatory_type", "signatory_id", "agreement_type", "version"], name: "idx_terms_agreements_signatory_type_version", unique: true
+    t.index ["user_session_id"], name: "index_terms_agreements_on_user_session_id"
+    t.index ["uuid"], name: "index_terms_agreements_on_uuid", unique: true
+  end
+
+  create_table "twilio_sms_verifications", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "owner_type", null: false
+    t.bigint "owner_id", null: false
+    t.string "phone_number", null: false
+    t.string "verification_sid"
+    t.string "status", null: false
+    t.text "error"
+    t.text "twilio_data"
+    t.text "twilio_data_updated_at"
+    t.datetime "delivered_at"
+    t.datetime "redacted_at"
+    t.integer "verification_attempts_count", default: 0, null: false
+    t.datetime "max_attempts_reached_at"
+    t.datetime "verified_at"
+    t.string "final_verification_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_type", "owner_id"], name: "index_twilio_sms_verifications_on_owner"
+    t.index ["redacted_at"], name: "index_twilio_sms_verifications_on_redacted_at"
+    t.index ["uuid"], name: "index_twilio_sms_verifications_on_uuid", unique: true
+    t.index ["verification_sid"], name: "index_twilio_sms_verifications_on_verification_sid", unique: true, where: "(verification_sid IS NOT NULL)"
+  end
+
+  create_table "user_devices", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "identifier", null: false
+    t.string "token", null: false
+    t.bigint "current_session_id"
+    t.bigint "current_login_attempt_id"
+    t.string "user_agent", null: false
+    t.jsonb "client_hint_headers", default: {}, null: false
+    t.boolean "known", default: false, null: false
+    t.string "language"
+    t.string "os"
+    t.string "os_version"
+    t.string "os_family"
+    t.string "browser"
+    t.string "browser_version"
+    t.string "device_name"
+    t.string "device_type"
+    t.string "device_brand"
+    t.boolean "bot", default: false, null: false
+    t.string "bot_name"
+    t.string "ip", null: false
+    t.string "ip_country"
+    t.string "ip_region"
+    t.string "ip_region_code"
+    t.string "ip_city"
+    t.string "ip_timezone"
+    t.float "ip_lat"
+    t.float "ip_lon"
+    t.datetime "revoked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "expires_at"
+    t.index ["identifier"], name: "index_user_devices_on_identifier", unique: true
+    t.index ["token"], name: "index_user_devices_on_token", unique: true
+    t.index ["uuid"], name: "index_user_devices_on_uuid", unique: true
+  end
+
+  create_table "user_sessions", force: :cascade do |t|
+    t.bigint "login_attempt_id", null: false
+    t.bigint "user_device_id", null: false
+    t.bigint "person_id"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "identifier", null: false
+    t.string "token", null: false
+    t.datetime "password_auth_at"
+    t.string "email", null: false
+    t.datetime "email_auth_at"
+    t.string "phone_number", null: false
+    t.datetime "sms_auth_at", null: false
+    t.datetime "expires_at", null: false
+    t.datetime "revoked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "remember", default: false, null: false
+    t.datetime "last_activity_at", null: false
+    t.index ["email", "phone_number", "revoked_at"], name: "index_user_sessions_on_email_and_phone_number_and_revoked_at"
+    t.index ["identifier"], name: "index_user_sessions_on_identifier", unique: true
+    t.index ["login_attempt_id"], name: "index_user_sessions_login_attempt_id", unique: true
+    t.index ["person_id"], name: "index_user_sessions_on_person_id"
+    t.index ["token"], name: "index_user_sessions_on_token", unique: true
+    t.index ["user_device_id", "person_id", "expires_at"], name: "idx_on_user_device_id_person_id_expires_at_1a9bded2c8"
+    t.index ["uuid"], name: "index_user_sessions_on_uuid", unique: true
+  end
+
+  create_table "versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.bigint "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.jsonb "object"
+    t.datetime "created_at"
+    t.jsonb "object_changes"
+    t.bigint "organization_id"
+    t.bigint "user_session_id"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+    t.index ["organization_id"], name: "index_versions_on_organization_id"
+    t.index ["user_session_id"], name: "index_versions_on_user_session_id"
+  end
+
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bank_account_changes", "bank_accounts", on_delete: :nullify
+  add_foreign_key "bank_account_changes", "organizations"
+  add_foreign_key "bank_account_changes", "people", column: "reviewer_id"
+  add_foreign_key "bank_account_changes", "people", column: "submitter_id"
+  add_foreign_key "bank_accounts", "organizations"
+  add_foreign_key "customer_payment_items", "customers", on_delete: :cascade
+  add_foreign_key "customers", "bank_accounts", column: "organization_bank_account_id", on_delete: :nullify
+  add_foreign_key "customers", "escrows"
+  add_foreign_key "customers_bank_accounts", "customers"
+  add_foreign_key "customers_bank_links", "customers"
+  add_foreign_key "customers_funds_disbursements", "customers"
+  add_foreign_key "customers_identity_report_checks", "customers_identity_reports", column: "report_id"
+  add_foreign_key "customers_identity_reports", "customers"
+  add_foreign_key "customers_identity_verification_document_images", "customers_identity_verification_documents", column: "document_id"
+  add_foreign_key "customers_identity_verification_documents", "customers_identity_verifications", column: "idv_id"
+  add_foreign_key "customers_identity_verification_selfie_checks", "customers_identity_verifications", column: "idv_id"
+  add_foreign_key "customers_identity_verifications", "customers"
+  add_foreign_key "customers_media_views", "customers"
+  add_foreign_key "customers_media_views", "user_sessions"
+  add_foreign_key "entitlements", "features"
+  add_foreign_key "escrow_activities", "customers"
+  add_foreign_key "escrow_activities", "escrows"
+  add_foreign_key "escrow_activities", "user_sessions"
+  add_foreign_key "escrows", "organizations"
+  add_foreign_key "escrows", "people", column: "officer_id"
+  add_foreign_key "identification_documents", "customers"
+  add_foreign_key "invitations", "invitations", column: "resend_id"
+  add_foreign_key "invitations", "organizations"
+  add_foreign_key "invitations", "people", column: "inviter_id"
+  add_foreign_key "legal_entities", "escrows"
+  add_foreign_key "legal_ownerships", "customers"
+  add_foreign_key "legal_ownerships", "legal_entities"
+  add_foreign_key "login_attempts", "user_devices"
+  add_foreign_key "organization_memberships", "organizations"
+  add_foreign_key "organization_memberships", "people"
+  add_foreign_key "passphrase_views", "passphrases"
+  add_foreign_key "passphrase_views", "user_sessions"
+  add_foreign_key "passphrases", "escrows"
+  add_foreign_key "personal_informations", "customers"
+  add_foreign_key "plaid_bank_items", "customers_bank_links"
+  add_foreign_key "plaid_identity_verifications", "customers"
+  add_foreign_key "plaid_link_request_events", "plaid_link_requests", column: "request_id"
+  add_foreign_key "plaid_link_requests", "customers"
+  add_foreign_key "plaid_links", "customers"
+  add_foreign_key "plaid_links", "plaid_link_requests", column: "request_id"
+  add_foreign_key "plaid_watchlist_screenings", "customers"
+  add_foreign_key "plaid_watchlist_screenings", "plaid_identity_verifications", column: "idv_id"
+  add_foreign_key "previous_passwords", "people"
+  add_foreign_key "properties", "escrows", on_delete: :cascade
+  add_foreign_key "properties", "statement_of_infos", on_delete: :cascade
+  add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
+  add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
+  add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
+  add_foreign_key "solid_queue_ready_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
+  add_foreign_key "solid_queue_recurring_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
+  add_foreign_key "solid_queue_scheduled_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
+  add_foreign_key "statement_of_info_bankruptcies", "statement_of_info_financials", column: "financial_id", on_delete: :cascade
+  add_foreign_key "statement_of_info_bankruptcies", "statement_of_infos", on_delete: :cascade
+  add_foreign_key "statement_of_info_businesses", "statement_of_info_financials", column: "financial_id", on_delete: :cascade
+  add_foreign_key "statement_of_info_businesses", "statement_of_infos", on_delete: :cascade
+  add_foreign_key "statement_of_info_employment_histories", "statement_of_infos", on_delete: :cascade
+  add_foreign_key "statement_of_info_employments", "statement_of_info_employment_histories", column: "employment_history_id", on_delete: :cascade
+  add_foreign_key "statement_of_info_employments", "statement_of_infos", on_delete: :cascade
+  add_foreign_key "statement_of_info_families", "statement_of_infos", on_delete: :cascade
+  add_foreign_key "statement_of_info_family_members", "statement_of_info_families", column: "family_id", on_delete: :cascade
+  add_foreign_key "statement_of_info_family_members", "statement_of_infos", on_delete: :cascade
+  add_foreign_key "statement_of_info_financials", "statement_of_infos", on_delete: :cascade
+  add_foreign_key "statement_of_info_identities", "statement_of_infos", on_delete: :cascade
+  add_foreign_key "statement_of_info_residence_histories", "statement_of_infos", on_delete: :cascade
+  add_foreign_key "statement_of_info_residences", "statement_of_info_residence_histories", column: "residence_history_id", on_delete: :cascade
+  add_foreign_key "statement_of_info_residences", "statement_of_infos", on_delete: :cascade
+  add_foreign_key "statement_of_info_vehicles", "statement_of_info_financials", column: "financial_id", on_delete: :cascade
+  add_foreign_key "statement_of_info_vehicles", "statement_of_infos", on_delete: :cascade
+  add_foreign_key "statement_of_infos", "customers"
+  add_foreign_key "statement_of_infos", "escrows"
+  add_foreign_key "statement_of_infos", "organizations"
+  add_foreign_key "terms_agreements", "user_sessions"
+  add_foreign_key "user_devices", "login_attempts", column: "current_login_attempt_id"
+  add_foreign_key "user_devices", "user_sessions", column: "current_session_id"
+  add_foreign_key "user_sessions", "login_attempts"
+  add_foreign_key "user_sessions", "people"
+  add_foreign_key "user_sessions", "user_devices"
+end

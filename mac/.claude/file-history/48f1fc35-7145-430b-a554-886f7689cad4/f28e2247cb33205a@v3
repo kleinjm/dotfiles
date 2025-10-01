@@ -1,0 +1,23 @@
+- content_for :title, @presenter.title
+
+= render "shared/fincen_content_wrapper", title: @presenter.title do
+  - if @presenter.entities_any?
+    / Render individual customers first
+    - @presenter.customers.each do |customer|
+      = link_to @presenter.customer_path(customer), class: "text-decoration-none text-dark" do
+        .card.mb-3.border-light-grey
+          .card-body.d-flex.justify-content-between.align-items-center
+            .customer-info
+              .customer-name.fw-bolder= customer.full_name
+              .customer-type.text-medium-grey.fst-italic Individual
+            svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+              path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+
+    / Render legal entities after individual customers
+    - @presenter.legal_entities.each do |legal_entity|
+      = render "legal_entity_card", legal_entity: legal_entity
+  - else
+    p= @presenter.empty_state_message
+
+  p.text-end.mt-3.mb-4
+    = link_to @presenter.add_customer_text, @presenter.add_customer_path, class: "link-secondary text-decoration-underline"

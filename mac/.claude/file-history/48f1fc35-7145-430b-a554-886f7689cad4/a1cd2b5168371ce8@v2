@@ -1,0 +1,82 @@
+# frozen_string_literal: true
+
+class FincenLayout::CustomerEntitiesController < FincenLayout::BaseController
+  before_action :set_customer_type
+  before_action :set_menu_item
+  before_action :set_form, only: %i[new create]
+
+  helper_method :customer_type
+
+  def index
+    @presenter = CustomerEntitiesPresenter.new(escrow: @escrow, organization: @organization, customer_type: customer_type)
+  end
+
+  def new; end
+
+  def create
+    if @form.save
+      redirect_to entities_path,
+                  notice: "#{customer_type.capitalize} was successfully created."
+    else
+      render :new, status: :unprocessable_content
+    end
+  end
+
+  private
+
+  attr_reader :customer_type
+
+  def set_customer_type
+    @customer_type = params[:customer_type] || infer_customer_type_from_route
+  end
+
+  def set_menu_item
+    self.class.menu_item_name = customer_type == 'buyer' ? :fincen_buyers : :fincen_sellers
+  end
+
+  def infer_customer_type_from_route
+    case request.path
+    when /buyers/
+      'buyer'
+    when /sellers/
+      'seller'
+    else
+      redirect_to organization_escrow_path(@organization, @escrow)
+      nil
+    end
+  end
+
+  def entities_path
+    if customer_type == 'buyer'
+      organization_escrow_fincen_layout_buyer_entities_path(@organization, @escrow)
+    else
+      organization_escrow_fincen_layout_seller_entities_path(@organization, @escrow)
+    end
+  end
+
+  def set_form
+    @form = CustomerEntityForm.new(
+      @escrow,
+      customer_type: customer_type,
+      entity_attributes: entity_params,
+      features: [Feature::LIST[:fincen]],
+      organization: @organization
+    )
+  end
+
+  def entity_params
+    params.fetch(:customer_entity_form, {}).permit(
+      :entity_type,
+      :first_name,
+      :last_name,
+      :email,
+      :phone_number,
+      :business_name,
+      :tax_id,
+      :jurisdiction,
+      :international,
+      :date_created,
+      :revokable
+    )
+  end
+end

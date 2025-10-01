@@ -1,0 +1,84 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+RSpec.describe UsStates do
+  describe '.code_for' do
+    it 'returns the state code for a full state name' do
+      expect(described_class.code_for('California')).to eq('CA')
+      expect(described_class.code_for('CALIFORNIA')).to eq('CA')
+      expect(described_class.code_for('california')).to eq('CA')
+    end
+
+    it 'returns the code if a valid code is provided' do
+      expect(described_class.code_for('CA')).to eq('CA')
+      expect(described_class.code_for('ca')).to eq('CA')
+    end
+
+    it 'returns nil for blank input' do
+      expect(described_class.code_for(nil)).to be_nil
+      expect(described_class.code_for('')).to be_nil
+    end
+
+    it 'returns nil for invalid state names' do
+      expect(described_class.code_for('Invalid State')).to be_nil
+    end
+  end
+
+  describe '.name_for' do
+    it 'returns the state name for a code' do
+      expect(described_class.name_for('CA')).to eq('CALIFORNIA')
+      expect(described_class.name_for('ca')).to eq('CALIFORNIA')
+    end
+
+    it 'returns nil for blank input' do
+      expect(described_class.name_for(nil)).to be_nil
+      expect(described_class.name_for('')).to be_nil
+    end
+
+    it 'returns nil for invalid codes' do
+      expect(described_class.name_for('ZZ')).to be_nil
+    end
+  end
+
+  describe '.options_for_select' do
+    it 'returns an array of [code, titleized name] pairs' do
+      options = described_class.options_for_select
+
+      expect(options).to be_an(Array)
+      expect(options.first).to eq(['AL', 'Alabama'])
+      expect(options).to include(['CA', 'California'])
+      expect(options).to include(['NY', 'New York'])
+    end
+
+    it 'includes all states in the mapping' do
+      expect(described_class.options_for_select.size).to eq(UsStates::MAPPING.size)
+    end
+  end
+
+  describe '.options_for_select_by_name' do
+    it 'returns an array of [titleized name, code] pairs' do
+      options = described_class.options_for_select_by_name
+
+      expect(options).to be_an(Array)
+      expect(options.first).to eq(['Alabama', 'AL'])
+      expect(options).to include(['California', 'CA'])
+      expect(options).to include(['New York', 'NY'])
+    end
+
+    it 'includes all states in the mapping' do
+      expect(described_class.options_for_select_by_name.size).to eq(UsStates::MAPPING.size)
+    end
+
+    it 'returns options in format ready for options_for_select helper' do
+      options = described_class.options_for_select_by_name
+
+      # Each option should be [display_name, value]
+      options.each do |display_name, value|
+        expect(display_name).to be_a(String)
+        expect(value).to be_a(String)
+        expect(value.length).to eq(2) # State codes are 2 characters
+      end
+    end
+  end
+end

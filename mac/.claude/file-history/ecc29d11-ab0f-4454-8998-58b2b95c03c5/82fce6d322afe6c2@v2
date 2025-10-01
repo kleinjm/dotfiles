@@ -1,0 +1,35 @@
+# frozen_string_literal: true
+
+class AddEmailDomainToCustomers < ActiveRecord::Migration[8.0]
+  def up
+    # Add column as nullable initially
+    add_column :customers, :email_domain, :string
+
+    # Backfill existing records
+    backfill_email_domains
+
+    # Make column non-nullable after backfill
+    change_column_null :customers, :email_domain, false
+
+    # Add index for query performance
+    add_index :customers, :email_domain
+  end
+
+  def down
+    remove_index :customers, :email_domain
+    remove_column :customers, :email_domain
+  end
+
+  private
+
+  def backfill_email_domains
+    # Use ActiveRecord to handle encrypted email column
+    # This ensures the email is properly decrypted before extracting the domain
+    Customer.find_each do |customer|
+      next if customer.email.blank?
+
+      _user, domain = customer.email.split('@', 2)
+      customer.update_column(:email_domain, domain) if domain.present?
+    end
+  end
+end

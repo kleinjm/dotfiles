@@ -1,0 +1,258 @@
+# frozen_string_literal: true
+
+# == Schema Information
+#
+# Table name: customers
+#
+#  id                             :bigint           not null, primary key
+#  date_of_birth                  :string
+#  email                          :string           not null
+#  first_login_at                 :datetime
+#  first_name                     :string           not null
+#  informed_wire_sent_at          :datetime
+#  invitation_cancelled_at        :datetime
+#  invitation_sent_at             :datetime
+#  last_name                      :string           not null
+#  memo                           :text
+#  org_wire_information_viewed_at :datetime
+#  passphrase_confirmed_at        :datetime
+#  passphrase_denied_at           :datetime
+#  phone_number                   :string           not null
+#  redacted_at                    :datetime
+#  ssn                            :string
+#  status                         :string           default("pending"), not null
+#  type                           :string           not null
+#  uuid                           :uuid             not null
+#  created_at                     :datetime         not null
+#  updated_at                     :datetime         not null
+#  escrow_id                      :bigint           not null
+#  organization_bank_account_id   :bigint
+#
+# Indexes
+#
+#  index_customers_on_email                         (email)
+#  index_customers_on_escrow_id_and_email           (escrow_id,email) UNIQUE
+#  index_customers_on_escrow_id_and_phone_number    (escrow_id,phone_number) UNIQUE
+#  index_customers_on_organization_bank_account_id  (organization_bank_account_id)
+#  index_customers_on_redacted_at                   (redacted_at)
+#  index_customers_on_uuid                          (uuid) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (escrow_id => escrows.id)
+#  fk_rails_...  (organization_bank_account_id => bank_accounts.id) ON DELETE => nullify
+#
+class Customer < ApplicationRecord
+  include Uuidable
+
+  TYPES = {
+    buyer: 'Buyer',
+    seller: 'Seller'
+  }.freeze
+  STATUSES = {
+    pending: 'pending',
+    in_progress: 'in_progress',
+    complete: 'complete',
+    failed: 'failed',
+    cancelled: 'cancelled'
+  }.freeze
+
+  has_paper_trail(meta: { organization_id: ->(c) { c.escrow.organization_id } })
+
+  attr_readonly :uuid, :escrow_id
+
+  belongs_to :escrow, counter_cache: true
+  belongs_to :organization_bank_account, class_name: 'BankAccount', optional: true
+  # NOTE: EscrowActivities have a customer_id but are joined here through the escrow.
+  # Therefore, the activities may not only belong to this customer.
+  has_many :activities, through: :escrow
+  has_many :invitations, inverse_of: :invitee
+
+  has_many :addresses, as: :addressable, dependent: :destroy
+  has_one :primary_address, -> { where(primary_address: true) }, class_name: 'Address', as: :addressable
+  accepts_nested_attributes_for :primary_address
+
+  has_one :personal_information, dependent: :destroy, autosave: true
+  has_one :identification_document, dependent: :destroy
+
+  has_many :legal_ownerships, dependent: :destroy
+  has_many :legal_entities, through: :legal_ownerships
+
+  has_many :entitlements, as: :owner, dependent: :destroy
+  has_many :features, through: :entitlements
+  has_many :terms_agreements, as: :signatory, dependent: :destroy
+
+  validates :first_name, :last_name,
+            presence: true
+
+  validates :phone_number,
+            presence: true,
+            uniqueness: { scope: :escrow_id }
+
+  validates :email,
+            presence: true,
+            uniqueness: { scope: :escrow_id },
+            format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  validates :type, presence: true, inclusion: { in: TYPES.values }
+
+  validate :email_not_taken_by_person, on: :create
+
+  validate :organization_bank_account_belongs_to_organization, if: -> { organization_bank_account_id.present? }
+
+  scope :invited, -> { where(invitation_cancelled_at: nil) }
+  scope :ready_for_flow, ->(email:, phone_number:) { invited.where(email:, phone_number:) }
+
+  # Use deterministic encryption here to ensure the unique indexes work as expected
+  encrypts :email, :phone_number, deterministic: true
+
+  normalizes_email
+  normalizes_phone_number
+  normalizes_spacing :first_name, :last_name
+
+  delegate :organization, :officer, to: :escrow
+
+  after_create { escrow.refresh_status! }
+
+  STATUSES.each do |status_key, status_value|
+    define_method("#{status_key}?") { status_value == status }
+  end
+
+  def self.search(query)
+    return all if query.blank?
+
+    where(redacted_at: nil).where("first_name || ' ' || last_name ILIKE :q", q: "%#{query}%")
+  end
+
+  def buyer?
+    is_a?(Buyer)
+  end
+
+  def seller?
+    is_a?(Seller)
+  end
+
+  def full_name
+    return first_name if redacted?
+
+    "#{first_name} #{last_name}"
+  end
+
+  def changeable?
+    !invited? && !logged_in?
+  end
+
+  # Invite the customer to the escrow
+  # This method is used for both the initial invitation and resending the invitation
+  # REFACTOR: Extract service
+  def invite!(whodunnit: officer, kind: self.class.name.downcase)
+    return unless !invited? || invite_resend_allowed?
+
+    with_lock do
+      invitations.cancel_all_active!
+
+      invitation = Invitation.deliver!(
+        kind:,
+        organization:,
+        inviter: officer,
+        invitee: self
+      )
+      update!(status: STATUSES[:in_progress], invitation_sent_at: Time.current, invitation_cancelled_at: nil)
+      escrow.refresh_status! if saved_change_to_status?
+      event = kind == Invitation::KIND[:statement_of_info] ? :invited_statement_of_info : :invited
+      track_activity(event, timestamp: invitation_sent_at, whodunnit:)
+
+      Customers::HealthCheckInvitationJob
+        .set(wait: 24.hours + 1.second)
+        .perform_later(self, invitation.id)
+
+      invitation
+    end
+  end
+
+  def cancel_invitation!(whodunnit: officer)
+    Customer::CancelInviteService.call(customer: self, whodunnit:)
+  end
+
+  # Has the customer been invited to the escrow?
+  def invited?
+    invitation_sent_at?
+  end
+
+  def invitation_cancelled?
+    invitation_cancelled_at?
+  end
+
+  def awaiting_login?
+    !logged_in? && !invitation_cancelled?
+  end
+
+  def current_invitation
+    invitations.last
+  end
+
+  def logged_in!(user_session)
+    Customer::TrackLoginService.call(customer: self, user_session: user_session) do |on|
+      on.success { |customer| return customer }
+      on.failure { |error| raise error }
+    end
+  end
+
+  # Has the customer ever logged in?
+  def logged_in?
+    first_login_at?
+  end
+
+  def invite_resend_allowed?
+    !logged_in? && ((invited? && invitation_sent_at.before?(Invitation::RESEND_INTERVAL.ago)) || invitation_cancelled?)
+  end
+
+  def redacted?
+    redacted_at?
+  end
+
+  # TODO: Notify slack
+  def redact_pii!(*extra_fields)
+    return if redacted?
+
+    with_lock do
+      fields = (%i[first_name last_name] + extra_fields.map(&:to_sym)).uniq
+      fields.each { |f| send("#{f}=", 'REDACTED') }
+      update!(redacted_at: Time.current.utc)
+
+      versions.where(created_at: ..redacted_at).update_all(object: {}, object_changes: { redacted: true })
+      versions.last&.update!(object: {}, object_changes: { redacted: true })
+    end
+  end
+
+  def track_activity(event, timestamp: Time.current.utc, whodunnit: self)
+    category = is_a?(Buyer) ? :buyer : :seller
+    escrow.track_activity(category, event, timestamp:, whodunnit:, customer: self)
+  end
+
+  def track_activity_once(event, timestamp: Time.current.utc, whodunnit: self)
+    category = is_a?(Buyer) ? :buyer : :seller
+    escrow.track_activity_once(category, event, timestamp:, whodunnit:, customer: self)
+  end
+
+  def cio_track(event, data: {})
+    customer_io_client.track(email, event, data:)
+  end
+
+  private
+
+  def email_not_taken_by_person
+    return if email.blank?
+    return unless Person.exists?(email: email)
+
+    # Don't add field error since we handle this with flash message
+    # This prevents showing both flash and field error
+    errors.add(:base, :taken_by_person)
+  end
+
+  def organization_bank_account_belongs_to_organization
+    return if organization_bank_account&.organization_id == escrow.organization_id
+
+    errors.add(:organization_bank_account, 'must belong to the same organization')
+  end
+end

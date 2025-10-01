@@ -1,0 +1,287 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+require 'service_base/rspec'
+
+RSpec.describe SaveCustomerEntityFormService do
+  describe '#call' do
+    context 'when creating customer entities (individual buyers/sellers)' do
+      it 'creates, enables features, and handles invitations for customers' do
+        organization = create(:organization)
+        escrow = create(:escrow, organization: organization)
+        current_person = create(:person)
+        create(:organization_membership, person: current_person, organization: organization)
+        features = [Feature::LIST[:fincen]]
+        Current.person = current_person
+        # Create passphrase for buyers
+        create(:passphrase)
+        # Test buyer creation with feature enabling
+        form = CustomerEntityForm.new(
+          escrow,
+          customer_type: 'buyer',
+          entity_attributes: {
+            entity_type: 'individual',
+            first_name: 'John',
+            last_name: 'Doe',
+            email: 'john@example.com',
+            phone_number: '+15551234567'
+          },
+          features: features
+        )
+
+        result = described_class.call(
+          form: form,
+          escrow: escrow,
+          customer_type: 'buyer',
+          invite_customer: false,
+          features: features
+        )
+
+        expect(result).to be_success
+        buyer = result.success
+        expect(buyer).to be_a(Buyer)
+        expect(buyer).to be_persisted
+        expect(buyer).to have_attributes(
+          first_name: 'John',
+          last_name: 'Doe',
+          email: 'john@example.com'
+        )
+        expect(Feature.fincen_enabled?(buyer)).to be true
+
+        # Test invitation behavior with mock
+        form2 = CustomerEntityForm.new(
+          escrow,
+          customer_type: 'seller',
+          entity_attributes: {
+            entity_type: 'individual',
+            first_name: 'Jane',
+            last_name: 'Smith',
+            email: 'jane@example.com',
+            phone_number: '+15559876543'
+          },
+          features: features
+        )
+
+        seller = instance_double(Seller)
+        allow(form2).to receive(:build_entity).and_return(seller)
+        allow(seller).to receive_messages(save!: true, save: true)
+        allow(seller).to receive(:invite!)
+        allow(seller).to receive(:is_a?).with(Customer).and_return(true)
+        allow(seller).to receive(:is_a?).with(Buyer).and_return(false)
+        allow(seller).to receive(:is_a?).with(LegalEntity).and_return(false)
+        allow(Feature).to receive(:enable)
+
+        result2 = described_class.call(
+          form: form2,
+          escrow: escrow,
+          customer_type: 'seller',
+          invite_customer: true,
+          features: features
+        )
+
+        expect(result2).to be_success
+        expect(seller).to have_received(:invite!).with(whodunnit: current_person)
+
+        # Test no invitation when flag is false
+        form3 = CustomerEntityForm.new(
+          escrow,
+          customer_type: 'buyer',
+          entity_attributes: {
+            entity_type: 'individual',
+            first_name: 'No',
+            last_name: 'Invite',
+            email: 'noinvite@example.com',
+            phone_number: '+15551112222'
+          },
+          features: features
+        )
+
+        buyer2 = instance_double(Buyer)
+        allow(form3).to receive(:build_entity).and_return(buyer2)
+        allow(buyer2).to receive_messages(save!: true, save: true)
+        allow(buyer2).to receive(:invite!)
+        allow(buyer2).to receive(:is_a?).with(Customer).and_return(true)
+        allow(buyer2).to receive(:is_a?).with(Buyer).and_return(true)
+        allow(buyer2).to receive(:is_a?).with(LegalEntity).and_return(false)
+        allow(Feature).to receive(:enable)
+
+        result3 = described_class.call(
+          form: form3,
+          escrow: escrow,
+          customer_type: 'buyer',
+          invite_customer: false,
+          features: features
+        )
+
+        expect(result3).to be_success
+        expect(buyer2).not_to have_received(:invite!)
+      end
+    end
+
+    context 'when creating legal entities (all types)' do
+      it 'creates all legal entity types without enabling features or inviting' do
+        organization = create(:organization)
+        escrow = create(:escrow, organization: organization)
+        current_person = create(:person)
+        create(:organization_membership, person: current_person, organization: organization)
+        features = [Feature::LIST[:fincen]]
+        Current.person = current_person
+        # Corporation
+        corp_form = CustomerEntityForm.new(
+          escrow,
+          customer_type: 'seller',
+          entity_attributes: {
+            entity_type: 'corporation',
+            business_name: 'Acme Corp',
+            tax_id: '12-3456789',
+            jurisdiction: 'CA',
+            international: false
+          },
+          features: features
+        )
+
+        result = described_class.call(
+          form: corp_form,
+          escrow: escrow,
+          customer_type: 'seller',
+          invite_customer: true, # Should be ignored for legal entities
+          features: features
+        )
+
+        expect(result).to be_success
+        corp = result.success
+        expect(corp).to be_a(LegalEntity)
+        expect(corp).to have_attributes(
+          business_name: 'Acme Corp',
+          entity_type: 'corporation',
+          customer_type: 'seller',
+          jurisdiction: 'CA'
+        )
+        expect(Feature.fincen_enabled?(corp)).to be false # Features not enabled for legal entities
+
+        # Trust with specific fields
+        trust_form = CustomerEntityForm.new(
+          escrow,
+          customer_type: 'buyer',
+          entity_attributes: {
+            entity_type: 'trust',
+            business_name: 'Smith Family Trust',
+            tax_id: '98-7654321',
+            date_created: '2020-01-15',
+            jurisdiction: 'NY',
+            international: false,
+            revokable: true
+          },
+          features: features
+        )
+
+        result = described_class.call(
+          form: trust_form,
+          escrow: escrow,
+          customer_type: 'buyer',
+          invite_customer: false,
+          features: features
+        )
+
+        expect(result).to be_success
+        trust = result.success
+        expect(trust).to have_attributes(
+          entity_type: 'trust',
+          date_created: Date.parse('2020-01-15'),
+          revokable: true
+        )
+
+        # International LLC
+        llc_form = CustomerEntityForm.new(
+          escrow,
+          customer_type: 'seller',
+          entity_attributes: {
+            entity_type: 'llc',
+            business_name: 'Global Holdings LLC',
+            tax_id: '55-9876543',
+            international: true
+          },
+          features: features
+        )
+
+        result = described_class.call(
+          form: llc_form,
+          escrow: escrow,
+          customer_type: 'seller',
+          invite_customer: false,
+          features: features
+        )
+
+        expect(result).to be_success
+        llc = result.success
+        expect(llc).to have_attributes(
+          entity_type: 'llc',
+          international: true,
+          jurisdiction: nil
+        )
+      end
+    end
+
+    context 'when handling validation failures' do
+      it 'handles validation failures for all entity types' do
+        organization = create(:organization)
+        escrow = create(:escrow, organization: organization)
+        current_person = create(:person)
+        create(:organization_membership, person: current_person, organization: organization)
+        features = [Feature::LIST[:fincen]]
+        Current.person = current_person
+        # Individual validation failure
+        invalid_individual = CustomerEntityForm.new(
+          escrow,
+          customer_type: 'buyer',
+          entity_attributes: {
+            entity_type: 'individual',
+            first_name: '',
+            last_name: 'Doe',
+            email: 'invalid-email',
+            phone_number: '+15551234567'
+          },
+          features: features
+        )
+
+        result = described_class.call(
+          form: invalid_individual,
+          escrow: escrow,
+          customer_type: 'buyer',
+          invite_customer: false,
+          features: features
+        )
+
+        expect(result).to be_failure
+        expect(result.failure).to include(entity: array_including("First name can't be blank"))
+        expect(Buyer.count).to eq(0)
+
+        # Corporation validation failure
+        invalid_corp = CustomerEntityForm.new(
+          escrow,
+          customer_type: 'buyer',
+          entity_attributes: {
+            entity_type: 'corporation',
+            business_name: '',
+            tax_id: '12-3456789'
+          },
+          features: features
+        )
+
+        result = described_class.call(
+          form: invalid_corp,
+          escrow: escrow,
+          customer_type: 'buyer',
+          invite_customer: false,
+          features: features
+        )
+
+        expect(result).to be_failure
+        expect(result.failure).to include(entity: array_including("Business name can't be blank"))
+        # Count only increases by 1 since the previous test created legal entities
+        initial_count = LegalEntity.count
+        expect(LegalEntity.count).to eq(initial_count) # No new legal entities from failed validation
+      end
+    end
+  end
+end

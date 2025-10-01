@@ -1,0 +1,16 @@
+nav.h2[aria-label="breadcrumb"]
+  ol.breadcrumb
+    li.breadcrumb-item.active[aria-current="page"]
+      | Welcome
+      '
+      code #{Current.person.first_name}
+
+.alert.alert-info
+  h3
+    | Other ideas for what to do here listed below
+  ul
+    li Pending reviews of Seller ID / bank reports
+    li Pending reviews of org wire changes
+    li Number of remaining passphrases available for use
+    li Escrow / organizations / users count
+    li Number of active escrows

@@ -1,0 +1,32 @@
+nav.h2[aria-label="breadcrumb"]
+  ol.breadcrumb
+    li.breadcrumb-item.active[aria-current="page"]
+      | Welcome
+      '
+      code #{Current.person.first_name}
+
+.row
+  .col-md-6
+    .card
+      .card-body
+        h5.card-title Q3 2025 Transactions
+        p.mb-1
+          | Buyers invited for wire:
+          '
+          strong = @q3_query.buyer_transactions.count
+        p.mb-0
+          | Sellers invited for IDV:
+          '
+          strong = @q3_query.seller_transactions.count
+  .col-md-6
+    .card
+      .card-body
+        h5.card-title Q4 2025 Transactions
+        p.mb-1
+          | Buyers invited for wire:
+          '
+          strong = @q4_query.buyer_transactions.count
+        p.mb-0
+          | Sellers invited for IDV:
+          '
+          strong = @q4_query.seller_transactions.count

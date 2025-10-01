@@ -1,0 +1,62 @@
+# frozen_string_literal: true
+
+# Service to save data from CustomerEntityForm to Customer or LegalEntity model
+class SaveCustomerEntityFormService < ApplicationService
+  description 'Saves data from CustomerEntityForm to Customer or LegalEntity model'
+
+  argument :form, Type::Any, description: 'Reform form object with validated data'
+  argument :escrow, Type::Escrow, description: 'Escrow to associate entity with'
+  argument :customer_type, Type::String, description: 'Type of customer (buyer or seller)'
+  argument :invite_customer, Type::Bool, default: true, description: 'Whether to send customer invitation'
+  argument :features, Type::Array, default: [].freeze, description: 'Array of feature names to enable for the entity'
+
+  def call
+    extract_model_from_form
+
+    # Wrap entire operation in transaction with explicit rollback handling
+    result = nil
+    failure_result = nil
+
+    ActiveRecord::Base.transaction do
+      unless entity.save
+        failure_result = Failure(entity: entity.errors.full_messages)
+        raise ActiveRecord::Rollback
+      end
+
+      enable_features_for_entity
+
+      # Ensure passphrase is assigned for buyers before invitation
+      ensure_passphrase_for_buyer
+
+      # Only invite if it's a Customer (not LegalEntity)
+      entity.invite!(whodunnit: Current.person) if entity.is_a?(Customer) && invite_customer
+
+      result = Success(entity)
+    end
+
+    failure_result || result
+  end
+
+  private
+
+  attr_reader :entity
+
+  def extract_model_from_form
+    # Build the entity from the form
+    @entity = form.build_entity
+  end
+
+  def enable_features_for_entity
+    return unless entity.is_a?(Customer) # Only enable features for Customer entities
+
+    features.each do |feature_name|
+      Feature.enable(feature: feature_name, owner: entity)
+    end
+  end
+
+  def ensure_passphrase_for_buyer
+    return unless entity.is_a?(Buyer) # Only for individual buyers, not legal entities
+
+    escrow.ensure_passphrase!
+  end
+end

@@ -1,0 +1,101 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+RSpec.describe 'FinCEN Sellers page' do
+  # Single comprehensive test for the happy path user journey
+  it 'allows officers to manage sellers through the FinCEN workflow' do
+    # Setup - create all test data once
+    organization = create(:organization)
+    escrow = create(:escrow, organization:)
+    existing_seller = create(:seller, escrow:, phone_number: '+15559876543', email: 'seller@example.com')
+    create(:legal_entity, :llc, escrow:, customer_type: 'seller', business_name: 'Smith LLC', tax_id: '98-7654321')
+    officer = create(:person)
+    create(:organization_membership, :officer, person: officer, organization:)
+
+    Flipper.enable(:fincen, organization)
+    Feature.enable(feature: Feature::LIST[:fincen], owner: existing_seller)
+
+    # Create activity data for testing tabs
+    Current.person = officer
+    escrow.activities_log.track_activity_once('seller', 'invited', customer: existing_seller, timestamp: 3.days.ago)
+    escrow.activities_log.track_activity_once('seller', 'logged_in', customer: existing_seller, timestamp: 2.hours.ago)
+
+    sign_in_as(officer)
+
+    # Test 1: View sellers index
+    visit organization_escrow_fincen_layout_seller_entities_path(organization, escrow)
+    expect(page).to have_content('Sellers')
+    expect(page).to have_content(existing_seller.full_name)
+
+    # Verify legal entity is displayed with proper entity type formatting
+    expect(page).to have_content('Smith LLC')
+    expect(page).to have_content('LLC') # Verify LLC is uppercase, not "Llc"
+    expect(page).to have_content('Authorized Signatories')
+    expect(page).to have_content('Beneficial Owners')
+    expect(page).to have_link('Add Authorized Signatories')
+    expect(page).to have_link('Add Beneficial Owners')
+
+    # Test 2: Navigate to seller details and verify tabs
+    click_on existing_seller.full_name
+    expect(page).to have_current_path(organization_escrow_fincen_layout_seller_path(organization, escrow, existing_seller))
+    expect(page).to have_content('(555) 987-6543')
+    expect(page).to have_content('seller@example.com')
+
+    # Verify activity tab
+    click_link 'View Activity'
+    expect(page).to have_content('Logged In')
+
+    # Verify tasks tab
+    click_link 'Tasks'
+    expect(page).to have_content('Personal Information')
+
+    # Test 3: Create a new seller (happy path only)
+    visit organization_escrow_fincen_layout_seller_entities_path(organization, escrow)
+    click_on '+ Add Additional Seller'
+
+    expect(page).to have_content('Add Seller')
+    expect(page).to have_select('Type', selected: 'Individual')
+
+    fill_in 'First Name', with: 'Jane'
+    fill_in 'Last Name', with: 'Smith'
+    fill_in 'Email Address', with: 'jane.smith@example.com'
+    fill_in 'Cell Phone', with: '+15551234567'
+
+    click_button 'Create Seller'
+
+    expect(page).to have_content('Seller was successfully created.')
+    expect(page).to have_content('Jane Smith')
+
+    # Verify database state
+    new_seller = Seller.last
+    expect(new_seller.full_name).to eq('Jane Smith')
+    expect(Feature.fincen_enabled?(new_seller)).to be(true)
+  end
+
+  # Keep this separate as it tests specific filtering behavior
+  it 'only displays sellers with FinCEN feature enabled and shows all legal entities' do
+    organization = create(:organization)
+    escrow = create(:escrow, organization:)
+    seller_with_fincen = create(:seller, escrow:, first_name: 'Enabled', last_name: 'Seller')
+    create(:seller, escrow:, first_name: 'Disabled', last_name: 'Seller')
+    create(:legal_entity, :llc, escrow:, customer_type: 'seller', business_name: 'Test LLC', tax_id: '12-3456789')
+    create(:legal_entity, :corporation, escrow:, customer_type: 'seller', business_name: 'Test Corp', tax_id: '98-7654321')
+    officer = create(:person)
+    create(:organization_membership, :officer, person: officer, organization:)
+
+    Flipper.enable(:fincen, organization)
+    Feature.enable(feature: Feature::LIST[:fincen], owner: seller_with_fincen)
+
+    sign_in_as(officer)
+    visit organization_escrow_fincen_layout_seller_entities_path(organization, escrow)
+
+    # Individual customers respect FinCEN feature filtering
+    expect(page).to have_content('Enabled Seller')
+    expect(page).to have_no_content('Disabled Seller')
+
+    # Legal entities are always shown (no FinCEN filtering concept for them)
+    expect(page).to have_content('Test LLC')
+    expect(page).to have_content('Test Corp')
+  end
+end

@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+class Admin::HomeController < Admin::BaseController
+  def index
+    @q3_query = TransactionsQuery.new(
+      start_date: Date.new(2025, 7, 1),
+      end_date: Date.new(2025, 9, 30).end_of_day
+    )
+    @q4_query = TransactionsQuery.new(
+      start_date: Date.new(2025, 10, 1),
+      end_date: Date.new(2025, 12, 31).end_of_day
+    )
+  end
+end

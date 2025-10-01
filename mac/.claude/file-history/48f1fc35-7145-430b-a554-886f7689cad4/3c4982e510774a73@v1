@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+class LegalEntityPresenter < SimpleDelegator
+  def entity_type_display
+    case entity_type
+    when LegalEntity::ENTITY_TYPES[:llc]
+      'LLC'
+    else
+      entity_type.capitalize
+    end
+  end
+end

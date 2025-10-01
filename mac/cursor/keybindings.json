@@ -34,10 +34,6 @@
         "command": "rubyLsp.goToRelevantFile"
     },
     {
-        "key": "cmd+e",
-        "command": "composerMode.background"
-    },
-    {
         "key": "shift+enter",
         "command": "workbench.action.terminal.sendSequence",
         "args": {

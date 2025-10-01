@@ -1,0 +1,229 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+RSpec.describe 'FincenLayout::CustomerEntities' do
+  describe 'POST buyer_entities - creates all entity types and handles validation' do
+    it 'handles individual buyer creation with valid and invalid data' do
+      organization = create(:organization)
+      escrow = create(:escrow, organization: organization)
+      person = create(:person)
+      create(:organization_membership, person: person, organization: organization)
+      Flipper.enable(:fincen, organization)
+      sign_in_as(person)
+      # Create passphrase for buyers
+      create(:passphrase)
+      buyer_entities_path = organization_escrow_fincen_layout_buyer_entities_path(organization, escrow)
+      # Test successful creation
+      post buyer_entities_path, params: {
+        customer_entity_form: {
+          entity_type: 'individual',
+          first_name: 'John',
+          last_name: 'Doe',
+          email: 'john.doe@example.com',
+          phone_number: '+15551234567'
+        }
+      }
+
+      expect(response).to redirect_to(buyer_entities_path)
+      expect(flash[:notice]).to eq('Buyer was successfully created.')
+
+      buyer = Buyer.last
+      expect(buyer).to have_attributes(
+        first_name: 'John',
+        last_name: 'Doe',
+        email: 'john.doe@example.com',
+        phone_number: '+15551234567',
+        escrow: escrow
+      )
+
+      # Test validation failure in same test
+      post buyer_entities_path, params: {
+        customer_entity_form: {
+          entity_type: 'individual',
+          first_name: '',
+          last_name: 'Doe',
+          email: 'invalid-email',
+          phone_number: '+15551234567'
+        }
+      }
+
+      expect(response).to have_http_status(:unprocessable_content)
+      expect(response.body).to include('First name can&#39;t be blank')
+      expect(response.body).to include('Email is invalid')
+    end
+
+    it 'handles all legal entity types (corporation, LLC, trust) in one test' do
+      organization = create(:organization)
+      escrow = create(:escrow, organization: organization)
+      person = create(:person)
+      create(:organization_membership, person: person, organization: organization)
+      Flipper.enable(:fincen, organization)
+      sign_in_as(person)
+      buyer_entities_path = organization_escrow_fincen_layout_buyer_entities_path(organization, escrow)
+      # Test corporation creation
+      post buyer_entities_path, params: {
+        customer_entity_form: {
+          entity_type: 'corporation',
+          business_name: 'Acme Corp',
+          tax_id: '12-3456789',
+          jurisdiction: 'CA',
+          international: '0'
+        }
+      }
+
+      expect(response).to redirect_to(buyer_entities_path)
+      corporation = LegalEntity.last
+      expect(corporation).to have_attributes(
+        business_name: 'Acme Corp',
+        tax_id: '12-3456789',
+        jurisdiction: 'CA',
+        customer_type: 'buyer'
+      )
+
+      # Test LLC with international flag
+      post buyer_entities_path, params: {
+        customer_entity_form: {
+          entity_type: 'llc',
+          business_name: 'Global Holdings LLC',
+          tax_id: '55-9876543',
+          international: '1'
+        }
+      }
+
+      expect(response).to redirect_to(buyer_entities_path)
+      llc = LegalEntity.last
+      expect(llc).to have_attributes(
+        business_name: 'Global Holdings LLC',
+        international: true,
+        jurisdiction: nil
+      )
+
+      # Test trust with date and revokable
+      post buyer_entities_path, params: {
+        customer_entity_form: {
+          entity_type: 'trust',
+          business_name: 'Smith Family Trust',
+          tax_id: '98-7654321',
+          date_created: '2020-01-15',
+          jurisdiction: 'NY',
+          international: '0',
+          revokable: true
+        }
+      }
+
+      expect(response).to redirect_to(buyer_entities_path)
+      trust = LegalEntity.last
+      expect(trust).to have_attributes(
+        business_name: 'Smith Family Trust',
+        date_created: Date.parse('2020-01-15'),
+        revokable: true
+      )
+
+      # Test trust validation (future date)
+      post buyer_entities_path, params: {
+        customer_entity_form: {
+          entity_type: 'trust',
+          business_name: 'Future Trust',
+          tax_id: '98-7654321',
+          date_created: 1.day.from_now.to_date.to_s,
+          jurisdiction: 'NY',
+          international: '0',
+          revokable: true
+        }
+      }
+
+      expect(response).to have_http_status(:unprocessable_content)
+      expect(response.body).to include('cannot be in the future')
+
+      # Test corporation validation (missing business name)
+      post buyer_entities_path, params: {
+        customer_entity_form: {
+          entity_type: 'corporation',
+          business_name: '',
+          tax_id: '12-3456789',
+          jurisdiction: 'CA',
+          international: '0'
+        }
+      }
+
+      expect(response).to have_http_status(:unprocessable_content)
+      expect(response.body).to include('Business name can&#39;t be blank')
+    end
+  end
+
+  describe 'POST seller_entities - creates sellers efficiently' do
+    it 'handles individual and legal entity seller creation' do
+      organization = create(:organization)
+      escrow = create(:escrow, organization: organization)
+      person = create(:person)
+      create(:organization_membership, person: person, organization: organization)
+      Flipper.enable(:fincen, organization)
+      sign_in_as(person)
+      seller_entities_path = organization_escrow_fincen_layout_seller_entities_path(organization, escrow)
+      # Individual seller
+      post seller_entities_path, params: {
+        customer_entity_form: {
+          entity_type: 'individual',
+          first_name: 'Jane',
+          last_name: 'Smith',
+          email: 'jane.smith@example.com',
+          phone_number: '+15559876543'
+        }
+      }
+
+      expect(response).to redirect_to(seller_entities_path)
+      expect(flash[:notice]).to eq('Seller was successfully created.')
+
+      seller = Seller.last
+      expect(seller.full_name).to eq('Jane Smith')
+
+      # Legal entity seller
+      post seller_entities_path, params: {
+        customer_entity_form: {
+          entity_type: 'corporation',
+          business_name: 'Seller Corp',
+          tax_id: '99-8877665',
+          jurisdiction: 'TX',
+          international: '0'
+        }
+      }
+
+      expect(response).to redirect_to(seller_entities_path)
+      legal_entity = LegalEntity.last
+      expect(legal_entity).to have_attributes(
+        business_name: 'Seller Corp',
+        customer_type: 'seller',
+        jurisdiction: 'TX'
+      )
+    end
+  end
+
+  describe 'GET endpoints - tests new and index pages' do
+    it 'renders all pages correctly' do
+      organization = create(:organization)
+      escrow = create(:escrow, organization: organization)
+      person = create(:person)
+      create(:organization_membership, person: person, organization: organization)
+      Flipper.enable(:fincen, organization)
+      sign_in_as(person)
+      # Buyer new page
+      get new_organization_escrow_fincen_layout_buyer_entity_path(organization, escrow)
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include('Individual')
+      expect(response.body).to include('<option selected="selected" value="individual">Individual</option>')
+
+      # Seller new page
+      get new_organization_escrow_fincen_layout_seller_entity_path(organization, escrow)
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include('Individual')
+
+      # Index pages
+      get organization_escrow_fincen_layout_buyer_entities_path(organization, escrow)
+      expect(response).to have_http_status(:ok)
+
+      get organization_escrow_fincen_layout_seller_entities_path(organization, escrow)
+      expect(response).to have_http_status(:ok)
+    end
+  end
+end

@@ -1,0 +1,81 @@
+# frozen_string_literal: true
+
+class FincenLayout::CustomersController < FincenLayout::BaseController
+  before_action :set_customer_type
+  before_action :set_menu_item
+
+  helper_method :customer_type
+
+  def show
+    customer = find_customer_by_uuid(params[:id])
+    current_tab = params[:tab] || 'tasks'
+    @customer = FincenCustomerPresenter.new(customer, current_tab: current_tab, organization: @organization, escrow: @escrow, customer_type: customer_type)
+
+    return unless current_tab == 'activity'
+
+    activity_method = customer_type == Customer::BUYER ? :for_buyers : :for_sellers
+    @activities = EscrowActivitiesPresenter.new(
+      @escrow.activities_log.public_send(activity_method,
+                                         included_tables: %i[whodunnit customer]).page(params[:page])
+    )
+  end
+
+  # NOTE: new & create will be used for the authorized signatory & beneficial owner creation
+  def new; end
+
+  def create
+    if @form.save
+      redirect_to customer_path(@form.customer_record),
+                  notice: "#{customer_type.capitalize} was successfully created."
+    else
+      render :new, status: :unprocessable_content
+    end
+  end
+
+  def invite
+    customer = find_customer_by_uuid(params[:id])
+
+    begin
+      customer.invite!(whodunnit: Current.person, kind: Invitation::KIND[:fincen])
+      redirect_to customer_path(customer), notice: "Invitation sent to #{customer.email}."
+    rescue StandardError => e
+      redirect_to customer_path(customer), alert: "Failed to send invitation: #{e.message}"
+    end
+  end
+
+  private
+
+  attr_reader :customer_type
+
+  def set_customer_type
+    @customer_type = params[:customer_type] || infer_customer_type_from_route
+  end
+
+  def set_menu_item
+    self.class.menu_item_name = customer_type == Customer::BUYER ? :fincen_buyers : :fincen_sellers
+  end
+
+  def infer_customer_type_from_route
+    case request.path
+    when /buyers/
+      Customer::BUYER
+    when /sellers/
+      Customer::SELLER
+    else
+      redirect_to organization_escrow_path(@organization, @escrow)
+      nil
+    end
+  end
+
+  def find_customer_by_uuid(uuid)
+    @escrow.customers.find_by!(uuid: uuid)
+  end
+
+  def customer_path(customer)
+    if customer_type == Customer::BUYER
+      organization_escrow_fincen_layout_buyer_path(@organization, @escrow, customer)
+    else
+      organization_escrow_fincen_layout_seller_path(@organization, @escrow, customer)
+    end
+  end
+end

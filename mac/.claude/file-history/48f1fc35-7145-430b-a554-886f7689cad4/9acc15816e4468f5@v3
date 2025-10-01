@@ -1,0 +1,104 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+RSpec.describe 'FinCEN Buyers page' do
+  # This single comprehensive test covers the happy path user journey for buyers
+  # Edge cases and entity type variations are covered in request specs
+  it 'allows officers to manage buyers through the FinCEN workflow' do
+    # Setup - create all test data once
+    organization = create(:organization)
+    escrow = create(:escrow, organization:)
+    existing_buyer = create(:buyer, escrow:, phone_number: '+15551234567', email: 'buyer@example.com')
+    create(:legal_entity, :corporation, escrow:, customer_type: 'buyer', business_name: 'Acme Corp', tax_id: '12-3456789')
+    officer = create(:person)
+    create(:organization_membership, :officer, person: officer, organization:)
+
+    Flipper.enable(:fincen, organization)
+    Feature.enable(feature: Feature::LIST[:fincen], owner: existing_buyer)
+
+    # Create activity data for testing tabs
+    Current.person = officer
+    escrow.activities_log.track_activity_once('buyer', 'invited', customer: existing_buyer, timestamp: 2.days.ago)
+    escrow.activities_log.track_activity_once('buyer', 'logged_in', customer: existing_buyer, timestamp: 1.day.ago)
+
+    sign_in_as(officer)
+
+    # Test 1: View buyers index
+    visit organization_escrow_fincen_layout_buyer_entities_path(organization, escrow)
+    expect(page).to have_content('Buyers')
+    expect(page).to have_content(existing_buyer.full_name)
+    expect(page).to have_content('Individual')
+
+    # Verify legal entity is displayed
+    expect(page).to have_content('Acme Corp')
+    expect(page).to have_content('Corporation')
+    expect(page).to have_content('Authorized Signatories')
+    expect(page).to have_content('Beneficial Owners')
+    expect(page).to have_link('Add Authorized Signatories')
+    expect(page).to have_link('Add Beneficial Owners')
+
+    # Test 2: Navigate to buyer details and verify tabs work
+    click_on existing_buyer.full_name
+    expect(page).to have_current_path(organization_escrow_fincen_layout_buyer_path(organization, escrow, existing_buyer))
+    expect(page).to have_content('(555) 123-4567')
+    expect(page).to have_content('buyer@example.com')
+
+    # Verify activity tab
+    click_link 'View Activity'
+    expect(page).to have_content('Logged In')
+
+    # Verify tasks tab
+    click_link 'Tasks'
+    expect(page).to have_content('Identity')
+    expect(page).to have_content('Personal Information')
+
+    # Test 3: Create a new buyer (happy path only - other entity types covered in request specs)
+    visit organization_escrow_fincen_layout_buyer_entities_path(organization, escrow)
+    click_on '+ Add Additional Buyer'
+
+    expect(page).to have_content('Add Buyer')
+    expect(page).to have_select('Type', selected: 'Individual')
+
+    fill_in 'First Name', with: 'John'
+    fill_in 'Last Name', with: 'Doe'
+    fill_in 'Email Address', with: 'john.doe@example.com'
+    fill_in 'Cell Phone', with: '+1234567890'
+
+    click_button 'Create Buyer'
+
+    expect(page).to have_content('Buyer was successfully created.')
+    expect(page).to have_content('John Doe')
+
+    # Verify database state
+    new_buyer = Buyer.last
+    expect(new_buyer.full_name).to eq('John Doe')
+    expect(Feature.fincen_enabled?(new_buyer)).to be(true)
+  end
+
+  # Keep this separate as it tests specific filtering behavior
+  it 'only displays buyers with FinCEN feature enabled and shows all legal entities' do
+    organization = create(:organization)
+    escrow = create(:escrow, organization:)
+    buyer_with_fincen = create(:buyer, escrow:, first_name: 'With', last_name: 'FinCEN')
+    create(:buyer, escrow:, first_name: 'Without', last_name: 'FinCEN')
+    create(:legal_entity, :corporation, escrow:, customer_type: 'buyer', business_name: 'Test Corp', tax_id: '12-3456789')
+    create(:legal_entity, :llc, escrow:, customer_type: 'buyer', business_name: 'Test LLC', tax_id: '98-7654321')
+    officer = create(:person)
+    create(:organization_membership, :officer, person: officer, organization:)
+
+    Flipper.enable(:fincen, organization)
+    Feature.enable(feature: Feature::LIST[:fincen], owner: buyer_with_fincen)
+
+    sign_in_as(officer)
+    visit organization_escrow_fincen_layout_buyer_entities_path(organization, escrow)
+
+    # Individual customers respect FinCEN feature filtering
+    expect(page).to have_content('With FinCEN')
+    expect(page).to have_no_content('Without FinCEN')
+
+    # Legal entities are always shown (no FinCEN filtering concept for them)
+    expect(page).to have_content('Test Corp')
+    expect(page).to have_content('Test LLC')
+  end
+end

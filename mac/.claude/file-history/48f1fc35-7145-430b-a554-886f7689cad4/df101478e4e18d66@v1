@@ -1,0 +1,59 @@
+# frozen_string_literal: true
+
+class FincenLayout::BeneficialOwnersController < FincenLayout::BaseController
+  before_action :set_legal_entity
+  before_action :set_customer_type
+  before_action :set_menu_item
+  before_action :set_form, only: %i[new create]
+
+  def new; end
+
+  def create
+    if @form.save
+      redirect_to entities_path, notice: 'Beneficial Owner was successfully added.'
+    else
+      render :new, status: :unprocessable_content
+    end
+  end
+
+  private
+
+  def set_legal_entity
+    @legal_entity = @escrow.legal_entities.find_by!(slug: params[:id])
+  end
+
+  def set_customer_type
+    @customer_type = @legal_entity.customer_type
+  end
+
+  def set_menu_item
+    self.class.menu_item_name = @customer_type == 'buyer' ? :fincen_buyers : :fincen_sellers
+  end
+
+  def set_form
+    @form = LegalOwnershipForm.new(
+      legal_entity: @legal_entity,
+      relationship_type: LegalOwnership::RELATIONSHIP_TYPES[:beneficial_owner],
+      ownership_params: ownership_params
+    )
+  end
+
+  def ownership_params
+    params.fetch(:legal_ownership_form, {}).permit(
+      :first_name,
+      :last_name,
+      :email,
+      :phone_number
+    )
+  end
+
+  def entities_path
+    if @customer_type == 'buyer'
+      organization_escrow_fincen_layout_buyer_entities_path(@organization, @escrow)
+    else
+      organization_escrow_fincen_layout_seller_entities_path(@organization, @escrow)
+    end
+  end
+
+  helper_method :entities_path
+end

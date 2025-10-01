@@ -1,9 +1,41 @@
-# Mac
-## Setup
+# Dotfiles
+
+Personal dotfiles for Mac and Linux development environments. Manages vim, tmux, zsh, git, and various development tool configurations.
+
+## Quick Start
+
+### Mac
+```bash
+# Prerequisites
+# - Latest Mac OS
+# - Clone private `environment_configurations` repo in same parent directory
+
+# Run main setup script
+mac/make.sh
+```
+
+### Linux
+```bash
+# Run main setup script
+linux/make.sh
+```
+
+## Directory Structure
+
+- `mac/` - Mac-specific configurations and scripts
+- `linux/` - Linux-specific configurations and scripts
+- `shared/` - Cross-platform configurations (vim, zsh, tmux, git)
+
+## Setup Details
+
+### Mac
 * Make sure you're on the latest Mac OS
 * Clone the private `environment_configurations` repo in the same parent directory as this `dotfiles` repo
-* Run `mac/make.sh`
-* This repo assumes the home dir is `jklein`. If it's not, symlink it with the following
+* Run `mac/make.sh` which executes:
+  1. `mac/scripts/dependencies.sh` - Install Homebrew packages
+  2. `mac/scripts/symlink_to_dotfiles_repo.sh` - Create symlinks to dotfiles
+  3. Linux settings scripts (for cross-platform settings)
+* This repo assumes the home dir is `jklein`. If it's not, symlink it with:
   ```sh
   cd /Users
   sudo ln -s james jklein
@@ -16,40 +48,57 @@
 * In iTerm, set the font to that font for the current profile. Profiles > Text > Font
 * Restart vim and you should see devicons
 
-### Syncing Mac Settings
-* To save local settings to the repo `mac/scripts/backup_settings.sh`
-* To apply repo settings to the local mac `mac/scripts/restore_settings.sh` (part of `make` script)
+### Syncing Settings
+* To save local settings to the repo: `linux/scripts/backup_settings.sh`
+* To apply repo settings to the local machine: `linux/scripts/restore_settings.sh` (part of `make` script)
 
 ### Sequel Pro
-- Dark query scheme found in `mac_config/sequel-pro-master`
+- Dark query scheme found in `mac/config/sequel-pro/`
 
 ### Additional environment configurations
 * Chrome theme - Dark Theme v3
 * See `$PRIVATE_CONFIGS_DIR/README.txt`
 
 ### Userscripts
-Stored in bookmarks on my googlde chrome account.
+Stored in bookmarks on my google chrome account.
 
 ### NVM
 I set the system ~/.nvmrc -> dotfiles/nvmrc and have that fetching `node` which is the latest node version. Any project without a .nvmrc will use the latest since it will traverse up the dirs to find my root one
 
-### TMUX
-Default config taken from [oh-my-tmux](https://github.com/gpakosz/.tmux)
+### TMUX & Tmuxinator
+Default tmux config taken from [oh-my-tmux](https://github.com/gpakosz/.tmux)
+
+Tmuxinator project configurations are stored in `shared/tmux/.tmuxinator/` and symlinked to `~/.tmuxinator/`.
+
+#### Usage
+```bash
+# Create new tmuxinator config
+mac/scripts/new_tmuxinator_config.rb [project_name]
+
+# Start a tmux session
+tmuxinator start [project_name]
+# or shorthand:
+mux [project_name]
+
+# Debug tmuxinator config
+tmuxinator debug [project_name]
+```
 
 ### Alfred
 - Settings are stored in the private env config path in Google Drive.
 - This should already be stored in settings but if not, use [this script](https://github.com/stuartcryan/custom-iterm-applescripts-for-alfred) to get Alfred <> iTerm2 integration
 
 ### VIM
+- Main config located in `shared/.vimrc`
+- Uses vim-plug for plugin management
 - Followed [this guide](https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html) to set up ctags using git hooks
-- Use [vim-projections](https://github.com/tpope/vim-projectionist) to define alternate files as explained [here](https://noahfrederick.com/log/vim-templates-with-ultisnips-and-projectionist). Each project has a `.projections.json` defined and globally git ignored.
-- Install pythonx dependencies with the following. Note that `vim-pyenv` takes care of using the pyenv, not system version of python.
+- Uses [vim-projectionist](https://github.com/tpope/vim-projectionist) to define alternate files as explained [here](https://noahfrederick.com/log/vim-templates-with-ultisnips-and-projectionist). Each project has a `.projections.json` defined and globally git ignored.
+- Install pythonx dependencies with the following. Note that `vim-pyenv` takes care of using the pyenv, not system version of python:
 ```sh
-pip install -r vim/pythonx/requirements.txt
+pip install -r shared/vim/.vim/pythonx/requirements.txt
 ```
 
-### Music & iTunes
-- Music is synced to my personal server space using `/mac/scripts/upload_music`. This only uploads the file difference and deletes any deleted songs. My server plan comes with 100GB of space.
+### iTunes
 - For Alfred iTunes miniplayer: In iTunes go to Preferences > Advanced > Share iTunes Library XML with other applications
 
 ### SSH
@@ -75,21 +124,27 @@ sudo pip3 install --user neovim
 gem install neovim
 ```
 
-### Brew
-Run `brew bundle dump --force` to update the Brewfile
-
 ### Quiver
-- Quiver settings are stored in the root dir with default file name `Quiver-settings.json`
+- Quiver settings are stored in `mac/config/Quiver-settings.json`
 
-### Troubleshooting
+## Security
+
+Sensitive files are automatically excluded via `.gitignore`:
+- `mac/.claude/.credentials.json` and related credential files
+- `*.key`, `*.pem`, `*.cert`
+- `.env` and `.env.*` files
+- Private configurations should be stored in the separate `environment_configurations` repository
+
+## Troubleshooting
 - If you're getting a message about `__init_nvm` not being defined, nvm likely added something to the .zshrc. Check the bottom of the file.
 
 # Linux
 ## Setup
-- Run `linux/scripts/dependencies.sh`
-
-### Shortkeys
-- `linux/shortkeys.json` contains the shortcuts for the Shortkeys chrome extension
+Run `linux/make.sh` which executes:
+1. `linux/scripts/dependencies.sh` - Install system packages
+2. `linux/scripts/restore_settings.sh` - Apply Linux settings
+3. `linux/scripts/symlink_to_dotfiles_repo.sh` - Create symlinks
+4. `linux/scripts/fontconfig.sh` - Configure fonts
 
 ### Apt-get
 - Packages and sources are backed up as part of the dependency scripts

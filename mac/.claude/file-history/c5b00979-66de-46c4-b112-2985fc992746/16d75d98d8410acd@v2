@@ -1,0 +1,72 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+RSpec.describe LegalOwnershipForm do
+  let(:legal_entity) { create(:legal_entity, :corporation, customer_type: 'buyer') }
+
+  it 'sets up form with legal entity, normalizes phone, validates fields, and saves via service' do
+    # Test initialization and phone normalization
+    form = described_class.new(
+      legal_entity: legal_entity,
+      relationship_type: LegalOwnership::RELATIONSHIP_TYPES[:authorized_signatory],
+      ownership_params: {
+        first_name: 'John',
+        last_name: 'Signatory',
+        email: 'john.signatory@example.com',
+        phone_number: '555-123-4567'
+      }
+    )
+
+    expect(form.legal_entity).to eq(legal_entity)
+    expect(form.relationship_type).to eq(LegalOwnership::RELATIONSHIP_TYPES[:authorized_signatory])
+    expect(form.escrow).to eq(legal_entity.escrow)
+    expect(form.first_name).to eq('John')
+    expect(form.last_name).to eq('Signatory')
+    expect(form.email).to eq('john.signatory@example.com')
+    expect(form.phone_number).to eq('+15551234567')
+
+    # Test successful save
+    expect(form.save).to be_truthy
+    expect(form.ownership_record).to be_a(LegalOwnership)
+    expect(form.ownership_record.customer).to be_a(Buyer)
+    expect(form.ownership_record.legal_entity).to eq(legal_entity)
+
+    # Test validation errors
+    invalid_form = described_class.new(
+      legal_entity: legal_entity,
+      relationship_type: LegalOwnership::RELATIONSHIP_TYPES[:authorized_signatory],
+      ownership_params: {
+        first_name: '',
+        last_name: '',
+        email: 'invalid-email',
+        phone_number: ''
+      }
+    )
+
+    expect(invalid_form).not_to be_valid
+    expect(invalid_form.errors[:first_name]).to include("can't be blank")
+    expect(invalid_form.errors[:last_name]).to include("can't be blank")
+    expect(invalid_form.errors[:email]).to include('is invalid')
+    expect(invalid_form.errors[:phone_number]).to include("can't be blank")
+
+    # Test that invalid form doesn't call service
+    expect(CreateLegalOwnershipService).not_to receive(:call)
+    expect(invalid_form.save).to be_falsey
+
+    # Test phone normalization variants
+    form_with_parens = described_class.new(
+      legal_entity: legal_entity,
+      relationship_type: LegalOwnership::RELATIONSHIP_TYPES[:authorized_signatory],
+      ownership_params: { phone_number: '(555) 123-4567' }
+    )
+    expect(form_with_parens.phone_number).to eq('+15551234567')
+
+    form_with_nil = described_class.new(
+      legal_entity: legal_entity,
+      relationship_type: LegalOwnership::RELATIONSHIP_TYPES[:authorized_signatory],
+      ownership_params: { phone_number: nil }
+    )
+    expect(form_with_nil.phone_number).to be_nil
+  end
+end

@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Read(//Users/jklein/.config/**)",
+      "Read(//Users/jklein/.tmuxinator/**)",
+      "Bash(mux:*)",
+      "Bash(ruby -e \"require ''yaml''; require ''erb''; puts ERB.new(File.read(File.expand_path(''~/.tmuxinator/escrowsafe.yml''))).result\")",
+      "Bash(tmuxinator start:*)",
+      "Bash(tmuxinator debug:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }

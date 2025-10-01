@@ -1,0 +1,109 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+RSpec.describe CreateLegalOwnershipService do
+  it 'creates buyer/seller customers with legal ownership and handles validation errors' do
+    # Test buyer authorized signatory creation (happy path)
+    buyer_entity = create(:legal_entity, :corporation, customer_type: 'buyer')
+    buyer_attrs = {
+      first_name: 'John',
+      last_name: 'Signatory',
+      email: 'john.signatory@example.com',
+      phone_number: '+15551234567'
+    }
+
+    described_class.call(
+      legal_entity: buyer_entity,
+      relationship_type: LegalOwnership::RELATIONSHIP_TYPES[:authorized_signatory],
+      customer_attributes: buyer_attrs
+    ) do |on|
+      on.success do |ownership|
+        expect(ownership).to be_a(LegalOwnership)
+        expect(ownership.relationship_type).to eq(LegalOwnership::RELATIONSHIP_TYPES[:authorized_signatory])
+        expect(ownership.legal_entity).to eq(buyer_entity)
+        expect(ownership.customer).to be_a(Buyer)
+        expect(ownership.customer.escrow).to eq(buyer_entity.escrow)
+        expect(ownership.customer.first_name).to eq('John')
+        expect(ownership.customer.last_name).to eq('Signatory')
+        expect(ownership.customer.email).to eq('john.signatory@example.com')
+        expect(ownership.customer.phone_number).to eq('+15551234567')
+        expect(Feature).to be_fincen_enabled(ownership.customer)
+      end
+      on.failure { |errors| raise "Expected success, got failure: #{errors.full_messages}" }
+    end
+
+    # Test seller beneficial owner creation
+    seller_entity = create(:legal_entity, :llc, customer_type: 'seller')
+    seller_attrs = {
+      first_name: 'Alice',
+      last_name: 'Owner',
+      email: 'alice.owner@example.com',
+      phone_number: '+15551234568'
+    }
+
+    described_class.call(
+      legal_entity: seller_entity,
+      relationship_type: LegalOwnership::RELATIONSHIP_TYPES[:beneficial_owner],
+      customer_attributes: seller_attrs
+    ) do |on|
+      on.success do |ownership|
+        expect(ownership).to be_a(LegalOwnership)
+        expect(ownership.relationship_type).to eq(LegalOwnership::RELATIONSHIP_TYPES[:beneficial_owner])
+        expect(ownership.legal_entity).to eq(seller_entity)
+        expect(ownership.customer).to be_a(Seller)
+        expect(ownership.customer.escrow).to eq(seller_entity.escrow)
+      end
+      on.failure { |errors| raise "Expected success, got failure: #{errors.full_messages}" }
+    end
+
+    # Test validation errors
+    described_class.call(
+      legal_entity: buyer_entity,
+      relationship_type: LegalOwnership::RELATIONSHIP_TYPES[:authorized_signatory],
+      customer_attributes: {
+        first_name: '',
+        last_name: '',
+        email: 'invalid-email',
+        phone_number: ''
+      }
+    ) do |on|
+      on.success { |result| raise "Expected failure, got success: #{result}" }
+      on.failure do |errors|
+        expect(errors).to be_an(ActiveModel::Errors)
+        expect(errors[:first_name]).to include("can't be blank")
+        expect(errors[:last_name]).to include("can't be blank")
+        expect(errors[:email]).to include('is invalid')
+        expect(errors[:phone_number]).to include("can't be blank")
+      end
+    end
+
+    # Test duplicate email error
+    create(:buyer, escrow: buyer_entity.escrow, email: 'duplicate@example.com')
+
+    described_class.call(
+      legal_entity: buyer_entity,
+      relationship_type: LegalOwnership::RELATIONSHIP_TYPES[:authorized_signatory],
+      customer_attributes: buyer_attrs.merge(email: 'duplicate@example.com')
+    ) do |on|
+      on.success { |result| raise "Expected failure, got success: #{result}" }
+      on.failure do |errors|
+        expect(errors).to be_an(ActiveModel::Errors)
+        expect(errors[:email]).to include('has already been taken')
+      end
+    end
+
+    # Test invalid relationship type
+    described_class.call(
+      legal_entity: buyer_entity,
+      relationship_type: 'invalid_type',
+      customer_attributes: buyer_attrs
+    ) do |on|
+      on.success { |result| raise "Expected failure, got success: #{result}" }
+      on.failure do |errors|
+        expect(errors).to be_an(ActiveModel::Errors)
+        expect(errors[:relationship_type]).to include('is not included in the list')
+      end
+    end
+  end
+end

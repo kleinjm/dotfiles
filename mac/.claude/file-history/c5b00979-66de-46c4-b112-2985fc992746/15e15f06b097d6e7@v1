@@ -1,0 +1,94 @@
+# frozen_string_literal: true
+
+# Form object for creating beneficial owners and authorized signatories for legal entities
+class LegalOwnershipForm < BaseForm
+  # Virtual properties for customer creation
+  property :first_name, virtual: true
+  property :last_name, virtual: true
+  property :email, virtual: true
+  property :phone_number, virtual: true
+
+  # ActiveModel validations
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :phone_number, presence: true
+
+  # Initialize with legal entity and relationship type
+  def initialize(legal_entity:, relationship_type:, ownership_params: {})
+    @legal_entity = legal_entity
+    @relationship_type = relationship_type
+    @escrow = legal_entity.escrow
+
+    # Initialize Reform with empty composition since we use virtual properties
+    super({})
+
+    # Apply attributes from params
+    ownership_params.each do |key, value|
+      public_send("#{key}=", value) if respond_to?("#{key}=")
+    end
+
+    # Normalize phone number
+    normalize_phone_number if phone_number.present?
+  end
+
+  # Override save to use our service layer
+  def save
+    return false unless valid?
+
+    CreateLegalOwnershipService.call(
+      legal_entity: legal_entity,
+      relationship_type: relationship_type,
+      customer_attributes: customer_attributes
+    ) do |on|
+      on.success do |ownership|
+        @ownership_record = ownership
+        return true
+      end
+      on.failure do |errors|
+        merge_service_errors(errors)
+        return false
+      end
+    end
+  end
+
+  # Phone number normalization
+  def phone_number=(value)
+    super(value.present? ? PhoneNumberFormatter.normalize(value) : value)
+  end
+
+  # Expose attributes for views
+  attr_reader :legal_entity, :relationship_type, :escrow, :ownership_record
+
+  # ActiveModel interface for form_with compatibility
+  def persisted?
+    false
+  end
+
+  def to_key
+    nil
+  end
+
+  def to_param
+    nil
+  end
+
+  memoize def model_name
+    ::ActiveModel::Name.new(self.class, nil, 'legal_ownership_form')
+  end
+
+  private
+
+  def normalize_phone_number
+    self.phone_number = PhoneNumberFormatter.normalize(phone_number) if phone_number.present?
+  end
+
+  def customer_attributes
+    {
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      phone_number: phone_number
+    }
+  end
+end

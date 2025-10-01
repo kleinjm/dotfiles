@@ -1,0 +1,50 @@
+# frozen_string_literal: true
+
+# Service to create a customer and associate them with a legal entity as a beneficial owner or authorized signatory
+class CreateLegalOwnershipService < ApplicationService
+  description 'Creates a customer and their legal ownership relationship'
+
+  argument :legal_entity, Type::ApplicationRecord, description: 'The legal entity to associate with'
+  argument :relationship_type, Type::String, description: 'Type of relationship (authorized_signatory or beneficial_owner)'
+  argument :customer_attributes, Type::Hash, description: 'Attributes for creating the customer'
+
+  def call
+    ActiveRecord::Base.transaction do
+      customer = create_customer
+      create_legal_ownership(customer)
+      enable_fincen_feature(customer)
+      Success(legal_ownership)
+    rescue ActiveRecord::RecordInvalid => e
+      Failure(e.record.errors)
+    rescue StandardError => e
+      Failure(ActiveModel::Errors.new(LegalOwnership.new).tap { |errors| errors.add(:base, e.message) })
+    end
+  end
+
+  private
+
+  attr_reader :legal_ownership
+
+  def create_customer
+    customer_class = legal_entity.customer_type == 'buyer' ? Buyer : Seller
+    customer_class.create!(
+      escrow: legal_entity.escrow,
+      first_name: customer_attributes[:first_name],
+      last_name: customer_attributes[:last_name],
+      email: customer_attributes[:email],
+      phone_number: customer_attributes[:phone_number]
+    )
+  end
+
+  def create_legal_ownership(customer)
+    @legal_ownership = LegalOwnership.create!(
+      legal_entity: legal_entity,
+      customer: customer,
+      relationship_type: relationship_type
+    )
+  end
+
+  def enable_fincen_feature(customer)
+    Feature.enable(feature: Feature::LIST[:fincen], owner: customer)
+  end
+end

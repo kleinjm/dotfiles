@@ -10,4 +10,4 @@ windows:
         - nvim .
         - docker compose -f .devcontainer/compose.yaml -f .devcontainer/compose.override.yaml exec -w /workspaces/web rails-app zsh
   - server: bin/dev
-  - console: bundle exec rails c
+  - console: docker compose -f .devcontainer/compose.yaml -f .devcontainer/compose.override.yaml exec -w /workspaces/web rails-app bundle exec rails c

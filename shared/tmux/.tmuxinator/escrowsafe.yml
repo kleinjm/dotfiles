@@ -8,6 +8,6 @@ windows:
       layout: main-horizontal
       panes:
         - nvim .
-        - docker compose -f .devcontainer/compose.yaml -f .devcontainer/compose.override.yaml exec -w /workspaces/web rails-app zsh
+        - devcontainer exec --workspace-folder . zsh
   - server: bin/dev
-  - console: docker compose -f .devcontainer/compose.yaml -f .devcontainer/compose.override.yaml exec -w /workspaces/web rails-app bundle exec rails c
+  - console: devcontainer exec --workspace-folder . zsh -c 'bundle exec rails c'

@@ -5,9 +5,10 @@ startup_pane: 1
 
 windows:
   - editor:
-      layout: main-horizontal
+      layout: f4d4,272x62,0,0{80x62,0,0,65,191x62,81,0[191x50,81,0,68,191x11,81,51,71]}
       panes:
-        - nvim .
+        - devcontainer exec --workspace-folder . zsh -c 'claude'
+        - devcontainer exec --workspace-folder . zsh -c 'nvim .'
         - devcontainer exec --workspace-folder . zsh
   - server: bin/dev
   - console: devcontainer exec --workspace-folder . zsh -c 'bundle exec rails c'

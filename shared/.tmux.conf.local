@@ -55,6 +55,7 @@ tmux_conf_theme_right_separator_main=''
 tmux_conf_theme_right_separator_sub=''
 
 tmux_conf_copy_to_os_clipboard=true
+
 ### End Oh-my-tmux config ###
 
 # Smart pane switching with awareness of Vim splits.

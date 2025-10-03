@@ -16,7 +16,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'SirVer/ultisnips'                           " ultimate snippet solution for Vim
 Plugin 'AndrewRadev/vim-eco'                          " .eco syntax highlighting
 Plugin 'AoLab/vim-avro'                               " sytnax highlighting for avro schemas
-Plugin 'airblade/vim-gitgutter'                       " show git changes in gutter
 Plugin 'calebsmith/vim-lambdify'                      " conceal js functions with lambda
 Plugin 'christoomey/vim-run-interactive'              " allow interactive shell
 Plugin 'christoomey/vim-tmux-navigator'               " allow ctrl+hjkl to navigate between vim and tmux
@@ -36,7 +35,6 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } } " set fzf executable in th
 Plugin 'junegunn/fzf.vim'                             " fzf vim integration
 Plugin 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plugin 'kchmck/vim-coffee-script'                     " syntax for coffeescript
-Plugin 'lambdalisue/vim-pyenv'                        " sync pyenv version. NOTE: known slow performance (only on boot time)
 Plugin 'leafgarland/typescript-vim'                   " Typescript support for vim
 Plugin 'maksimr/vim-jsbeautify'                       " format js and html pages
 Plugin 'mattn/emmet-vim'                              " html and css editing

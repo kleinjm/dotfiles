@@ -1,0 +1,11 @@
+name: vscode_dotfiles
+root: <%= "#{ENV['PROJECT_DIR']}/vscode_dotfiles" %>
+# needed for pane-base-index 1 config
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - nvim .
+        -

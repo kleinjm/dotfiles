@@ -1,0 +1,165 @@
+[DEBUG] Watching for changes in setting files /home/vscode/.claude/settings.json, /workspaces/web-worktrees/sourcemaps/.claude/settings.json, /workspaces/web-worktrees/sourcemaps/.claude/settings.local.json...
+[DEBUG] Applying permission update: Adding 72 allow rule(s) to destination 'projectSettings': ["Bash(bin/dev)","Bash(bundle exec rails:*)","Bash(bundle exec rake:*)","Bash(bundle exec rspec:*)","Bash(bundle exec rubocop:*)","Bash(bundle exec ruby:*)","Bash(bundle exec spring:*)","Bash(cat:*)","Bash(chmod:*)","Bash(curl:*)","Bash(done)","Bash(exit)","Bash(find:*)","Bash(for:*)","Bash(gh issue view:*)","Bash(gh pr list:*)","Bash(gh pr view:*)","Bash(git add:*)","Bash(git branch:*)","Bash(git checkout:*)","Bash(git fetch:*)","Bash(git grep:*)","Bash(git log:*)","Bash(git ls-tree:*)","Bash(git merge:*)","Bash(git mv:*)","Bash(git push:*)","Bash(git reset:*)","Bash(git rm:*)","Bash(git worktree:*)","Bash(git show:*)","Bash(grep:*)","Bash(ls:*)","Bash(mkdir:*)","Bash(mv:*)","Bash(node:*)","Bash(npm run:*)","Bash(npx eslint:*)","Bash(npx tsc:*)","Bash(npx vitest run:*)","Bash(pgrep:*)","Bash(rails routes)","Bash(rake:*)","Bash(rm:*)","Bash(sed:*)","Bash(timeout:*)","Bash(tree:*)","Bash(yarn --version)","Bash(yarn add:*)","Bash(yarn build)","Bash(yarn eslint:*)","Bash(yarn info:*)","Bash(yarn install)","Bash(yarn lint:*)","Bash(yarn list:*)","Bash(yarn test:*)","Bash(yarn tsc:*)","Bash(yarn typecheck)","Bash(PARALLEL_TEST_PROCESSORS=2 bundle exec parallel_rspec:*)","mcp__figma__get_design_context","mcp__figma__get_screenshot","mcp__figma__whoami","mcp__ide__getDiagnostics","mcp__notion__notion-fetch","mcp__notion__notion-search","WebFetch(domain:buildermethods.com)","WebFetch(domain:docs.anthropic.com)","WebFetch(domain:docs.cursor.com)","WebFetch(domain:github.com)","WebFetch(domain:guides.rubyonrails.org)","WebFetch(domain:raw.githubusercontent.com)","WebSearch"]
+[DEBUG] Applying permission update: Adding 2 allow rule(s) to destination 'localSettings': ["Bash(gh pr create:*)","Bash(do echo \"=== Run $i ===\")"]
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] Total LSP servers loaded: 0
+[DEBUG] LSP manager initialized with 0 servers
+[DEBUG] LSP server manager initialized successfully
+[DEBUG] Loading skills from directories: managed=/etc/claude-code/.claude/skills, user=/home/vscode/.claude/skills, project=/workspaces/web-worktrees/sourcemaps/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /home/vscode/.bashrc
+[DEBUG] Snapshots directory: /home/vscode/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /home/vscode/.claude/shell-snapshots/snapshot-bash-1762365483860-ffjn6w.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/951a5857-6fc2-4cbb-8222-6ed351116b8c-agent-951a5857-6fc2-4cbb-8222-6ed351116b8c.json.tmp.54860.1762365483866
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /home/vscode/.claude/todos/951a5857-6fc2-4cbb-8222-6ed351116b8c-agent-951a5857-6fc2-4cbb-8222-6ed351116b8c.json.tmp.54860.1762365483866 to /home/vscode/.claude/todos/951a5857-6fc2-4cbb-8222-6ed351116b8c-agent-951a5857-6fc2-4cbb-8222-6ed351116b8c.json
+[DEBUG] File /home/vscode/.claude/todos/951a5857-6fc2-4cbb-8222-6ed351116b8c-agent-951a5857-6fc2-4cbb-8222-6ed351116b8c.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 15 unique skills (managed: 0, user: 0, project: 15, duplicates removed: 0)
+[DEBUG] getSkillsIfEnabled returning: 15 skill dir commands, 0 plugin skills
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-linux/rg)
+[DEBUG] Shell snapshot created successfully (2067 bytes)
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365484499
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 46654 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365484499 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365484512
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 46654 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365484512 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365484522
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 46654 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365484522 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365484605
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 46654 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365484605 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365485986
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 47094 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365485986 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365486072
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 47094 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365486072 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionStart with query: startup
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "startup" (1 before deduplication)
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365486239
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 46989 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365486239 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365486245
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 46989 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365486245 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+[DEBUG] performStartupChecks called
+[DEBUG] Starting background plugin installations
+[DEBUG] performBackgroundPluginInstallations called
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365486298
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 47094 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365486298 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+[DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+[DEBUG] MCP server "ide": Starting connection with timeout of 30000ms
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365486514
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 47277 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365486514 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Stream started - received first chunk
+[DEBUG] MCP server "ide": Successfully connected to ws-ide server in 140ms
+[DEBUG] MCP server "ide": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"Claude Code VSCode MCP","version":"2.0.31"}}
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Added snapshot for 1abb53fb-fcc0-4f04-a62d-feb9e69dfe30, tracking 0 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365506477
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 47322 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365506477 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 335ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365508166
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 47322 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365508166 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Streaming aborted by user: Request was aborted.
+[ERROR] Error in non-streaming fallback: Request was aborted.
+[ERROR] Error: Error: Request was aborted.
+    at E_.makeRequest (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:689:3861)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at process.processTimers (node:internal/timers:520:9)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365508663
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 47322 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365508663 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Cleaned up session snapshot: /home/vscode/.claude/shell-snapshots/snapshot-bash-1762365483860-ffjn6w.sh
+[DEBUG] LSP server manager shut down successfully
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.54860.1762365663450
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 47761 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.54860.1762365663450 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically

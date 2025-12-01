@@ -1,0 +1,1313 @@
+[DEBUG] Watching for changes in setting files /home/vscode/.claude/settings.json, /workspaces/web/.claude/settings.json, /workspaces/web/.claude/settings.local.json...
+[DEBUG] Applying permission update: Adding 64 allow rule(s) to destination 'projectSettings': ["Bash(bin/dev)","Bash(bundle exec rails:*)","Bash(bundle exec rake:*)","Bash(bundle exec rspec:*)","Bash(bundle exec rubocop:*)","Bash(bundle exec ruby:*)","Bash(bundle exec spring:*)","Bash(cat:*)","Bash(chmod:*)","Bash(curl:*)","Bash(done)","Bash(exit)","Bash(find:*)","Bash(for:*)","Bash(gh issue view:*)","Bash(gh pr list:*)","Bash(gh pr view:*)","Bash(git add:*)","Bash(git branch:*)","Bash(git checkout:*)","Bash(git fetch:*)","Bash(git grep:*)","Bash(git log:*)","Bash(git ls-tree:*)","Bash(git merge:*)","Bash(git mv:*)","Bash(git push:*)","Bash(git reset:*)","Bash(git rm:*)","Bash(git worktree:*)","Bash(grep:*)","Bash(ls:*)","Bash(mkdir:*)","Bash(mv:*)","Bash(node:*)","Bash(npm run:*)","Bash(npx eslint:*)","Bash(npx tsc:*)","Bash(npx vitest run:*)","Bash(pgrep:*)","Bash(rails routes)","Bash(rake:*)","Bash(rm:*)","Bash(sed:*)","Bash(timeout:*)","Bash(tree:*)","Bash(yarn --version)","Bash(yarn add:*)","Bash(yarn build)","Bash(yarn eslint:*)","Bash(yarn info:*)","Bash(yarn install)","Bash(yarn lint:*)","Bash(yarn list:*)","Bash(yarn test:*)","Bash(yarn tsc:*)","Bash(yarn typecheck)","mcp__ide__getDiagnostics","WebFetch(domain:buildermethods.com)","WebFetch(domain:docs.anthropic.com)","WebFetch(domain:docs.cursor.com)","WebFetch(domain:github.com)","WebFetch(domain:guides.rubyonrails.org)","WebFetch(domain:raw.githubusercontent.com)"]
+[DEBUG] Applying permission update: Adding 22 allow rule(s) to destination 'localSettings': ["Bash(RAILS_ENV=development bundle exec rails generate:*)","Bash(git commit:*)","Bash(git log:*)","Bash(gh pr create:*)","Bash(rails --version:*)","Bash(docker:*)","Bash(rails new:*)","Read(//workspaces/**)","Bash(bundle exec annotate:*)","Bash(bundle show:*)","Bash(gh pr edit:*)","Bash(git diff:*)","Bash(RAILS_ENV=test bundle exec rails db:migrate:status)","Bash(RAILS_ENV=test bundle exec rails db:migrate)","Bash(RAILS_ENV=test bundle exec rails factory_bot:lint)","Bash(bin/spring stop)","Bash(git revert --no-edit b57c93a1)","Read(//home/vscode/.local/share/mise/installs/ruby/3.4.7/lib/ruby/gems/3.4.0/gems/customerio-5.4.0/lib/**)","Bash(RAILS_ENV=test bundle exec rails db:test:prepare:*)","Bash(bin/database_consistency:*)","Bash(tee:*)","Read(//tmp/**)"]
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] >>>>> getSkillsIfEnabled() CALLED <<<<<
+[DEBUG] ENABLE_SKILLS value: true, type: boolean
+[DEBUG] ENABLE_SKILLS check passed, loading skills...
+[DEBUG] Loading skills from directories: managed=/etc/claude-code/.claude/skills, user=/home/vscode/.claude/skills, project=/workspaces/web/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for zsh (/usr/bin/zsh)
+[DEBUG] Looking for shell config file: /home/vscode/.zshrc
+[DEBUG] Snapshots directory: /home/vscode/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /home/vscode/.claude/shell-snapshots/snapshot-zsh-1761084903593-nq1net.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761084903599
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761084903599 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761084903627
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60638 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761084903627 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 0 skills total (managed: 0, user: 0, project: 0)
+[DEBUG] getSkillsIfEnabled returning: 0 skill dir commands, 0 plugin skills
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-linux/rg)
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Shell snapshot created successfully (64484 bytes)
+[DEBUG] Summarizing all 2 messages (~6796 tokens)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761084904097
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60824 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761084904097 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761084904141
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60824 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761084904141 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761084904147
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60824 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761084904147 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761084904207
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60824 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761084904207 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761084904493
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60824 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761084904493 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionStart with query: startup
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761084904590
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60719 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761084904590 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761084904596
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60719 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761084904596 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] performStartupChecks called
+[DEBUG] Starting background plugin installations
+[DEBUG] performBackgroundPluginInstallations called
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761084904690
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60824 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761084904690 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+[DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761084904820
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60824 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761084904820 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Summarizing last 2 of 203 messages (~110970 tokens)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Applying permission update: Setting mode to 'acceptEdits'
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Added snapshot for eee2d70e-5deb-4059-9f8a-300ecb9dcd9c, tracking 0 files
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761084988307
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 664 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761084988307 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761084999356
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 668 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761084999356 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/.rubocop_todo.yml
+[DEBUG] Writing to temp file: /workspaces/web/.rubocop_todo.yml.tmp.11754.1761085004968
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 12640 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/.rubocop_todo.yml.tmp.11754.1761085004968 to /workspaces/web/.rubocop_todo.yml
+[DEBUG] File /workspaces/web/.rubocop_todo.yml written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085009955
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 670 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085009955 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] No hook environment files found
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085102244
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 672 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085102244 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/app/models/customer.rb
+[DEBUG] Writing to temp file: /workspaces/web/app/models/customer.rb.tmp.11754.1761085112876
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 9652 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/app/models/customer.rb.tmp.11754.1761085112876 to /workspaces/web/app/models/customer.rb
+[DEBUG] File /workspaces/web/app/models/customer.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/app/models/customers/identity_report.rb
+[DEBUG] Writing to temp file: /workspaces/web/app/models/customers/identity_report.rb.tmp.11754.1761085117687
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2956 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/app/models/customers/identity_report.rb.tmp.11754.1761085117687 to /workspaces/web/app/models/customers/identity_report.rb
+[DEBUG] File /workspaces/web/app/models/customers/identity_report.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/app/models/customers/identity_verification.rb
+[DEBUG] Writing to temp file: /workspaces/web/app/models/customers/identity_verification.rb.tmp.11754.1761085124089
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 15905 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/app/models/customers/identity_verification.rb.tmp.11754.1761085124089 to /workspaces/web/app/models/customers/identity_verification.rb
+[DEBUG] File /workspaces/web/app/models/customers/identity_verification.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/app/models/integrations/plaid/identity_verification.rb
+[DEBUG] Writing to temp file: /workspaces/web/app/models/integrations/plaid/identity_verification.rb.tmp.11754.1761085129070
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6892 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/app/models/integrations/plaid/identity_verification.rb.tmp.11754.1761085129070 to /workspaces/web/app/models/integrations/plaid/identity_verification.rb
+[DEBUG] File /workspaces/web/app/models/integrations/plaid/identity_verification.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/app/models/invitation.rb
+[DEBUG] Writing to temp file: /workspaces/web/app/models/invitation.rb.tmp.11754.1761085134647
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6606 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/app/models/invitation.rb.tmp.11754.1761085134647 to /workspaces/web/app/models/invitation.rb
+[DEBUG] File /workspaces/web/app/models/invitation.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/app/models/login_attempt.rb
+[DEBUG] Writing to temp file: /workspaces/web/app/models/login_attempt.rb.tmp.11754.1761085139248
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6294 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/app/models/login_attempt.rb.tmp.11754.1761085139248 to /workspaces/web/app/models/login_attempt.rb
+[DEBUG] File /workspaces/web/app/models/login_attempt.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/app/models/seller.rb
+[DEBUG] Writing to temp file: /workspaces/web/app/models/seller.rb.tmp.11754.1761085144684
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 9025 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/app/models/seller.rb.tmp.11754.1761085144684 to /workspaces/web/app/models/seller.rb
+[DEBUG] File /workspaces/web/app/models/seller.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/app/models/user_device.rb
+[DEBUG] Writing to temp file: /workspaces/web/app/models/user_device.rb.tmp.11754.1761085150230
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 3658 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/app/models/user_device.rb.tmp.11754.1761085150230 to /workspaces/web/app/models/user_device.rb
+[DEBUG] File /workspaces/web/app/models/user_device.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085155301
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 674 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085155301 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761085273146
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60824 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761085273146 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085294206
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1011 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085294206 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085323791
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1015 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085323791 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/spec/models/customer_spec.rb
+[DEBUG] Writing to temp file: /workspaces/web/spec/models/customer_spec.rb.tmp.11754.1761085339566
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 19877 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/spec/models/customer_spec.rb.tmp.11754.1761085339566 to /workspaces/web/spec/models/customer_spec.rb
+[DEBUG] File /workspaces/web/spec/models/customer_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/spec/models/customers/identity_report_spec.rb
+[DEBUG] Writing to temp file: /workspaces/web/spec/models/customers/identity_report_spec.rb.tmp.11754.1761085355769
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 14292 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/spec/models/customers/identity_report_spec.rb.tmp.11754.1761085355769 to /workspaces/web/spec/models/customers/identity_report_spec.rb
+[DEBUG] File /workspaces/web/spec/models/customers/identity_report_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/spec/models/customers/identity_verification_spec.rb
+[DEBUG] Writing to temp file: /workspaces/web/spec/models/customers/identity_verification_spec.rb.tmp.11754.1761085365939
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 3645 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/spec/models/customers/identity_verification_spec.rb.tmp.11754.1761085365939 to /workspaces/web/spec/models/customers/identity_verification_spec.rb
+[DEBUG] File /workspaces/web/spec/models/customers/identity_verification_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/spec/models/integrations/plaid/identity_verification_spec.rb
+[DEBUG] Writing to temp file: /workspaces/web/spec/models/integrations/plaid/identity_verification_spec.rb.tmp.11754.1761085371799
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6529 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/spec/models/integrations/plaid/identity_verification_spec.rb.tmp.11754.1761085371799 to /workspaces/web/spec/models/integrations/plaid/identity_verification_spec.rb
+[DEBUG] File /workspaces/web/spec/models/integrations/plaid/identity_verification_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/spec/models/invitation_spec.rb
+[DEBUG] Writing to temp file: /workspaces/web/spec/models/invitation_spec.rb.tmp.11754.1761085377849
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1945 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/spec/models/invitation_spec.rb.tmp.11754.1761085377849 to /workspaces/web/spec/models/invitation_spec.rb
+[DEBUG] File /workspaces/web/spec/models/invitation_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/spec/models/login_attempt_spec.rb
+[DEBUG] Writing to temp file: /workspaces/web/spec/models/login_attempt_spec.rb.tmp.11754.1761085391806
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 4771 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/spec/models/login_attempt_spec.rb.tmp.11754.1761085391806 to /workspaces/web/spec/models/login_attempt_spec.rb
+[DEBUG] File /workspaces/web/spec/models/login_attempt_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/spec/models/seller_spec.rb
+[DEBUG] Writing to temp file: /workspaces/web/spec/models/seller_spec.rb.tmp.11754.1761085397872
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 13151 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/spec/models/seller_spec.rb.tmp.11754.1761085397872 to /workspaces/web/spec/models/seller_spec.rb
+[DEBUG] File /workspaces/web/spec/models/seller_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/spec/models/user_device_spec.rb
+[DEBUG] Writing to temp file: /workspaces/web/spec/models/user_device_spec.rb.tmp.11754.1761085405766
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 3733 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/spec/models/user_device_spec.rb.tmp.11754.1761085405766 to /workspaces/web/spec/models/user_device_spec.rb
+[DEBUG] File /workspaces/web/spec/models/user_device_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085413205
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1017 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085413205 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085449477
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085449477 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761085465821
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60915 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761085465821 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761085527433
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60915 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761085527433 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Making snapshot for message 12e2609e-5567-4eab-be6e-6947eaeec3a2
+[DEBUG] FileHistory: Added snapshot for 12e2609e-5567-4eab-be6e-6947eaeec3a2, tracking 17 files
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761085545753
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60915 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761085545753 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085550679
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 412 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085550679 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085581715
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 414 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085581715 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085641476
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 416 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085641476 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085687510
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json.tmp.11754.1761085687510 to /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json
+[DEBUG] File /home/vscode/.claude/todos/4b6efa48-5ec2-484c-b530-077f94f74c78-agent-4b6efa48-5ec2-484c-b530-077f94f74c78.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.11754.1761085695877
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 60994 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.11754.1761085695877 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)

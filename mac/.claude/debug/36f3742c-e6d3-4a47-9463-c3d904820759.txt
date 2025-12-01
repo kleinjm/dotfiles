@@ -1,0 +1,417 @@
+[DEBUG] Watching for changes in setting files /home/vscode/.claude/settings.json, /workspaces/web/.claude/settings.json, /workspaces/web/.claude/settings.local.json...
+[DEBUG] [LSP MANAGER] initializeLspServerManager() called
+[DEBUG] [LSP MANAGER] Created manager instance, state=pending
+[DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+[DEBUG] [LSP SERVER MANAGER] initialize() called
+[DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+[DEBUG] Applying permission update: Adding 72 allow rule(s) to destination 'projectSettings': ["Bash(bin/dev)","Bash(bundle exec rails:*)","Bash(bundle exec rake:*)","Bash(bundle exec rspec:*)","Bash(bundle exec rubocop:*)","Bash(bundle exec ruby:*)","Bash(bundle exec spring:*)","Bash(cat:*)","Bash(chmod:*)","Bash(curl:*)","Bash(done)","Bash(exit)","Bash(find:*)","Bash(for:*)","Bash(gh issue view:*)","Bash(gh pr list:*)","Bash(gh pr view:*)","Bash(git add:*)","Bash(git branch:*)","Bash(git checkout:*)","Bash(git fetch:*)","Bash(git grep:*)","Bash(git log:*)","Bash(git ls-tree:*)","Bash(git merge:*)","Bash(git mv:*)","Bash(git push:*)","Bash(git reset:*)","Bash(git rm:*)","Bash(git worktree:*)","Bash(git show:*)","Bash(grep:*)","Bash(ls:*)","Bash(mkdir:*)","Bash(mv:*)","Bash(node:*)","Bash(npm run:*)","Bash(npx eslint:*)","Bash(npx tsc:*)","Bash(npx vitest run:*)","Bash(pgrep:*)","Bash(rails routes)","Bash(rake:*)","Bash(rm:*)","Bash(sed:*)","Bash(timeout:*)","Bash(tree:*)","Bash(yarn --version)","Bash(yarn add:*)","Bash(yarn build)","Bash(yarn eslint:*)","Bash(yarn info:*)","Bash(yarn install)","Bash(yarn lint:*)","Bash(yarn list:*)","Bash(yarn test:*)","Bash(yarn tsc:*)","Bash(yarn typecheck)","Bash(PARALLEL_TEST_PROCESSORS=2 bundle exec parallel_rspec:*)","mcp__figma__get_design_context","mcp__figma__get_screenshot","mcp__figma__whoami","mcp__ide__getDiagnostics","mcp__notion__notion-fetch","mcp__notion__notion-search","WebFetch(domain:buildermethods.com)","WebFetch(domain:docs.anthropic.com)","WebFetch(domain:docs.cursor.com)","WebFetch(domain:github.com)","WebFetch(domain:guides.rubyonrails.org)","WebFetch(domain:raw.githubusercontent.com)","WebSearch"]
+[DEBUG] Applying permission update: Adding 14 allow rule(s) to destination 'localSettings': ["Bash(gh pr create:*)","Bash(do echo \"=== Run $i ===\")","Bash(git commit:*)","WebFetch(domain:docs.rollbar.com)","Bash(RAILS_ENV=staging yarn build:*)","Bash(RAILS_ENV=staging bundle exec vite build:*)","Bash(npx rollbar-cli:*)","Bash(exit 1)","Bash(git pull:*)","Bash(bundle install:*)","Bash(RAILS_ENV=test bundle exec rails runner:*)","Bash(bin/rails zeitwerk:check:*)","Bash(tee:*)","Bash(do echo \"Run $i:\")"]
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] Total LSP servers loaded: 0
+[DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+[DEBUG] LSP manager initialized with 0 servers
+[DEBUG] LSP server manager initialized successfully
+[DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+[DEBUG] Loading skills from directories: managed=/etc/claude-code/.claude/skills, user=/home/vscode/.claude/skills, project=/workspaces/web/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /home/vscode/.bashrc
+[DEBUG] Snapshots directory: /home/vscode/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /home/vscode/.claude/shell-snapshots/snapshot-bash-1762555245539-9q2x4a.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/36f3742c-e6d3-4a47-9463-c3d904820759-agent-36f3742c-e6d3-4a47-9463-c3d904820759.json.tmp.51289.1762555245543
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /home/vscode/.claude/todos/36f3742c-e6d3-4a47-9463-c3d904820759-agent-36f3742c-e6d3-4a47-9463-c3d904820759.json.tmp.51289.1762555245543 to /home/vscode/.claude/todos/36f3742c-e6d3-4a47-9463-c3d904820759-agent-36f3742c-e6d3-4a47-9463-c3d904820759.json
+[DEBUG] File /home/vscode/.claude/todos/36f3742c-e6d3-4a47-9463-c3d904820759-agent-36f3742c-e6d3-4a47-9463-c3d904820759.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 15 unique skills (managed: 0, user: 0, project: 15, duplicates removed: 0)
+[DEBUG] getSkillsIfEnabled returning: 15 skill dir commands, 0 plugin skills
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-linux/rg)
+[DEBUG] Shell snapshot created successfully (2067 bytes)
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.51289.1762555245977
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 49137 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.51289.1762555245977 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.51289.1762555246015
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 49137 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.51289.1762555246015 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.51289.1762555246019
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 49137 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.51289.1762555246019 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.51289.1762555246463
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 49137 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.51289.1762555246463 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionStart with query: startup
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "startup" (1 before deduplication)
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.51289.1762555246644
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 49032 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.51289.1762555246644 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.51289.1762555246650
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 49032 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.51289.1762555246650 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+[DEBUG] performStartupChecks called
+[DEBUG] Starting background plugin installations
+[DEBUG] performBackgroundPluginInstallations called
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.51289.1762555246700
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 49137 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.51289.1762555246700 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+[DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.51289.1762555246792
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 49137 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.51289.1762555246792 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Summarizing last 570 of 649 messages (~148552 tokens)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.51289.1762555246945
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 49137 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.51289.1762555246945 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Summarizing all 552 messages (~132761 tokens)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Summarizing all 204 messages (~50100 tokens)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Applying permission update: Setting mode to 'acceptEdits'
+[DEBUG] rg error (signal=null, code=2, stderr: rg: ./.git/git_template: No such file or directory (os error 2)
+), 6354 results
+[DEBUG] [FileIndex] Not in bundled mode, using Fuse.js fallback
+[DEBUG] [FileIndex] Using Fuse.js fallback for search
+[DEBUG] [FileIndex] Using Fuse.js fallback for search
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Added snapshot for b8b24278-4c8c-4e4e-98f2-b1a0f7f22dcf, tracking 0 files
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] No hook environment files found
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/app/views/escrows/_customer_kebab_menu.html.slim
+[DEBUG] Writing to temp file: /workspaces/web/app/views/escrows/_customer_kebab_menu.html.slim.tmp.51289.1762555373881
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1313 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/app/views/escrows/_customer_kebab_menu.html.slim.tmp.51289.1762555373881 to /workspaces/web/app/views/escrows/_customer_kebab_menu.html.slim
+[DEBUG] File /workspaces/web/app/views/escrows/_customer_kebab_menu.html.slim written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[ERROR] Error: Error: Language not supported while highlighting code, falling back to markdown: slim
+    at SD (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1054:4413)
+    at file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1054:4141
+    at Array.map (<anonymous>)
+    at gC (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1054:4132)
+    at TSQ (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1752:6597)
+    at rw (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:98:19414)
+    at xt (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:100:42806)
+    at x9 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:100:38347)
+    at Mp (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:100:38275)
+    at J$ (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:100:38129)
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Making snapshot for message b8bf8f30-20b1-4adb-924f-e87001d30970
+[DEBUG] FileHistory: Added snapshot for b8bf8f30-20b1-4adb-924f-e87001d30970, tracking 1 files
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Writing to temp file: /workspaces/web/app/views/escrows/_customer_kebab_menu.html.slim.tmp.51289.1762555496890
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1329 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/app/views/escrows/_customer_kebab_menu.html.slim.tmp.51289.1762555496890 to /workspaces/web/app/views/escrows/_customer_kebab_menu.html.slim
+[DEBUG] File /workspaces/web/app/views/escrows/_customer_kebab_menu.html.slim written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Detected change to /home/vscode/.claude/settings.json
+[DEBUG] Replacing all allow rules for destination 'projectSettings' with 72 rule(s): ["Bash(bin/dev)","Bash(bundle exec rails:*)","Bash(bundle exec rake:*)","Bash(bundle exec rspec:*)","Bash(bundle exec rubocop:*)","Bash(bundle exec ruby:*)","Bash(bundle exec spring:*)","Bash(cat:*)","Bash(chmod:*)","Bash(curl:*)","Bash(done)","Bash(exit)","Bash(find:*)","Bash(for:*)","Bash(gh issue view:*)","Bash(gh pr list:*)","Bash(gh pr view:*)","Bash(git add:*)","Bash(git branch:*)","Bash(git checkout:*)","Bash(git fetch:*)","Bash(git grep:*)","Bash(git log:*)","Bash(git ls-tree:*)","Bash(git merge:*)","Bash(git mv:*)","Bash(git push:*)","Bash(git reset:*)","Bash(git rm:*)","Bash(git worktree:*)","Bash(git show:*)","Bash(grep:*)","Bash(ls:*)","Bash(mkdir:*)","Bash(mv:*)","Bash(node:*)","Bash(npm run:*)","Bash(npx eslint:*)","Bash(npx tsc:*)","Bash(npx vitest run:*)","Bash(pgrep:*)","Bash(rails routes)","Bash(rake:*)","Bash(rm:*)","Bash(sed:*)","Bash(timeout:*)","Bash(tree:*)","Bash(yarn --version)","Bash(yarn add:*)","Bash(yarn build)","Bash(yarn eslint:*)","Bash(yarn info:*)","Bash(yarn install)","Bash(yarn lint:*)","Bash(yarn list:*)","Bash(yarn test:*)","Bash(yarn tsc:*)","Bash(yarn typecheck)","Bash(PARALLEL_TEST_PROCESSORS=2 bundle exec parallel_rspec:*)","mcp__figma__get_design_context","mcp__figma__get_screenshot","mcp__figma__whoami","mcp__ide__getDiagnostics","mcp__notion__notion-fetch","mcp__notion__notion-search","WebFetch(domain:buildermethods.com)","WebFetch(domain:docs.anthropic.com)","WebFetch(domain:docs.cursor.com)","WebFetch(domain:github.com)","WebFetch(domain:guides.rubyonrails.org)","WebFetch(domain:raw.githubusercontent.com)","WebSearch"]
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 14 rule(s): ["Bash(gh pr create:*)","Bash(do echo \"=== Run $i ===\")","Bash(git commit:*)","WebFetch(domain:docs.rollbar.com)","Bash(RAILS_ENV=staging yarn build:*)","Bash(RAILS_ENV=staging bundle exec vite build:*)","Bash(npx rollbar-cli:*)","Bash(exit 1)","Bash(git pull:*)","Bash(bundle install:*)","Bash(RAILS_ENV=test bundle exec rails runner:*)","Bash(bin/rails zeitwerk:check:*)","Bash(tee:*)","Bash(do echo \"Run $i:\")"]
+[DEBUG] Getting matching hook commands for SessionEnd with query: prompt_input_exit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "prompt_input_exit" (0 before deduplication)
+[DEBUG] Cleaned up session snapshot: /home/vscode/.claude/shell-snapshots/snapshot-bash-1762555245539-9q2x4a.sh
+[DEBUG] LSP server manager shut down successfully
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.51289.1762559064020
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 49561 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.51289.1762559064020 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically

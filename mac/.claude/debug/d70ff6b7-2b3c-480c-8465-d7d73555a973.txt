@@ -1,0 +1,1821 @@
+[DEBUG] Watching for changes in setting files /home/vscode/.claude/settings.json, /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/.claude/settings.json, /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/.claude/settings.local.json...
+[DEBUG] Applying permission update: Adding 64 allow rule(s) to destination 'projectSettings': ["Bash(bin/dev)","Bash(bundle exec rails:*)","Bash(bundle exec rake:*)","Bash(bundle exec rspec:*)","Bash(bundle exec rubocop:*)","Bash(bundle exec ruby:*)","Bash(bundle exec spring:*)","Bash(cat:*)","Bash(chmod:*)","Bash(curl:*)","Bash(done)","Bash(exit)","Bash(find:*)","Bash(for:*)","Bash(gh issue view:*)","Bash(gh pr list:*)","Bash(gh pr view:*)","Bash(git add:*)","Bash(git branch:*)","Bash(git checkout:*)","Bash(git fetch:*)","Bash(git grep:*)","Bash(git log:*)","Bash(git ls-tree:*)","Bash(git merge:*)","Bash(git mv:*)","Bash(git push:*)","Bash(git reset:*)","Bash(git rm:*)","Bash(git worktree:*)","Bash(grep:*)","Bash(ls:*)","Bash(mkdir:*)","Bash(mv:*)","Bash(node:*)","Bash(npm run:*)","Bash(npx eslint:*)","Bash(npx tsc:*)","Bash(npx vitest run:*)","Bash(pgrep:*)","Bash(rails routes)","Bash(rake:*)","Bash(rm:*)","Bash(sed:*)","Bash(timeout:*)","Bash(tree:*)","Bash(yarn --version)","Bash(yarn add:*)","Bash(yarn build)","Bash(yarn eslint:*)","Bash(yarn info:*)","Bash(yarn install)","Bash(yarn lint:*)","Bash(yarn list:*)","Bash(yarn test:*)","Bash(yarn tsc:*)","Bash(yarn typecheck)","mcp__ide__getDiagnostics","WebFetch(domain:buildermethods.com)","WebFetch(domain:docs.anthropic.com)","WebFetch(domain:docs.cursor.com)","WebFetch(domain:github.com)","WebFetch(domain:guides.rubyonrails.org)","WebFetch(domain:raw.githubusercontent.com)"]
+[DEBUG] Applying permission update: Adding 32 allow rule(s) to destination 'localSettings': ["Bash(RAILS_ENV=development bundle exec rails generate:*)","Bash(git commit:*)","Bash(git log:*)","Bash(gh pr create:*)","Bash(rails --version:*)","Bash(docker:*)","Bash(rails new:*)","Read(//workspaces/**)","Bash(bundle exec annotate:*)","Bash(bundle show:*)","Bash(gh pr edit:*)","Bash(git diff:*)","Bash(RAILS_ENV=test bundle exec rails db:migrate:status)","Bash(RAILS_ENV=test bundle exec rails db:migrate)","Bash(RAILS_ENV=test bundle exec rails factory_bot:lint)","Bash(bin/spring stop)","Bash(git revert --no-edit b57c93a1)","Read(//home/vscode/.local/share/mise/installs/ruby/3.4.7/lib/ruby/gems/3.4.0/gems/customerio-5.4.0/lib/**)","Bash(RAILS_ENV=test bundle exec rails db:test:prepare:*)","Bash(bin/database_consistency:*)","Bash(tee:*)","Read(//tmp/**)","Bash(do)","Bash(PARALLEL_TEST_PROCESSORS=2 bundle exec parallel_rspec:*)","Bash(RAILS_ENV=test bundle exec rails:*)","WebFetch(domain:docs.github.com)","Bash(git stash:*)","Bash(bundle list:*)","Bash(RAILS_ENV=test bundle exec rake:*)","Bash(RA)","Bash(__NEW_LINE__ ILS_ENV=test bundle exec rails runner \"puts Family.name; puts Family < ApplicationRecord; puts StatementOfInfo.reflect_on_association(:family).class_name\")","Bash(RAILS_ENV=test bundle exec rspec:*)"]
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] >>>>> getSkillsIfEnabled() CALLED <<<<<
+[DEBUG] ENABLE_SKILLS value: true, type: boolean
+[DEBUG] ENABLE_SKILLS check passed, loading skills...
+[DEBUG] Loading skills from directories: managed=/etc/claude-code/.claude/skills, user=/home/vscode/.claude/skills, project=/workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for zsh (/usr/bin/zsh)
+[DEBUG] Looking for shell config file: /home/vscode/.zshrc
+[DEBUG] Snapshots directory: /home/vscode/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /home/vscode/.claude/shell-snapshots/snapshot-zsh-1761160021734-u28v0f.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160021739
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160021739 to /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json
+[DEBUG] File /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 15 skills total (managed: 0, user: 0, project: 15)
+[DEBUG] getSkillsIfEnabled returning: 15 skill dir commands, 0 plugin skills
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-linux/rg)
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Shell snapshot created successfully (64484 bytes)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160022205
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 68316 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160022205 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160022225
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 68316 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160022225 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160022266
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 68316 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160022266 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160023408
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 69027 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160023408 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160024198
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 69026 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160024198 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160024257
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 69026 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160024257 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionStart with query: startup
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160024355
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 68921 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160024355 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160024367
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 68921 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160024367 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] performStartupChecks called
+[DEBUG] Starting background plugin installations
+[DEBUG] performBackgroundPluginInstallations called
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160024442
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 69026 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160024442 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+[DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+[DEBUG] MCP server "ide": Starting connection with timeout of 30000ms
+[DEBUG] MCP server "ide": Successfully connected to ws-ide server in 86ms
+[DEBUG] MCP server "ide": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"Claude Code Cursor MCP","version":"2.0.25"}}
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/settings.json.tmp.78285.1761160029132
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 36 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/settings.json.tmp.78285.1761160029132 to /home/vscode/.claude/settings.json
+[DEBUG] File /home/vscode/.claude/settings.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude/settings.json.tmp.78285.1761160029753
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 37 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/settings.json.tmp.78285.1761160029753 to /home/vscode/.claude/settings.json
+[DEBUG] File /home/vscode/.claude/settings.json written atomically
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Added snapshot for 0e70aab5-c5d4-4a29-ac4d-eeb0a86a51d9, tracking 0 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160042341
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 69071 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160042341 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 46ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Writing to temp file: /home/vscode/.claude/settings.json.tmp.78285.1761160043386
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 36 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/settings.json.tmp.78285.1761160043386 to /home/vscode/.claude/settings.json
+[DEBUG] File /home/vscode/.claude/settings.json written atomically
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude/settings.json.tmp.78285.1761160043901
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 37 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/settings.json.tmp.78285.1761160043901 to /home/vscode/.claude/settings.json
+[DEBUG] File /home/vscode/.claude/settings.json written atomically
+[DEBUG] Applying permission update: Setting mode to 'acceptEdits'
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] No hook environment files found
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 32ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 43ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 56ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160091463
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 69088 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160091463 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160091530
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 69089 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160091530 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160091549
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 69243 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160091549 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 411ms
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Making snapshot for message 9c4c8c78-2a53-4dcd-995a-cb517d502dfc
+[DEBUG] FileHistory: Added snapshot for 9c4c8c78-2a53-4dcd-995a-cb517d502dfc, tracking 0 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 67ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160358890
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1333 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160358890 to /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json
+[DEBUG] File /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 80ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 35ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 39ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 25ms
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/setup.ts
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/setup.ts.tmp.78285.1761160382751
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2387 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/setup.ts.tmp.78285.1761160382751 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/setup.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/setup.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 44ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 21ms
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts.tmp.78285.1761160390451
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2650 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts.tmp.78285.1761160390451 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 63ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160397847
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1335 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160397847 to /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json
+[DEBUG] File /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 39ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 22ms
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts.tmp.78285.1761160410351
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 17464 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts.tmp.78285.1761160410351 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 36ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160415818
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1125 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160415818 to /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json
+[DEBUG] File /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 45ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 18ms
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761160422320
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6304 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761160422320 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 56ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160428753
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1127 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160428753 to /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json
+[DEBUG] File /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 184ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 35ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 14ms
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761160439765
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 3117 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761160439765 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 31ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160445877
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1129 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160445877 to /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json
+[DEBUG] File /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 48ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 61ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 31ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts.tmp.78285.1761160479518
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 17530 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts.tmp.78285.1761160479518 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 38ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 29ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761160486112
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6385 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761160486112 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 43ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 12ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761160491563
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 3198 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761160491563 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 41ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 61ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160515375
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json.tmp.78285.1761160515375 to /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json
+[DEBUG] File /home/vscode/.claude/todos/d70ff6b7-2b3c-480c-8465-d7d73555a973-agent-d70ff6b7-2b3c-480c-8465-d7d73555a973.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 33ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160527847
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 68813 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160527847 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160527930
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 68813 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160527930 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761160527943
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 100446 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761160527943 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 58ms
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Making snapshot for message 28e5f989-06f0-4b46-bb91-130dbbbcb133
+[DEBUG] FileHistory: Added snapshot for 28e5f989-06f0-4b46-bb91-130dbbbcb133, tracking 5 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 48ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 55ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 277ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 45ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 42ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 30ms
+[ERROR] Error: Error: File has been unexpectedly modified. Read it again before attempting to write it.
+    at Object.call (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1418:754)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async FS8 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:65601)
+    at async BNQ (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:62655)
+    at async XS8 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:61507)
+    at async JS8 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:60990)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:57752)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:58996)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:58996)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:58996)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 65ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 58ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 16ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts.tmp.78285.1761161747395
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2784 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts.tmp.78285.1761161747395 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 30ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 58ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 21ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts.tmp.78285.1761161759452
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 17739 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts.tmp.78285.1761161759452 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 41ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 43ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 8ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761161769924
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6517 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761161769924 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 34ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761161771879
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101140 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761161771879 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Streaming aborted by user: Request was aborted.
+[ERROR] Error in non-streaming fallback: Request was aborted.
+[ERROR] Error: Error: Request was aborted.
+    at by.makeRequest (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:357:3850)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761161771949
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101140 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761161771949 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761161771957
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101229 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761161771957 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 88ms
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Making snapshot for message 9cafe170-bf66-4c26-a4ab-9313d2f519b0
+[DEBUG] FileHistory: Added snapshot for 9cafe170-bf66-4c26-a4ab-9313d2f519b0, tracking 5 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 39ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 14ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts.tmp.78285.1761161805995
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2891 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts.tmp.78285.1761161805995 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/config/rollbar.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 28ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 24ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts.tmp.78285.1761161816890
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 17779 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts.tmp.78285.1761161816890 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/id_upload_card_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 36ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 17ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761161824191
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6679 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761161824191 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 97ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 24ms
+[ERROR] Error: Error: File has been unexpectedly modified. Read it again before attempting to write it.
+    at Object.call (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1418:754)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async FS8 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:65601)
+    at async BNQ (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:62655)
+    at async XS8 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:61507)
+    at async JS8 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:60990)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:57752)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:58996)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:58996)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:58996)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 48ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 117ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 17ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761161843427
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 3492 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761161843427 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 33ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 41ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 52ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 70ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 38ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 67ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "git pull:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Persisting permission update: addRules to source 'localSettings'
+[DEBUG] Persisting 1 allow rule(s) to localSettings
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/.claude/settings.local.json.tmp.78285.1761162053340
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1563 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/.claude/settings.local.json.tmp.78285.1761162053340 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/.claude/settings.local.json
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/.claude/settings.local.json written atomically
+[DEBUG] Applying permission update: Adding 1 allow rule(s) to destination 'localSettings': ["Bash(git pull:*)"]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 44ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 53ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "git rebase:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Persisting permission update: addRules to source 'localSettings'
+[DEBUG] Persisting 1 allow rule(s) to localSettings
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/.claude/settings.local.json.tmp.78285.1761162153758
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1591 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/.claude/settings.local.json.tmp.78285.1761162153758 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/.claude/settings.local.json
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/.claude/settings.local.json written atomically
+[DEBUG] Applying permission update: Adding 1 allow rule(s) to destination 'localSettings': ["Bash(git rebase:*)"]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 41ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 52ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761162172448
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101433 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761162172448 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761162172531
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101433 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761162172531 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761162172542
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101579 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761162172542 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 64ms
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Making snapshot for message 3f8b3561-ee67-4a5b-9897-3c1e955768f9
+[DEBUG] FileHistory: Added snapshot for 3f8b3561-ee67-4a5b-9897-3c1e955768f9, tracking 5 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 60ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 43ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 74ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 21ms
+[ERROR] Error: Error: File has been unexpectedly modified. Read it again before attempting to write it.
+    at Object.call (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1418:754)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async FS8 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:65601)
+    at async BNQ (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:62655)
+    at async XS8 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:61507)
+    at async JS8 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:60990)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:57752)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:58996)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:58996)
+    at async v7 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2851:4100)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 32ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 42ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 22ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761162333895
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6689 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761162333895 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 83ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 51ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 13ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761162345488
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6750 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761162345488 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 37ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 25ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761162352533
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6697 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761162352533 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 81ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 31ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 11ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761162362761
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6599 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761162362761 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 38ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 19ms
+[ERROR] Error: Error: File has been unexpectedly modified. Read it again before attempting to write it.
+    at Object.call (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1418:754)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async FS8 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:65601)
+    at async BNQ (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:62655)
+    at async XS8 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:61507)
+    at async JS8 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:60990)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:57752)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:58996)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:58996)
+    at async QS (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2692:58996)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 32ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 65ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 69ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761162382177
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 3502 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761162382177 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 55ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 11ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761162387134
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 3563 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761162387134 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 43ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 12ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761162397568
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 3576 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761162397568 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 73ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 59ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 12ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761162426000
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6723 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts.tmp.78285.1761162426000 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/idv_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 37ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 22ms
+[DEBUG] Writing to temp file: /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761162433926
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 3700 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts.tmp.78285.1761162433926 to /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts
+[DEBUG] File /workspaces/web-worktrees/dependabot/npm_and_yarn/npm-daily-updates-fea0541493/test/controllers/plaid_demo_controller.test.ts written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 31ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 37ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 53ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 49ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 34ms
+[DEBUG] Skills and commands included in Skill tool: Backend API, Backend Migrations, Backend Models, Backend Queries, Frontend Accessibility, Frontend Components, Frontend CSS, Frontend Responsive, Global Coding Style, Global Commenting, Global Conventions, Global Error Handling, Global Tech Stack, Global Validation, Testing Test Writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761162483235
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101201 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761162483235 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761162483308
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101201 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761162483308 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761162483332
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101474 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761162483332 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Cleaned up session snapshot: /home/vscode/.claude/shell-snapshots/snapshot-zsh-1761160021734-u28v0f.sh
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.78285.1761163070874
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101857 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.78285.1761163070874 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically

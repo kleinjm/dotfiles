@@ -1,0 +1,73 @@
+[DEBUG] Getting matching hook commands for SessionStart with query: clear
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "clear" (0 before deduplication)
+[DEBUG] FileHistory: Added snapshot for c94f1b5d-2802-4f49-a5d6-0ee4bdc80253, tracking 0 files
+[DEBUG] Rendering user message with 1 content blocks
+[DEBUG] Block 0: <command-name>/clear</command-name>
+            <command-message>clear</command-message>
+           ...
+[DEBUG] UserCommandMessage rendering: "clear" (args: "none")
+[DEBUG] isSkillFormat: false, prefix: "/"
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.90101.1761162573689
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101474 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.90101.1761162573689 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.90101.1761162573701
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101141 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.90101.1761162573701 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for SessionStart with query: resume
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "resume" (0 before deduplication)
+[DEBUG] FileHistory: Copied backup aa2e7382c5468ce1@v1 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup aa2e7382c5468ce1@v2 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup d61e04e7d826eaea@v1 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup aa2e7382c5468ce1@v3 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup d61e04e7d826eaea@v2 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup d61e04e7d826eaea@v3 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup d61e04e7d826eaea@v4 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup 30b2c60bd56ba392@v1 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup 30b2c60bd56ba392@v2 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup 30b2c60bd56ba392@v3 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup d61e04e7d826eaea@v5 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup 30b2c60bd56ba392@v4 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup ed952b66d3ca4515@v1 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup d61e04e7d826eaea@v6 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup 30b2c60bd56ba392@v5 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup ed952b66d3ca4515@v2 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup 30b2c60bd56ba392@v6 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup d61e04e7d826eaea@v7 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup 30b2c60bd56ba392@v7 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup 30b2c60bd56ba392@v8 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup 30b2c60bd56ba392@v9 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] FileHistory: Copied backup 65ba5e06c20e2896@v1 from session d31f3108-039f-4dcd-8d94-76374f59b50f to e41f2701-20f8-435c-ae37-f8c138f83879
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.90101.1761162635396
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101141 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.90101.1761162635396 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Rendering user message with 1 content blocks
+[DEBUG] Block 0: <command-name>/clear</command-name>
+            <command-message>clear</command-message>
+           ...
+[DEBUG] UserCommandMessage rendering: "clear" (args: "none")
+[DEBUG] isSkillFormat: false, prefix: "/"
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.90101.1761162635468
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101036 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.90101.1761162635468 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.90101.1761162635475
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 101036 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.90101.1761162635475 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically

@@ -1,0 +1,859 @@
+[DEBUG] Watching for changes in setting files /home/vscode/.claude/settings.json, /workspaces/web/.claude/settings.json, /workspaces/web/.claude/settings.local.json...
+[DEBUG] [LSP MANAGER] initializeLspServerManager() called
+[DEBUG] [LSP MANAGER] Created manager instance, state=pending
+[DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+[DEBUG] [LSP SERVER MANAGER] initialize() called
+[DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+[DEBUG] Applying permission update: Adding 72 allow rule(s) to destination 'projectSettings': ["Bash(bin/dev)","Bash(bundle exec rails:*)","Bash(bundle exec rake:*)","Bash(bundle exec rspec:*)","Bash(bundle exec rubocop:*)","Bash(bundle exec ruby:*)","Bash(bundle exec spring:*)","Bash(cat:*)","Bash(chmod:*)","Bash(curl:*)","Bash(done)","Bash(exit)","Bash(find:*)","Bash(for:*)","Bash(gh issue view:*)","Bash(gh pr list:*)","Bash(gh pr view:*)","Bash(git add:*)","Bash(git branch:*)","Bash(git checkout:*)","Bash(git fetch:*)","Bash(git grep:*)","Bash(git log:*)","Bash(git ls-tree:*)","Bash(git merge:*)","Bash(git mv:*)","Bash(git push:*)","Bash(git reset:*)","Bash(git rm:*)","Bash(git worktree:*)","Bash(git show:*)","Bash(grep:*)","Bash(ls:*)","Bash(mkdir:*)","Bash(mv:*)","Bash(node:*)","Bash(npm run:*)","Bash(npx eslint:*)","Bash(npx tsc:*)","Bash(npx vitest run:*)","Bash(pgrep:*)","Bash(rails routes)","Bash(rake:*)","Bash(rm:*)","Bash(sed:*)","Bash(timeout:*)","Bash(tree:*)","Bash(yarn --version)","Bash(yarn add:*)","Bash(yarn build)","Bash(yarn eslint:*)","Bash(yarn info:*)","Bash(yarn install)","Bash(yarn lint:*)","Bash(yarn list:*)","Bash(yarn test:*)","Bash(yarn tsc:*)","Bash(yarn typecheck)","Bash(PARALLEL_TEST_PROCESSORS=2 bundle exec parallel_rspec:*)","mcp__figma__get_design_context","mcp__figma__get_screenshot","mcp__figma__whoami","mcp__ide__getDiagnostics","mcp__notion__notion-fetch","mcp__notion__notion-search","WebFetch(domain:buildermethods.com)","WebFetch(domain:docs.anthropic.com)","WebFetch(domain:docs.cursor.com)","WebFetch(domain:github.com)","WebFetch(domain:guides.rubyonrails.org)","WebFetch(domain:raw.githubusercontent.com)","WebSearch"]
+[DEBUG] Applying permission update: Adding 7 allow rule(s) to destination 'localSettings': ["Bash(gh pr create:*)","Bash(do echo \"=== Run $i ===\")","Bash(git commit:*)","WebFetch(domain:docs.rollbar.com)","Bash(RAILS_ENV=staging yarn build:*)","Bash(RAILS_ENV=staging bundle exec vite build:*)","Bash(npx rollbar-cli:*)"]
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] Total LSP servers loaded: 0
+[DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+[DEBUG] LSP manager initialized with 0 servers
+[DEBUG] LSP server manager initialized successfully
+[DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+[DEBUG] Loading skills from directories: managed=/etc/claude-code/.claude/skills, user=/home/vscode/.claude/skills, project=/workspaces/web/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /home/vscode/.bashrc
+[DEBUG] Snapshots directory: /home/vscode/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /home/vscode/.claude/shell-snapshots/snapshot-bash-1762382085870-md957t.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /home/vscode/.claude/todos/8d904407-d98b-4515-95da-d2049f08f347-agent-8d904407-d98b-4515-95da-d2049f08f347.json.tmp.85508.1762382085876
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /home/vscode/.claude/todos/8d904407-d98b-4515-95da-d2049f08f347-agent-8d904407-d98b-4515-95da-d2049f08f347.json.tmp.85508.1762382085876 to /home/vscode/.claude/todos/8d904407-d98b-4515-95da-d2049f08f347-agent-8d904407-d98b-4515-95da-d2049f08f347.json
+[DEBUG] File /home/vscode/.claude/todos/8d904407-d98b-4515-95da-d2049f08f347-agent-8d904407-d98b-4515-95da-d2049f08f347.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382085904
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 47762 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382085904 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 15 unique skills (managed: 0, user: 0, project: 15, duplicates removed: 0)
+[DEBUG] getSkillsIfEnabled returning: 15 skill dir commands, 0 plugin skills
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-linux/rg)
+[DEBUG] Shell snapshot created successfully (2067 bytes)
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382086348
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382086348 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382086398
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382086398 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382086406
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382086406 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382086414
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382086414 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382086927
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382086927 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionStart with query: startup
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "startup" (1 before deduplication)
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382087125
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48056 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382087125 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382087131
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48056 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382087131 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+[DEBUG] performStartupChecks called
+[DEBUG] Starting background plugin installations
+[DEBUG] performBackgroundPluginInstallations called
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382087196
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382087196 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+[DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+[DEBUG] MCP server "ide": Starting connection with timeout of 30000ms
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382087423
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382087423 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Summarizing all 328 messages (~73286 tokens)
+[DEBUG] MCP server "ide": Successfully connected to ws-ide server in 153ms
+[DEBUG] MCP server "ide": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"Claude Code VSCode MCP","version":"2.0.31"}}
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382087540
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382087540 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Applying permission update: Setting mode to 'acceptEdits'
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude/settings.json.tmp.85508.1762382088623
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 37 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude/settings.json.tmp.85508.1762382088623 to /home/vscode/.claude/settings.json
+[DEBUG] File /home/vscode/.claude/settings.json written atomically
+[DEBUG] Stream started - received first chunk
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[ERROR] Error: Error: Command failed: xclip -selection clipboard -t text/plain -o
+/bin/sh: 1: xclip: not found
+
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at checkExecSyncError (node:child_process:916:11)
+    at execSync (node:child_process:988:15)
+    at Dc9 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:232:83079)
+    at ey0 (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:232:84128)
+    at file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:428:3810
+    at $y (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:98:20238)
+    at qy (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:98:20721)
+    at Object.useState (file:///usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:98:27274)
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Added snapshot for 9ceeb0a4-1944-47c9-abb0-6bb3c96412df, tracking 0 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 32ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 46ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 27ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 49ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 29ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 28ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 28ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 7ms
+[DEBUG] FileHistory: Tracked file modification for /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb
+[DEBUG] Writing to temp file: /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb.tmp.85508.1762382155160
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 5268 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb.tmp.85508.1762382155160 to /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb
+[DEBUG] File /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 32ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] No hook environment files found
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 30ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 197ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 70ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382377811
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382377811 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762382377870
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762382377870 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 48ms
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Making snapshot for message dffa1613-5fdc-4822-b99f-50e28c4e8734
+[DEBUG] FileHistory: Added snapshot for dffa1613-5fdc-4822-b99f-50e28c4e8734, tracking 1 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 37ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 49ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[ERROR] Error streaming, falling back to non-streaming mode: 503 upstream connect error or disconnect/reset before headers. reset reason: overflow
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 80ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 35ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 43ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 28ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762383183790
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762383183790 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762383183826
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762383183826 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 47ms
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Making snapshot for message aab082f8-ccd1-4d1c-91d6-5a446db3ae9d
+[DEBUG] FileHistory: Added snapshot for aab082f8-ccd1-4d1c-91d6-5a446db3ae9d, tracking 1 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 37ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 32ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 31ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 10ms
+[DEBUG] Writing to temp file: /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb.tmp.85508.1762383432642
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 5308 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb.tmp.85508.1762383432642 to /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb
+[DEBUG] File /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 59ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 35ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 27ms
+[DEBUG] Writing to temp file: /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb.tmp.85508.1762383454743
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 5375 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb.tmp.85508.1762383454743 to /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb
+[DEBUG] File /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 49ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 35ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 9ms
+[DEBUG] Writing to temp file: /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb.tmp.85508.1762383486819
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 5393 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb.tmp.85508.1762383486819 to /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb
+[DEBUG] File /workspaces/web/spec/system/fincen_layout/identification_document_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 33ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 43ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 38ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 47ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 35ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+[DEBUG] LSP Diagnostics: Checking registry - 0 pending
+[DEBUG] LSP Diagnostics: Returning 0 diagnostic set(s) for delivery
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 34ms
+[DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762383594040
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762383594040 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762383594077
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48161 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762383594077 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Cleaned up session snapshot: /home/vscode/.claude/shell-snapshots/snapshot-bash-1762382085870-md957t.sh
+[DEBUG] LSP server manager shut down successfully
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.85508.1762384217111
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 48587 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.85508.1762384217111 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically

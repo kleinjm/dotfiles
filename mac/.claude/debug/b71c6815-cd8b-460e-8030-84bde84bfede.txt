@@ -1,0 +1,231 @@
+2025-11-18T21:53:43.612Z [DEBUG] Watching for changes in setting files /home/vscode/.claude/settings.json, /workspaces/web/.claude/settings.json, /workspaces/web/.claude/settings.local.json...
+2025-11-18T21:53:43.644Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2025-11-18T21:53:43.644Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2025-11-18T21:53:43.645Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2025-11-18T21:53:43.646Z [DEBUG] [LSP SERVER MANAGER] initialize() called
+2025-11-18T21:53:43.646Z [DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+2025-11-18T21:53:43.679Z [DEBUG] Applying permission update: Adding 71 allow rule(s) to destination 'projectSettings': ["Bash(bin/dev)","Bash(bundle exec rails:*)","Bash(bundle exec rake:*)","Bash(bundle exec rspec:*)","Bash(bundle exec rubocop:*)","Bash(bundle exec ruby:*)","Bash(bundle exec spring:*)","Bash(cat:*)","Bash(chmod:*)","Bash(curl:*)","Bash(done)","Bash(exit)","Bash(find:*)","Bash(for:*)","Bash(tools/gh-*:*)","Bash(git add:*)","Bash(git branch:*)","Bash(git checkout:*)","Bash(git fetch:*)","Bash(git grep:*)","Bash(git log:*)","Bash(git ls-tree:*)","Bash(git merge:*)","Bash(git mv:*)","Bash(git push:*)","Bash(git reset:*)","Bash(git rm:*)","Bash(git stash:*)","Bash(git worktree:*)","Bash(git show:*)","Bash(grep:*)","Bash(ls:*)","Bash(mkdir:*)","Bash(mv:*)","Bash(node:*)","Bash(npm run:*)","Bash(npx eslint:*)","Bash(npx tsc:*)","Bash(npx vitest run:*)","Bash(pgrep:*)","Bash(rails routes)","Bash(rake:*)","Bash(rm:*)","Bash(sed:*)","Bash(timeout:*)","Bash(tree:*)","Bash(yarn --version)","Bash(yarn add:*)","Bash(yarn build)","Bash(yarn eslint:*)","Bash(yarn info:*)","Bash(yarn install)","Bash(yarn lint:*)","Bash(yarn list:*)","Bash(yarn test:*)","Bash(yarn tsc:*)","Bash(yarn typecheck)","Bash(PARALLEL_TEST_PROCESSORS=2 bundle exec parallel_rspec:*)","mcp__figma__get_design_context","mcp__figma__get_screenshot","mcp__figma__whoami","mcp__ide__getDiagnostics","mcp__notion__notion-fetch","mcp__notion__notion-search","WebFetch(domain:buildermethods.com)","WebFetch(domain:docs.anthropic.com)","WebFetch(domain:docs.cursor.com)","WebFetch(domain:github.com)","WebFetch(domain:guides.rubyonrails.org)","WebFetch(domain:raw.githubusercontent.com)","WebSearch"]
+2025-11-18T21:53:43.680Z [DEBUG] Applying permission update: Adding 8 deny rule(s) to destination 'projectSettings': ["Read(.env*)","Read(*credentials*)","Read(*secret*)","Read(*token*)","Bash(cat .env:*)","Bash(grep .env:*)","Bash(head .env:*)","Bash(tail .env:*)"]
+2025-11-18T21:53:43.681Z [DEBUG] Applying permission update: Adding 130 allow rule(s) to destination 'localSettings': ["Bash(gh pr create:*)","Bash(do echo \"=== Run $i ===\")","Bash(git commit:*)","WebFetch(domain:docs.rollbar.com)","Bash(RAILS_ENV=staging yarn build:*)","Bash(RAILS_ENV=staging bundle exec vite build:*)","Bash(npx rollbar-cli:*)","Bash(exit 1)","Bash(git pull:*)","Bash(bundle install:*)","Bash(RAILS_ENV=test bundle exec rails runner:*)","Bash(bin/rails zeitwerk:check:*)","Bash(tee:*)","Bash(do echo \"Run $i:\")","Bash(EDITOR=cat bundle exec rails credentials:show:*)","Bash(ruby -e:*)","Bash(do)","Bash(bundle info:*)","WebFetch(domain:trailblazer.to)","Bash(RAILS_ENV=test bundle exec rspec:*)","Bash(rails runner:*)","Bash(bin/spring stop:*)","Bash(xargs:*)","Bash(do sed -i 's/< BasePolicy/< Admin::BasePolicy/g' \"$file\")","Bash(bin/new_worktree:*)","Bash(bin/rails db:create:*)","Bash(do echo \"=== $file ===\" grep -A 20 \"private\\|protected\" \"$file\")","Bash(git restore:*)","Bash(RAILS_ENV=test bin/rails db:create:*)","Bash(echo:*)","Bash(RAILS_ENV=test yarn build:*)","Bash(RAILS_ENV=test bundle exec vite build:*)","Bash(bundle show:*)","Bash(do if grep -q 'class Scope < Admin::BasePolicy::Scope' $file)","Bash(then if grep -A 5 'class Scope' $file)","Bash(then echo \"$file\")","Bash(fi)","Bash(spec/policies/admin/bank_account_change_policy_spec.rb )","Bash(spec/policies/admin/csp_report_policy_spec.rb )","Bash(spec/policies/admin/customer_policy_spec.rb )","Bash(spec/policies/admin/dashboard_policy_spec.rb )","Bash(spec/policies/admin/email_subscription_policy_spec.rb )","Bash(spec/policies/admin/engineering_policy_spec.rb )","Bash(spec/policies/admin/es_employee_policy_spec.rb )","Bash(spec/policies/admin/escrow_policy_spec.rb )","Bash(spec/policies/admin/organization_policy_spec.rb )","Bash(spec/policies/admin/passphrase_policy_spec.rb )","Bash(spec/policies/admin/person_policy_spec.rb )","Bash(spec/policies/admin/setting_policy_spec.rb )","Bash(spec/policies/admin/user_session_policy_spec.rb)","Bash(spec/policies/admin/integrations/customerio/email_policy_spec.rb )","Bash(spec/policies/admin/integrations/lexis_nexis/account_details_policy_spec.rb )","Bash(spec/policies/admin/integrations/plaid/identity_verification_policy_spec.rb )","Bash(spec/policies/admin/integrations/plaid/link_policy_spec.rb )","Bash(spec/policies/admin/integrations/plaid/link_request_policy_spec.rb)","Bash(spec/policies/admin/integrations/lexis_nexis )","Bash(spec/policies/admin/integrations/customerio )","Bash(spec/policies/admin/integrations/plaid)","Bash(spec/system/fincen_layout/personal_information_spec.rb:6 )","Bash(spec/system/escrows/edit_seller_spec.rb:7 )","Bash(spec/system/members/index_spec.rb:26 )","Bash(spec/system/customers/fincen_personal_information_spec.rb:6 )","Bash(spec/system/escrows/add_seller_spec.rb:7 )","Bash(spec/system/sellers/statement_of_info/residences_spec.rb:6 )","Bash(spec/system/sellers/statement_of_info/residences_spec.rb:51 )","Bash(spec/system/terms_agreement_modal_spec.rb:360 )","Bash(spec/system/terms_agreement_modal_spec.rb:295 )","Bash(spec/system/terms_agreement_modal_spec.rb:597 )","Bash(spec/system/terms_agreement_modal_spec.rb:477 )","Bash(spec/system/sellers/statement_of_info/eo_soi_access_spec.rb:6 )","Bash(spec/system/admin/organizations_spec.rb:6 )","Bash(spec/models/integrations/customerio/email_spec.rb )","Bash(spec/models/terms_agreement_spec.rb )","Bash(spec/models/customers/funds_disbursement_spec.rb )","Bash(spec/models/previous_password_spec.rb )","Bash(spec/models/integrations/plaid/link_request_spec.rb )","Bash(spec/models/legal_entity_spec.rb )","Bash(spec/models/bankruptcy_spec.rb )","Bash(spec/models/integrations/twilio/sms_verification_spec.rb )","Bash(spec/models/employment_history_spec.rb )","Bash(spec/models/personal_information_spec.rb )","Bash(spec/models/identification_document_spec.rb )","Bash(spec/models/integrations/plaid/link_request_event_spec.rb )","Bash(spec/models/buyer_spec.rb )","Bash(spec/models/business_spec.rb )","Bash(spec/models/integrations/slack/message_spec.rb )","Bash(spec/models/seller_spec.rb )","Bash(spec/models/customers/identity_verification_document_spec.rb )","Bash(spec/models/customers/identity_report_check_spec.rb )","Bash(spec/models/employment_spec.rb )","Bash(spec/models/passphrase_spec.rb )","Bash(spec/models/concerns/sluggable_spec.rb )","Bash(spec/models/legal_ownership_spec.rb )","Bash(spec/models/organization_membership_spec.rb )","Bash(spec/models/property_spec.rb )","Bash(spec/models/customers/media_view_spec.rb )","Bash(spec/models/integrations/plaid/identity_verification_spec.rb )","Bash(spec/models/bank_account_change_spec.rb )","Bash(spec/models/customers/identity_report_spec.rb )","Bash(spec/services/save_customer_form_service_spec.rb )","Bash(spec/services/save_customer_entity_form_service_spec.rb )","Bash(spec/services/statement_of_info/residence_history/upsert_service_spec.rb )","Bash(spec/services/statement_of_info/financials/upsert_service_spec.rb )","Bash(spec/services/seller/create_service_spec.rb )","Bash(spec/services/save_identification_form_service_spec.rb )","Bash(spec/services/seller/invite_identity_verification_service_spec.rb )","Bash(spec/services/auth/create_login_attempt_service_spec.rb )","Bash(spec/lib/escrow_safe_form_builder_spec.rb )","Bash(spec/requests/people_requests_spec.rb )","Bash(spec/requests/escrows/customers_requests_spec.rb )","Bash(spec/requests/escrows/add_buyer_spec.rb )","Bash(spec/requests/auth/logins_requests_spec.rb )","Bash(spec/integration/officer_flows/crud_spec.rb )","Bash(git stash:*)","Bash(/tmp/pass_before.rb)","Bash(/tmp/pass_after.rb)","Bash(/tmp/cust_before.rb)","Bash(/tmp/cust_after.rb)","Bash(lynx:*)","Bash(./spec/policies/customers/statement_of_info_policy_spec.rb:52 )","Bash(./spec/requests/customers/fincen_personal_information_spec.rb:7 )","Bash(./spec/requests/customers/fincen_personal_information_spec.rb:26 )","Bash(./spec/requests/customers/fincen_personal_information_spec.rb:46 )","Bash(./spec/requests/customers/fincen/identification_documents_spec.rb:50 )","Bash(./spec/requests/customers/fincen/identification_documents_spec.rb:13 )","Bash(./spec/system/sellers/funds_disbursement_spec.rb:165 )","Bash(./spec/system/customers/fincen_personal_information_spec.rb:6)","Bash(RAILS_ENV=development bundle exec rails db:reset:*)","Bash(RAILS_ENV=development bundle exec rails runner:*)","Bash(RAILS_ENV=development bundle exec rails:*)"]
+2025-11-18T21:53:43.684Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2025-11-18T21:53:43.686Z [DEBUG] Total LSP servers loaded: 0
+2025-11-18T21:53:43.699Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2025-11-18T21:53:43.700Z [DEBUG] LSP manager initialized with 0 servers
+2025-11-18T21:53:43.708Z [DEBUG] LSP server manager initialized successfully
+2025-11-18T21:53:43.709Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2025-11-18T21:53:43.737Z [DEBUG] Loading skills from directories: managed=/etc/claude-code/.claude/skills, user=/home/vscode/.claude/skills, project=/workspaces/web/.claude/skills
+2025-11-18T21:53:43.741Z [DEBUG] >>>>> getPluginSkills CALLED <<<<<
+2025-11-18T21:53:43.742Z [DEBUG] Passes: No cache, fetching eligibility
+2025-11-18T21:53:43.807Z [DEBUG] Creating shell snapshot for bash (/bin/bash)
+2025-11-18T21:53:43.808Z [DEBUG] Looking for shell config file: /home/vscode/.bashrc
+2025-11-18T21:53:43.808Z [DEBUG] Snapshots directory: /home/vscode/.claude/shell-snapshots
+2025-11-18T21:53:43.809Z [DEBUG] Creating snapshot at: /home/vscode/.claude/shell-snapshots/snapshot-bash-1763502823808-1wknf0.sh
+2025-11-18T21:53:43.809Z [DEBUG] Shell binary exists: true
+2025-11-18T21:53:43.810Z [DEBUG] Execution timeout: 10000ms
+2025-11-18T21:53:43.815Z [DEBUG] Writing to temp file: /home/vscode/.claude/todos/b71c6815-cd8b-460e-8030-84bde84bfede-agent-b71c6815-cd8b-460e-8030-84bde84bfede.json.tmp.66938.1763502823815
+2025-11-18T21:53:43.816Z [DEBUG] Temp file written successfully, size: 2 bytes
+2025-11-18T21:53:43.816Z [DEBUG] Renaming /home/vscode/.claude/todos/b71c6815-cd8b-460e-8030-84bde84bfede-agent-b71c6815-cd8b-460e-8030-84bde84bfede.json.tmp.66938.1763502823815 to /home/vscode/.claude/todos/b71c6815-cd8b-460e-8030-84bde84bfede-agent-b71c6815-cd8b-460e-8030-84bde84bfede.json
+2025-11-18T21:53:43.817Z [DEBUG] File /home/vscode/.claude/todos/b71c6815-cd8b-460e-8030-84bde84bfede-agent-b71c6815-cd8b-460e-8030-84bde84bfede.json written atomically
+2025-11-18T21:53:43.833Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2025-11-18T21:53:43.834Z [DEBUG] Total plugin skills loaded: 0
+2025-11-18T21:53:43.834Z [DEBUG] Total plugin commands loaded: 0
+2025-11-18T21:53:43.835Z [DEBUG] Registered 0 hooks from 0 plugins
+2025-11-18T21:53:43.845Z [DEBUG] Loaded 15 unique skills (managed: 0, user: 0, project: 15, duplicates removed: 0)
+2025-11-18T21:53:43.854Z [DEBUG] getSkillsIfEnabled returning: 15 skill dir commands, 0 plugin skills
+2025-11-18T21:53:43.938Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/usr/local/share/nvm/versions/node/v22.20.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-linux/rg)
+2025-11-18T21:53:44.463Z [DEBUG] Shell snapshot created successfully (2067 bytes)
+2025-11-18T21:53:44.496Z [DEBUG] Total plugin agents loaded: 0
+2025-11-18T21:53:44.543Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763502824543
+2025-11-18T21:53:44.544Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:53:44.545Z [DEBUG] Temp file written successfully, size: 56961 bytes
+2025-11-18T21:53:44.546Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:53:44.546Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763502824543 to /home/vscode/.claude.json
+2025-11-18T21:53:44.547Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:53:44.594Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763502824594
+2025-11-18T21:53:44.594Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:53:44.595Z [DEBUG] Temp file written successfully, size: 56961 bytes
+2025-11-18T21:53:44.596Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:53:44.596Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763502824594 to /home/vscode/.claude.json
+2025-11-18T21:53:44.596Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:53:44.598Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763502824598
+2025-11-18T21:53:44.598Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:53:44.599Z [DEBUG] Temp file written successfully, size: 56961 bytes
+2025-11-18T21:53:44.600Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:53:44.600Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763502824598 to /home/vscode/.claude.json
+2025-11-18T21:53:44.600Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:53:44.647Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763502824647
+2025-11-18T21:53:44.648Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:53:44.649Z [DEBUG] Temp file written successfully, size: 57143 bytes
+2025-11-18T21:53:44.649Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:53:44.650Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763502824647 to /home/vscode/.claude.json
+2025-11-18T21:53:44.650Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:53:44.650Z [DEBUG] Passes eligibility cached for org bfff0745-4c74-4b90-a2af-5ca6afabc33a: false
+2025-11-18T21:53:44.992Z [DEBUG] Passes: Using fresh cached eligibility data
+2025-11-18T21:53:45.029Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763502825029
+2025-11-18T21:53:45.029Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:53:45.031Z [DEBUG] Temp file written successfully, size: 57143 bytes
+2025-11-18T21:53:45.031Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:53:45.031Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763502825029 to /home/vscode/.claude.json
+2025-11-18T21:53:45.031Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:53:45.047Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2025-11-18T21:53:45.048Z [DEBUG] Found 1 hook matchers in settings
+2025-11-18T21:53:45.048Z [DEBUG] Matched 1 unique hooks for query "startup" (1 before deduplication)
+2025-11-18T21:53:45.076Z [DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+2025-11-18T21:53:45.076Z [DEBUG] Slash commands included in SlashCommand tool:
+2025-11-18T21:53:45.097Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2025-11-18T21:53:45.098Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:53:45.098Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2025-11-18T21:53:45.118Z [DEBUG] Getting matching hook commands for SubagentStart with query: Plan
+2025-11-18T21:53:45.118Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:53:45.119Z [DEBUG] Matched 0 unique hooks for query "Plan" (0 before deduplication)
+2025-11-18T21:53:45.144Z [DEBUG] Hook output does not start with {, treating as plain text
+2025-11-18T21:53:45.206Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763502825206
+2025-11-18T21:53:45.208Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:53:45.213Z [DEBUG] Temp file written successfully, size: 57038 bytes
+2025-11-18T21:53:45.213Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:53:45.214Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763502825206 to /home/vscode/.claude.json
+2025-11-18T21:53:45.215Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:53:45.218Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763502825218
+2025-11-18T21:53:45.218Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:53:45.220Z [DEBUG] Temp file written successfully, size: 57038 bytes
+2025-11-18T21:53:45.222Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:53:45.222Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763502825218 to /home/vscode/.claude.json
+2025-11-18T21:53:45.223Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:53:45.254Z [DEBUG] performStartupChecks called
+2025-11-18T21:53:45.255Z [DEBUG] Starting background plugin installations
+2025-11-18T21:53:45.255Z [DEBUG] performBackgroundPluginInstallations called
+2025-11-18T21:53:45.288Z [DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+2025-11-18T21:53:45.296Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763502825296
+2025-11-18T21:53:45.296Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:53:45.298Z [DEBUG] Temp file written successfully, size: 57143 bytes
+2025-11-18T21:53:45.299Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:53:45.299Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763502825296 to /home/vscode/.claude.json
+2025-11-18T21:53:45.300Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:53:45.309Z [DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+2025-11-18T21:53:45.346Z [DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+2025-11-18T21:53:45.423Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763502825423
+2025-11-18T21:53:45.424Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:53:45.427Z [DEBUG] Temp file written successfully, size: 57143 bytes
+2025-11-18T21:53:45.427Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:53:45.428Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763502825423 to /home/vscode/.claude.json
+2025-11-18T21:53:45.428Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:53:45.461Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763502825461
+2025-11-18T21:53:45.462Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:53:45.465Z [DEBUG] Temp file written successfully, size: 57143 bytes
+2025-11-18T21:53:45.465Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:53:45.466Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763502825461 to /home/vscode/.claude.json
+2025-11-18T21:53:45.466Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:53:46.141Z [DEBUG] Stream started - received first chunk
+2025-11-18T21:53:46.845Z [DEBUG] Stream started - received first chunk
+2025-11-18T21:53:48.949Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-11-18T21:53:48.950Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:53:48.951Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-18T21:53:48.967Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-11-18T21:53:48.969Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:53:48.970Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-18T21:57:05.333Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763503025333
+2025-11-18T21:57:05.334Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:57:05.336Z [DEBUG] Temp file written successfully, size: 57172 bytes
+2025-11-18T21:57:05.336Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:57:05.336Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763503025333 to /home/vscode/.claude.json
+2025-11-18T21:57:05.337Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:57:54.633Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-18T21:57:54.634Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-18T21:57:54.653Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-18T21:57:54.654Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-18T21:57:54.722Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-11-18T21:57:54.723Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:57:54.723Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-18T21:57:54.726Z [DEBUG] FileHistory: Added snapshot for 260c4e73-3333-4d33-ba54-63253738848e, tracking 0 files
+2025-11-18T21:57:54.785Z [DEBUG] Total plugin output styles loaded: 0
+2025-11-18T21:57:54.823Z [DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+2025-11-18T21:57:54.824Z [DEBUG] Slash commands included in SlashCommand tool:
+2025-11-18T21:57:55.375Z [DEBUG] Stream started - received first chunk
+2025-11-18T21:57:56.958Z [DEBUG] Stream started - received first chunk
+2025-11-18T21:58:00.695Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-11-18T21:58:00.707Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-11-18T21:58:00.707Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:58:00.707Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-18T21:58:01.389Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-11-18T21:58:01.390Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:58:01.390Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-18T21:58:01.434Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-18T21:58:01.435Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-18T21:58:01.452Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-18T21:58:01.452Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-18T21:58:01.508Z [DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+2025-11-18T21:58:01.508Z [DEBUG] Slash commands included in SlashCommand tool:
+2025-11-18T21:58:03.763Z [DEBUG] Stream started - received first chunk
+2025-11-18T21:58:04.685Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-18T21:58:04.692Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-18T21:58:04.699Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-18T21:58:04.700Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:58:04.700Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-18T21:58:04.700Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-18T21:58:04.700Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:58:04.700Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-18T21:58:04.765Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-18T21:58:04.766Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:58:04.766Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-18T21:58:04.766Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-18T21:58:04.766Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:58:04.767Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-18T21:58:04.832Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-18T21:58:04.833Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-18T21:58:04.842Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-18T21:58:04.842Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-18T21:58:04.887Z [DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+2025-11-18T21:58:04.887Z [DEBUG] Slash commands included in SlashCommand tool:
+2025-11-18T21:58:06.369Z [DEBUG] Stream started - received first chunk
+2025-11-18T21:58:09.593Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-18T21:58:09.601Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-18T21:58:09.602Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:58:09.602Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-18T21:58:09.665Z [DEBUG] No hook environment files found
+2025-11-18T21:58:13.626Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-18T21:58:13.627Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:58:13.627Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-18T21:58:13.684Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-11-18T21:58:13.693Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-11-18T21:58:13.693Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:58:13.693Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-18T21:58:14.176Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-11-18T21:58:14.177Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:58:14.177Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-18T21:58:14.220Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-18T21:58:14.221Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-18T21:58:14.232Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-18T21:58:14.233Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-18T21:58:14.290Z [DEBUG] Skills and commands included in Skill tool: backend-api, backend-migrations, backend-models, backend-queries, frontend-accessibility, frontend-components, frontend-css, frontend-responsive, global-coding-style, global-commenting, global-conventions, global-error-handling, global-tech-stack, global-validation, testing-test-writing
+2025-11-18T21:58:14.291Z [DEBUG] Slash commands included in SlashCommand tool:
+2025-11-18T21:58:14.362Z [DEBUG] Stream started - received first chunk
+2025-11-18T21:58:15.847Z [DEBUG] Stream started - received first chunk
+2025-11-18T21:58:25.838Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-11-18T21:58:25.839Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:58:25.839Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-18T21:58:25.882Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763503105882
+2025-11-18T21:58:25.882Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:58:25.885Z [DEBUG] Temp file written successfully, size: 57172 bytes
+2025-11-18T21:58:25.885Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:58:25.886Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763503105882 to /home/vscode/.claude.json
+2025-11-18T21:58:25.886Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:58:25.900Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763503105900
+2025-11-18T21:58:25.901Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T21:58:25.903Z [DEBUG] Temp file written successfully, size: 57172 bytes
+2025-11-18T21:58:25.903Z [DEBUG] Applied original permissions to temp file
+2025-11-18T21:58:25.904Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763503105900 to /home/vscode/.claude.json
+2025-11-18T21:58:25.904Z [DEBUG] File /home/vscode/.claude.json written atomically
+2025-11-18T21:59:25.891Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2025-11-18T21:59:25.893Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T21:59:25.893Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2025-11-18T22:53:10.534Z [DEBUG] Getting matching hook commands for SessionEnd with query: prompt_input_exit
+2025-11-18T22:53:10.535Z [DEBUG] Found 0 hook matchers in settings
+2025-11-18T22:53:10.536Z [DEBUG] Matched 0 unique hooks for query "prompt_input_exit" (0 before deduplication)
+2025-11-18T22:53:10.543Z [DEBUG] Cleaned up session snapshot: /home/vscode/.claude/shell-snapshots/snapshot-bash-1763502823808-1wknf0.sh
+2025-11-18T22:53:10.544Z [DEBUG] LSP server manager shut down successfully
+2025-11-18T22:53:10.571Z [DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.66938.1763506390571
+2025-11-18T22:53:10.573Z [DEBUG] Preserving file permissions: 100600
+2025-11-18T22:53:10.578Z [DEBUG] Temp file written successfully, size: 57593 bytes
+2025-11-18T22:53:10.578Z [DEBUG] Applied original permissions to temp file
+2025-11-18T22:53:10.578Z [DEBUG] Renaming /home/vscode/.claude.json.tmp.66938.1763506390571 to /home/vscode/.claude.json
+2025-11-18T22:53:10.579Z [DEBUG] File /home/vscode/.claude.json written atomically

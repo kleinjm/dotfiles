@@ -1,0 +1,24 @@
+[DEBUG] Executing hooks for SessionStart:clear
+[DEBUG] Getting matching hook commands for SessionStart with query: clear
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "clear" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] FileHistory: Added snapshot for 705ee623-8c5a-486b-ad68-4e7c9a77c5af, tracking 0 files
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.13382.1760558432497
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 66037 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.13382.1760558432497 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Cleaned up session snapshot: /home/vscode/.claude/shell-snapshots/snapshot-zsh-1760490817917-n39i86.sh
+[DEBUG] Writing to temp file: /home/vscode/.claude.json.tmp.13382.1760558434025
+[DEBUG] Preserving file permissions: 100600
+[DEBUG] Temp file written successfully, size: 66475 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /home/vscode/.claude.json.tmp.13382.1760558434025 to /home/vscode/.claude.json
+[DEBUG] File /home/vscode/.claude.json written atomically

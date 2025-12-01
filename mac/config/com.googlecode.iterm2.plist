@@ -12,6 +12,8 @@
 	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>94D9E71A-646C-4AFE-A5DE-3EFEC73C2B81</string>
+	<key>Default Browser Profile Guid</key>
+	<string>8E5B3E97-E6D3-4B4C-A11E-5AD299E4A91E</string>
 	<key>DisableWindowSizeSnap</key>
 	<true/>
 	<key>GlobalKeyMap</key>

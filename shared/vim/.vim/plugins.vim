@@ -31,8 +31,8 @@ Plugin 'jbgutierrez/vim-partial'                      " extract haml partials
 Plugin 'jgdavey/vim-blockle'                          " toggle ruby do and {} blocks
 Plugin 'jiangmiao/auto-pairs'                         " open and close brackets
 Plugin 'joker1007/vim-ruby-heredoc-syntax'            " heredoc ruby highlighing
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } } " set fzf executable in the vim runtime path
 Plugin 'junegunn/fzf.vim'                             " fzf vim integration
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } } " set fzf executable in the vim runtime path
 Plugin 'kana/vim-textobj-user'                        " dependency of nelstrom/vim-textobj-rubyblock
 Plugin 'kchmck/vim-coffee-script'                     " syntax for coffeescript
 Plugin 'leafgarland/typescript-vim'                   " Typescript support for vim

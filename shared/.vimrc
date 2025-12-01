@@ -16,7 +16,7 @@ source ~/.vim/lightline.vim " configure lightline and status bar
 source ~/.vim/plugins.vim " load vim-plug and plugins
 
 let mapleader=" "                     " set leader key to space
-colorscheme jellybeans                " set color scheme
+colorscheme jellybeans
 
 set autoindent		             " autoindenting on
 set autoread                   " auto-reload the current file when switching to it

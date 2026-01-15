@@ -1,0 +1,227 @@
+escrow-safe(prod)> puts "LinkRequest ##{lr.id} | completed: #{lr.completed?} | created: #{lr.created_at}"
+escrow-safe(prod)>     puts "  Events: #{lr.events.count}"
+LinkRequest #319 | completed: true | created: 2026-01-12 16:18:39 UTC
+  Events: 11
+=> nil
+escrow-safe(prod)*  link_request.events.order(:created_at).each do |e|
+escrow-safe(prod)*     puts "#{e.name} | timestamp: #{e.timestamp} | created_at: #{e.created_at}"
+escrow-safe(prod)>   end
+(escrow-safe):22:in '<main>': undefined local variable or method 'link_request' for main (NameError)
+Did you mean?  link_entry
+escrow-safe(prod)* lr.events.order(:created_at).each do |e|
+escrow-safe(prod)*     puts "#{e.name} | timestamp: #{e.timestamp} | created_at: #{e.created_at}"
+escrow-safe(prod)>   end
+onLoad | timestamp: 2026-01-12T16:18:40.573Z | created_at: 2026-01-12 16:18:40 UTC
+IDENTITY_VERIFICATION_START_STEP | timestamp: 2026-01-12T16:18:42.061Z | created_at: 2026-01-12 16:18:42 UTC
+IDENTITY_VERIFICATION_FAIL_STEP | timestamp: 2026-01-12T16:18:47.942Z | created_at: 2026-01-12 16:18:48 UTC
+IDENTITY_VERIFICATION_START_STEP | timestamp: 2026-01-12T16:18:47.942Z | created_at: 2026-01-12 16:18:48 UTC
+IDENTITY_VERIFICATION_FAIL_STEP | timestamp: 2026-01-12T16:21:20.024Z | created_at: 2026-01-12 16:21:20 UTC
+IDENTITY_VERIFICATION_START_STEP | timestamp: 2026-01-12T16:21:20.024Z | created_at: 2026-01-12 16:21:20 UTC
+IDENTITY_VERIFICATION_PASS_STEP | timestamp: 2026-01-12T16:22:05.131Z | created_at: 2026-01-12 16:22:05 UTC
+onSuccess | timestamp: 2026-01-12T16:22:09.025Z | created_at: 2026-01-12 16:22:09 UTC
+IDENTITY_VERIFICATION_FAIL_STEP | timestamp: 2026-01-12T16:22:09.016Z | created_at: 2026-01-12 16:22:09 UTC
+IDENTITY_VERIFICATION_FAIL_SESSION | timestamp: 2026-01-12T16:22:09.016Z | created_at: 2026-01-12 16:22:09 UTC
+IDENTITY_VERIFICATION_CLOSE_UI | timestamp: 2026-01-12T16:22:09.016Z | created_at: 2026-01-12 16:22:09 UTC
+=> 
+[#<Integrations::Plaid::LinkRequestEvent:0x00007f9951ed9710
+  id: 2482,
+  uuid: "4927ebd1-cf81-4ee6-985b-63c765e6aae9",
+  request_id: 319,
+  name: "onLoad",
+  metadata: "[FILTERED]",
+  timestamp: "2026-01-12T16:18:40.573Z",
+  error: nil,
+  created_at: "2026-01-12 16:18:40.820745000 +0000">,
+ #<Integrations::Plaid::LinkRequestEvent:0x00007f99533d5010
+  id: 2483,
+  uuid: "d14a1599-9f16-4fff-a0f7-59a80ecc9186",
+  request_id: 319,
+  name: "IDENTITY_VERIFICATION_START_STEP",
+  metadata: "[FILTERED]",
+  timestamp: "2026-01-12T16:18:42.061Z",
+  error: nil,
+  created_at: "2026-01-12 16:18:42.344694000 +0000">,
+ #<Integrations::Plaid::LinkRequestEvent:0x00007f99533d4ed0
+  id: 2484,
+  uuid: "cb6cfe98-2a8d-4634-8026-8219e68b8668",
+  request_id: 319,
+  name: "IDENTITY_VERIFICATION_FAIL_STEP",
+  metadata: "[FILTERED]",
+  timestamp: "2026-01-12T16:18:47.942Z",
+  error: nil,
+  created_at: "2026-01-12 16:18:48.174021000 +0000">,
+ #<Integrations::Plaid::LinkRequestEvent:0x00007f99533d4d90
+  id: 2485,
+  uuid: "dae27e1e-1ecc-4ed8-8df3-757ed1d0e05c",
+  request_id: 319,
+  name: "IDENTITY_VERIFICATION_START_STEP",
+  metadata: "[FILTERED]",
+  timestamp: "2026-01-12T16:18:47.942Z",
+  error: nil,
+  created_at: "2026-01-12 16:18:48.189198000 +0000">,
+ #<Integrations::Plaid::LinkRequestEvent:0x00007f99533d49d0
+  id: 2486,
+  uuid: "51a23c28-daca-4e77-8fc5-f005d30f84cf",
+  request_id: 319,
+  name: "IDENTITY_VERIFICATION_FAIL_STEP",
+  metadata: "[FILTERED]",
+  timestamp: "2026-01-12T16:21:20.024Z",
+  error: nil,
+  created_at: "2026-01-12 16:21:20.249623000 +0000">,
+ #<Integrations::Plaid::LinkRequestEvent:0x00007f99533d4610
+  id: 2487,
+  uuid: "42491fb2-b1aa-4ec7-96ee-c7c4a82195e3",
+  request_id: 319,
+  name: "IDENTITY_VERIFICATION_START_STEP",
+  metadata: "[FILTERED]",
+  timestamp: "2026-01-12T16:21:20.024Z",
+  error: nil,
+  created_at: "2026-01-12 16:21:20.342428000 +0000">,
+ #<Integrations::Plaid::LinkRequestEvent:0x00007f99533d44d0
+  id: 2488,
+  uuid: "503508a4-e276-4c96-9c1d-43255d3e94f4",
+  request_id: 319,
+  name: "IDENTITY_VERIFICATION_PASS_STEP",
+  metadata: "[FILTERED]",
+  timestamp: "2026-01-12T16:22:05.131Z",
+  error: nil,
+  created_at: "2026-01-12 16:22:05.392477000 +0000">,
+ #<Integrations::Plaid::LinkRequestEvent:0x00007f99533d3fd0
+  id: 2489,
+  uuid: "cf2b4fe5-4073-4547-b0cf-899350c1323e",
+  request_id: 319,
+  name: "onSuccess",
+  metadata: "[FILTERED]",
+  timestamp: "2026-01-12T16:22:09.025Z",
+  error: nil,
+  created_at: "2026-01-12 16:22:09.248720000 +0000">,
+ #<Integrations::Plaid::LinkRequestEvent:0x00007f99533d3d50
+  id: 2490,
+  uuid: "44b80f0b-3fb9-42bc-9ca4-dd7155a554a6",
+  request_id: 319,
+  name: "IDENTITY_VERIFICATION_FAIL_STEP",
+  metadata: "[FILTERED]",
+  timestamp: "2026-01-12T16:22:09.016Z",
+  error: nil,
+  created_at: "2026-01-12 16:22:09.250869000 +0000">,
+ #<Integrations::Plaid::LinkRequestEvent:0x00007f99533d3c10
+  id: 2491,
+  uuid: "6b5d57f9-28c9-483a-b2fd-5ece46b1014a",
+  request_id: 319,
+  name: "IDENTITY_VERIFICATION_FAIL_SESSION",
+  metadata: "[FILTERED]",
+  timestamp: "2026-01-12T16:22:09.016Z",
+  error: nil,
+  created_at: "2026-01-12 16:22:09.267394000 +0000">,
+ #<Integrations::Plaid::LinkRequestEvent:0x00007f99533d3ad0
+  id: 2492,
+  uuid: "e73ad706-84b3-4cd3-bcfb-ea3b1566bca3",
+  request_id: 319,
+  name: "IDENTITY_VERIFICATION_CLOSE_UI",
+  metadata: "[FILTERED]",
+  timestamp: "2026-01-12T16:22:09.016Z",
+  error: nil,
+  created_at: "2026-01-12 16:22:09.314574000 +0000">]
+escrow-safe(prod)]   seller.escrow.activities_log.for_customer(seller).where(event: %w[
+escrow-safe(prod)]     started_idv started_id_photo finished_id_photo 
+escrow-safe(prod)]     started_selfie_video finished_selfie_video completed_idv
+escrow-safe(prod)*   ]).each do |a|
+escrow-safe(prod)*     puts "#{a.event} | timestamp: #{a.timestamp} | created_at: #{a.created_at}"
+escrow-safe(prod)>   end
+completed_idv | timestamp: 2026-01-12 16:22:09 UTC | created_at: 2026-01-12 16:22:09 UTC
+finished_selfie_video | timestamp: 2026-01-12 16:22:05 UTC | created_at: 2026-01-12 16:22:05 UTC
+finished_id_photo | timestamp: 2026-01-12 16:21:20 UTC | created_at: 2026-01-12 16:21:20 UTC
+started_selfie_video | timestamp: 2026-01-12 16:21:20 UTC | created_at: 2026-01-12 16:21:20 UTC
+started_id_photo | timestamp: 2026-01-12 16:18:47 UTC | created_at: 2026-01-12 16:18:48 UTC
+started_idv | timestamp: 2026-01-12 16:18:40 UTC | created_at: 2026-01-12 16:18:40 UTC
+=> 
+[#<EscrowActivity:0x00007f99520df668
+  id: 9285,
+  escrow_id: 694,
+  whodunnit_type: "Customer",
+  whodunnit_id: 967,
+  user_session_id: 1890,
+  category: "seller",
+  event: "completed_idv",
+  timestamp: "2026-01-12 16:22:09.025000000 +0000",
+  ip: "71.33.133.216",
+  created_at: "2026-01-12 16:22:09.269668000 +0000",
+  updated_at: "2026-01-12 16:22:09.269668000 +0000",
+  ip_geo: "[FILTERED]",
+  customer_id: 967,
+  metadata: nil>,
+ #<EscrowActivity:0x00007f9950784ec0
+  id: 9284,
+  escrow_id: 694,
+  whodunnit_type: "Customer",
+  whodunnit_id: 967,
+  user_session_id: 1890,
+  category: "seller",
+  event: "finished_selfie_video",
+  timestamp: "2026-01-12 16:22:05.131000000 +0000",
+  ip: "71.33.133.216",
+  created_at: "2026-01-12 16:22:05.447674000 +0000",
+  updated_at: "2026-01-12 16:22:05.447674000 +0000",
+  ip_geo: "[FILTERED]",
+  customer_id: 967,
+  metadata: nil>,
+ #<EscrowActivity:0x00007f9950784d80
+  id: 9282,
+  escrow_id: 694,
+  whodunnit_type: "Customer",
+  whodunnit_id: 967,
+  user_session_id: 1890,
+  category: "seller",
+  event: "finished_id_photo",
+  timestamp: "2026-01-12 16:21:20.024000000 +0000",
+  ip: "71.33.133.216",
+  created_at: "2026-01-12 16:21:20.298383000 +0000",
+  updated_at: "2026-01-12 16:21:20.298383000 +0000",
+  ip_geo: "[FILTERED]",
+  customer_id: 967,
+  metadata: nil>,
+ #<EscrowActivity:0x00007f9950784c40
+  id: 9283,
+  escrow_id: 694,
+  whodunnit_type: "Customer",
+  whodunnit_id: 967,
+  user_session_id: 1890,
+  category: "seller",
+  event: "started_selfie_video",
+  timestamp: "2026-01-12 16:21:20.024000000 +0000",
+  ip: "71.33.133.216",
+  created_at: "2026-01-12 16:21:20.368842000 +0000",
+  updated_at: "2026-01-12 16:21:20.368842000 +0000",
+  ip_geo: "[FILTERED]",
+  customer_id: 967,
+  metadata: nil>,
+ #<EscrowActivity:0x00007f9950784b00
+  id: 9281,
+  escrow_id: 694,
+  whodunnit_type: "Customer",
+  whodunnit_id: 967,
+  user_session_id: 1890,
+  category: "seller",
+  event: "started_id_photo",
+  timestamp: "2026-01-12 16:18:47.942000000 +0000",
+  ip: "71.33.133.216",
+  created_at: "2026-01-12 16:18:48.224730000 +0000",
+  updated_at: "2026-01-12 16:18:48.224730000 +0000",
+  ip_geo: "[FILTERED]",
+  customer_id: 967,
+  metadata: nil>,
+ #<EscrowActivity:0x00007f99507849c0
+  id: 9280,
+  escrow_id: 694,
+  whodunnit_type: "Customer",
+  whodunnit_id: 967,
+  user_session_id: 1890,
+  category: "seller",
+  event: "started_idv",
+  timestamp: "2026-01-12 16:18:40.573000000 +0000",
+  ip: "71.33.133.216",
+  created_at: "2026-01-12 16:18:40.898513000 +0000",
+  updated_at: "2026-01-12 16:18:40.898513000 +0000",
+  ip_geo: "[FILTERED]",
+  customer_id: 967,
+  metadata: nil>]

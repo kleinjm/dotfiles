@@ -1,0 +1,7 @@
+To make the DIAG pin work reliably for sensorless homing on the TMC2209, we discovered three mandatory conditions:
+
+TCOOLTHRS (0x14) is King: StallGuard simply does not function unless the motor is moving fast enough to exceed the value in the TCOOLTHRS register. If this is at its default (0), the DIAG pin will never trigger. We learned to set this to maximum (0xFFFFF) to ensure StallGuard is active at all operational speeds.
+
+Physical/Logic Pull-down: The DIAG pin on the TMC2209 can be "noisy" or float. We found that configuring the ESP32 pin (GPIO25) with an internal INPUT_PULLDOWN is essential to prevent false triggers and ensure the signal is pulled low when no stall is detected.
+
+Initialization Timing: Because the DIAG pin relies on internal driver logic that is configured via UART, the pin won't behave correctly until the UART registers (SGTHRS and TCOOLTHRS) are fully written. Attempting to home before these registers are confirmed to be set leads to the motor either ignoring the stall or the ESP32 crashing.

@@ -1,0 +1,88 @@
+escrow-safe(prod)> plaid_idv = idv.plaid_idvs.last
+=> 
+#<Integrations::Plaid::IdentityVerification:0x00007f9cdf441140
+...
+escrow-safe(prod)> plaid_idv
+=> 
+#<Integrations::Plaid::IdentityVerification:0x00007f9cdf441140
+ id: 292,
+ uuid: "f0abb8f8-4f0c-428a-95be-57671f45949d",
+ owner_type: "Customers::IdentityVerification",
+ owner_id: 292,
+ customer_id: 945,
+ client_user_id: "cust-a7f09c34-b43e-4359-954a-b4fdc8243a78",
+ template_info: {"id" => "idvtmp_9oxmtysY5eVPHb", "version" => 11},
+ payload: "[FILTERED]",
+ plaid_id: "idv_81LKEBxRvQhv5Z",
+ previous_attempt_id: nil,
+ shareable_url: "https://verify.plaid.com/verify/idv_81LKEBxRvQhv5Z...",
+ status: "active",
+ completed_at: nil,
+ data: "[FILTERED]",
+ data_updated_at: "[FILTERED]",
+ retry_requested_at: nil,
+ created_at: "2026-01-08 22:17:36.590191000 +0000",
+ updated_at: "2026-01-08 22:17:36.590191000 +0000",
+ selfie_check: true>
+escrow-safe(prod)> plaid_idv.sync!
+=> 
+#<Integrations::Plaid::IdentityVerification:0x00007f9cdf441140
+ previous_attempt_id: nil,
+ shareable_url: "https://verify.plaid.com/verify/idv_81LKEBxRvQhv5Z...",
+ status: "active",
+ completed_at: nil,
+ data_updated_at: "[FILTERED]",
+ data: "[FILTERED]",
+ owner_id: 292,
+ owner_type: "Customers::IdentityVerification",
+ customer_id: 945,
+ id: 292,
+ uuid: "f0abb8f8-4f0c-428a-95be-57671f45949d",
+ client_user_id: "cust-a7f09c34-b43e-4359-954a-b4fdc8243a78",
+ template_info: {"id" => "idvtmp_9oxmtysY5eVPHb", "version" => 11},
+ payload: "[FILTERED]",
+ plaid_id: "idv_81LKEBxRvQhv5Z",
+ retry_requested_at: nil,
+ created_at: "2026-01-08 22:17:36.590191000 +0000",
+ updated_at: "2026-01-08 22:33:05.454721000 +0000",
+ selfie_check: true>
+escrow-safe(prod)> plaid_idv.data['steps']
+=> 
+{"accept_tos" => "skipped",
+ "verify_sms" => "not_applicable",
+ "kyc_check" => "failed",
+ "documentary_verification" => "failed",
+ "selfie_check" => "active",
+ "watchlist_screening" => "not_applicable",
+ "risk_check" => "waiting_for_prerequisite"}
+escrow-safe(prod)> idv.reload
+=> 
+#<Customers::IdentityVerification:0x00007f9ced44d4a0
+ id: 292,
+ uuid: "e3072a48-4da7-4c55-a3a9-cfa3a2edeef8",
+ customer_id: 945,
+ status: "active",
+ plaid_template_info: {"id" => "idvtmp_9oxmtysY5eVPHb", "version" => 11},
+ steps:
+  {"kyc_check" => "active", "accept_tos" => "skipped", "risk_check" => "waiting_for_prerequisite", "verify_sms" => "not_applicable", "selfie_check" => "waiting_for_prerequisite", "watchlist_screening" => "not_applicable", "documentary_verification" => "waiting_for_prerequisite"},
+ identity: "[FILTERED]",
+ kyc_check: "[FILTERED]",
+ risk_check: "[FILTERED]",
+ started_at: "2026-01-08 22:17:36.000000000 +0000",
+ documents_processed_at: nil,
+ processed_at: "2026-01-08 22:17:36.905335000 +0000",
+ completed_at: nil,
+ created_at: "2026-01-08 22:17:36.576494000 +0000",
+ updated_at: "2026-01-08 22:17:36.914629000 +0000",
+ selfie_checks_processed_at: nil,
+ watchlist_screening: nil,
+ redacted_at: nil>
+escrow-safe(prod)> idv.steps
+=> 
+{"kyc_check" => "active",
+ "accept_tos" => "skipped",
+ "risk_check" => "waiting_for_prerequisite",
+ "verify_sms" => "not_applicable",
+ "selfie_check" => "waiting_for_prerequisite",
+ "watchlist_screening" => "not_applicable",
+ "documentary_verification" => "waiting_for_prerequisite"}

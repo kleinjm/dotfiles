@@ -1,0 +1,12 @@
+  1) Terms Agreement Modal multiple customers edge cases when multiple buyers share same email/phone does not show modal on subsequent logins for any buyer
+     Failure/Error: expect(page).to have_field('login[email]', wait: 10)
+       expected to find field "login[email]" that is not disabled but there were no matches
+
+     [Screenshot Image]: /home/runner/_work/web/web/tmp/capybara/failures_r_spec_example_groups_terms_agreement_modal_multiple_customers_edge_cases_when_multiple_buyers_share_same_email_phone_does_not_show_modal_on_subsequent_logins_for_any_buyer_935.png
+
+
+     # ./spec/system/terms_agreement_modal_spec.rb:51:in 'RSpec::ExampleGroups::TermsAgreementModal#authenticate_customer'
+     # ./spec/system/terms_agreement_modal_spec.rb:491:in 'block (5 levels) in <top (required)>'
+     # ./spec/system/terms_agreement_modal_spec.rb:490:in 'Array#each'
+     # ./spec/system/terms_agreement_modal_spec.rb:490:in 'Enumerable#each_with_index'
+     # ./spec/system/terms_agreement_modal_spec.rb:490:in 'block (4 levels) in <top (required)>'

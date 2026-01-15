@@ -1,0 +1,88 @@
+12:24:20    [D]    [button:022]    
+'Start SG Monitor' Pressed.
+12:24:21    [D]    [main:180]    
+SG monitoring started
+12:24:21    [D]    [sg:141]    
+Standstill, SG=8
+12:24:21    [D]    [sg:112]    
+Warmup 1/15, SG=8 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 2/15, SG=8 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 3/15, SG=8 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 4/15, SG=8 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 5/15, SG=30 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 6/15, SG=30 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 7/15, SG=2 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 8/15, SG=2 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 9/15, SG=2 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 10/15, SG=12 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 11/15, SG=12 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 12/15, SG=28 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 13/15, SG=2 CS=27
+12:24:21    [D]    [sg:112]    
+Warmup 14/15, SG=2 CS=27
+12:24:21    [W]    [sg:137]    
+SG=  2 avg= 75 min=  0 CS=27 tstep=2751
+12:24:21    [W]    [sg:137]    
+SG=  2 avg= 28 min=  0 CS=27 tstep=2947
+12:24:22    [E]    [stall:130]    
+>>> STALL: SG avg=9 <= 15 <<<
+12:24:26    [D]    [button:022]    
+'Start SG Monitor' Pressed.
+12:24:26    [D]    [main:180]    
+SG monitoring started
+12:24:26    [D]    [sg:112]    
+Warmup 1/15, SG=2 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 2/15, SG=2 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 3/15, SG=2 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 4/15, SG=2 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 5/15, SG=2 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 6/15, SG=12 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 7/15, SG=12 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 8/15, SG=30 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 9/15, SG=30 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 10/15, SG=2 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 11/15, SG=2 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 12/15, SG=14 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 13/15, SG=14 CS=27
+12:24:26    [D]    [sg:112]    
+Warmup 14/15, SG=2 CS=27
+12:24:26    [W]    [sg:137]    
+SG= 12 avg= 76 min=  2 CS=27 tstep=2560
+12:24:27    [W]    [sg:137]    
+SG= 46 avg= 39 min=  2 CS=27 tstep=2749
+12:24:27    [W]    [sg:137]    
+SG= 18 avg= 17 min=  2 CS=27 tstep=2554
+12:24:27    [W]    [sg:137]    
+SG=  2 avg= 18 min=  2 CS=27 tstep=2768
+12:24:27    [W]    [sg:137]    
+SG=  2 avg= 27 min=  2 CS=27 tstep=3392
+12:24:27    [W]    [sg:137]    
+SG= 50 avg= 29 min=  2 CS=27 tstep=2552
+12:24:28    [W]    [sg:137]    
+SG=  2 avg= 19 min=  2 CS=27 tstep=3262
+12:24:28    [E]    [stall:130]    
+>>> STALL: SG avg=12 <= 15 <<<

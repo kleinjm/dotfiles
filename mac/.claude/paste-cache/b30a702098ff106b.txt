@@ -1,0 +1,22 @@
+[12:52:49.722][E][uart:014]: Reading from UART timed out at byte 0!
+[12:52:49.727][E][tmc2209:013]:   Unable to read IC version. Is the driver powered and wired correctly?
+[12:52:49.832][E][uart:014]: Reading from UART timed out at byte 0!
+[12:52:49.837][C][tmc2209:013]:   Microsteps: 256
+[12:52:49.837][C][tmc2209:013]:   Clock frequency: 12000000 Hz (VACTUAL factor: 0.715256)
+[12:52:49.944][E][uart:014]: Reading from UART timed out at byte 0!
+[12:52:49.944][C][tmc2209:013]:   Overtemperature: prewarning = 120C | shutdown = 143C
+[12:52:49.945][C][tmc2209:013]:   Stall detection: DIAG interrupt raises flag
+[12:52:49.950][C][tmc2209:013]:   Status check: disabled
+[12:52:50.057][E][uart:014]: Reading from UART timed out at byte 0!
+[12:52:50.166][E][uart:014]: Reading from UART timed out at byte 0!
+[12:52:50.276][E][uart:014]: Reading from UART timed out at byte 0!
+[12:52:50.276][C][tmc2209:013]:   Currents:
+[12:52:50.386][E][uart:014]: Reading from UART timed out at byte 0!
+[12:52:50.387][C][tmc2209:013]:     Limits: 1209 mA
+[12:52:50.499][E][uart:014]: Reading from UART timed out at byte 0!
+[12:52:50.499][C][tmc2209:013]:     IRUN: 16 (642 mA)
+[12:52:50.499][C][tmc2209:013]:     IHOLD: 0 (0 mA)
+[12:52:50.500][C][tmc2209:013]:     Additional scaling by VREF is disabled
+[12:52:50.504][C][tmc2209:013]:     VSense: False (high heat dissipation)
+[12:52:50.505][C][tmc2209:013]:     RSense: internal RDSon
+[12:52:50.505][E][component:188]:   tmc2209 is marked FAILED: Failed to communicate with driver

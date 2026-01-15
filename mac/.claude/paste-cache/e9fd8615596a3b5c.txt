@@ -1,0 +1,10 @@
+escrow-safe(prod)> SolidQueue::Job.where("arguments::text LIKE '%#{plaid_idv.plaid_id}%'").order(created_at: :desc).pluck(:class_name, :created_at, :finished_at)
+=> 
+[["Webhooks::ProcessPlaidIdvUpdateJob", 2026-01-10 17:18:31.513024000 UTC +00:00, nil],
+ ["Webhooks::ProcessPlaidIdvUpdateJob", 2026-01-10 17:18:27.138974000 UTC +00:00, nil],
+ ["Webhooks::ProcessPlaidIdvUpdateJob", 2026-01-10 17:16:39.540751000 UTC +00:00, 2026-01-10 17:16:48.509021000 UTC +00:00],
+ ["Webhooks::ProcessPlaidIdvUpdateJob", 2026-01-10 17:15:59.911925000 UTC +00:00, 2026-01-10 17:16:00.236060000 UTC +00:00],
+ ["Webhooks::ProcessPlaidIdvUpdateJob", 2026-01-10 17:15:00.659337000 UTC +00:00, 2026-01-10 17:15:00.997090000 UTC +00:00],
+ ["Webhooks::ProcessPlaidIdvUpdateJob", 2026-01-10 17:14:24.378909000 UTC +00:00, 2026-01-10 17:14:24.868076000 UTC +00:00],
+ ["Webhooks::ProcessPlaidIdvUpdateJob", 2026-01-10 17:14:18.478929000 UTC +00:00, 2026-01-10 17:14:19.632288000 UTC +00:00],
+ ["Webhooks::ProcessPlaidIdvUpdateJob", 2026-01-10 17:14:18.375064000 UTC +00:00, 2026-01-10 17:14:19.309738000 UTC +00:00]]

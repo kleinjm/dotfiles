@@ -1,0 +1,36 @@
+11:34:57    [D]    [main:174]    
+SG monitoring started
+11:34:57    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:57    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [E]    [stall:127]    
+>>> DIAG=HIGH SG=32 - STALL DETECTED! <<<
+11:34:58    [D]    [button:022]    
+'Stop SG Monitor' Pressed.
+11:34:58    [D]    [main:184]    
+SG monitoring stopped

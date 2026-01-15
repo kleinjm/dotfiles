@@ -17,9 +17,11 @@ mac/.claude/projects/
 mac/.claude/statsig/
 mac/.claude/todos/
 mac/.claude/shell-snapshots/
+mac/.claude/plugins/
 
 # Claude AI ephemeral files
 mac/.claude/file-history/
+mac/.claude/debug/
 **/.claude/history.jsonl
 .claude/settings.local.json
 

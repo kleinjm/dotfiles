@@ -1,0 +1,33 @@
+  {
+  "id": 30163,
+  "queue_name": "default",
+  "class_name": "Customers::ProcessIdentityVerificationJob",
+  "arguments": {
+    "job_class": "Customers::ProcessIdentityVerificationJob",
+    "job_id": "46014673-2a6f-42f3-a816-6ccfb1ecb5ec",
+    "provider_job_id": null,
+    "queue_name": "default",
+    "priority": null,
+    "arguments": [
+      {
+        "_aj_globalid": "gid://escrow-safe/Customers::IdentityVerification/301"
+      },
+      {
+        "_aj_globalid": "gid://escrow-safe/Integrations::Plaid::IdentityVerification/301"
+      }
+    ],
+    "executions": 0,
+    "exception_executions": {},
+    "locale": "en",
+    "timezone": "UTC",
+    "enqueued_at": "2026-01-10T16:11:57.936272792Z",
+    "scheduled_at": "2026-01-10T16:11:57.935430788Z"
+  },
+  "priority": 0,
+  "active_job_id": "46014673-2a6f-42f3-a816-6ccfb1ecb5ec",
+  "scheduled_at": "2026-01-10T16:11:57.935Z",
+  "finished_at": "2026-01-10T16:11:58.589Z",
+  "concurrency_key": "Customers::ProcessIdentityVerificationJob/962",
+  "created_at": "2026-01-10T16:11:57.937Z",
+  "updated_at": "2026-01-10T16:11:58.589Z"
+}

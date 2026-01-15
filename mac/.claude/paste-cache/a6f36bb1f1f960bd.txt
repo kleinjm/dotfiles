@@ -1,0 +1,30 @@
+17:01:26    [W]    [tmc_hw:125]    
+Before move: DIAG=0, SG_RESULT=62, SGTHRS=1
+17:01:26    [D]    [tmc_hw:136]    
+Moving from 6000 to 8000 (dir=1)
+17:01:26    [I]    [main:070]    
+Moving to 8000
+17:01:26    [I]    [tmc_hw:097]    
+Running: step=6 DIAG=0 SG=22
+17:01:26    [D]    [binary_sensor:047]    
+'Motor Running': ON
+17:01:27    [I]    [tmc_hw:097]    
+Running: step=174 DIAG=0 SG=86
+17:01:27    [D]    [sensor:135]    
+'Stepper Position': Sending state 6211.00000  with 1 decimals of accuracy
+17:01:27    [I]    [tmc_hw:097]    
+Running: step=340 DIAG=0 SG=70
+17:01:27    [I]    [tmc_hw:097]    
+Running: step=507 DIAG=0 SG=60
+17:01:27    [D]    [sensor:135]    
+'Stepper Position': Sending state 6586.00000  with 1 decimals of accuracy
+17:01:27    [I]    [tmc_hw:097]    
+Running: step=674 DIAG=0 SG=78
+17:01:27    [I]    [tmc_hw:097]    
+Running: step=838 DIAG=0 SG=28
+17:01:27    [D]    [binary_sensor:047]    
+'Motor Running': OFF
+17:01:27    [W]    [tmc_hw:083]    
+STALL DETECTED after 882 steps! DIAG=1 SG_RESULT=2
+17:01:27    [D]    [binary_sensor:047]    
+'Stall Detected': ON

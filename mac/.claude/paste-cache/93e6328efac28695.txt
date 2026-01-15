@@ -1,0 +1,11 @@
+Failures:
+
+  1) Escrow show page officer viewing the escrow displays the mailing address for the seller
+     Failure/Error: expect(page).to have_content('Complete FinCEN Report')
+       expected to find text "Complete FinCEN Report" in "Logout\nOrganization 26\nEscrows\nBank Accounts\nPreferences\nEmail Support\n© EscrowSafe 2026\nReference ID\nESC-f01ae1fc\nCOE\n01/21/2026\nOfficer\nEscrow Officer\nAddress\n123 Main St\nSan Francisco, California\n94105\nSend secure wire instructions\nAdd Buyer\nSeller\nSeller8 LastName8\n(554) 000-0005\nseller7@example.com\nProgress\nInvited\nLogged In\nIdentity\nDisbursement\nView Activity\nView Identity Audit\nFunds Disbursement\nCheck should be mailed to:\nSeller8 LastName8\n456 Market St\nSuite 100\nSan Francisco, CA 94105\n+ Add additional User"
+
+     [Screenshot Image]: /home/runner/_work/web/web/tmp/capybara/failures_r_spec_example_groups_escrow_show_page_officer_viewing_the_escrow_displays_the_mailing_address_for_the_seller_104.png
+
+
+     # ./spec/system/escrows/show_spec.rb:45:in 'block (3 levels) in <top (required)>'
+

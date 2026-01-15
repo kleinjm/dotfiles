@@ -1,0 +1,16 @@
+escrow-safe(prod)> plaid_idv = customer.idv.plaid_idvs.last
+escrow-safe(prod)>   video_url = plaid_idv.data.dig('selfie_check', 'selfies')&.last&.dig('capture', 'video_url')
+escrow-safe(prod)>   puts "URL scheme: #{URI(video_url).scheme}"
+escrow-safe(prod)>   puts "URL host: #{URI(video_url).host}"
+escrow-safe(prod)>   puts "URL path extension: #{URI(video_url).path.split('.').last}"
+URL scheme: https
+URL host: documentary-assets-production-live-cognito-us-west-2.s3.us-west-2.amazonaws.com
+URL path extension: webm
+=> nil
+escrow-safe(prod)> plaid_idv.sync!
+escrow-safe(prod)>   selfies = plaid_idv.data.dig('selfie_check', 'selfies') || []
+escrow-safe(prod)>   customer.idv.send(:ingest_selfie_checks, selfies)
+escrow-safe(prod)>   puts "Video attached now?: #{customer.idv.submitted_selfie_check.reload.video.attached?}"
+I, [2026-01-10T00:39:12.083095 #2]  INFO -- :   S3 Storage (881.9ms) Uploaded file to key: customers/4b808eb5-919b-4cb3-99a5-b363abe34fee/idv/selfies/f1435f3c-35f0-4f31-9da5-5c3e987af79a-video.webm (checksum: ql5hA0YsWTwS2mhwtTurkg==)
+I, [2026-01-10T00:39:12.114792 #2]  INFO -- : [ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 1f5b45db-fa00-41c5-ad2b-b26d39ac8f9b) to SolidQueue(default) with arguments: #<GlobalID:0x00007f9e5209e320 @uri=#<URI::GID gid://escrow-safe/ActiveStorage::Blob/1466>>
+Video attached now?: true

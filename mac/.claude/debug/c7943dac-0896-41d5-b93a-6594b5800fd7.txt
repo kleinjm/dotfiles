@@ -1,6 +1,0 @@
-2025-11-19T18:54:20.383Z [DEBUG] Watching for changes in setting files /home/vscode/.claude/settings.json, /workspaces/web/.claude/settings.json, /workspaces/web/.claude/settings.local.json...
-2025-11-19T18:54:20.413Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
-2025-11-19T18:54:20.414Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
-2025-11-19T18:54:20.414Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
-2025-11-19T18:54:20.415Z [DEBUG] [LSP SERVER MANAGER] initialize() called
-2025-11-19T18:54:20.415Z [DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()

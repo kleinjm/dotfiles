@@ -1,0 +1,72 @@
+09:07:44    [D]    [button:022]    
+'Move Forward 1000' Pressed.
+09:07:44    [D]    [main:600]    
+Moving forward 1000 steps
+09:07:49    [D]    [button:022]    
+'Move Back to 0' Pressed.
+09:07:49    [D]    [main:631]    
+Moving back to 0
+09:07:54    [D]    [button:022]    
+'Move Forward 1000' Pressed.
+09:07:55    [D]    [main:600]    
+Moving forward 1000 steps
+09:07:59    [D]    [button:022]    
+'Move Back to 0' Pressed.
+09:07:59    [D]    [main:631]    
+Moving back to 0
+09:08:05    [D]    [button:022]    
+'Read StallGuard Registers' Pressed.
+09:08:05    [W]    [diag:172]    
+=== StallGuard Register Dump ===
+09:08:05    [W]    [diag:173]    
+GCONF (0x00): 0x000000C6
+09:08:05    [W]    [diag:174]    
+  - diag0_stall (bit6): ENABLED
+09:08:05    [W]    [diag:175]    
+TCOOLTHRS (0x14): 0xFFFFF (want 0xFFFFF)
+09:08:05    [W]    [diag:176]    
+SGTHRS (0x40): 25
+09:08:05    [W]    [diag:177]    
+SG_RESULT: 0 (from DRV_STATUS)
+09:08:05    [W]    [diag:178]    
+DRV_STATUS (0x6F): 0x800E0000
+09:08:08    [D]    [button:022]    
+'Set SGTHRS 50' Pressed.
+09:08:08    [W]    [tmc:185]    
+SGTHRS set to 50
+09:08:14    [D]    [button:022]    
+'Start SG Monitor' Pressed.
+09:08:14    [D]    [main:152]    
+SG monitoring started
+09:08:14    [W]    [sg:116]    
+SG_REG= 48 SG_DRV=128 CS=30 TSTEP=17878 stst=0
+09:08:14    [W]    [sg:116]    
+SG_REG=  2 SG_DRV=128 CS=30 TSTEP= 7739 stst=0
+09:08:15    [W]    [sg:116]    
+SG_REG=  2 SG_DRV=  0 CS=30 TSTEP= 4990 stst=0
+09:08:15    [W]    [sg:116]    
+SG_REG= 42 SG_DRV=  0 CS=30 TSTEP= 5450 stst=0
+09:08:15    [W]    [sg:116]    
+SG_REG= 34 SG_DRV=  0 CS=30 TSTEP= 5136 stst=0
+09:08:15    [W]    [sg:116]    
+SG_REG= 34 SG_DRV=  0 CS=30 TSTEP= 2857 stst=0
+09:08:15    [W]    [sg:116]    
+SG_REG= 34 SG_DRV=  0 CS=30 TSTEP= 2688 stst=0
+09:08:16    [W]    [sg:116]    
+SG_REG= 34 SG_DRV=  0 CS=30 TSTEP= 2716 stst=0
+09:08:16    [W]    [sg:116]    
+SG_REG=  2 SG_DRV=  0 CS=30 TSTEP= 3202 stst=0
+09:08:16    [W]    [sg:116]    
+SG_REG= 34 SG_DRV=  0 CS=30 TSTEP= 3601 stst=0
+09:08:16    [W]    [sg:116]    
+SG_REG=  2 SG_DRV=  0 CS=30 TSTEP= 3108 stst=0
+09:08:16    [W]    [sg:116]    
+SG_REG= 46 SG_DRV=  0 CS=30 TSTEP= 2680 stst=0
+09:08:17    [W]    [sg:116]    
+SG_REG=  2 SG_DRV=  0 CS=30 TSTEP= 2686 stst=0
+09:08:17    [W]    [sg:116]    
+SG_REG=  2 SG_DRV=  0 CS=30 TSTEP= 3372 stst=0
+09:08:17    [D]    [button:022]    
+'Stop SG Monitor' Pressed.
+09:08:17    [D]    [main:162]    
+SG monitoring stopped

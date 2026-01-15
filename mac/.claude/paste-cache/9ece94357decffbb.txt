@@ -1,0 +1,62 @@
+12:18:20    [D]    [button:022]    
+'Start SG Monitor' Pressed.
+12:18:20    [D]    [main:201]    
+SG monitoring started
+12:18:20    [D]    [cs:162]    
+Standstill, CS=13
+12:18:20    [D]    [cs:126]    
+Warmup 1/10, CS=27 SG=108
+12:18:20    [D]    [cs:126]    
+Warmup 2/10, CS=27 SG=108
+12:18:20    [D]    [cs:126]    
+Warmup 3/10, CS=27 SG=108
+12:18:20    [D]    [cs:126]    
+Warmup 4/10, CS=27 SG=20
+12:18:20    [D]    [cs:126]    
+Warmup 5/10, CS=27 SG=20
+12:18:20    [D]    [cs:126]    
+Warmup 6/10, CS=27 SG=2
+12:18:20    [D]    [cs:126]    
+Warmup 7/10, CS=27 SG=2
+12:18:20    [D]    [cs:126]    
+Warmup 8/10, CS=27 SG=4
+12:18:20    [D]    [cs:126]    
+Warmup 9/10, CS=27 SG=36
+12:18:20    [W]    [cs:140]    
+HIGH CURRENT #1: CS=27 >= 20 (SG=36)
+12:18:20    [W]    [cs:140]    
+HIGH CURRENT #2: CS=27 >= 20 (SG=44)
+12:18:20    [W]    [cs:140]    
+HIGH CURRENT #3: CS=27 >= 20 (SG=22)
+12:18:20    [E]    [stall:145]    
+>>> STALL: CS=27 sustained high current <<<
+12:18:25    [D]    [button:022]    
+'Start SG Monitor' Pressed.
+12:18:25    [D]    [main:201]    
+SG monitoring started
+12:18:25    [D]    [cs:126]    
+Warmup 1/10, CS=27 SG=22
+12:18:25    [D]    [cs:126]    
+Warmup 2/10, CS=27 SG=22
+12:18:25    [D]    [cs:126]    
+Warmup 3/10, CS=27 SG=22
+12:18:25    [D]    [cs:126]    
+Warmup 4/10, CS=27 SG=2
+12:18:25    [D]    [cs:126]    
+Warmup 5/10, CS=27 SG=2
+12:18:25    [D]    [cs:126]    
+Warmup 6/10, CS=27 SG=2
+12:18:25    [D]    [cs:126]    
+Warmup 7/10, CS=27 SG=20
+12:18:25    [D]    [cs:126]    
+Warmup 8/10, CS=27 SG=32
+12:18:26    [D]    [cs:126]    
+Warmup 9/10, CS=27 SG=32
+12:18:26    [W]    [cs:140]    
+HIGH CURRENT #1: CS=27 >= 20 (SG=10)
+12:18:26    [W]    [cs:140]    
+HIGH CURRENT #2: CS=27 >= 20 (SG=8)
+12:18:26    [W]    [cs:140]    
+HIGH CURRENT #3: CS=27 >= 20 (SG=8)
+12:18:26    [E]    [stall:145]    
+>>> STALL: CS=27 sustained high current <<<

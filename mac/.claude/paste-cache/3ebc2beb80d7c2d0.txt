@@ -1,0 +1,21 @@
+Failures:
+
+  1) DecisionTree Step Financing Screen redirects to filing_required when collateralized_loan is NO and completes Request Demo flow
+     Failure/Error: expect(page).to have_content(I18n.t('forms.email_subscription_edit_form.default_title'), wait: 5)
+
+     Selenium::WebDriver::Error::UnknownError:
+       unknown error: unhandled inspector error: {"code":-32000,"message":"Node with given id does not belong to the document"}
+         (Session info: chrome=140.0.7339.80)
+
+     [Screenshot Image]: /home/runner/_work/web/web/tmp/capybara/failures_r_spec_example_groups_decision_tree_step_financing_screen_redirects_to_filing_required_when_collateralized_loan_is_no_and_completes_request_demo_flow_795.png
+
+
+     # ./spec/system/decision_tree/step_financing_spec.rb:138:in 'block (2 levels) in <top (required)>'
+     # ------------------
+     # --- Caused by: ---
+     # Selenium::WebDriver::Error::WebDriverError:
+     #   #0 0x5584d94c194a <unknown>
+#1 0x5584d8f368a0 <unknown>
+#2 0x5584d8f1e336 <unknown>
+#3 0x5584d8f1cc0d <unknown>
+#4 0x5584d8f1d39f <unknown>

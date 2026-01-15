@@ -1,0 +1,18 @@
+IDV status: failed
+completed_at: 2026-01-10 17:18:27 UTC
+selfie_checks_processed_at: 
+steps: {"kyc_check" => "failed", "accept_tos" => "skipped", "risk_check" => "failed", "verify_sms" => "not_applicable", "selfie_check" => "success", "watchlist_screening" => "not_applicable", "documentary_verification" => "failed"}
+
+Selfie checks count: 0
+
+Plaid data selfie status: success
+Plaid selfies count: 1
+  attempt 1: status=success, video_url present: true
+=> 
+[{"status" => "success",
+  "attempt" => 1,
+  "capture" =>
+   {"image_url" => nil,
+    "video_url" =>
+     "https://documentary-assets-production-live-cognito-us-west-2.s3.us-west-2.amazonaws.com/flwses_6hz3vvmjyVHiZ7/1/liveness.webm?response-content-disposition=attachment%3B%20filename%3Dliveness.webm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIATAVOPDHKXJ3UZ2VX%2F20260110%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260110T171829Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=41bc97967011fe69839cd8aaaadf463d55a971adbf7cdd873ef2c85dc6bc1187"},
+  "analysis" => {"document_comparison" => "no_input", "liveness_check" => "success", "facial_analysis" => nil}}]

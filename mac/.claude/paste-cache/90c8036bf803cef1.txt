@@ -1,0 +1,80 @@
+INFO ESPHome 2025.12.5
+INFO Reading configuration automated_blinds_esphome.yaml...
+INFO Starting log output from blind-right-1.local using esphome API
+INFO Successfully resolved blind-right-1.local in 0.021s
+INFO Successfully connected to blind-right-1 @ 192.168.0.60 in 0.054s
+INFO Successful handshake with blind-right-1 @ 192.168.0.60 in 0.020s
+[21:41:48.914][I][app:194]: ESPHome version 2025.12.5 compiled on Jan 11 2026, 21:11:50
+[21:41:48.917][C][logger:261]: Logger:
+[21:41:48.917][C][logger:261]:   Max Level: DEBUG
+[21:41:48.917][C][logger:261]:   Initial Level: DEBUG
+[21:41:48.918][C][logger:267]:   Log Baud Rate: 115200
+[21:41:48.918][C][logger:267]:   Hardware UART: UART0
+[21:41:48.918][C][logger:274]:   Task Log Buffer Size: 768
+[21:41:48.925][C][uart.idf:238]: UART Bus 1:
+[21:41:48.930][C][uart.idf:239]:   TX Pin: GPIO26
+[21:41:48.931][C][uart.idf:240]:   RX Pin: GPIO17
+[21:41:48.931][C][uart.idf:243]:   RX Buffer Size: 256
+[21:41:48.931][C][uart.idf:243]:   RX Full Threshold: 114
+[21:41:48.931][C][uart.idf:243]:   RX Timeout: 2
+[21:41:48.934][C][uart.idf:249]:   Baud Rate: 115200 baud
+[21:41:48.934][C][uart.idf:249]:   Data Bits: 8
+[21:41:48.934][C][uart.idf:249]:   Parity: NONE
+[21:41:48.934][C][uart.idf:249]:   Stop bits: 1
+[21:41:48.943][C][tmc2209_hub:013]: TMC2209 Hub:
+[21:41:48.949][C][tmc2209_hub:014]:   Drivers in hub (1):
+[21:41:48.949][C][tmc2209_hub:017]:     Driver with id 'blind_motor' on address 0x00
+[21:41:48.954][C][tmc2209:011]: TMC2209 Stepper:
+[21:41:48.964][C][tmc2209:012]:   Acceleration: 100 steps/s^2
+[21:41:48.965][C][tmc2209:012]:   Deceleration: 100 steps/s^2
+[21:41:48.967][C][tmc2209:012]:   Max Speed: 400 steps/s
+[21:41:48.975][C][tmc2209:013]:   ENN Pin: GPIO13
+[21:41:48.984][C][tmc2209:013]:   DIAG Pin: GPIO25
+[21:41:48.987][C][tmc2209:013]:   STEP Pin: GPIO27
+[21:41:48.987][C][tmc2209:013]:   DIR Pin: GPIO14
+[21:41:48.990][C][tmc2209:013]:   Address: 0x00
+[21:41:48.995][E][tmc2209:013]:   Unable to read IC version. Is the driver powered and wired correctly?
+[21:41:49.006][C][tmc2209:013]:   Microsteps: 256
+[21:41:49.007][C][tmc2209:013]:   Clock frequency: 12000000 Hz (VACTUAL factor: 0.715256)
+[21:41:49.015][C][tmc2209:013]:   Overtemperature: prewarning = 120C | shutdown = 143C
+[21:41:49.016][C][tmc2209:013]:   Stall detection: DIAG interrupt raises flag
+[21:41:49.025][C][tmc2209:013]:   Status check: disabled
+[21:41:49.028][C][tmc2209:013]:   Currents:
+[21:41:49.035][C][tmc2209:013]:     Limits: 1209 mA
+[21:41:49.038][C][tmc2209:013]:     IRUN: 16 (642 mA)
+[21:41:49.046][C][tmc2209:013]:     IHOLD: 0 (0 mA)
+[21:41:49.046][C][tmc2209:013]:     Additional scaling by VREF is disabled
+[21:41:49.055][C][tmc2209:013]:     VSense: False (high heat dissipation)
+[21:41:49.055][C][tmc2209:013]:     RSense: internal RDSon
+[21:41:49.065][E][component:188]:   tmc2209 is marked FAILED: Failed to communicate with driver
+[21:41:49.067][C][template.cover:069]: Template Cover 'Window Blind'
+[21:41:49.076][C][template.cover:069]:   Device Class: 'blind'
+[21:41:49.080][C][wifi:1132]: WiFi:
+[21:41:49.080][C][wifi:1132]:   Connected: YES
+[21:41:49.088][C][wifi:897]:   Local MAC: 20:E7:C8:5A:D4:C0
+[21:41:49.096][C][wifi:904]:   IP Address: 192.168.0.60
+[21:41:49.100][C][wifi:908]:   SSID: '361Lincoln_5G'
+[21:41:49.100][C][wifi:908]:   BSSID: 02:58:28:1D:CB:82
+[21:41:49.100][C][wifi:908]:   Hostname: 'blind-right-1'
+[21:41:49.100][C][wifi:908]:   Signal strength: -46 dB ▂▄▆█
+[21:41:49.100][C][wifi:908]:   Channel: 11
+[21:41:49.100][C][wifi:908]:   Subnet: 255.255.255.0
+[21:41:49.100][C][wifi:908]:   Gateway: 192.168.0.1
+[21:41:49.100][C][wifi:908]:   DNS1: 192.168.0.1
+[21:41:49.100][C][wifi:908]:   DNS2: 205.171.2.25
+[21:41:49.117][C][esphome.ota:092]: Over-The-Air updates:
+[21:41:49.117][C][esphome.ota:092]:   Address: blind-right-1.local:3232
+[21:41:49.117][C][esphome.ota:092]:   Version: 2
+[21:41:49.127][C][safe_mode:018]: Safe Mode:
+[21:41:49.127][C][safe_mode:018]:   Successful after: 60s
+[21:41:49.127][C][safe_mode:018]:   Invoke after: 10 attempts
+[21:41:49.127][C][safe_mode:018]:   Duration: 300s
+[21:41:49.139][W][safe_mode:030]: Last reset too quick; invoke in 6 restarts
+[21:41:49.149][C][api:211]: Server:
+[21:41:49.149][C][api:211]:   Address: blind-right-1.local:6053
+[21:41:49.149][C][api:211]:   Listen backlog: 4
+[21:41:49.149][C][api:211]:   Max connections: 8
+[21:41:49.158][C][api:223]:   Noise encryption: NO
+[21:41:49.159][C][mdns:177]: mDNS:
+[21:41:49.159][C][mdns:177]:   Hostname: blind-right-1
+

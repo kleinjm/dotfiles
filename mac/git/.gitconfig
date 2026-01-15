@@ -1,6 +1,7 @@
 [user]
   name = James Klein
   email = kleinjm007@gmail.com
+	signingkey = B37B7953A6BD2CB0
 [alias]
     a = add -A
     ap = add -p
@@ -57,3 +58,7 @@
 [pull]
 	rebase = false
 	ff = only
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true

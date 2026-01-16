@@ -1,0 +1,25 @@
+// Default Zellij layout for DevPod
+// Customize this file to your preference
+
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+
+    tab name="main" focus=true {
+        pane
+    }
+
+    tab name="server" {
+        pane command="bin/dev"
+    }
+
+    tab name="console" {
+        pane command="bundle" {
+            args "exec" "rails" "console"
+        }
+    }
+}

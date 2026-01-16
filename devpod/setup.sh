@@ -6,18 +6,14 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 echo "=== DevPod Dotfiles Setup ==="
 echo
 
-# Symlink Zellij layouts
+# Symlink Zellij layouts directory
 ZELLIJ_CONFIG_DIR="${HOME}/.config/zellij"
-mkdir -p "${ZELLIJ_CONFIG_DIR}/layouts"
+mkdir -p "${ZELLIJ_CONFIG_DIR}"
 
-# Symlink entire layouts directory or individual files
 if [[ -d "${SCRIPT_DIR}/zellij/layouts" ]]; then
-  for layout in "${SCRIPT_DIR}/zellij/layouts"/*.kdl; do
-    [[ -e "$layout" ]] || continue
-    name=$(basename "$layout")
-    ln -sf "$layout" "${ZELLIJ_CONFIG_DIR}/layouts/${name}"
-    echo "Symlinked Zellij layout: ${name}"
-  done
+  rm -rf "${ZELLIJ_CONFIG_DIR}/layouts"
+  ln -sf "${SCRIPT_DIR}/zellij/layouts" "${ZELLIJ_CONFIG_DIR}/layouts"
+  echo "Symlinked Zellij layouts directory"
 fi
 
 # Symlink Zellij config.kdl if it exists

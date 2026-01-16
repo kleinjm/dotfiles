@@ -1,0 +1,14 @@
+layout {
+  pane split_direction="vertical" {
+    pane claude="claude" size="40%"
+    pane size="60%" {
+      pane split_direction="horizontal" {
+        pane editor="nvim ."
+        pane
+      }
+    }
+  }
+  pane size=1 borderless=true {
+    plugin location="zellij:compact-bar"
+  }
+}

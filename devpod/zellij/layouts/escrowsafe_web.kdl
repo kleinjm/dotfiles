@@ -1,14 +1,16 @@
 layout {
-  pane split_direction="vertical" {
-    pane claude="claude" size="40%"
-    pane size="60%" {
-      pane split_direction="horizontal" {
-        pane editor="nvim ."
-        pane
-      }
+    pane split_direction="vertical" {
+        pane name="claude" size="40%" command="claude"
+        pane size="60%" {
+            pane split_direction="horizontal" {
+                pane name="editor" command="nvim" {
+                    args "."
+                }
+                pane name="shell"
+            }
+        }
     }
-  }
-  pane size=1 borderless=true {
-    plugin location="zellij:compact-bar"
-  }
+    pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+    }
 }

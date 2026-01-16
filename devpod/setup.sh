@@ -38,5 +38,14 @@ if [[ -f "${SCRIPT_DIR}/zshenv" ]]; then
   echo "Symlinked .zshenv"
 fi
 
+# Symlink nvim config directory
+NVIM_CONFIG_DIR="${HOME}/.config/nvim/lua"
+if [[ -d "${SCRIPT_DIR}/nvim/config" ]]; then
+  mkdir -p "${NVIM_CONFIG_DIR}"
+  rm -rf "${NVIM_CONFIG_DIR}/config"
+  ln -sf "${SCRIPT_DIR}/nvim/config" "${NVIM_CONFIG_DIR}/config"
+  echo "Symlinked nvim config directory"
+fi
+
 echo
 echo "=== DevPod Dotfiles Setup Complete ==="

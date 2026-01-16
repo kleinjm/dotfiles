@@ -1,0 +1,5 @@
+# DevPod bash configuration
+# Sourced from ~/.bashrc
+
+# Aliases
+alias zellij='zellij -l welcome'

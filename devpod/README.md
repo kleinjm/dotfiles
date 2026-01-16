@@ -22,7 +22,9 @@ The setup runs automatically via the `setup.local.sh` hook in the devcontainer.
 |------|---------|
 | `setup.local.sh` | Bootstrap script - copy to web repo |
 | `bootstrap.sh` | Clones dotfiles and runs setup.sh |
-| `setup.sh` | Symlinks configs to ~/.config/ |
+| `setup.sh` | Symlinks configs to home directory |
+| `zshrc` | Zsh configuration (symlinked to ~/.zshrc) |
+| `zprofile` | Zsh profile (symlinked to ~/.zprofile) |
 | `zellij/` | Zellij configs and layouts |
 
 ## How It Works

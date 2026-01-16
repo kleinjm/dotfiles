@@ -26,13 +26,20 @@ if [[ -f "${SCRIPT_DIR}/zellij/config.kdl" ]]; then
   echo "Symlinked Zellij config"
 fi
 
-# Source DevPod bashrc from ~/.bashrc
-BASHRC_SOURCE="source ${SCRIPT_DIR}/bashrc"
-if [[ -f "${SCRIPT_DIR}/bashrc" ]] && ! grep -qF "${BASHRC_SOURCE}" "${HOME}/.bashrc" 2>/dev/null; then
-  echo "" >> "${HOME}/.bashrc"
-  echo "# DevPod dotfiles" >> "${HOME}/.bashrc"
-  echo "${BASHRC_SOURCE}" >> "${HOME}/.bashrc"
-  echo "Added DevPod bashrc to ~/.bashrc"
+# Symlink zsh config files
+if [[ -f "${SCRIPT_DIR}/zshrc" ]]; then
+  ln -sf "${SCRIPT_DIR}/zshrc" "${HOME}/.zshrc"
+  echo "Symlinked .zshrc"
+fi
+
+if [[ -f "${SCRIPT_DIR}/zprofile" ]]; then
+  ln -sf "${SCRIPT_DIR}/zprofile" "${HOME}/.zprofile"
+  echo "Symlinked .zprofile"
+fi
+
+if [[ -f "${SCRIPT_DIR}/zshenv" ]]; then
+  ln -sf "${SCRIPT_DIR}/zshenv" "${HOME}/.zshenv"
+  echo "Symlinked .zshenv"
 fi
 
 echo

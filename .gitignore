@@ -18,6 +18,9 @@ mac/.claude/statsig/
 mac/.claude/todos/
 mac/.claude/shell-snapshots/
 mac/.claude/plugins/
+mac/.claude/plans/
+mac/.claude/cache/
+mac/.claude/stats-cache.json
 
 # Claude AI ephemeral files
 mac/.claude/file-history/

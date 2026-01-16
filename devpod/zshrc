@@ -145,3 +145,6 @@ export GIT_EDITOR="nvim"
 
 # Completions
 source /workspaces/web/tools/wtm/wtm-completion.bash
+
+# Zellij session commands
+source "${0:A:h}/zellij_start_commands.zsh"

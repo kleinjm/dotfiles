@@ -147,4 +147,8 @@ export GIT_EDITOR="nvim"
 source /workspaces/web/tools/wtm/wtm-completion.bash
 
 # Zellij session commands
-source "${0:A:h}/zellij_start_commands.zsh"
+source "$HOME/.dotfiles/devpod/zellij_start_commands.zsh"
+
+# Aliases and functions
+source "$HOME/.dotfiles/devpod/aliases.zsh"
+source "$HOME/.dotfiles/devpod/functions.zsh"

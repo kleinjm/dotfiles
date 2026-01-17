@@ -38,6 +38,19 @@ if [[ -f "${SCRIPT_DIR}/zshenv" ]]; then
   echo "Symlinked .zshenv"
 fi
 
+# Symlink git config
+if [[ -f "${SCRIPT_DIR}/git/.gitconfig" ]]; then
+  ln -sf "${SCRIPT_DIR}/git/.gitconfig" "${HOME}/.gitconfig"
+  echo "Symlinked .gitconfig"
+fi
+
+# Install zsh-autosuggestions if not present
+ZSH_AUTOSUGGESTIONS="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+if [[ ! -d "$ZSH_AUTOSUGGESTIONS" ]]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_AUTOSUGGESTIONS"
+  echo "Installed zsh-autosuggestions"
+fi
+
 # Symlink nvim config directory
 NVIM_CONFIG_DIR="${HOME}/.config/nvim/lua"
 if [[ -d "${SCRIPT_DIR}/nvim/config" ]]; then

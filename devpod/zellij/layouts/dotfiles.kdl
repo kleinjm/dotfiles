@@ -1,0 +1,13 @@
+layout {
+    cwd "/home/vscode/.dotfiles"
+
+    pane split_direction="vertical" {
+        pane name="editor" size="60%" command="nvim" {
+            args "."
+        }
+        pane name="shell" size="40%"
+    }
+    pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}

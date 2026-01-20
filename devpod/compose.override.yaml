@@ -1,0 +1,20 @@
+# This is the override file for the dev container.
+# https://code.visualstudio.com/docs/devcontainers/create-dev-container#_extend-your-docker-compose-file-for-development
+services:
+  rails-app:
+    # Resource limits (optional - adjust based on your system)
+    # cpus: 8
+    # mem_limit: 16g
+    # memswap_limit: 16g
+
+    volumes:
+      # Mount GPG keys for commit signing (read-write needed for trustdb)
+      - ~/.gnupg:/home/vscode/.gnupg
+
+      # Mount SSH keys for git commit signing (recommended)
+      # - ~/.ssh/id_ed25519-sign.pub:/home/vscode/.ssh/id_ed25519-sign.pub:ro
+
+      # Mount personal preferences / settings (optional and experimental, use at your own risk as it might involve some level of debugging :P)
+      #
+      # - ~/.claude/CLAUDE.md:/home/vscode/.claude/CLAUDE.md:ro
+      # - ~/agent-os:/home/vscode/agent-os:ro

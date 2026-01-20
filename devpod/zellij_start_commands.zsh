@@ -32,5 +32,5 @@ zstart() {
         return 1
     fi
 
-    zellij -n "$name" -s "$name"
+    zellij --new-session-with-layout "$name" --session "$name"
 }

@@ -18,6 +18,8 @@ alias g='git'
 alias ga='git add'
 alias gl='git log'
 alias gs='git status'
+alias main='git main'
+alias update="main && gprune && bundle && yarn && spring stop && rails db:migrate && rails restart"
 
 # Rails
 alias rc!="spring stop && rails console"

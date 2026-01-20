@@ -47,7 +47,9 @@
     ff = only
 
 [commit]
-    gpgsign = false
+    gpgsign = true
 
 [tag]
-    gpgSign = false
+    gpgSign = true
+[credential]
+        helper = !'/usr/local/bin/devpod' agent git-credentials --port 12049

@@ -20,6 +20,7 @@ mac/.claude/shell-snapshots/
 mac/.claude/plugins/
 mac/.claude/plans/
 mac/.claude/cache/
+mac/.claude/paste-cache/
 mac/.claude/stats-cache.json
 
 # Claude AI ephemeral files

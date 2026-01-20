@@ -9,7 +9,17 @@ Personal dotfiles for DevPod development containers.
    cp ~/.dotfiles/devpod/setup.local.sh /path/to/web/.devcontainer-devpod/setup.local.sh
    ```
 
-2. Recreate the DevPod container:
+2. Copy `compose.override.yaml` to the web repo:
+   ```bash
+   cp ~/.dotfiles/devpod/compose.override.yaml /path/to/web/.devcontainer-devpod/compose.override.yaml
+   ```
+
+3. Copy Claude settings to the web repo:
+   ```bash
+   cp ~/.dotfiles/devpod/claude/settings.local.json /path/to/web/.claude/settings.local.json
+   ```
+
+4. Recreate the DevPod container:
    ```bash
    bin/dpod recreate
    ```
@@ -21,10 +31,15 @@ The setup runs automatically via the `setup.local.sh` hook in the devcontainer.
 | File | Purpose |
 |------|---------|
 | `setup.local.sh` | Bootstrap script - copy to web repo |
+| `compose.override.yaml` | Docker Compose overrides (GPG mount) - copy to web repo |
+| `claude/settings.local.json` | Claude Code permissions - copy to web repo |
 | `bootstrap.sh` | Clones dotfiles and runs setup.sh |
 | `setup.sh` | Symlinks configs to home directory |
 | `zshrc` | Zsh configuration (symlinked to ~/.zshrc) |
 | `zprofile` | Zsh profile (symlinked to ~/.zprofile) |
+| `aliases.zsh` | Shell aliases (sourced by zshrc) |
+| `functions.zsh` | Shell functions (sourced by zshrc) |
+| `git/.gitconfig` | Git config with aliases (symlinked to ~/.gitconfig) |
 | `zellij/` | Zellij configs and layouts |
 
 ## How It Works

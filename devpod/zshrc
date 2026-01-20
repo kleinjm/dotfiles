@@ -143,6 +143,26 @@ alias zellij='zellij -l welcome'
 export EDITOR="nvim"
 export GIT_EDITOR="nvim"
 
+# GPG setup for DevPod (copy mounted keys to local filesystem for socket support)
+if [[ -d "$HOME/.gnupg" ]] && [[ ! -d "/tmp/gnupg-local" ]]; then
+  mkdir -p /tmp/gnupg-local
+  cp -r "$HOME/.gnupg/"* /tmp/gnupg-local/ 2>/dev/null || true
+  chmod 700 /tmp/gnupg-local
+  rm -f /tmp/gnupg-local/S.* /tmp/gnupg-local/public-keys.d/.#lk* 2>/dev/null || true
+  # Use legacy keyring mode
+  echo "" > /tmp/gnupg-local/common.conf
+fi
+# Always update gpg-agent.conf for cache settings (1 month cache)
+if [[ -d "/tmp/gnupg-local" ]]; then
+  cat > /tmp/gnupg-local/gpg-agent.conf << 'GPGCONF'
+default-cache-ttl 2592000
+max-cache-ttl 2592000
+allow-loopback-pinentry
+GPGCONF
+fi
+export GNUPGHOME=/tmp/gnupg-local
+export GPG_TTY=$(tty)
+
 # Completions
 source /workspaces/web/tools/wtm/wtm-completion.bash
 

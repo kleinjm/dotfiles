@@ -33,7 +33,7 @@ The setup runs automatically via the `setup.local.sh` hook in the devcontainer.
 | `setup.local.sh` | Bootstrap script - copy to web repo |
 | `compose.override.yaml` | Docker Compose overrides (GPG mount) - copy to web repo |
 | `claude/settings.local.json` | Claude Code permissions - copy to web repo |
-| `bootstrap.sh` | Clones dotfiles and runs setup.sh |
+| `bootstrap.sh` | Symlinks or clones dotfiles, runs setup.sh |
 | `setup.sh` | Symlinks configs to home directory |
 | `zshrc` | Zsh configuration (symlinked to ~/.zshrc) |
 | `zprofile` | Zsh profile (symlinked to ~/.zprofile) |
@@ -47,5 +47,11 @@ The setup runs automatically via the `setup.local.sh` hook in the devcontainer.
 1. DevPod runs `.devcontainer-devpod/setup.sh` after container creation
 2. `setup.sh` checks for `setup.local.sh` and runs it
 3. `setup.local.sh` curls and runs `bootstrap.sh`
-4. `bootstrap.sh` clones dotfiles to `~/.dotfiles`
+4. `bootstrap.sh` sets up `~/.dotfiles`:
+   - If `/workspaces/dotfiles` exists (DevPod): symlinks `~/.dotfiles` to it
+   - Otherwise: clones fresh from GitHub
 5. `setup.sh` symlinks configs to the right locations
+
+## Persistence
+
+In DevPod environments, `~/.dotfiles` is a symlink to `/workspaces/dotfiles`, which is a persisted workspace mount. This means any changes to dotfiles persist across container restarts without needing to commit and push.

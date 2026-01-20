@@ -1,6 +1,6 @@
 # Zellij session/layout start commands
 # Usage: zstart <name>
-# Starts zellij with the named layout and session
+# Attaches to existing session or creates one using the corresponding layout
 
 zstart() {
     local name="${1:-}"
@@ -8,18 +8,29 @@ zstart() {
     if [[ -z "$name" ]]; then
         echo "Usage: zstart <name>"
         echo "Available layouts:"
-        ls -1 ~/.config/zellij/layouts/*.kdl 2>/dev/null | xargs -n1 basename | sed 's/\.kdl$//'
+        for f in ~/.config/zellij/layouts/*.kdl; do
+            [[ -f "$f" ]] && basename "$f" .kdl
+        done
         return 1
     fi
 
+    # Check if session already exists
+    if zellij list-sessions --short 2>/dev/null | grep -qx "$name"; then
+        zellij attach "$name"
+        return
+    fi
+
+    # Session doesn't exist - check for layout and create
     local layout_file="${HOME}/.config/zellij/layouts/${name}.kdl"
 
     if [[ ! -f "$layout_file" ]]; then
-        echo "Layout '${name}' not found at ${layout_file}"
+        echo "Session '${name}' not found and no layout at ${layout_file}"
         echo "Available layouts:"
-        ls -1 ~/.config/zellij/layouts/*.kdl 2>/dev/null | xargs -n1 basename | sed 's/\.kdl$//'
+        for f in ~/.config/zellij/layouts/*.kdl; do
+            [[ -f "$f" ]] && basename "$f" .kdl
+        done
         return 1
     fi
 
-    zellij --layout "$name" --session "$name"
+    zellij -n "$name" -s "$name"
 }

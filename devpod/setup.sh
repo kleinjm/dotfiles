@@ -60,5 +60,17 @@ if [[ -d "${SCRIPT_DIR}/nvim/config" ]]; then
   echo "Symlinked nvim config directory"
 fi
 
+# Symlink nvim plugin files (individual files, not directory)
+if [[ -d "${SCRIPT_DIR}/nvim/plugins" ]]; then
+  mkdir -p "${NVIM_CONFIG_DIR}/plugins"
+  for plugin_file in "${SCRIPT_DIR}"/nvim/plugins/*.lua; do
+    if [[ -f "$plugin_file" ]]; then
+      filename=$(basename "$plugin_file")
+      ln -sf "$plugin_file" "${NVIM_CONFIG_DIR}/plugins/${filename}"
+      echo "Symlinked nvim plugin: ${filename}"
+    fi
+  done
+fi
+
 echo
 echo "=== DevPod Dotfiles Setup Complete ==="

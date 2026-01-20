@@ -3,6 +3,7 @@ keybinds {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
+        unbind "Alt Right"  // disable default floating pane shortcut
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
@@ -183,8 +184,8 @@ keybinds {
         bind "Alt o" { MoveTab "Right"; }
         bind "Ctrl h" { MoveFocusOrTab "Left"; }
         bind "Ctrl l" { MoveFocusOrTab "Right"; }
-        // Ctrl j/k removed to allow pass-through to nvim
-        // Use Ctrl+p then j/k for pane navigation instead
+        bind "Ctrl j" { MoveFocus "Down"; }
+        bind "Ctrl k" { MoveFocus "Up"; }
         bind "Alt =" "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }

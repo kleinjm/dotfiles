@@ -5,6 +5,11 @@ return {
     opts = {
       explorer = { enabled = false },
       picker = {
+        sources = {
+          files = {
+            hidden = true,
+          },
+        },
         win = {
           input = {
             keys = {

@@ -13,6 +13,9 @@ alias \$=''
 alias vim='nvim'
 alias vi='nvim'
 
+# Tools
+alias zellij='zellij -l welcome'
+
 # Git
 alias g='git'
 alias ga='git add'

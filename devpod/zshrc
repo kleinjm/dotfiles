@@ -130,25 +130,25 @@ custom_prompt_precmd() {
   local stash_indicator=""
   [[ $stash_count -gt 0 ]] && stash_indicator=" %F{yellow}🎒 ${stash_count}%f"
 
-  # Check if we're in a worktree
-  if [[ $(git rev-parse --git-dir 2>/dev/null) == *"/worktrees/"* ]]; then
-    # In worktree: show just branch (directory name is same as branch)
-    local branch=$(git branch --show-current 2>/dev/null)
-    PROMPT="%F{cyan}🐳%f %F{yellow}${branch}%f${ctx_indicator}${stash_indicator} %# "
-  else
-    # In main project: prepend container indicator to oh-my-zsh theme
-    PROMPT="%F{cyan}🐳 devpod%f${ctx_indicator}${stash_indicator} ${ORIGINAL_PROMPT}"
+  # Git branch and dirty indicator
+  local branch=""
+  local prompt_end="$"
+  if git rev-parse --git-dir &>/dev/null; then
+    branch=" %F{blue}(%F{red}$(git branch --show-current 2>/dev/null)%F{blue})%f"
+    if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
+      prompt_end="%F{yellow}✗%f"
+    else
+      prompt_end="%F{yellow}✓%f"
+    fi
   fi
+
+  # Build prompt: 🐳 ➜ /path (branch) ✗
+  PROMPT="%F{cyan}🐳%f${ctx_indicator}${stash_indicator} %F{green}➜%f %F{cyan}%~%f${branch} ${prompt_end} "
 }
 precmd_functions+=(custom_prompt_precmd)
 
 # Remove DevPod broken SSH wrapper (runs on every shell startup)
 git config --global --unset gpg.ssh.program 2>/dev/null || true
-
-# Aliases
-alias vim='nvim'
-alias vi='nvim'
-alias zellij='zellij -l welcome'
 
 # Environment
 export EDITOR="nvim"

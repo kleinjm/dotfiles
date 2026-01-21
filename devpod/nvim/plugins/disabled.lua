@@ -4,6 +4,15 @@ return {
     "folke/snacks.nvim",
     opts = {
       explorer = { enabled = false },
+      picker = {
+        win = {
+          input = {
+            keys = {
+              ["<C-n>"] = { "edit_tab", mode = { "i", "n" } },
+            },
+          },
+        },
+      },
     },
   },
 }

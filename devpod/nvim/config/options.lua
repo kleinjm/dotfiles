@@ -10,6 +10,9 @@ vim.g.maplocalleader = " "
 vim.opt.wrap = true
 vim.opt.linebreak = true
 
+-- Show tabline when 2+ tabs open
+vim.opt.showtabline = 1
+
 -- Use OSC 52 for clipboard (works in containers via terminal)
 vim.g.clipboard = {
   name = "OSC 52",

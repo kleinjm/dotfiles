@@ -220,6 +220,9 @@ let g:VtrClearSequence=" "
 
 
 " ##### AG & FZF #####
+" Prompt at top, results below
+let $FZF_DEFAULT_OPTS = '--reverse'
+
 " Use ag (The Silver Searcher) https://github.com/ggreer/the_silver_searcher
 if executable("ag")
   let g:ackprg = 'ag --vimgrep'

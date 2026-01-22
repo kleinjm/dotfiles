@@ -41,6 +41,9 @@ The setup runs automatically via the `setup.local.sh` hook in the devcontainer.
 | `functions.zsh` | Shell functions (sourced by zshrc) |
 | `git/.gitconfig` | Git config with aliases (symlinked to ~/.gitconfig) |
 | `zellij/` | Zellij configs and layouts |
+| `tmux/` | Tmux config and tmuxinator project configs |
+| `vim/` | Vim config (sources shared/.vimrc) |
+| `nvim/` | Neovim config (reuses vim setup) |
 
 ## How It Works
 
@@ -51,6 +54,39 @@ The setup runs automatically via the `setup.local.sh` hook in the devcontainer.
    - If `/workspaces/dotfiles` exists (DevPod): symlinks `~/.dotfiles` to it
    - Otherwise: clones fresh from GitHub
 5. `setup.sh` symlinks configs to the right locations
+
+## SSH Keys for GitHub
+
+To enable git push/pull via SSH, copy your SSH key to the persistent volume:
+
+```bash
+# From your host Mac
+cp ~/.ssh/id_ed25519 /path/to/devpod-data/ssh/
+cp ~/.ssh/id_ed25519.pub /path/to/devpod-data/ssh/
+chmod 600 /path/to/devpod-data/ssh/id_ed25519
+```
+
+The `devpod-data` directory is a sibling to the web repo (e.g., `~/GitHubRepos/devpod-data/`). The SSH agent starts automatically on shell startup via the zshrc.
+
+## Tmux
+
+Use `bin/dpod exec` instead of `bin/dpod ssh` for tmux sessions. DevPod's SSH proxy has rendering issues with tmux pane splitting, but docker exec works correctly.
+
+```bash
+# From host Mac
+bin/dpod exec
+
+# Inside container
+mux dotfiles      # Start tmuxinator dotfiles session
+mux escrowsafe    # Start tmuxinator escrowsafe session
+```
+
+Tmux config uses oh-my-tmux with these key bindings:
+- Prefix: `Ctrl+S`
+- Split panes: `\` (horizontal), `-` (vertical)
+- Navigate panes: `Ctrl+h/j/k/l` (vim-tmux-navigator)
+- Resize panes: `Ctrl+arrows`
+- Install plugins: `Ctrl+S I`
 
 ## Persistence
 

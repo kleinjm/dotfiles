@@ -7,6 +7,9 @@ set-option -g default-shell /usr/bin/zsh
 # Fix cursor shape escapes (clear any malformed overrides)
 set -g terminal-overrides ""
 
+# Allow OSC 52 clipboard passthrough (for copying URLs to host clipboard)
+set -g allow-passthrough on
+
 # For options see https://github.com/gpakosz/.tmux#configuring-the-status-line
 tmux_conf_theme_status_right=' \
 #{pairing}#{prefix} \

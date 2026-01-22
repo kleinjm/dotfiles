@@ -18,6 +18,7 @@
     l = log
     m = commit --amend --verbose
     main = !git fetch --prune && git checkout main && git pull origin main && :
+    mm = merge --no-edit
     s = status -s
 
     # push the current branch
@@ -34,7 +35,9 @@
 
 [core]
     editor = nvim
-    mergeoptions = --no-edit
+
+[merge]
+    log = true
 
 [init]
     defaultBranch = main

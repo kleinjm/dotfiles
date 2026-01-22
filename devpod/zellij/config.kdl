@@ -59,7 +59,7 @@ keybinds clear-defaults=true {
     }
     scroll {
         bind "Ctrl s" { SwitchToMode "Normal"; }
-        bind "[" { EditScrollback; SwitchToMode "Normal"; }
+        bind "e" { EditScrollback; SwitchToMode "Normal"; }
         bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "j" "Down" { ScrollDown; }

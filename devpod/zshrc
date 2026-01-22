@@ -181,6 +181,14 @@ fi
 export GNUPGHOME=/tmp/gnupg-local
 export GPG_TTY=$(tty)
 
+# SSH agent setup (for git operations via docker exec)
+if [[ -z "$SSH_AUTH_SOCK" ]] && [[ -f "$HOME/.ssh/id_ed25519" || -f "$HOME/.ssh/id_rsa" ]]; then
+  eval "$(ssh-agent -s)" > /dev/null
+  # Add keys silently
+  [[ -f "$HOME/.ssh/id_ed25519" ]] && ssh-add "$HOME/.ssh/id_ed25519" 2>/dev/null
+  [[ -f "$HOME/.ssh/id_rsa" ]] && ssh-add "$HOME/.ssh/id_rsa" 2>/dev/null
+fi
+
 # Completions
 source /workspaces/web/tools/wtm/wtm-completion.bash
 

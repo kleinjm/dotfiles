@@ -61,13 +61,13 @@ if [[ -f "${SCRIPT_DIR}/git/.gitconfig" ]]; then
   echo "Symlinked .gitconfig"
 fi
 
-# Symlink tmux config
+# Symlink tmux config (oh-my-tmux from shared, customizations from devpod)
 SHARED_TMUX_DIR="${HOME}/.dotfiles/shared/tmux"
 DEVPOD_TMUX_DIR="${SCRIPT_DIR}/tmux"
 
 if [[ -f "${SHARED_TMUX_DIR}/.tmux.conf" ]]; then
   ln -sf "${SHARED_TMUX_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
-  echo "Symlinked .tmux.conf"
+  echo "Symlinked .tmux.conf (oh-my-tmux)"
 fi
 
 if [[ -f "${DEVPOD_TMUX_DIR}/.tmux.conf.local" ]]; then

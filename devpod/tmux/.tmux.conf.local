@@ -1,15 +1,18 @@
 # DevPod tmux configuration
-# Simplified status bar for container environment
+# Simplified status bar for container environment (no battery/network)
 
 # Use zsh as default shell
 set-option -g default-shell /usr/bin/zsh
+
+# Fix cursor shape escapes (clear any malformed overrides)
+set -g terminal-overrides ""
 
 # For options see https://github.com/gpakosz/.tmux#configuring-the-status-line
 tmux_conf_theme_status_right=' \
 #{pairing}#{prefix} \
 CPU:#{cpu_fg_color}#{cpu_percentage} #{cpu_fg_color}#{cpu_icon} , \
 #{sysstat_mem} \
-| Uptime #{uptime_d}d #{uptime_h}:#{uptime_m}:#{uptime_s} \
+| %R %b %d \
 '
 
 source ~/.dotfiles/shared/.tmux.conf.local

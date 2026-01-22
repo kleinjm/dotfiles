@@ -131,3 +131,11 @@ set -g @tpm_plugins '          \
    kristijanhusak/tmux-simple-git-status \
    Brutuski/tmux-ticker \
  '
+
+# Auto-install TPM if not present
+# See https://github.com/tmux-plugins/tpm/blob/master/docs/automatic_tpm_installation.md
+if "test ! -d ~/.tmux/plugins/tpm" \
+   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run -b '~/.tmux/plugins/tpm/tpm'

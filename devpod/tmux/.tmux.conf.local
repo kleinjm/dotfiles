@@ -1,6 +1,9 @@
 # DevPod tmux configuration
 # Simplified status bar for container environment
 
+# Use zsh as default shell
+set-option -g default-shell /usr/bin/zsh
+
 # For options see https://github.com/gpakosz/.tmux#configuring-the-status-line
 tmux_conf_theme_status_right=' \
 #{pairing}#{prefix} \

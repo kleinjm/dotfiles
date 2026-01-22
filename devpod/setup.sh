@@ -89,25 +89,28 @@ if [[ ! -d "$ZSH_AUTOSUGGESTIONS" ]]; then
   echo "Installed zsh-autosuggestions"
 fi
 
-# Symlink nvim config directory
-NVIM_CONFIG_DIR="${HOME}/.config/nvim/lua"
-if [[ -d "${SCRIPT_DIR}/nvim/config" ]]; then
-  mkdir -p "${NVIM_CONFIG_DIR}"
-  rm -rf "${NVIM_CONFIG_DIR}/config"
-  ln -sf "${SCRIPT_DIR}/nvim/config" "${NVIM_CONFIG_DIR}/config"
-  echo "Symlinked nvim config directory"
+# Symlink vim config (uses shared vim setup instead of LazyVim)
+SHARED_VIM_DIR="${HOME}/.dotfiles/shared/vim"
+
+if [[ -f "${SCRIPT_DIR}/vim/.vimrc" ]]; then
+  ln -sf "${SCRIPT_DIR}/vim/.vimrc" "${HOME}/.vimrc"
+  echo "Symlinked .vimrc"
 fi
 
-# Symlink nvim plugin files (individual files, not directory)
-if [[ -d "${SCRIPT_DIR}/nvim/plugins" ]]; then
-  mkdir -p "${NVIM_CONFIG_DIR}/plugins"
-  for plugin_file in "${SCRIPT_DIR}"/nvim/plugins/*.lua; do
-    if [[ -f "$plugin_file" ]]; then
-      filename=$(basename "$plugin_file")
-      ln -sf "$plugin_file" "${NVIM_CONFIG_DIR}/plugins/${filename}"
-      echo "Symlinked nvim plugin: ${filename}"
-    fi
-  done
+if [[ -d "${SHARED_VIM_DIR}/.vim" ]]; then
+  rm -rf "${HOME}/.vim"
+  ln -sf "${SHARED_VIM_DIR}/.vim" "${HOME}/.vim"
+  echo "Symlinked .vim directory"
+fi
+
+# Symlink nvim config (reuses vim config)
+NVIM_CONFIG_DIR="${HOME}/.config/nvim"
+if [[ -f "${SCRIPT_DIR}/nvim/init.vim" ]]; then
+  mkdir -p "${NVIM_CONFIG_DIR}"
+  ln -sf "${SCRIPT_DIR}/nvim/init.vim" "${NVIM_CONFIG_DIR}/init.vim"
+  # Remove LazyVim init.lua if it exists to use init.vim instead
+  rm -f "${NVIM_CONFIG_DIR}/init.lua"
+  echo "Symlinked nvim init.vim"
 fi
 
 echo

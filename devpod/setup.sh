@@ -6,6 +6,23 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 echo "=== DevPod Dotfiles Setup ==="
 echo
 
+# Install tmux if not present
+if ! command -v tmux &> /dev/null; then
+  echo "Installing tmux..."
+  sudo apt-get update -qq && sudo apt-get install -y -qq tmux
+  echo "Installed tmux"
+fi
+
+# Install tmuxinator if not present (requires mise for Ruby)
+if [[ -f "${HOME}/.local/bin/mise" ]]; then
+  eval "$(${HOME}/.local/bin/mise activate bash)"
+  if ! command -v tmuxinator &> /dev/null; then
+    echo "Installing tmuxinator..."
+    gem install tmuxinator --no-document
+    echo "Installed tmuxinator"
+  fi
+fi
+
 # Symlink Zellij layouts directory
 ZELLIJ_CONFIG_DIR="${HOME}/.config/zellij"
 mkdir -p "${ZELLIJ_CONFIG_DIR}"
@@ -42,6 +59,27 @@ fi
 if [[ -f "${SCRIPT_DIR}/git/.gitconfig" ]]; then
   ln -sf "${SCRIPT_DIR}/git/.gitconfig" "${HOME}/.gitconfig"
   echo "Symlinked .gitconfig"
+fi
+
+# Symlink tmux config
+SHARED_TMUX_DIR="${HOME}/.dotfiles/shared/tmux"
+DEVPOD_TMUX_DIR="${SCRIPT_DIR}/tmux"
+
+if [[ -f "${SHARED_TMUX_DIR}/.tmux.conf" ]]; then
+  ln -sf "${SHARED_TMUX_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
+  echo "Symlinked .tmux.conf"
+fi
+
+if [[ -f "${DEVPOD_TMUX_DIR}/.tmux.conf.local" ]]; then
+  ln -sf "${DEVPOD_TMUX_DIR}/.tmux.conf.local" "${HOME}/.tmux.conf.local"
+  echo "Symlinked .tmux.conf.local"
+fi
+
+# Symlink tmuxinator configs
+if [[ -d "${DEVPOD_TMUX_DIR}/.tmuxinator" ]]; then
+  rm -rf "${HOME}/.tmuxinator"
+  ln -sf "${DEVPOD_TMUX_DIR}/.tmuxinator" "${HOME}/.tmuxinator"
+  echo "Symlinked .tmuxinator"
 fi
 
 # Install zsh-autosuggestions if not present

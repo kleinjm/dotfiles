@@ -15,6 +15,7 @@ alias vi='nvim'
 
 # Tools
 alias zellij='zellij -l welcome'
+alias mux='tmuxinator'
 
 # Git
 alias g='git'

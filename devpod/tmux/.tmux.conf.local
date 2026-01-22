@@ -1,0 +1,12 @@
+# DevPod tmux configuration
+# Simplified status bar for container environment
+
+# For options see https://github.com/gpakosz/.tmux#configuring-the-status-line
+tmux_conf_theme_status_right=' \
+#{pairing}#{prefix} \
+CPU:#{cpu_fg_color}#{cpu_percentage} #{cpu_fg_color}#{cpu_icon} , \
+#{sysstat_mem} \
+| Uptime #{uptime_d}d #{uptime_h}:#{uptime_m}:#{uptime_s} \
+'
+
+source ~/.dotfiles/shared/.tmux.conf.local

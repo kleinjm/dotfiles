@@ -13,6 +13,13 @@ if ! command -v tmux &> /dev/null; then
   echo "Installed tmux"
 fi
 
+# Install ag (The Silver Searcher) for vim search
+if ! command -v ag &> /dev/null; then
+  echo "Installing ag (silversearcher)..."
+  sudo apt-get update -qq && sudo apt-get install -y -qq silversearcher-ag
+  echo "Installed ag"
+fi
+
 # Install tmuxinator if not present (requires mise for Ruby)
 if [[ -f "${HOME}/.local/bin/mise" ]]; then
   eval "$(${HOME}/.local/bin/mise activate bash)"
@@ -21,6 +28,13 @@ if [[ -f "${HOME}/.local/bin/mise" ]]; then
     gem install tmuxinator --no-document
     echo "Installed tmuxinator"
   fi
+fi
+
+# Install Heroku CLI if not present
+if ! command -v heroku &> /dev/null; then
+  echo "Installing Heroku CLI..."
+  curl -fsSL https://cli-assets.heroku.com/install.sh | sh
+  echo "Installed Heroku CLI"
 fi
 
 # Symlink Zellij layouts directory

@@ -16,7 +16,7 @@ map <leader>= mzgg=G`z
 " create parent directories. Good for new files in new dir
 map <Leader>mk :call mkdir(expand('%:h'), 'p')<ESC>:w<cr>
 " close all other tabs and splits but this one
-map <leader>cl :only<esc>
+map <leader>cl :only<bar>tabonly<cr>
 " open the filepath of the current file to rename it
 map <Leader>n :call RenameFile()<cr>
 

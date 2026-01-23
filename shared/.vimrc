@@ -51,7 +51,6 @@ set showcmd		                 " display incomplete commands
 set synmaxcol=256              " stop syntax highlighting on long lines
 set tabstop=2                  " set tab size to 2
 set tags^=./.git/tags          " check the current folder for tags file and keep going up
-set undofile		               " keep an undo file (undo changes after closing)
 set updatetime=1000            " slow update for linting
 set wildmode=list:longest,list:full " used for smart tab completion
 

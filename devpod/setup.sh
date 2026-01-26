@@ -20,6 +20,13 @@ if ! command -v ag &> /dev/null; then
   echo "Installed ag"
 fi
 
+# Install fzf for fuzzy finding (used by vim and tmux)
+if ! command -v fzf &> /dev/null; then
+  echo "Installing fzf..."
+  sudo apt-get update -qq && sudo apt-get install -y -qq fzf
+  echo "Installed fzf"
+fi
+
 # Install tmuxinator if not present (requires mise for Ruby)
 if [[ -f "${HOME}/.local/bin/mise" ]]; then
   eval "$(${HOME}/.local/bin/mise activate bash)"

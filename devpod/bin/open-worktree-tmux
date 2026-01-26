@@ -1,0 +1,99 @@
+#!/bin/bash
+# open-worktree-tmux - Open worktree in new tmux window with editor layout
+# Usage: open-worktree-tmux <branch-name>
+
+set -e
+
+# Configuration
+TARGET_SESSION="escrowsafe"
+WORKTREE_BASE="/workspaces/web-worktrees"
+# 4-pane layout: top-left (bin/dev), bottom-left (claude), top-right (nvim), bottom-right (shell)
+LAYOUT="7cc2,272x62,0,0{96x62,0,0[96x6,0,0,46,96x55,0,7,50],175x62,97,0[175x41,97,0,48,175x20,97,42,49]}"
+
+# Colors
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+success() { echo -e "${GREEN}✓${NC} $*"; }
+error() { echo -e "${RED}✗${NC} $*" >&2; }
+info() { echo -e "${BLUE}→${NC} $*"; }
+
+# Validate arguments
+branch="${1:-}"
+if [[ -z "$branch" ]]; then
+  error "Usage: open-worktree-tmux <branch-name>"
+  exit 1
+fi
+
+# Calculate worktree path
+worktree_path="${WORKTREE_BASE}/${branch}"
+
+# Validate worktree exists
+if [[ ! -d "$worktree_path" ]]; then
+  error "Worktree not found: $worktree_path"
+  exit 1
+fi
+
+# Check target session exists
+if ! tmux has-session -t "$TARGET_SESSION" 2>/dev/null; then
+  error "Session '$TARGET_SESSION' not found. Start it first: tmuxinator start escrowsafe"
+  exit 1
+fi
+
+# Get port from .env for window name
+window_name="$branch"
+if [[ -f "$worktree_path/.env" ]]; then
+  port=$(grep "^PORT=" "$worktree_path/.env" 2>/dev/null | cut -d= -f2 || true)
+  if [[ -n "$port" ]]; then
+    window_name="${branch}:${port}"
+  fi
+fi
+
+# Generate unique temp session name
+temp_session="wtm-temp-$$"
+
+info "Creating window for '$branch'..."
+
+# Create temporary detached session with first pane
+tmux new-session -d -s "$temp_session" -c "$worktree_path" -n "$window_name"
+
+# Create 4-pane layout:
+# Pane 1 (initial): will become top-left
+# Split pane 1 vertically to create bottom-left (pane 2)
+tmux split-window -v -t "${temp_session}:${window_name}.1" -c "$worktree_path"
+# Split pane 1 horizontally to create right side (pane 3)
+tmux split-window -h -t "${temp_session}:${window_name}.1" -c "$worktree_path"
+# Split pane 3 vertically to create bottom-right (pane 4)
+tmux split-window -v -t "${temp_session}:${window_name}.3" -c "$worktree_path"
+
+# Apply the layout
+tmux select-layout -t "${temp_session}:${window_name}" "$LAYOUT"
+
+# Send commands to panes
+# Pane 1 (top-left): bin/dev
+tmux send-keys -t "${temp_session}:${window_name}.1" "bin/dev" Enter
+# Pane 2 (bottom-left): claude
+tmux send-keys -t "${temp_session}:${window_name}.2" "claude" Enter
+# Pane 3 (top-right): nvim
+tmux send-keys -t "${temp_session}:${window_name}.3" "nvim ." Enter
+# Pane 4 (bottom-right): empty shell (no command)
+
+# Focus on claude pane
+tmux select-pane -t "${temp_session}:${window_name}.2"
+
+info "Moving window to '$TARGET_SESSION'..."
+
+# Move window to target session
+tmux move-window -s "${temp_session}:${window_name}" -t "${TARGET_SESSION}:"
+
+# Kill the now-empty temp session
+tmux kill-session -t "$temp_session" 2>/dev/null || true
+
+# Switch to the new window if already in tmux
+if [[ -n "$TMUX" ]]; then
+  tmux select-window -t "${TARGET_SESSION}:${window_name}"
+fi
+
+success "Opened '$window_name' in '$TARGET_SESSION'"

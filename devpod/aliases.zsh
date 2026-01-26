@@ -16,6 +16,7 @@ alias vi='nvim'
 # Tools
 alias zellij='zellij -l welcome'
 alias mux='tmuxinator'
+alias owtm='$HOME/.dotfiles/devpod/bin/open-worktree-tmux'
 
 # Git
 alias g='git'

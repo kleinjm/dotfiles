@@ -8,6 +8,7 @@ alias df="df -h"
 alias du="du -cksh"
 alias sed="sed -E"
 alias \$=''
+alias -g G="| ag "
 
 # Editors
 alias vim='nvim'

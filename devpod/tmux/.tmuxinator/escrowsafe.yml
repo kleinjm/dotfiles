@@ -11,4 +11,3 @@ windows:
         - claude
         - nvim .
         -
-  - server: bin/dev

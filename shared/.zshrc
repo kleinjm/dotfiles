@@ -122,6 +122,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 autoload -U +X bashcompinit && bashcompinit
 
 export GPG_TTY=$(tty)
+mkdir -p /tmp/gnupg-sockets 2>/dev/null
 gpgconf --launch gpg-agent
 
 eval "$(rbenv init -)"

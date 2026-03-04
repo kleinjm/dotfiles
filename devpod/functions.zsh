@@ -1,7 +1,7 @@
 # Git: delete local branches that don't exist on origin
 gprune() {
   git fetch --prune
-  git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
+  git branch -vv | grep ': gone]' | awk '{gsub(/^[* +]+/, ""); print $1}' | xargs -r git branch -D
 }
 
 # Git: pull latest and merge main

@@ -82,6 +82,13 @@ if [[ -f "${SCRIPT_DIR}/git/.gitconfig" ]]; then
   echo "Symlinked .gitconfig"
 fi
 
+# Override mac host gpg-agent.conf with devpod-specific config (pinentry-curses, 90-day cache)
+if [[ -f "${SCRIPT_DIR}/gnupg/gpg-agent.conf" ]]; then
+  cp "${SCRIPT_DIR}/gnupg/gpg-agent.conf" "${HOME}/.gnupg/gpg-agent.conf"
+  gpgconf --kill gpg-agent 2>/dev/null || true
+  echo "Configured GPG agent for devpod"
+fi
+
 # Symlink tmux config (oh-my-tmux from shared, customizations from devpod)
 SHARED_TMUX_DIR="${HOME}/.dotfiles/shared/tmux"
 DEVPOD_TMUX_DIR="${SCRIPT_DIR}/tmux"

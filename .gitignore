@@ -26,6 +26,9 @@ mac/.claude/stats-cache.json
 # Claude AI ephemeral files
 mac/.claude/file-history/
 mac/.claude/debug/
+mac/.claude/telemetry/
+mac/.claude/backups/
+mac/.claude/mcp-needs-auth-cache.json
 **/.claude/history.jsonl
 .claude/settings.local.json
 

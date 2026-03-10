@@ -32,12 +32,18 @@
 	<true/>
 	<key>AlternateMouseScroll</key>
 	<true/>
+	<key>BracketedPasteMode</key>
+	<true/>
+	<key>ConvertDosNewlines</key>
+	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>94D9E71A-646C-4AFE-A5DE-3EFEC73C2B81</string>
 	<key>Default Browser Profile Guid</key>
 	<string>8E5B3E97-E6D3-4B4C-A11E-5AD299E4A91E</string>
 	<key>DisableWindowSizeSnap</key>
 	<true/>
+	<key>EscapeShellCharsWithBackslash</key>
+	<false/>
 	<key>GlobalKeyMap</key>
 	<dict>
 		<key>0x19-0x60000</key>
@@ -776,6 +782,12 @@
 		</dict>
 	</array>
 	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
+	<key>PasteSpecialRegex</key>
+	<string></string>
+	<key>PasteSpecialSubstitution</key>
+	<string></string>
+	<key>PasteSpecialUseRegexSubstitution</key>
 	<false/>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>2</integer>

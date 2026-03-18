@@ -71,11 +71,13 @@ tmux split-window -v -t "${temp_session}:${window_name}.3" -c "$worktree_path"
 # Apply the layout
 tmux select-layout -t "${temp_session}:${window_name}" "$LAYOUT"
 
-# Send commands to panes
+# Send commands to panes (staggered to avoid nvm symlink race condition)
 # Pane 1 (top-left): bin/dev
 tmux send-keys -t "${temp_session}:${window_name}.1" "bin/dev" Enter
+sleep 0.5
 # Pane 2 (bottom-left): claude
 tmux send-keys -t "${temp_session}:${window_name}.2" "claude" Enter
+sleep 0.5
 # Pane 3 (top-right): nvim
 tmux send-keys -t "${temp_session}:${window_name}.3" "nvim ." Enter
 # Pane 4 (bottom-right): empty shell (no command)

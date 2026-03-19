@@ -1,0 +1,12 @@
+name: infra
+root: /workspaces/infra
+# needed for pane-base-index 1 config
+startup_pane: 1
+
+windows:
+  - editor:
+      layout: ef41,272x62,0,0{96x62,0,0,101,175x62,97,0[175x41,97,0,102,175x20,97,42,103]}
+      panes:
+        - claude
+        - sleep 0.5 && nvim .
+        -

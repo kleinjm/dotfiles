@@ -1,0 +1,243 @@
+---
+name: draft-pr
+description: Create a draft PR linked to one or more GitHub issues. Accepts issue numbers (#123) or full URLs as arguments. If no arguments provided, asks user whether to link to a task.
+user-invocable: true
+arguments: "[issue_refs...]"
+---
+
+You're creating a Draft Pull Request linked to GitHub issues.
+
+## PHASE 0: Parse Arguments
+
+The user may provide arguments in these formats (mixed is fine):
+- `#123` or `123` — GitHub issue number (assumes current repo)
+- `https://github.com/OWNER/REPO/issues/123` — full URL (extract owner/repo and number)
+- Multiple issues can be provided: `#123 #456 https://github.com/EscrowSafe/web/issues/789`
+
+**If NO arguments are provided:**
+- Ask the user: "Should this draft PR be linked to a task? If so, provide the issue number(s) or URL(s). Otherwise I'll create it without issue links."
+- Wait for user response before proceeding.
+
+Store the parsed issues as a list of `{owner, repo, number}` objects for later use.
+
+## PHASE 1: Fetch Issue Context
+
+For each parsed issue:
+1. Fetch the issue details using `tools/gh-issue view <number>` (add `--repo OWNER/REPO` if not the default repo)
+2. Read the issue title, body, labels, and state
+3. Summarize the requirements from each issue — this context informs the PR title, description, and "Link to task(s)" field
+
+If an issue cannot be fetched (404, permissions), warn the user and continue with the remaining issues.
+
+## PHASE 2: Read the PR Template
+
+- Read `.github/PULL_REQUEST_TEMPLATE.md` from the current repo
+- If it doesn't exist, check for alternatives:
+  - `.github/pull_request_template.md` (lowercase)
+  - `.github/PULL_REQUEST_TEMPLATE/` (directory with multiple templates)
+  - `docs/PULL_REQUEST_TEMPLATE.md`
+- Understand the template structure and note required sections
+- Pay special attention to any "FOR AI ASSISTANTS" section
+
+## PHASE 3: Ensure Branch and Sync
+
+The base branch is always `main` unless the user explicitly specifies otherwise via arguments or prior conversation context.
+
+### 3.1 Check current branch
+```bash
+git branch --show-current
+```
+
+**If currently on `main` and there are uncommitted or staged changes:**
+- Automatically create a new feature branch. Derive the name from the linked issue(s) or the nature of the changes (e.g., `fix-login-race-condition`, `add-plaid-webhook-handler`).
+- Do NOT ask the user — just cut the branch and inform them:
+  ```bash
+  git checkout -b {branch-name}
+  ```
+
+**If currently on `main` with no changes but there are new commits ahead of `origin/main`:**
+- Same as above — cut a new branch from the current state.
+
+**If already on a feature branch:** proceed as-is.
+
+### 3.2 Sync with remote
+```bash
+git fetch origin main:main
+```
+
+## PHASE 4: Analyze Changes
+
+### 4.1 Gather change data
+```bash
+# Overall stats
+git diff {base}...HEAD --stat
+
+# Full diff for detailed analysis
+git diff {base}...HEAD
+
+# Commits included
+git log {base}..HEAD --oneline
+
+# Check for migrations
+git diff {base}...HEAD --name-only | grep -E "db/migrate|migrations/" || true
+
+# Check for test changes
+git diff {base}...HEAD --name-only | grep -E "spec/|test/|tests/|__tests__/" || true
+```
+
+### 4.2 Categorize changes for template sections
+Map changes to template sections:
+- **Database changes** -> Migration Notes section
+- **Test files** -> Testing & Quality section
+- **Security-related** -> Review Focus Areas
+- **Frontend changes (views, stylesheets, Stimulus controllers)** -> suggest `run:regression` label
+
+## PHASE 5: Generate PR Content
+
+### 5.1 Title
+- Keep under 70 characters
+- Use specific verbs: add, fix, refactor, update, remove
+- Reflect the issue context gathered in Phase 1
+
+### 5.2 Summary Section
+- **Brief description**: One clear sentence about what changed
+- **Key achievements**: 2-4 factual bullet points
+  - No subjective quality descriptors
+  - No marketing language ("comprehensive", "robust", "seamless")
+- **Link to task(s)**: Build from parsed issues:
+  - Single issue: `Fixes #123` (or `Related to #123` if this is an intermediate PR)
+  - Multiple issues: `Fixes #123, Related to #456`
+  - Cross-repo: `Fixes EscrowSafe/other-repo#123`
+  - Ask the user whether each issue should use "Fixes" (closes on merge) or "Related to" (keeps open)
+
+### 5.3 Detailed Changes (collapsible)
+Structure by layer/component:
+- **Database**: Migrations, model changes
+- **Backend**: Service/controller modifications
+- **Frontend**: UI/UX changes
+- **Tests**: New/updated test files
+- **Configuration**: Environment variables, settings
+
+### 5.4 Testing & Quality (collapsible)
+- **New tests**: List specific test files added
+- **Updated tests**: Modified tests and why
+- **Manual testing**: Steps performed (if applicable)
+
+### 5.5 Business Impact
+- Start with the problem being solved (informed by issue context)
+- Use concrete impact statements
+- No subjective quality claims
+
+### 5.6 Migration Notes
+Only include if there are database/deployment changes:
+- Migration commands
+- Deployment order
+- Feature flags needed
+- Rollback procedures
+
+### 5.7 Review Focus Areas (collapsible)
+- Security-sensitive code
+- Performance-critical paths
+- Breaking changes
+- Complex logic
+
+## PHASE 6: Review with User
+
+Present the complete PR before creating:
+```
+I'm ready to create a DRAFT pull request:
+
+**Title:** [generated title]
+**Base branch:** {base}
+**Topic branch:** {current-branch}
+**Linked issues:** #123, #456
+
+**PR Body:**
+[Show the complete formatted PR body]
+
+Would you like me to:
+1. Create this draft PR as-is
+2. Make changes to the title or description
+3. Cancel and make more code changes first
+```
+
+## PHASE 7: Create the Draft PR
+
+After user approval, create using the project's gh wrapper tool:
+```bash
+tools/gh-pr create \
+  --draft \
+  --base {base} \
+  --title "{title}" \
+  --body "{body}"
+```
+
+If the PR touches views, templates, stylesheets, or frontend code, suggest adding the `run:regression` label after creation.
+
+### Post-creation
+After successful creation, display the PR URL, then ask the user:
+
+> "Want me to watch CI and fix any failures? I'll poll until checks pass or fail."
+
+If the user declines, suggest manual next steps and stop. If the user accepts, proceed to Phase 8.
+
+## PHASE 8: CI Watch Loop
+
+Poll the PR's CI checks, fix failures, push, and repeat until green.
+
+### 8.1 Poll CI status
+Use the `/loop` skill (or manual polling) to check CI status periodically:
+```bash
+gh pr checks {pr-number} --repo {owner/repo}
+```
+
+Check every ~2 minutes. CI checks can be in one of three states:
+- **pending/in_progress**: Keep polling. Inform the user you're still waiting (brief one-liner, not every poll — only on first poll and then every ~5 minutes).
+- **all passed**: Go to step 8.3.
+- **one or more failed**: Go to step 8.2.
+
+### 8.2 Fix failures
+When a check fails:
+1. Fetch the failed check's output/logs:
+   ```bash
+   gh pr checks {pr-number} --repo {owner/repo} --json name,state,link
+   ```
+2. Pull the CI logs or run the failing test locally to reproduce:
+   ```bash
+   bundle exec rspec {failing_spec_file}:{line}
+   ```
+   or for JS:
+   ```bash
+   yarn test {failing_test_file}
+   ```
+3. Analyze the failure and apply a fix.
+4. Commit the fix (new commit, not amend) with a message like `fix failing {test_name} spec`.
+5. Push to the branch:
+   ```bash
+   git push
+   ```
+6. Return to step 8.1 to poll again.
+
+**Guardrails:**
+- Maximum **3 fix attempts**. If CI still fails after 3 rounds, stop and notify the user with a summary of what failed and what you tried.
+- Only fix test/lint failures. If CI fails for infrastructure reasons (e.g., Docker build timeout, flaky external service), notify the user instead of retrying.
+- Do not change application logic to make tests pass — fix the tests or fix the code that broke them, but don't paper over failures.
+
+### 8.3 CI passed — notify and offer status change
+When all checks pass, notify the user:
+
+> "CI is green on PR #{pr-number}. Want me to mark it as ready for review?"
+
+- If yes: `gh pr ready {pr-number} --repo {owner/repo}`
+- If no: leave as draft.
+
+## IMPORTANT REMINDERS
+- ALWAYS create as draft (`--draft` flag)
+- ALWAYS ask for user review before creating
+- REMOVE all HTML comments from the final body
+- REMOVE empty or irrelevant sections
+- Keep descriptions factual and concise — no marketing language
+- NEVER put issue references in commit messages — only in PR body
+- Issue references use "Fixes" only in the final PR; intermediate PRs use "Related to"
+- Use `tools/gh-pr create` wrapper, not `gh pr create` directly
+- Use `tools/gh-issue view` wrapper to fetch issue details

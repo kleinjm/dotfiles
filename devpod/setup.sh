@@ -82,14 +82,6 @@ if [[ -f "${SCRIPT_DIR}/git/.gitconfig" ]]; then
   echo "Symlinked .gitconfig"
 fi
 
-# Symlink shared .claude directory
-SHARED_CLAUDE_DIR="${HOME}/.dotfiles/shared/.claude"
-if [[ -d "${SHARED_CLAUDE_DIR}" ]]; then
-  rm -rf "${HOME}/.claude"
-  ln -sf "${SHARED_CLAUDE_DIR}" "${HOME}/.claude"
-  echo "Symlinked .claude"
-fi
-
 # Override mac host gpg-agent.conf with devpod-specific config (pinentry-curses, 90-day cache)
 if [[ -f "${SCRIPT_DIR}/gnupg/gpg-agent.conf" ]]; then
   cp "${SCRIPT_DIR}/gnupg/gpg-agent.conf" "${HOME}/.gnupg/gpg-agent.conf"

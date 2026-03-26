@@ -49,6 +49,15 @@ The setup runs automatically via the `setup.local.sh` hook in the devcontainer.
    - Otherwise: clones fresh from GitHub
 5. `setup.sh` symlinks configs to the right locations
 
+## Claude Code Config
+
+The devpod container mounts `devpod-data/claude` as `~/.claude` (see `compose.yaml`). On the host Mac, this directory should be a symlink to the shared dotfiles config so both environments use the same settings:
+
+```bash
+# From your host Mac (one-time setup)
+ln -sf ~/GitHubRepos/dotfiles/shared/.claude ~/GitHubRepos/devpod-data/claude
+```
+
 ## SSH Keys for GitHub
 
 To enable git push/pull via SSH, copy your SSH key to the persistent volume:

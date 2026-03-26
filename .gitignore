@@ -9,6 +9,7 @@ tmp
 shared/vim/.vim/bundle
 
 # Claude AI sensitive files - SECURITY CRITICAL
+shared/.claude/.claude.json
 shared/.claude/.credentials.json
 shared/.claude/credentials.json
 shared/.claude/.credentials*

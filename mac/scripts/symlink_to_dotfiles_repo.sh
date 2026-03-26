@@ -26,6 +26,7 @@ done
 stow -v -t "$HOME" -d shared git
 stow -v -t "$HOME" -d mac git
 stow -v -t "$HOME" -d mac redis
+stow -v -t "$HOME" -d mac gnupg
 
 stow -v -t "$HOME" nvm
 stow -v -t "$HOME" pry

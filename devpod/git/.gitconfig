@@ -57,4 +57,4 @@
 [credential]
         helper = !'/usr/local/bin/devpod' agent git-credentials --port 12049
 [gpg]
-	format = ssh
+	format = openpgp

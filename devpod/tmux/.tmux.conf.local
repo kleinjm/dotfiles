@@ -1,8 +1,12 @@
 # DevPod tmux configuration
 # Simplified status bar for container environment (no battery/network)
 
-# Use zsh as default shell
+# Source shared config first, then override with DevPod-specific settings
+source ~/.dotfiles/shared/.tmux.conf.local
+
+# Use zsh as default shell (overrides macOS reattach-to-user-namespace from shared config)
 set-option -g default-shell /usr/bin/zsh
+set -g default-command "/usr/bin/zsh"
 
 # Fix cursor shape escapes (clear any malformed overrides)
 set -g terminal-overrides ""
@@ -17,5 +21,3 @@ CPU:#{cpu_fg_color}#{cpu_percentage} #{cpu_fg_color}#{cpu_icon} , \
 #{sysstat_mem} \
 | %R %b %d \
 '
-
-source ~/.dotfiles/shared/.tmux.conf.local

@@ -14,12 +14,7 @@ Personal dotfiles for DevPod development containers.
    cp ~/.dotfiles/devpod/compose.override.yaml /path/to/web/.devcontainer-devpod/compose.override.yaml
    ```
 
-3. Copy Claude settings to the web repo:
-   ```bash
-   cp ~/.dotfiles/devpod/claude/settings.local.json /path/to/web/.claude/settings.local.json
-   ```
-
-4. Recreate the DevPod container:
+3. Recreate the DevPod container:
    ```bash
    bin/dpod recreate
    ```
@@ -32,7 +27,6 @@ The setup runs automatically via the `setup.local.sh` hook in the devcontainer.
 |------|---------|
 | `setup.local.sh` | Bootstrap script - copy to web repo |
 | `compose.override.yaml` | Docker Compose overrides (GPG mount) - copy to web repo |
-| `claude/settings.local.json` | Claude Code permissions - copy to web repo |
 | `bootstrap.sh` | Symlinks or clones dotfiles, runs setup.sh |
 | `setup.sh` | Symlinks configs to home directory |
 | `zshrc` | Zsh configuration (symlinked to ~/.zshrc) |

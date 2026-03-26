@@ -70,6 +70,6 @@ ln -sf "$DOTFILES_DIR"/mac/cursor/settings.json "$HOME"/Library/Application\ Sup
 # Symlink entire agent-os and claude directories
 # If directory exists, do not symlink
 ln -s "$DOTFILES_DIR"/mac/.agent-os "$HOME"
-ln -s "$DOTFILES_DIR"/mac/.claude "$HOME"
+ln -s "$DOTFILES_DIR"/shared/.claude "$HOME"
 
 echo "Symlinking completed successfully"

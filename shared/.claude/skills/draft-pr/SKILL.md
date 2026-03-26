@@ -12,18 +12,28 @@ You're creating a Draft Pull Request linked to GitHub issues.
 The user may provide arguments in these formats (mixed is fine):
 - `#123` or `123` — GitHub issue number (assumes current repo)
 - `https://github.com/OWNER/REPO/issues/123` — full URL (extract owner/repo and number)
+- `relate`, `relates`, or `related` — keyword that changes the link type (see below)
 - Multiple issues can be provided: `#123 #456 https://github.com/EscrowSafe/web/issues/789`
+
+**Determine link type from arguments:**
+- If any argument is `relate`, `relates`, or `related` (case-insensitive): use **"Related to"** for ALL issue references
+- Otherwise (default): use **"Closes"** for ALL issue references
+
+Examples:
+- `/draft-pr #123 #456` → `Closes #123`, `Closes #456`
+- `/draft-pr relates #123 #456` → `Related to #123`, `Related to #456`
+- `/draft-pr relates https://github.com/EscrowSafe/web/issues/2485` → `Related to #2485`
 
 **If NO arguments are provided:**
 - Ask the user: "Should this draft PR be linked to a task? If so, provide the issue number(s) or URL(s). Otherwise I'll create it without issue links."
 - Wait for user response before proceeding.
 
-Store the parsed issues as a list of `{owner, repo, number}` objects for later use.
+Store the parsed issues as a list of `{owner, repo, number}` objects and the resolved link type (`"Closes"` or `"Related to"`) for later use.
 
 ## PHASE 1: Fetch Issue Context
 
 For each parsed issue:
-1. Fetch the issue details using `tools/gh-issue view <number>` (add `--repo OWNER/REPO` if not the default repo)
+1. Fetch the issue details using `gh issue view <number>` (add `--repo OWNER/REPO` if not the default repo)
 2. Read the issue title, body, labels, and state
 3. Summarize the requirements from each issue — this context informs the PR title, description, and "Link to task(s)" field
 
@@ -104,11 +114,11 @@ Map changes to template sections:
 - **Key achievements**: 2-4 factual bullet points
   - No subjective quality descriptors
   - No marketing language ("comprehensive", "robust", "seamless")
-- **Link to task(s)**: Build from parsed issues:
-  - Single issue: `Fixes #123` (or `Related to #123` if this is an intermediate PR)
-  - Multiple issues: `Fixes #123, Related to #456`
-  - Cross-repo: `Fixes EscrowSafe/other-repo#123`
-  - Ask the user whether each issue should use "Fixes" (closes on merge) or "Related to" (keeps open)
+- **Link to task(s)**: Build from parsed issues using the link type resolved in Phase 0:
+  - Default: `Closes #123` (closes issue on merge)
+  - With `relates` keyword: `Related to #123` (keeps issue open)
+  - Multiple issues: `Closes #123, Closes #456` or `Related to #123, Related to #456`
+  - Cross-repo: `Closes EscrowSafe/other-repo#123`
 
 ### 5.3 Detailed Changes (collapsible)
 Structure by layer/component:
@@ -165,7 +175,7 @@ Would you like me to:
 
 After user approval, create using the project's gh wrapper tool:
 ```bash
-tools/gh-pr create \
+gh pr create \
   --draft \
   --base {base} \
   --title "{title}" \
@@ -238,6 +248,6 @@ When all checks pass, notify the user:
 - REMOVE empty or irrelevant sections
 - Keep descriptions factual and concise — no marketing language
 - NEVER put issue references in commit messages — only in PR body
-- Issue references use "Fixes" only in the final PR; intermediate PRs use "Related to"
-- Use `tools/gh-pr create` wrapper, not `gh pr create` directly
-- Use `tools/gh-issue view` wrapper to fetch issue details
+- Issue references default to "Closes" unless `relates`/`relate`/`related` keyword is passed as an argument
+- Use `gh pr create` to create the PR
+- Use `gh issue view` to fetch issue details

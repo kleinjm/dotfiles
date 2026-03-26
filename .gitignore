@@ -33,8 +33,8 @@ shared/.claude/telemetry/
 shared/.claude/backups/
 shared/.claude/mcp-needs-auth-cache.json
 **/.claude/history.jsonl
-# Project-level Claude Code config (auto-created per repo)
-.claude/
+# Project-level Claude Code config (auto-created per repo, root-level only)
+/.claude/
 
 # General security patterns
 *.credentials.json

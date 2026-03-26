@@ -151,29 +151,9 @@ Only include if there are database/deployment changes:
 - Breaking changes
 - Complex logic
 
-## PHASE 6: Review with User
+## PHASE 6: Create the Draft PR
 
-Present the complete PR before creating:
-```
-I'm ready to create a DRAFT pull request:
-
-**Title:** [generated title]
-**Base branch:** {base}
-**Topic branch:** {current-branch}
-**Linked issues:** #123, #456
-
-**PR Body:**
-[Show the complete formatted PR body]
-
-Would you like me to:
-1. Create this draft PR as-is
-2. Make changes to the title or description
-3. Cancel and make more code changes first
-```
-
-## PHASE 7: Create the Draft PR
-
-After user approval, create using the project's gh wrapper tool:
+Present the complete PR title and body to the user, then immediately create the PR without asking for confirmation:
 ```bash
 gh pr create \
   --draft \
@@ -228,8 +208,15 @@ When a check fails:
    ```
 6. Return to step 8.1 to poll again.
 
+**Flaky test handling:**
+If a failed test appears unrelated to the PR's changes (e.g., random ordering issue, intermittent timeout, race condition in unrelated code), treat it as a potential flaky test:
+1. Attempt a fix for the flakiness.
+2. Run the test at least **5 times** locally to confirm stability (e.g., `for i in {1..5}; do bundle exec rspec path/to/spec.rb:line; done`).
+3. If all 5 runs pass, commit, push, and continue polling CI.
+4. If the test still fails intermittently after the fix attempt, notify the user with details.
+
 **Guardrails:**
-- Maximum **3 fix attempts**. If CI still fails after 3 rounds, stop and notify the user with a summary of what failed and what you tried.
+- Maximum **3 fix attempts** for failures related to the PR's changes. If CI still fails after 3 rounds, stop and notify the user with a summary of what failed and what you tried.
 - Only fix test/lint failures. If CI fails for infrastructure reasons (e.g., Docker build timeout, flaky external service), notify the user instead of retrying.
 - Do not change application logic to make tests pass — fix the tests or fix the code that broke them, but don't paper over failures.
 
@@ -243,7 +230,7 @@ When all checks pass, notify the user:
 
 ## IMPORTANT REMINDERS
 - ALWAYS create as draft (`--draft` flag)
-- ALWAYS ask for user review before creating
+- Do NOT ask for user confirmation before creating — just present the PR content and create it immediately
 - REMOVE all HTML comments from the final body
 - REMOVE empty or irrelevant sections
 - Keep descriptions factual and concise — no marketing language

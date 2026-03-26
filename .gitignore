@@ -16,6 +16,8 @@ mac/.claude/ide/*.lock
 mac/.claude/projects/
 mac/.claude/statsig/
 mac/.claude/todos/
+mac/.claude/sessions/
+mac/.claude/policy-limits.json
 mac/.claude/shell-snapshots/
 mac/.claude/plugins/
 mac/.claude/plans/

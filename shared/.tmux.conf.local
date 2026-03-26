@@ -24,6 +24,8 @@ tmux_conf_uninstall_plugins_on_reload=false
 unbind C-b # unbind default prefix
 unbind C-a # remove prefix2 binding from oh-my-zsh
 
+set -g default-shell /bin/zsh
+set -g default-command "reattach-to-user-namespace -l /bin/zsh"
 set -g allow-rename off # don't let other programs change the status bar
 set -g history-limit 10000 # increase scrollback lines
 set -g mouse on # enable mouse mode for scrolling

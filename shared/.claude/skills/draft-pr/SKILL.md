@@ -165,11 +165,7 @@ gh pr create \
 If the PR touches views, templates, stylesheets, or frontend code, suggest adding the `run:regression` label after creation.
 
 ### Post-creation
-After successful creation, display the PR URL, then ask the user:
-
-> "Want me to watch CI and fix any failures? I'll poll until checks pass or fail."
-
-If the user declines, suggest manual next steps and stop. If the user accepts, proceed to Phase 8.
+After successful creation, display the PR URL, then immediately proceed to Phase 8 to watch CI and fix failures.
 
 ## PHASE 8: CI Watch Loop
 

@@ -22,6 +22,7 @@ shared/.claude/policy-limits.json
 shared/.claude/shell-snapshots/
 shared/.claude/plugins/
 shared/.claude/plans/
+shared/.claude/tasks/
 shared/.claude/cache/
 shared/.claude/paste-cache/
 shared/.claude/stats-cache.json

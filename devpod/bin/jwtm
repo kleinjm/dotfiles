@@ -1,5 +1,5 @@
 #!/bin/bash
-# jwtm - Josh's Worktree Manager
+# jwtm - James' Worktree Manager
 # Wraps bin/wtm with tmux window management (open on new, close on cleanup)
 #
 # Usage:
@@ -274,7 +274,7 @@ cmd_cleanup() {
 
 cmd_help() {
   cat <<EOF
-jwtm - Josh's Worktree Manager
+jwtm - James' Worktree Manager
 
 Wraps bin/wtm with tmux window management.
 

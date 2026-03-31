@@ -202,12 +202,13 @@ When a check fails:
    yarn test {failing_test_file}
    ```
 3. Analyze the failure and apply a fix.
-4. Commit the fix (new commit, not amend) with a message like `fix failing {test_name} spec`.
-5. Push to the branch:
+4. **Run the failing test(s) locally to verify the fix passes before pushing.** Do not push to CI until the relevant tests pass locally. This avoids wasting CI cycles on broken fixes.
+5. Commit the fix (new commit, not amend) with a message like `fix failing {test_name} spec`.
+6. Push to the branch:
    ```bash
    git push
    ```
-6. Return to step 8.1 to poll again.
+7. Return to step 8.1 to poll again.
 
 **Flaky test handling:**
 If a failed test appears unrelated to the PR's changes (e.g., random ordering issue, intermittent timeout, race condition in unrelated code), treat it as a potential flaky test:

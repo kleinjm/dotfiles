@@ -1,0 +1,323 @@
+#!/bin/bash
+# jwtm - Josh's Worktree Manager
+# Wraps bin/wtm with tmux window management (open on new, close on cleanup)
+#
+# Usage:
+#   jwtm new [OPTIONS] <branch>       Create worktree + open tmux window
+#   jwtm cleanup [branch]             Kill tmux window + clean up worktree
+#   jwtm cleanup --all                Clean up gone branches (no tmux)
+#   jwtm <other>                      Pass through to bin/wtm
+
+set -e
+
+# Configuration
+TARGET_SESSION="escrowsafe"
+WORKTREE_BASE="/workspaces/web-worktrees"
+WTM_BIN="/workspaces/web/bin/wtm"
+# 4-pane layout: top-left (bin/dev), bottom-left (claude), top-right (nvim), bottom-right (shell)
+LAYOUT="7cc2,272x62,0,0{96x62,0,0[96x6,0,0,46,96x55,0,7,50],175x62,97,0[175x41,97,0,48,175x20,97,42,49]}"
+
+# Colors
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+YELLOW='\033[0;33m'
+NC='\033[0m'
+
+success() { echo -e "${GREEN}✓${NC} $*"; }
+error() { echo -e "${RED}✗${NC} $*" >&2; }
+info() { echo -e "${BLUE}→${NC} $*"; }
+warn() { echo -e "${YELLOW}⚠${NC} $*"; }
+
+# Open a worktree in a new tmux window with 4-pane layout
+# Args: $1 = branch/worktree name
+open_tmux_window() {
+  local branch="$1"
+  local worktree_path="${WORKTREE_BASE}/${branch}"
+
+  if [[ ! -d "$worktree_path" ]]; then
+    error "Worktree not found: $worktree_path"
+    return 1
+  fi
+
+  if ! tmux has-session -t "$TARGET_SESSION" 2>/dev/null; then
+    error "Session '$TARGET_SESSION' not found. Start it first: tmuxinator start escrowsafe"
+    return 1
+  fi
+
+  # Get port from .env for window name
+  local window_name="$branch"
+  if [[ -f "$worktree_path/.env" ]]; then
+    local port
+    port=$(grep "^PORT=" "$worktree_path/.env" 2>/dev/null | cut -d= -f2 || true)
+    if [[ -n "$port" ]]; then
+      window_name="${branch}:${port}"
+    fi
+  fi
+
+  local temp_session="wtm-temp-$$"
+
+  info "Creating tmux window for '$branch'..."
+
+  # Create temporary detached session with first pane
+  tmux new-session -d -s "$temp_session" -c "$worktree_path" -n "$window_name"
+
+  # Create 4-pane layout
+  tmux split-window -v -t "${temp_session}:${window_name}.1" -c "$worktree_path"
+  tmux split-window -h -t "${temp_session}:${window_name}.1" -c "$worktree_path"
+  tmux split-window -v -t "${temp_session}:${window_name}.3" -c "$worktree_path"
+
+  # Apply the layout
+  tmux select-layout -t "${temp_session}:${window_name}" "$LAYOUT"
+
+  # Send commands to panes (staggered to avoid nvm symlink race condition)
+  tmux send-keys -t "${temp_session}:${window_name}.1" "bin/dev" Enter
+  sleep 0.5
+  tmux send-keys -t "${temp_session}:${window_name}.2" "claude" Enter
+  sleep 0.5
+  tmux send-keys -t "${temp_session}:${window_name}.3" "nvim ." Enter
+
+  # Focus on claude pane
+  tmux select-pane -t "${temp_session}:${window_name}.2"
+
+  # Move window to target session
+  tmux move-window -s "${temp_session}:${window_name}" -t "${TARGET_SESSION}:"
+
+  # Kill the now-empty temp session
+  tmux kill-session -t "$temp_session" 2>/dev/null || true
+
+  # Switch to the new window if already in tmux
+  if [[ -n "$TMUX" ]]; then
+    tmux select-window -t "${TARGET_SESSION}:${window_name}"
+  fi
+
+  success "Opened '$window_name' in '$TARGET_SESSION'"
+}
+
+# Find the tmux window name for a worktree branch
+# Window names are "branch" or "branch:port"
+# Args: $1 = branch/worktree name
+# Returns: window name (or empty if not found)
+find_tmux_window() {
+  local branch="$1"
+
+  if ! tmux has-session -t "$TARGET_SESSION" 2>/dev/null; then
+    return 1
+  fi
+
+  # List all windows and find one matching "branch" or "branch:port"
+  local window_name
+  window_name=$(tmux list-windows -t "$TARGET_SESSION" -F '#{window_name}' 2>/dev/null | \
+    grep -E "^${branch}(:[0-9]+)?$" | head -1)
+
+  if [[ -n "$window_name" ]]; then
+    echo "$window_name"
+    return 0
+  fi
+
+  return 1
+}
+
+# Kill all processes in a tmux window and close it
+# Sends SIGTERM to each pane's process group, waits briefly, then kills the window
+# Args: $1 = window name
+close_tmux_window() {
+  local window_name="$1"
+
+  info "Shutting down tmux window '$window_name'..."
+
+  # Get all pane PIDs in this window
+  local pane_pids
+  pane_pids=$(tmux list-panes -t "${TARGET_SESSION}:${window_name}" -F '#{pane_pid}' 2>/dev/null)
+
+  if [[ -z "$pane_pids" ]]; then
+    warn "No panes found for window '$window_name'"
+    return 0
+  fi
+
+  # Send SIGTERM to each pane's process group
+  while IFS= read -r pid; do
+    [[ -z "$pid" ]] && continue
+    local pgid
+    pgid=$(ps -o pgid= -p "$pid" 2>/dev/null | tr -d ' ')
+    if [[ -n "$pgid" ]]; then
+      kill -- -"$pgid" 2>/dev/null || true
+    fi
+  done <<< "$pane_pids"
+
+  # Give processes a moment to shut down gracefully
+  sleep 2
+
+  # Force-kill any remaining processes
+  while IFS= read -r pid; do
+    [[ -z "$pid" ]] && continue
+    local pgid
+    pgid=$(ps -o pgid= -p "$pid" 2>/dev/null | tr -d ' ')
+    if [[ -n "$pgid" ]]; then
+      kill -9 -- -"$pgid" 2>/dev/null || true
+    fi
+  done <<< "$pane_pids"
+
+  # Kill the tmux window
+  tmux kill-window -t "${TARGET_SESSION}:${window_name}" 2>/dev/null || true
+
+  success "Tmux window '$window_name' closed"
+}
+
+# Parse the worktree name from cleanup args (mirrors wtm's arg parsing)
+# Extracts the branch name, ignoring --all/-a
+# Args: all cleanup arguments
+# Returns: branch name (or empty)
+parse_cleanup_branch() {
+  local branch=""
+  local is_all=false
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --all|-a)
+        is_all=true
+        shift
+        ;;
+      *)
+        branch="$1"
+        shift
+        ;;
+    esac
+  done
+
+  if [[ "$is_all" == true ]]; then
+    echo "__ALL__"
+  else
+    echo "$branch"
+  fi
+}
+
+cmd_new() {
+  # Run wtm new (pass all args through)
+  "$WTM_BIN" new "$@"
+
+  # Extract the branch/name from args for tmux window opening
+  local branch=""
+  local name=""
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --name)
+        name="$2"
+        shift 2
+        ;;
+      --no-setup|--open)
+        shift
+        ;;
+      --layout|--base|--context-file|--issue)
+        shift
+        # Skip the value arg if next arg isn't the branch
+        if [[ $# -gt 1 && "$1" != -* ]]; then
+          shift
+        fi
+        ;;
+      -*)
+        shift
+        ;;
+      *)
+        branch="$1"
+        shift
+        ;;
+    esac
+  done
+
+  # Use --name if provided, otherwise use branch
+  local worktree_name="${name:-$branch}"
+
+  if [[ -z "$worktree_name" ]]; then
+    warn "Could not determine worktree name for tmux window"
+    return 0
+  fi
+
+  # Open tmux window
+  echo ""
+  open_tmux_window "$worktree_name"
+}
+
+cmd_cleanup() {
+  local target
+  target=$(parse_cleanup_branch "$@")
+
+  # --all: pass straight through to wtm, no tmux handling
+  if [[ "$target" == "__ALL__" ]]; then
+    "$WTM_BIN" cleanup "$@"
+    return
+  fi
+
+  # If no branch specified, let wtm show its interactive menu,
+  # but we can't hook into it, so pass through
+  if [[ -z "$target" ]]; then
+    "$WTM_BIN" cleanup "$@"
+    return
+  fi
+
+  # Check for tmux window and offer to close it first
+  local window_name
+  if window_name=$(find_tmux_window "$target"); then
+    echo ""
+    info "Found tmux window '$window_name' for this worktree"
+    echo -n "Kill tmux window and all its processes before cleanup? (Y/n): "
+    read -r response
+    if [[ ! "$response" =~ ^[Nn]$ ]]; then
+      close_tmux_window "$window_name"
+      echo ""
+    fi
+  fi
+
+  # Run wtm cleanup
+  "$WTM_BIN" cleanup "$@"
+}
+
+cmd_help() {
+  cat <<EOF
+jwtm - Josh's Worktree Manager
+
+Wraps bin/wtm with tmux window management.
+
+Usage:
+  jwtm new [OPTIONS] <branch>       Create worktree + open tmux window
+  jwtm cleanup [branch]             Kill tmux window + clean up worktree
+  jwtm cleanup --all                Clean up gone branches (no tmux)
+  jwtm <command> [args]             Pass through to bin/wtm
+
+The 'new' command creates the worktree via bin/wtm, then opens a tmux
+window in the '$TARGET_SESSION' session with 4 panes:
+  • Top-left:     bin/dev (Rails server)
+  • Bottom-left:  claude (Claude Code)
+  • Top-right:    nvim (editor)
+  • Bottom-right: shell
+
+The 'cleanup' command finds the matching tmux window, terminates all
+processes in its panes, closes the window, then runs bin/wtm cleanup.
+
+All other commands are passed directly to bin/wtm.
+EOF
+}
+
+# Main dispatcher
+main() {
+  local command="${1:-help}"
+  shift || true
+
+  case "$command" in
+    new)
+      cmd_new "$@"
+      ;;
+    cleanup|rm)
+      cmd_cleanup "$@"
+      ;;
+    help|--help|-h)
+      cmd_help
+      ;;
+    *)
+      # Pass through to wtm
+      "$WTM_BIN" "$command" "$@"
+      ;;
+    esac
+}
+
+main "$@"

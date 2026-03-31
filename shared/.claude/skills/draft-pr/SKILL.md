@@ -172,12 +172,17 @@ After successful creation, display the PR URL, then immediately proceed to Phase
 Poll the PR's CI checks, fix failures, push, and repeat until green.
 
 ### 8.1 Poll CI status
+
+**IMPORTANT:** Run CI polling in the main Claude process only — do NOT delegate polling to background agents or sub-agents. Background/sub-agents lose track of timing and queue multiple redundant polls.
+
 Use the `/loop` skill (or manual polling) to check CI status periodically:
 ```bash
 gh pr checks {pr-number} --repo {owner/repo}
 ```
 
-Check every ~2 minutes. CI checks can be in one of three states:
+**Polling interval (descending backoff):** Start at ~180 seconds, then 120, then 90, then 60. Never poll more frequently than every 60 seconds. CI duration varies, but as we get closer to completion we don't need to wait as long to check.
+
+CI checks can be in one of three states:
 - **pending/in_progress**: Keep polling. Inform the user you're still waiting (brief one-liner, not every poll — only on first poll and then every ~5 minutes).
 - **all passed**: Go to step 8.3.
 - **one or more failed**: Go to step 8.2.

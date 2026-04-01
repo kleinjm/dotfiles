@@ -5,7 +5,7 @@
 # Usage:
 #   jwtm new [OPTIONS] <branch>       Create worktree + open tmux window
 #   jwtm cleanup [branch]             Kill tmux window + clean up worktree
-#   jwtm cleanup --all                Clean up gone branches (no tmux)
+#   jwtm cleanup --all                Kill all worktree tmux windows + clean up gone branches
 #   jwtm <other>                      Pass through to bin/wtm
 
 set -e
@@ -242,8 +242,26 @@ cmd_cleanup() {
   local target
   target=$(parse_cleanup_branch "$@")
 
-  # --all: pass straight through to wtm, no tmux handling
+  # --all: close tmux windows for all worktrees, then pass through to wtm
   if [[ "$target" == "__ALL__" ]]; then
+    # Find all worktree directories and close their tmux windows
+    if [[ -d "$WORKTREE_BASE" ]] && tmux has-session -t "$TARGET_SESSION" 2>/dev/null; then
+      local closed=0
+      for worktree_dir in "$WORKTREE_BASE"/*/; do
+        [[ ! -d "$worktree_dir" ]] && continue
+        local wt_branch
+        wt_branch=$(basename "$worktree_dir")
+        local window_name
+        if window_name=$(find_tmux_window "$wt_branch"); then
+          close_tmux_window "$window_name"
+          ((closed++))
+        fi
+      done
+      if [[ "$closed" -gt 0 ]]; then
+        success "Closed $closed tmux window(s)"
+        echo ""
+      fi
+    fi
     "$WTM_BIN" cleanup "$@"
     return
   fi
@@ -281,7 +299,7 @@ Wraps bin/wtm with tmux window management.
 Usage:
   jwtm new [OPTIONS] <branch>       Create worktree + open tmux window
   jwtm cleanup [branch]             Kill tmux window + clean up worktree
-  jwtm cleanup --all                Clean up gone branches (no tmux)
+  jwtm cleanup --all                Kill all tmux windows + clean up gone branches
   jwtm <command> [args]             Pass through to bin/wtm
 
 The 'new' command creates the worktree via bin/wtm, then opens a tmux

@@ -254,7 +254,7 @@ cmd_cleanup() {
         local window_name
         if window_name=$(find_tmux_window "$wt_branch"); then
           close_tmux_window "$window_name"
-          ((closed++))
+          closed=$((closed + 1))
         fi
       done
       if [[ "$closed" -gt 0 ]]; then

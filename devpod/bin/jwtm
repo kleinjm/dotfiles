@@ -242,24 +242,33 @@ cmd_cleanup() {
   local target
   target=$(parse_cleanup_branch "$@")
 
-  # --all: close tmux windows for all worktrees, then pass through to wtm
+  # --all: determine which branches are gone on remote, close their tmux
+  # windows, then pass through to wtm for worktree cleanup
   if [[ "$target" == "__ALL__" ]]; then
-    # Find all worktree directories and close their tmux windows
     if [[ -d "$WORKTREE_BASE" ]] && tmux has-session -t "$TARGET_SESSION" 2>/dev/null; then
-      local closed=0
-      for worktree_dir in "$WORKTREE_BASE"/*/; do
-        [[ ! -d "$worktree_dir" ]] && continue
-        local wt_branch
-        wt_branch=$(basename "$worktree_dir")
-        local window_name
-        if window_name=$(find_tmux_window "$wt_branch"); then
-          close_tmux_window "$window_name"
-          closed=$((closed + 1))
+      # Fetch and prune to get accurate remote state
+      info "Fetching remote state..."
+      git -C "$WORKTREE_BASE/../web" fetch --prune 2>/dev/null || true
+
+      # Find branches whose upstream is gone
+      local gone_branches
+      gone_branches=$(git -C "$WORKTREE_BASE/../web" branch -vv 2>/dev/null | \
+        grep ': gone\]' | awk '{print $1}' || true)
+
+      if [[ -n "$gone_branches" ]]; then
+        local closed=0
+        while IFS= read -r branch; do
+          [[ -z "$branch" ]] && continue
+          local window_name
+          if window_name=$(find_tmux_window "$branch"); then
+            close_tmux_window "$window_name"
+            closed=$((closed + 1))
+          fi
+        done <<< "$gone_branches"
+        if [[ "$closed" -gt 0 ]]; then
+          success "Closed $closed tmux window(s)"
+          echo ""
         fi
-      done
-      if [[ "$closed" -gt 0 ]]; then
-        success "Closed $closed tmux window(s)"
-        echo ""
       fi
     fi
     "$WTM_BIN" cleanup "$@"

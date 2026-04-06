@@ -6,6 +6,7 @@
 #   jwtm new [OPTIONS] <branch>       Create worktree + open tmux window
 #   jwtm cleanup [branch]             Kill tmux window + clean up worktree
 #   jwtm cleanup --all                Kill all worktree tmux windows + clean up gone branches
+#   jwtm start <worktree-name>         Open tmux window for existing worktree
 #   jwtm <other>                      Pass through to bin/wtm
 
 set -e
@@ -238,6 +239,29 @@ cmd_new() {
   open_tmux_window "$worktree_name"
 }
 
+cmd_start() {
+  local worktree_name="$1"
+
+  if [[ -z "$worktree_name" ]]; then
+    error "Usage: jwtm start <worktree-name>"
+    return 1
+  fi
+
+  # Check if a tmux window already exists for this worktree
+  if find_tmux_window "$worktree_name" &>/dev/null; then
+    local existing_window
+    existing_window=$(find_tmux_window "$worktree_name")
+    warn "Tmux window '$existing_window' already exists for this worktree"
+    if [[ -n "$TMUX" ]]; then
+      tmux select-window -t "${TARGET_SESSION}:${existing_window}"
+      success "Switched to existing window '$existing_window'"
+    fi
+    return 0
+  fi
+
+  open_tmux_window "$worktree_name"
+}
+
 cmd_cleanup() {
   local target
   target=$(parse_cleanup_branch "$@")
@@ -307,6 +331,7 @@ Wraps bin/wtm with tmux window management.
 
 Usage:
   jwtm new [OPTIONS] <branch>       Create worktree + open tmux window
+  jwtm start <worktree-name>        Open tmux window for existing worktree
   jwtm cleanup [branch]             Kill tmux window + clean up worktree
   jwtm cleanup --all                Kill all tmux windows + clean up gone branches
   jwtm <command> [args]             Pass through to bin/wtm
@@ -317,6 +342,9 @@ window in the '$TARGET_SESSION' session with 4 panes:
   • Bottom-left:  claude (Claude Code)
   • Top-right:    nvim (editor)
   • Bottom-right: shell
+
+The 'start' command opens a tmux window for a worktree that already
+exists but doesn't have a tmux window (e.g. after a devcontainer rebuild).
 
 The 'cleanup' command finds the matching tmux window, terminates all
 processes in its panes, closes the window, then runs bin/wtm cleanup.
@@ -333,6 +361,9 @@ main() {
   case "$command" in
     new)
       cmd_new "$@"
+      ;;
+    start)
+      cmd_start "$@"
       ;;
     cleanup|rm)
       cmd_cleanup "$@"

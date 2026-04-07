@@ -266,33 +266,32 @@ cmd_cleanup() {
   local target
   target=$(parse_cleanup_branch "$@")
 
-  # --all: determine which branches are gone on remote, close their tmux
-  # windows, then pass through to wtm for worktree cleanup
+  # --all: close tmux windows whose worktree directories no longer exist,
+  # then pass through to wtm for worktree cleanup
   if [[ "$target" == "__ALL__" ]]; then
-    if [[ -d "$WORKTREE_BASE" ]] && tmux has-session -t "$TARGET_SESSION" 2>/dev/null; then
-      # Fetch and prune to get accurate remote state
-      info "Fetching remote state..."
-      git -C "$WORKTREE_BASE/../web" fetch --prune 2>/dev/null || true
+    if tmux has-session -t "$TARGET_SESSION" 2>/dev/null; then
+      local closed=0
+      local windows
+      windows=$(tmux list-windows -t "$TARGET_SESSION" -F '#{window_name}' 2>/dev/null || true)
 
-      # Find branches whose upstream is gone
-      local gone_branches
-      gone_branches=$(git -C "$WORKTREE_BASE/../web" branch -vv 2>/dev/null | \
-        grep ': gone\]' | awk '{print $1}' || true)
-
-      if [[ -n "$gone_branches" ]]; then
-        local closed=0
-        while IFS= read -r branch; do
-          [[ -z "$branch" ]] && continue
-          local window_name
-          if window_name=$(find_tmux_window "$branch"); then
-            close_tmux_window "$window_name"
-            closed=$((closed + 1))
-          fi
-        done <<< "$gone_branches"
-        if [[ "$closed" -gt 0 ]]; then
-          success "Closed $closed tmux window(s)"
-          echo ""
+      while IFS= read -r window_name; do
+        [[ -z "$window_name" ]] && continue
+        # Extract branch name from window name (strip :port suffix)
+        local branch="${window_name%%:*}"
+        # Skip windows whose worktree directory still exists
+        [[ ! -d "${WORKTREE_BASE}/${branch}" ]] || continue
+        # Only close windows that look like worktree windows (skip e.g. "editor")
+        # Worktree windows have a matching branch name or branch:port pattern
+        if [[ "$window_name" =~ ^[a-zA-Z0-9._-]+(:[0-9]+)?$ ]] && \
+           [[ "$window_name" != "editor" ]]; then
+          close_tmux_window "$window_name"
+          closed=$((closed + 1))
         fi
+      done <<< "$windows"
+
+      if [[ "$closed" -gt 0 ]]; then
+        success "Closed $closed tmux window(s)"
+        echo ""
       fi
     fi
     "$WTM_BIN" cleanup "$@"

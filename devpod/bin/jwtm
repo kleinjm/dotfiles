@@ -266,9 +266,11 @@ cmd_cleanup() {
   local target
   target=$(parse_cleanup_branch "$@")
 
-  # --all: close tmux windows whose worktree directories no longer exist,
-  # then pass through to wtm for worktree cleanup
+  # --all: run wtm cleanup first (deletes worktree dirs), then close
+  # tmux windows whose worktree directories no longer exist
   if [[ "$target" == "__ALL__" ]]; then
+    "$WTM_BIN" cleanup "$@"
+
     if tmux has-session -t "$TARGET_SESSION" 2>/dev/null; then
       local closed=0
       local windows
@@ -281,7 +283,6 @@ cmd_cleanup() {
         # Skip windows whose worktree directory still exists
         [[ ! -d "${WORKTREE_BASE}/${branch}" ]] || continue
         # Only close windows that look like worktree windows (skip e.g. "editor")
-        # Worktree windows have a matching branch name or branch:port pattern
         if [[ "$window_name" =~ ^[a-zA-Z0-9._-]+(:[0-9]+)?$ ]] && \
            [[ "$window_name" != "editor" ]]; then
           close_tmux_window "$window_name"
@@ -291,10 +292,8 @@ cmd_cleanup() {
 
       if [[ "$closed" -gt 0 ]]; then
         success "Closed $closed tmux window(s)"
-        echo ""
       fi
     fi
-    "$WTM_BIN" cleanup "$@"
     return
   fi
 

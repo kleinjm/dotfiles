@@ -20,6 +20,7 @@ alias mux='tmuxinator'
 alias jwtm='$HOME/.dotfiles/devpod/bin/jwtm'
 
 # Git
+alias gd='git add -N . && git diff; git reset >/dev/null 2>&1'
 alias g='git'
 alias ga='git add'
 alias gl='git log'

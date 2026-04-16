@@ -43,7 +43,7 @@
     defaultBranch = main
 
 [diff]
-    colorMoved = zebra
+    colorMoved = default
 
 [pull]
     rebase = false

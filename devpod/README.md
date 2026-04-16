@@ -89,6 +89,7 @@ Tmux config uses oh-my-tmux with these key bindings:
 - Split panes: `\` (horizontal), `-` (vertical)
 - Navigate panes: `Ctrl+h/j/k/l` (vim-tmux-navigator)
 - Resize panes: `Ctrl+arrows`
+- Toggle light/dark theme: `Ctrl+S T` (light theme for outdoor use)
 - Install plugins: `Ctrl+S I`
 
 ## Persistence

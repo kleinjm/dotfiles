@@ -14,6 +14,27 @@ set -g terminal-overrides ""
 # Allow OSC 52 clipboard passthrough (for copying URLs to host clipboard)
 set -g allow-passthrough on
 
+# Toggle light/dark theme with prefix + T
+# Light theme: off-white background, dark text (for outdoor use)
+# Dark theme: default dark background (normal use)
+bind T if-shell '[ "$(tmux show-environment -g TMUX_THEME 2>/dev/null)" = "TMUX_THEME=light" ]' \
+  'set-environment -g TMUX_THEME dark; \
+   set -g window-style "fg=colour247,bg=colour234"; \
+   set -g window-active-style "fg=colour250,bg=black"; \
+   set -g pane-border-style "fg=colour238,bg=colour234"; \
+   set -g pane-active-border-style "fg=colour51,bg=colour234"; \
+   set -g status-style "fg=colour247,bg=colour234"; \
+   set -g message-style "fg=colour250,bg=colour234"; \
+   display-message "Dark theme"' \
+  'set-environment -g TMUX_THEME light; \
+   set -g window-style "fg=colour235,bg=colour253"; \
+   set -g window-active-style "fg=colour232,bg=colour255"; \
+   set -g pane-border-style "fg=colour250,bg=colour253"; \
+   set -g pane-active-border-style "fg=colour25,bg=colour253"; \
+   set -g status-style "fg=colour235,bg=colour252"; \
+   set -g message-style "fg=colour232,bg=colour255"; \
+   display-message "Light theme (outdoor)"'
+
 # For options see https://github.com/gpakosz/.tmux#configuring-the-status-line
 tmux_conf_theme_status_right=' \
 #{pairing}#{prefix} \

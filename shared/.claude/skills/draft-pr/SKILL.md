@@ -165,7 +165,11 @@ gh pr create \
 If the PR touches views, templates, stylesheets, or frontend code, suggest adding the `run:regression` label after creation.
 
 ### Post-creation
-After successful creation, display the PR URL, then immediately proceed to Phase 8 to watch CI and fix failures.
+After successful creation, capture the PR URL from `gh pr create` output. Display it prominently:
+
+> **Draft PR created:** https://github.com/OWNER/REPO/pull/NUMBER
+
+Then immediately proceed to Phase 8 to watch CI and fix failures.
 
 ## PHASE 8: CI Watch Loop
 
@@ -173,17 +177,19 @@ Poll the PR's CI checks, fix failures, push, and repeat until green.
 
 ### 8.1 Poll CI status
 
-**IMPORTANT:** Run CI polling in the main Claude process only — do NOT delegate polling to background agents or sub-agents. Background/sub-agents lose track of timing and queue multiple redundant polls.
+**IMPORTANT:** Run CI polling in the main Claude process as a foreground loop. Do NOT use the `/loop` skill, background agents, sub-agents, or `run_in_background: true` for this. The polling must happen in the foreground so the user can halt it at any time with Esc/Ctrl+C.
 
-Use the `/loop` skill (or manual polling) to check CI status periodically:
+Between polls, use an explicit `sleep` in the foreground:
 ```bash
-gh pr checks {pr-number} --repo {owner/repo}
+sleep 180 && gh pr checks {pr-number} --repo {owner/repo}
 ```
+
+Each iteration is a single foreground Bash call that sleeps then checks. Do not set `run_in_background: true` on these calls.
 
 **Polling interval (descending backoff):** Start at ~180 seconds, then 120, then 90, then 60. Never poll more frequently than every 60 seconds. CI duration varies, but as we get closer to completion we don't need to wait as long to check.
 
 CI checks can be in one of three states:
-- **pending/in_progress**: Keep polling. Inform the user you're still waiting (brief one-liner, not every poll — only on first poll and then every ~5 minutes).
+- **pending/in_progress**: Keep polling. Each time you output a status update, always include the PR link so the user can find it easily (e.g., "CI still running on https://github.com/OWNER/REPO/pull/NUMBER — checking again in 90s").
 - **all passed**: Go to step 8.3.
 - **one or more failed**: Go to step 8.2.
 
@@ -225,7 +231,7 @@ If a failed test appears unrelated to the PR's changes (e.g., random ordering is
 ### 8.3 CI passed — notify and offer status change
 When all checks pass, notify the user:
 
-> "CI is green on PR #{pr-number}. Want me to mark it as ready for review?"
+> "CI is green on {pr-url}. Want me to mark it as ready for review?"
 
 - If yes: `gh pr ready {pr-number} --repo {owner/repo}`
 - If no: leave as draft.

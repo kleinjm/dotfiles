@@ -1,39 +1,25 @@
-#!/bin/sh
-# Claude Code status line — mirrors the jamesklein oh-my-zsh theme
-# Shows: current dir | git branch + dirty/clean | model
-
+#!/bin/bash
 input=$(cat)
 
-cwd=$(echo "$input" | jq -r '.workspace.current_dir // .cwd')
-model=$(echo "$input" | jq -r '.model.display_name // ""')
+MODEL=$(echo "$input" | jq -r '.model.display_name')
+DIR=$(echo "$input" | jq -r '.workspace.current_dir')
+PCT=$(echo "$input" | jq -r '.context_window.used_percentage // 0' | cut -d. -f1)
+DURATION_MS=$(echo "$input" | jq -r '.cost.total_duration_ms // 0')
 
-# Current directory basename (like %c in zsh theme)
-dir=$(basename "$cwd")
+CYAN='\033[36m'; GREEN='\033[32m'; YELLOW='\033[33m'; RED='\033[31m'; RESET='\033[0m'
 
-# Git info (skip locks to avoid blocking)
-git_branch=""
-git_status_marker=""
-if git_branch_raw=$(git -C "$cwd" symbolic-ref --short HEAD 2>/dev/null || git -C "$cwd" rev-parse --short HEAD 2>/dev/null); then
-  git_branch="$git_branch_raw"
-  if git -C "$cwd" status --porcelain 2>/dev/null | grep -q .; then
-    git_status_marker=" ✗"
-  else
-    git_status_marker=" ✓"
-  fi
-fi
+# Pick bar color based on context usage
+if [ "$PCT" -ge 90 ]; then BAR_COLOR="$RED"
+elif [ "$PCT" -ge 70 ]; then BAR_COLOR="$YELLOW"
+else BAR_COLOR="$GREEN"; fi
 
-# ANSI colors
-CYAN='\033[0;36m'
-RED='\033[0;31m'
-YELLOW='\033[0;33m'
-BOLD_BLUE='\033[1;34m'
-DIM='\033[2m'
-RESET='\033[0m'
+FILLED=$((PCT / 10)); EMPTY=$((10 - FILLED))
+printf -v FILL "%${FILLED}s"; printf -v PAD "%${EMPTY}s"
+BAR="${FILL// /█}${PAD// /░}"
 
-# Build the status line
-if [ -n "$git_branch" ]; then
-  printf "${CYAN}%s${RESET} ${BOLD_BLUE}${RED}%s${YELLOW}%s${RESET}  ${DIM}%s${RESET}" \
-    "$dir" "$git_branch" "$git_status_marker" "$model"
-else
-  printf "${CYAN}%s${RESET}  ${DIM}%s${RESET}" "$dir" "$model"
-fi
+MINS=$((DURATION_MS / 60000)); SECS=$(((DURATION_MS % 60000) / 1000))
+
+BRANCH=""
+git rev-parse --git-dir > /dev/null 2>&1 && BRANCH=" | 🌿 $(git branch --show-current 2>/dev/null)"
+
+echo -e "${CYAN}[$MODEL]${RESET} 📁 ${DIR##*/}$BRANCH | ${BAR_COLOR}${BAR}${RESET} ${PCT}% | ⏱️ ${MINS}m ${SECS}s"

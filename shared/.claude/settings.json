@@ -1,10 +1,9 @@
 {
   "statusLine": {
     "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
+    "command": "bash /home/vscode/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true
-  },
-  "effortLevel": "medium"
+  }
 }

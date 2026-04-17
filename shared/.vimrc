@@ -244,7 +244,7 @@ command! -bang -nargs=* Ag
   \                 <bang>0)
 
 " Search only the files that are on the current and uncommitted branch
-command! Fzfc call fzf#run(fzf#wrap({'source': 'git diff origin/main --name-only'}))
+command! Fzfc call fzf#run(fzf#wrap({'source': 'git diff $($DOTFILES_DIR/shared/scripts/git-base-branch) --name-only'}))
 
 let g:fzf_files_options =
       \ '--reverse ' .

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Prints the base branch of the current branch, prefixed (e.g. origin/main).
+# Resolution order:
+#   1. Open GitHub PR's baseRefName (via gh, if available)
+#   2. Closest merge-base among origin/main, origin/master, origin/develop
+#   3. Fallback: origin/main
+set -eu
+
+if command -v gh >/dev/null 2>&1; then
+  pr_base=$(gh pr view --json baseRefName -q .baseRefName 2>/dev/null || true)
+  if [ -n "${pr_base:-}" ]; then
+    echo "origin/$pr_base"
+    exit 0
+  fi
+fi
+
+best_branch=""
+best_count=""
+for b in origin/main origin/master origin/develop; do
+  git rev-parse --verify "$b" >/dev/null 2>&1 || continue
+  mb=$(git merge-base HEAD "$b" 2>/dev/null) || continue
+  count=$(git rev-list --count "$mb..HEAD")
+  if [ -z "$best_count" ] || [ "$count" -lt "$best_count" ]; then
+    best_count=$count
+    best_branch=$b
+  fi
+done
+
+echo "${best_branch:-origin/main}"

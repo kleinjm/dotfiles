@@ -168,7 +168,7 @@ if [[ -d "$HOME/.gnupg" ]] && [[ ! -d "/tmp/gnupg-local" ]]; then
   mkdir -p /tmp/gnupg-local
   cp -r "$HOME/.gnupg/"* /tmp/gnupg-local/ 2>/dev/null || true
   chmod 700 /tmp/gnupg-local
-  rm -f /tmp/gnupg-local/S.* /tmp/gnupg-local/public-keys.d/.#lk* 2>/dev/null || true
+  rm -f /tmp/gnupg-local/S.*(N) /tmp/gnupg-local/public-keys.d/.#lk*(N) 2>/dev/null || true
   # Use legacy keyring mode
   echo "" > /tmp/gnupg-local/common.conf
 fi

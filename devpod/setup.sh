@@ -84,6 +84,8 @@ fi
 
 # Override mac host gpg-agent.conf with devpod-specific config (pinentry-curses, 90-day cache)
 if [[ -f "${SCRIPT_DIR}/gnupg/gpg-agent.conf" ]]; then
+  mkdir -p "${HOME}/.gnupg"
+  chmod 700 "${HOME}/.gnupg"
   cp "${SCRIPT_DIR}/gnupg/gpg-agent.conf" "${HOME}/.gnupg/gpg-agent.conf"
   gpgconf --kill gpg-agent 2>/dev/null || true
   echo "Configured GPG agent for devpod"

@@ -6,6 +6,9 @@ DIR=$(echo "$input" | jq -r '.workspace.current_dir')
 PCT=$(echo "$input" | jq -r '.context_window.used_percentage // 0' | cut -d. -f1)
 DURATION_MS=$(echo "$input" | jq -r '.cost.total_duration_ms // 0')
 
+EFFORT=$(jq -r '.effortLevel // empty' "$DIR/.claude/settings.json" 2>/dev/null)
+[ -z "$EFFORT" ] && EFFORT=$(jq -r '.effortLevel // "auto"' "$HOME/.claude/settings.json" 2>/dev/null)
+
 CYAN='\033[36m'; GREEN='\033[32m'; YELLOW='\033[33m'; RED='\033[31m'; RESET='\033[0m'
 
 # Pick bar color based on context usage
@@ -22,4 +25,4 @@ MINS=$((DURATION_MS / 60000)); SECS=$(((DURATION_MS % 60000) / 1000))
 BRANCH=""
 git rev-parse --git-dir > /dev/null 2>&1 && BRANCH=" | 🌿 $(git branch --show-current 2>/dev/null)"
 
-echo -e "${CYAN}[$MODEL]${RESET} 📁 ${DIR##*/}$BRANCH | ${BAR_COLOR}${BAR}${RESET} ${PCT}% | ⏱️ ${MINS}m ${SECS}s"
+echo -e "${CYAN}[$MODEL · $EFFORT]${RESET} 📁 ${DIR##*/}$BRANCH | ${BAR_COLOR}${BAR}${RESET} ${PCT}% | ⏱️ ${MINS}m ${SECS}s"

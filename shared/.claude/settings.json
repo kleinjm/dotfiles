@@ -1,9 +1,13 @@
 {
+  "permissions": {
+    "defaultMode": "auto"
+  },
   "statusLine": {
     "type": "command",
     "command": "bash /home/vscode/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true
-  }
+  },
+  "skipAutoPermissionPrompt": true
 }

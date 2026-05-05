@@ -9,5 +9,6 @@
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true
   },
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "effortLevel": "low"
 }

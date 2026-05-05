@@ -163,27 +163,7 @@ export ZSH_AUTOSUGGEST_USE_ASYNC=1
 # Enable bash completions in zsh
 autoload -U +X bashcompinit && bashcompinit
 
-# GPG setup for DevPod (copy mounted keys to local filesystem for socket support)
-if [[ -d "$HOME/.gnupg" ]] && [[ ! -d "/tmp/gnupg-local" ]]; then
-  mkdir -p /tmp/gnupg-local
-  cp -r "$HOME/.gnupg/"* /tmp/gnupg-local/ 2>/dev/null || true
-  chmod 700 /tmp/gnupg-local
-  rm -f /tmp/gnupg-local/S.*(N) /tmp/gnupg-local/public-keys.d/.#lk*(N) 2>/dev/null || true
-  # Use legacy keyring mode
-  echo "" > /tmp/gnupg-local/common.conf
-fi
-# Always update gpg-agent.conf for cache settings (1 month cache)
-if [[ -d "/tmp/gnupg-local" ]]; then
-  cat > /tmp/gnupg-local/gpg-agent.conf << 'GPGCONF'
-default-cache-ttl 2592000
-max-cache-ttl 2592000
-allow-loopback-pinentry
-GPGCONF
-fi
-export GNUPGHOME=/tmp/gnupg-local
-export GPG_TTY=$(tty)
-
-# SSH agent setup (for git operations via docker exec)
+# SSH agent setup (for git operations via docker exec; also used for commit signing)
 if [[ -z "$SSH_AUTH_SOCK" ]] && [[ -f "$HOME/.ssh/id_ed25519" || -f "$HOME/.ssh/id_rsa" ]]; then
   eval "$(ssh-agent -s)" > /dev/null
   # Add keys silently

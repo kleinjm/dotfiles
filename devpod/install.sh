@@ -20,8 +20,8 @@ else
   git clone "${DOTFILES_REPO}" "${DOTFILES_DIR}"
 fi
 
-# Run DevPod-specific setup script
-if [[ -f "${DOTFILES_DIR}/devpod/setup.sh" ]]; then
-  echo "Running DevPod dotfiles setup..."
-  bash "${DOTFILES_DIR}/devpod/setup.sh"
+# Link configs into the home directory
+if [[ -f "${DOTFILES_DIR}/devpod/link.sh" ]]; then
+  echo "Linking DevPod dotfiles..."
+  bash "${DOTFILES_DIR}/devpod/link.sh"
 fi

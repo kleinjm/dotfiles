@@ -8,11 +8,9 @@ services:
     # memswap_limit: 16g
 
     volumes:
-      # Mount GPG keys for commit signing (read-write needed for trustdb)
-      - ~/.gnupg:/home/vscode/.gnupg
-
-      # Mount SSH keys for git commit signing (recommended)
-      # - ~/.ssh/id_ed25519-sign.pub:/home/vscode/.ssh/id_ed25519-sign.pub:ro
+      # SSH keys for git push/pull AND commit signing are mounted via the
+      # devpod-data/ssh persistent volume (see devpod/README.md). No GPG mount
+      # needed — git is configured for SSH commit signing.
 
       # Mount personal preferences / settings (optional and experimental, use at your own risk as it might involve some level of debugging :P)
       #

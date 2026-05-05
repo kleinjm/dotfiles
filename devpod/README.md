@@ -2,7 +2,16 @@
 
 Personal dotfiles for DevPod development containers.
 
-## Setup
+## Which script do I run?
+
+| Situation | Run | What happens |
+|-----------|-----|--------------|
+| Brand new container, dotfiles aren't on disk yet | `install.sh` | Clones (or symlinks to `/workspaces/dotfiles`) into `~/.dotfiles`, then calls `link.sh` |
+| Container restarted, dotfiles already on disk | `link.sh` | Re-symlinks all the configs into `~` (idempotent, safe to re-run anytime) |
+
+`install.sh` is also safe to re-run — it just delegates to `link.sh` once the repo is in place. If in doubt, run `install.sh`.
+
+## One-time setup (per machine)
 
 1. Copy `setup.local.sh` to the web repo:
    ```bash
@@ -19,35 +28,37 @@ Personal dotfiles for DevPod development containers.
    bin/dpod recreate
    ```
 
-The setup runs automatically via the `setup.local.sh` hook in the devcontainer.
+After that, `setup.local.sh` runs automatically when the container is created and curls `install.sh` from GitHub.
 
 ## Files
 
 | File | Purpose |
 |------|---------|
-| `setup.local.sh` | Bootstrap script - copy to web repo |
-| `compose.override.yaml` | Docker Compose overrides (GPG mount) - copy to web repo |
-| `bootstrap.sh` | Symlinks or clones dotfiles, runs setup.sh |
-| `setup.sh` | Symlinks configs to home directory |
-| `zshrc` | Zsh configuration (symlinked to ~/.zshrc) |
-| `zprofile` | Zsh profile (symlinked to ~/.zprofile) |
+| `install.sh` | First-run entry point. Sets up `~/.dotfiles`, then calls `link.sh`. |
+| `link.sh` | Symlinks configs into `~`. Run this on container restart. |
+| `setup.local.sh` | DevPod hook (must keep this name). Curls `install.sh` from GitHub. Copy to web repo. |
+| `compose.override.yaml` | Docker Compose overrides. Copy to web repo. |
+| `zshrc` | Zsh configuration (symlinked to `~/.zshrc`) |
+| `zprofile` | Zsh profile (symlinked to `~/.zprofile`) |
 | `aliases.zsh` | Shell aliases (sourced by zshrc) |
 | `functions.zsh` | Shell functions (sourced by zshrc) |
-| `git/.gitconfig` | Git config with aliases (symlinked to ~/.gitconfig) |
+| `git/.gitconfig` | Git config with aliases (symlinked to `~/.gitconfig`) |
 | `zellij/` | Zellij configs and layouts |
 | `tmux/` | Tmux config and tmuxinator project configs |
-| `vim/` | Vim config (sources shared/.vimrc) |
+| `vim/` | Vim config (sources `shared/.vimrc`) |
 | `nvim/` | Neovim config (reuses vim setup) |
 
-## How It Works
+## How it works (initial container creation)
 
-1. DevPod runs `.devcontainer-devpod/setup.sh` after container creation
-2. `setup.sh` checks for `setup.local.sh` and runs it
-3. `setup.local.sh` curls and runs `bootstrap.sh`
-4. `bootstrap.sh` sets up `~/.dotfiles`:
-   - If `/workspaces/dotfiles` exists (DevPod): symlinks `~/.dotfiles` to it
-   - Otherwise: clones fresh from GitHub
-5. `setup.sh` symlinks configs to the right locations
+1. DevPod runs the web repo's `.devcontainer-devpod/setup.sh` after the container is created.
+2. That script invokes `setup.local.sh` (the user-customizable hook).
+3. `setup.local.sh` curls `install.sh` from this repo on GitHub.
+4. `install.sh` sets up `~/.dotfiles`:
+   - If `/workspaces/dotfiles` exists (DevPod workspace mount): symlinks `~/.dotfiles` to it.
+   - Otherwise: clones fresh from GitHub.
+5. `install.sh` calls `link.sh`, which symlinks every config into `~`.
+
+On restart, `~/.dotfiles` is already set up (it's the persisted workspace mount), so just running `link.sh` is enough to relink the home-directory configs.
 
 ## Claude Code Config
 
@@ -58,9 +69,9 @@ The devpod container mounts `devpod-data/claude` as `~/.claude` (see `compose.ya
 ln -sf ~/GitHubRepos/dotfiles/shared/.claude ~/GitHubRepos/devpod-data/claude
 ```
 
-## SSH Keys for GitHub
+## SSH Keys for GitHub (push/pull AND commit signing)
 
-To enable git push/pull via SSH, copy your SSH key to the persistent volume:
+The same SSH key is used for both git transport and commit signing. Copy it to the persistent volume so it's mounted into every container:
 
 ```bash
 # From your host Mac
@@ -69,7 +80,23 @@ cp ~/.ssh/id_ed25519.pub /path/to/devpod-data/ssh/
 chmod 600 /path/to/devpod-data/ssh/id_ed25519
 ```
 
-The `devpod-data` directory is a sibling to the web repo (e.g., `~/GitHubRepos/devpod-data/`). The SSH agent starts automatically on shell startup via the zshrc.
+The `devpod-data` directory is a sibling to the web repo (e.g., `~/GitHubRepos/devpod-data/`). The SSH agent starts automatically on shell startup via `zshrc`.
+
+### Commit signing (SSH, not GPG)
+
+Git is configured to sign commits with `~/.ssh/id_ed25519.pub` (see `git/.gitconfig` — `gpg.format = ssh`). This avoids the GPG socket headaches that plague bind-mounted `~/.gnupg` directories.
+
+For GitHub to verify signatures as **Verified**, register the same `id_ed25519.pub` as a *Signing Key* (separate list from authentication keys):
+
+1. Go to https://github.com/settings/ssh/new
+2. Set **Key type** to `Signing Key`
+3. Paste the contents of `id_ed25519.pub`
+
+Test it from inside the container:
+```bash
+git commit --allow-empty -m "test ssh signing" && git log --show-signature -1
+```
+You should see `Good "git" signature ...`.
 
 ## Tmux
 

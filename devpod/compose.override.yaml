@@ -12,6 +12,11 @@ services:
       # devpod-data/ssh persistent volume (see devpod/README.md). No GPG mount
       # needed — git is configured for SSH commit signing.
 
+      # Persist `gh` CLI auth across container restarts (avoids re-running
+      # `gh auth login` every time). Adjust the host path to match where your
+      # devpod-data sibling lives (same dir as your other devpod-data mounts).
+      - ~/GitHubRepos/devpod-data/gh:/home/vscode/.config/gh
+
       # Mount personal preferences / settings (optional and experimental, use at your own risk as it might involve some level of debugging :P)
       #
       # - ~/.claude/CLAUDE.md:/home/vscode/.claude/CLAUDE.md:ro

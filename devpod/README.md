@@ -98,6 +98,28 @@ git commit --allow-empty -m "test ssh signing" && git log --show-signature -1
 ```
 You should see `Good "git" signature ...`.
 
+## GitHub CLI (`gh`) auth persistence
+
+`gh` stores its auth token at `~/.config/gh/hosts.yml`. Without persistence,
+that file is wiped on container restart and you'd have to re-run
+`gh auth login` every time.
+
+`compose.override.yaml` mounts `~/GitHubRepos/devpod-data/gh` over
+`~/.config/gh` in the container, so the token survives restarts. First-time
+setup (run once on the host or once in any container):
+
+```bash
+mkdir -p ~/GitHubRepos/devpod-data/gh
+# Then inside the container:
+gh auth login
+```
+
+After that, `gh` just works on every container restart.
+
+We deliberately do **not** prompt for `gh auth login` from `link.sh` —
+it's an interactive browser flow and would block startup on every restart.
+Persisting the token via volume mount is the correct fix.
+
 ## Tmux
 
 Use `bin/dpod exec` instead of `bin/dpod ssh` for tmux sessions. DevPod's SSH proxy has rendering issues with tmux pane splitting, but docker exec works correctly.

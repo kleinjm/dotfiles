@@ -13,31 +13,32 @@ Personal dotfiles for DevPod development containers.
 
 ## One-time setup (per machine)
 
-1. Copy `setup.local.sh` to the web repo:
+1. Copy `setup.local.sh` into the web repo (this is the only file you need
+   to copy by hand — `compose.override.yaml` is kept in sync automatically
+   by `install.sh`, see below):
    ```bash
-   cp ~/.dotfiles/devpod/setup.local.sh /path/to/web/.devcontainer-devpod/setup.local.sh
+   cp ~/.dotfiles/devpod/setup.local.sh /path/to/web/.devcontainer/setup.local.sh
    ```
 
-2. Copy `compose.override.yaml` to the web repo:
-   ```bash
-   cp ~/.dotfiles/devpod/compose.override.yaml /path/to/web/.devcontainer-devpod/compose.override.yaml
-   ```
-
-3. Recreate the DevPod container:
+2. Recreate the DevPod container:
    ```bash
    bin/dpod recreate
    ```
 
-After that, `setup.local.sh` runs automatically when the container is created and curls `install.sh` from GitHub.
+After that, `setup.local.sh` runs automatically when the container is
+created and curls `install.sh` from GitHub. `install.sh` then writes
+`compose.override.yaml` into `web/.devcontainer/` from the dotfiles
+template — so any time you update the template here, the next container
+recreate picks up the change.
 
 ## Files
 
 | File | Purpose |
 |------|---------|
-| `install.sh` | First-run entry point. Sets up `~/.dotfiles`, then calls `link.sh`. |
+| `install.sh` | First-run entry point. Sets up `~/.dotfiles`, syncs `compose.override.yaml` into the web repo, calls `link.sh`. |
 | `link.sh` | Symlinks configs into `~`. Run this on container restart. |
-| `setup.local.sh` | DevPod hook (must keep this name). Curls `install.sh` from GitHub. Copy to web repo. |
-| `compose.override.yaml` | Docker Compose overrides. Copy to web repo. |
+| `setup.local.sh` | DevPod hook (must keep this name). Curls `install.sh` from GitHub. Copy to web repo once. |
+| `compose.override.yaml` | Docker Compose overrides. Master copy lives here; `install.sh` syncs it into the web repo. |
 | `zshrc` | Zsh configuration (symlinked to `~/.zshrc`) |
 | `zprofile` | Zsh profile (symlinked to `~/.zprofile`) |
 | `aliases.zsh` | Shell aliases (sourced by zshrc) |
@@ -50,15 +51,17 @@ After that, `setup.local.sh` runs automatically when the container is created an
 
 ## How it works (initial container creation)
 
-1. DevPod runs the web repo's `.devcontainer-devpod/setup.sh` after the container is created.
+1. DevPod runs the web repo's `.devcontainer/setup.sh` after the container is created.
 2. That script invokes `setup.local.sh` (the user-customizable hook).
 3. `setup.local.sh` curls `install.sh` from this repo on GitHub.
-4. `install.sh` sets up `~/.dotfiles`:
-   - If `/workspaces/dotfiles` exists (DevPod workspace mount): symlinks `~/.dotfiles` to it.
-   - Otherwise: clones fresh from GitHub.
-5. `install.sh` calls `link.sh`, which symlinks every config into `~`.
+4. `install.sh`:
+   - Sets up `~/.dotfiles` — symlink to `/workspaces/dotfiles` if present, else clone from GitHub.
+   - Syncs `devpod/compose.override.yaml` into `web/.devcontainer/compose.override.yaml` so the next recreate picks up any changes.
+   - Pre-creates `~/GitHubRepos/devpod-data/gh` on the host (visible at `/workspaces/devpod-data/gh` from inside the container).
+   - Calls `link.sh`.
+5. `link.sh` symlinks every config into `~`.
 
-On restart, `~/.dotfiles` is already set up (it's the persisted workspace mount), so just running `link.sh` is enough to relink the home-directory configs.
+On restart, `~/.dotfiles` is already set up (it's the persisted workspace mount), so just running `link.sh` is enough to relink the home-directory configs. Run `install.sh` again only when you want to re-sync the compose override into the web repo.
 
 ## Claude Code Config
 
@@ -105,12 +108,11 @@ that file is wiped on container restart and you'd have to re-run
 `gh auth login` every time.
 
 `compose.override.yaml` mounts `~/GitHubRepos/devpod-data/gh` over
-`~/.config/gh` in the container, so the token survives restarts. First-time
-setup (run once on the host or once in any container):
+`~/.config/gh` in the container, so the token survives restarts.
+`install.sh` creates the host directory for you, so first-time setup is
+just one command after `bin/dpod recreate`:
 
 ```bash
-mkdir -p ~/GitHubRepos/devpod-data/gh
-# Then inside the container:
 gh auth login
 ```
 

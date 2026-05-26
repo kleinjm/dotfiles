@@ -45,6 +45,9 @@
 [diff]
     colorMoved = default
 
+[color "diff"]
+    new = "#87d7ff" bold   ; added lines — light blue (colorblind-friendly)
+
 [pull]
     rebase = false
     ff = only

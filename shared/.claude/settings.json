@@ -10,5 +10,6 @@
     "ruby-lsp@claude-plugins-official": true
   },
   "effortLevel": "low",
+  "theme": "dark-daltonized",
   "skipAutoPermissionPrompt": true
 }

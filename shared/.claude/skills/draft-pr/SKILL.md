@@ -228,13 +228,10 @@ If a failed test appears unrelated to the PR's changes (e.g., random ordering is
 - Only fix test/lint failures. If CI fails for infrastructure reasons (e.g., Docker build timeout, flaky external service), notify the user instead of retrying.
 - Do not change application logic to make tests pass — fix the tests or fix the code that broke them, but don't paper over failures.
 
-### 8.3 CI passed — notify and offer status change
-When all checks pass, notify the user:
+### 8.3 CI passed — notify and stop
+When all checks pass, notify the user with the PR link and stop. Do NOT ask whether to mark the PR ready — leave it as draft and let the user promote it themselves.
 
-> "CI is green on {pr-url}. Want me to mark it as ready for review?"
-
-- If yes: `gh pr ready {pr-number} --repo {owner/repo}`
-- If no: leave as draft.
+> "CI is green on {pr-url}."
 
 ## IMPORTANT REMINDERS
 - ALWAYS create as draft (`--draft` flag)

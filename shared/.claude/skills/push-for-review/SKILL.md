@@ -21,14 +21,23 @@ Run in parallel:
 
 If the determination is ambiguous (e.g., the upstream is a feature branch that itself isn't merged), state your guess in one sentence and ask the user to confirm before pushing.
 
-## PHASE 2: Cut a branch if on the default branch
+## PHASE 2: Cut a branch if on the default branch — do not block on the user
 
 If `current_branch == default_branch`:
 - If the user provided a branch name as an argument, use it.
-- Otherwise propose a short kebab-case branch name derived from the staged/unstaged changes (`git status --short` + `git diff --stat`) and ask the user to confirm or override before creating it.
-- Create the branch with `git checkout -b <name>`. Do NOT commit anything new — only switch branches.
+- Otherwise derive a short kebab-case branch name from the changes (`git status --short`, `git diff --stat`, and the conversation context). Use your best judgment — do NOT ask the user to confirm. Inform them of the name you chose in one line.
+- Create the branch with `git checkout -b <name>`.
 
-If the working tree has uncommitted changes, do NOT commit them yourself. Tell the user what's uncommitted and ask whether to (a) abort, (b) push only what's already committed, or (c) wait for them to commit first. Default to (c).
+## PHASE 2.5: Commit uncommitted work — do not block on the user
+
+If the working tree has staged or unstaged changes that relate to the work this session has been doing, commit them yourself before pushing. Use your best judgment:
+
+- Stage the relevant files explicitly by name (never `git add -A` / `git add .` — avoid pulling in unrelated local junk, secrets, or large binaries).
+- If multiple unrelated changes are present, split them into separate commits with focused messages. If they're all part of one coherent change, a single commit is fine.
+- Write commit messages that follow the project's recent style (`git log -5 --oneline` to check). Specific verbs ("add", "fix", "update", "refactor"); no issue references in the commit message itself.
+- If there are clearly out-of-scope local files (e.g., a stray scratch file, an unrelated config tweak the user didn't ask for), leave them uncommitted and mention them in the final output so the user knows they weren't pushed.
+
+Do NOT pause to ask the user whether to commit. The whole point of this skill is to be a fast pre-PR push — your job is to make a reasonable call and proceed.
 
 ## PHASE 3: Push
 

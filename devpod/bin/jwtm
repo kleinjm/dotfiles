@@ -30,6 +30,29 @@ error() { echo -e "${RED}✗${NC} $*" >&2; }
 info() { echo -e "${BLUE}→${NC} $*"; }
 warn() { echo -e "${YELLOW}⚠${NC} $*"; }
 
+# Stop spring server/app processes for a worktree.
+# Spring rewrites its process title to "spring server | <name> | started ...",
+# where <name> is the worktree directory basename. Because spring detaches from
+# the shell, it is not reachable via tmux pane process groups.
+# Args: $1 = worktree/branch name
+stop_spring_for_branch() {
+  local name="$1"
+  [[ -z "$name" ]] && return 0
+
+  local pids
+  pids=$(pgrep -a -f 'spring (server|app)' 2>/dev/null | while read -r pid rest; do
+    [[ "$(awk -F' \\| ' '{print $2}' <<< "$rest")" == "$name" ]] && echo "$pid"
+  done)
+  [[ -z "$pids" ]] && return 0
+
+  info "Stopping spring server for '$name'..."
+  # shellcheck disable=SC2086
+  kill $pids 2>/dev/null || true
+  sleep 1
+  # shellcheck disable=SC2086
+  kill -9 $pids 2>/dev/null || true
+}
+
 # Open a worktree in a new tmux window with 4-pane layout
 # Args: $1 = branch/worktree name
 open_tmux_window() {
@@ -158,6 +181,13 @@ close_tmux_window() {
       kill -9 -- -"$pgid" 2>/dev/null || true
     fi
   done <<< "$pane_pids"
+
+  # Stop the worktree's spring server. Spring daemonizes itself and reparents to
+  # init, so it is NOT in any pane's process group and survives the kills above.
+  # A surviving server holds DB connections (blocking `wtm cleanup`'s DROP) and
+  # can re-create tmp/ caches under the soon-to-be-deleted worktree directory.
+  local branch="${window_name%%:*}"
+  stop_spring_for_branch "$branch"
 
   # Kill the tmux window
   tmux kill-window -t "${TARGET_SESSION}:${window_name}" 2>/dev/null || true
@@ -293,6 +323,15 @@ cmd_cleanup() {
       if [[ "$closed" -gt 0 ]]; then
         success "Closed $closed tmux window(s)"
       fi
+    fi
+
+    # Sweep up orphans whose worktree directory is already gone (databases and
+    # stale spring servers), which `wtm cleanup --all` cannot discover since it
+    # only scans existing worktree directories. Guarded so this keeps working on
+    # checkouts of wtm that predate the `gc` command.
+    if "$WTM_BIN" help 2>/dev/null | grep -q 'wtm gc'; then
+      echo ""
+      "$WTM_BIN" gc --prune
     fi
     return
   fi

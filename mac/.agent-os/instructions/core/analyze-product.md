@@ -101,7 +101,6 @@ Execute our standard flow for installing Agent OS in existing products
   <main_idea>[DERIVED_FROM_ANALYSIS_AND_USER_INPUT]</main_idea>
   <key_features>[IDENTIFIED_IMPLEMENTED_AND_PLANNED_FEATURES]</key_features>
   <target_users>[FROM_USER_CONTEXT]</target_users>
-  <tech_stack>[DETECTED_FROM_CODEBASE]</tech_stack>
 </execution_parameters>
 
 <execution_prompt>
@@ -116,8 +115,6 @@ Execute our standard flow for installing Agent OS in existing products
   - Planned: [LIST_FROM_USER]
 
   **Target Users**: [FROM_USER_RESPONSE]
-
-  **Tech Stack**: [DETECTED_STACK_WITH_VERSIONS]
 </execution_prompt>
 
 <instructions>
@@ -132,7 +129,7 @@ Execute our standard flow for installing Agent OS in existing products
 
 ### Step 4: Customize Generated Documentation
 
-Refine the generated documentation to ensure accuracy for the existing product by updating roadmap, tech stack, and decisions based on actual implementation.
+Refine the generated documentation to ensure accuracy for the existing product by updating roadmap and decisions based on actual implementation.
 
 <customization_tasks>
   <roadmap_adjustment>
@@ -140,11 +137,6 @@ Refine the generated documentation to ensure accuracy for the existing product b
     - Move implemented items to "Phase 0: Already Completed"
     - Adjust future phases based on actual progress
   </roadmap_adjustment>
-  <tech_stack_verification>
-    - Verify detected versions are correct
-    - Add any missing infrastructure details
-    - Document actual deployment setup
-  </tech_stack_verification>
   <decisions_documentation>
     - Add historical decisions that shaped current architecture
     - Document why certain technologies were chosen
@@ -181,7 +173,6 @@ Verify installation completeness and provide clear next steps for the user to st
   - [ ] .agent-os/product/ directory created
   - [ ] All product documentation reflects actual codebase
   - [ ] Roadmap shows completed and planned features accurately
-  - [ ] Tech stack matches installed dependencies
 </verification_checklist>
 
 <summary_template>
@@ -191,7 +182,6 @@ Verify installation completeness and provide clear next steps for the user to st
 
   ### What I Found
 
-  - **Tech Stack**: [SUMMARY_OF_DETECTED_STACK]
   - **Completed Features**: [COUNT] features already implemented
   - **Code Style**: [DETECTED_PATTERNS]
   - **Current Phase**: [IDENTIFIED_DEVELOPMENT_STAGE]
@@ -200,7 +190,6 @@ Verify installation completeness and provide clear next steps for the user to st
 
   - ✓ Product documentation in `.agent-os/product/`
   - ✓ Roadmap with completed work in Phase 0
-  - ✓ Tech stack reflecting actual dependencies
 
   ### Next Steps
 

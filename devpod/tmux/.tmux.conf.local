@@ -38,8 +38,10 @@ bind T if-shell '[ "$(tmux show-environment -g TMUX_THEME 2>/dev/null)" = "TMUX_
 # For options see https://github.com/gpakosz/.tmux#configuring-the-status-line
 tmux_conf_theme_status_right=' \
 #{pairing}#{prefix} \
+#{simple_git_status} \
 CPU:#{cpu_fg_color}#{cpu_percentage} #{cpu_fg_color}#{cpu_icon} , \
 #{sysstat_mem} \
+#{online_status} \
 '
 
 # tpm is initialized at the bottom of the shared config, which oh-my-tmux sources

@@ -128,7 +128,6 @@ set -g @tpm_plugins '          \
    tmux-plugins/tmux-cpu        \
    tmux-plugins/tmux-sensible   \
    tmux-plugins/tpm             \
-   tmux-plugins/tmux-online-status \
    kristijanhusak/tmux-simple-git-status \
  '
 

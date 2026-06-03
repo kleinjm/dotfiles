@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Connectivity indicator for the tmux status bar.
+#
+# The tmux-online-status plugin detects connectivity with ping (ICMP), which is
+# blocked/unavailable inside most containers, so it always reports offline there.
+# This probes over HTTP instead, which works wherever curl can reach the network.
+# Emits the same glyphs the plugin used so the status bar looks identical.
+
+online_icon="✔"
+offline_icon="❌ "
+
+if curl -fsS -m 2 -o /dev/null https://www.google.com/generate_204 2>/dev/null; then
+  printf '%s' "$online_icon"
+else
+  printf '%s' "$offline_icon"
+fi

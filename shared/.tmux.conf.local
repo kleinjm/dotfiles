@@ -137,7 +137,15 @@ set -g @tpm_plugins '          \
 # Auto-install TPM if not present
 # See https://github.com/tmux-plugins/tpm/blob/master/docs/automatic_tpm_installation.md
 if "test ! -d ~/.tmux/plugins/tpm" \
-   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
+   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm'"
+
+# Auto-install plugins if any are missing (e.g. tpm was cloned by a container
+# build but install_plugins never ran, leaving the status line vars unresolved).
+# tmux-cpu is used as a sentinel; install_plugins is a no-op for already-installed
+# plugins. This guard is separate from the tpm clone above because on a fresh
+# server the clone-and-install one-liner can race the @tpm_plugins option.
+if "test -d ~/.tmux/plugins/tpm -a ! -d ~/.tmux/plugins/tmux-cpu" \
+   "run '~/.tmux/plugins/tpm/bin/install_plugins'"
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'

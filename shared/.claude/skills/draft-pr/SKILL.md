@@ -100,7 +100,6 @@ Map changes to template sections:
 - **Database changes** -> Migration Notes section
 - **Test files** -> Testing & Quality section
 - **Security-related** -> Review Focus Areas
-- **Frontend changes (views, stylesheets, Stimulus controllers)** -> suggest `run:regression` label
 
 ## PHASE 5: Generate PR Content
 
@@ -161,8 +160,6 @@ gh pr create \
   --title "{title}" \
   --body "{body}"
 ```
-
-If the PR touches views, templates, stylesheets, or frontend code, suggest adding the `run:regression` label after creation.
 
 ### Post-creation
 After successful creation, capture the PR URL from `gh pr create` output. Display it prominently:

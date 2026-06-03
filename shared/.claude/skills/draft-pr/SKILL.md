@@ -166,6 +166,10 @@ After successful creation, capture the PR URL from `gh pr create` output. Displa
 
 > **Draft PR created:** https://github.com/OWNER/REPO/pull/NUMBER
 
+**Screenshot reminder:** If this is a UX/UI change (views, templates, stylesheets, Stimulus/JS components, anything that alters what the user sees) AND the repo's PR template asks for screenshots (e.g. a `TODO: add screenshot` marker or a "UI changes" / "Screenshots" instruction — see `.github/PULL_REQUEST_TEMPLATE.md`), display this reminder alongside the link, since you cannot capture screenshots yourself:
+
+> **TODO: Add screenshots to PR description**
+
 Then immediately proceed to Phase 8 to watch CI and fix failures.
 
 ## PHASE 8: CI Watch Loop

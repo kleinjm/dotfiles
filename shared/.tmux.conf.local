@@ -32,6 +32,12 @@ set -g mouse on # enable mouse mode for scrolling
 set -g prefix C-s # set prefix to ctrl+s
 set -g prefix2 "None" # remove prefix2 binding from oh-my-zsh
 set -g status-interval 5 # refresh the status bar every n seconds
+# The status bar polls git every interval (simple_git_status runs git status/diff).
+# git status/diff take .git/index.lock to refresh the cached index, which collides
+# with foreground git commands (commit/rebase/cherry-pick) and fails them. Telling
+# git not to take optional locks makes the status-bar calls pure reads. See
+# https://git-scm.com/docs/git-status (--no-optional-locks / GIT_OPTIONAL_LOCKS).
+set-environment -g GIT_OPTIONAL_LOCKS 0
 set -g status-keys "emacs" # standard shell commands in tmux : command bar
 set -g @ticker_stock "NDAQ" # stock ticker symbol for https://github.com/Brutuski/tmux-ticker plugin
 

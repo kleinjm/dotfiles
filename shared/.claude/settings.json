@@ -9,7 +9,15 @@
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true
   },
-  "effortLevel": "low",
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "effortLevel": "medium",
   "theme": "dark-daltonized",
   "skipAutoPermissionPrompt": true
 }

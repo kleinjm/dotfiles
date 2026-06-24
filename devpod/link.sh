@@ -134,5 +134,17 @@ if [[ -f "${SCRIPT_DIR}/nvim/init.vim" ]]; then
   echo "Symlinked nvim init.vim"
 fi
 
+# Register Rollbar MCP server (user scope) if not already present. The access
+# token is NOT set here — it lives in the gitignored, host-persisted
+# ~/.claude.json. Set it manually after the container is created with:
+#   claude mcp remove rollbar -s user
+#   claude mcp add --scope user rollbar -e ROLLBAR_ACCESS_TOKEN=<token> -- npx -y @rollbar/mcp-server@latest
+if command -v claude &> /dev/null; then
+  if ! claude mcp get rollbar &> /dev/null; then
+    claude mcp add --scope user rollbar -- npx -y @rollbar/mcp-server@latest
+    echo "Registered Rollbar MCP server (set ROLLBAR_ACCESS_TOKEN manually)"
+  fi
+fi
+
 echo
 echo "=== DevPod Dotfiles Setup Complete ==="

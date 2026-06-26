@@ -32,10 +32,9 @@ Store the parsed issues as a list of `{owner, repo, number}` objects and the res
 
 ## PHASE 1: Fetch Issue Context
 
-For each parsed issue:
-1. Fetch the issue details using `gh issue view <number>` (add `--repo OWNER/REPO` if not the default repo)
-2. Read the issue title, body, labels, and state
-3. Summarize the requirements from each issue — this context informs the PR title, description, and "Link to task(s)" field
+Fetch **all** issues in a single parallel batch (one message, one `gh issue view <number>` call per issue — add `--repo OWNER/REPO` if not the default repo). Do not fetch them one at a time. For maximum overlap, also kick off the Phase 2 template read and the Phase 3 branch/fetch commands **in this same batch** — none of them depend on the issue data (see Phase 3 note).
+
+For each result: read the title, body, labels, and state, and summarize the requirements — this context informs the PR title, description, and "Link to task(s)" field.
 
 If an issue cannot be fetched (404, permissions), warn the user and continue with the remaining issues.
 
@@ -52,6 +51,8 @@ If an issue cannot be fetched (404, permissions), warn the user and continue wit
 ## PHASE 3: Ensure Branch and Sync
 
 The base branch is always `main` unless the user explicitly specifies otherwise via arguments or prior conversation context.
+
+**Batching:** `git branch --show-current` and `git fetch origin main:main` (3.1 + 3.2) have no dependency on the issue data or template, so issue them in the **same parallel batch** as Phase 1 / Phase 2. The fetch is the slowest single step here (network) — start it as early as possible so it overlaps with everything else. The only action that must wait is the conditional branch-cut below, which needs the `git branch --show-current` result.
 
 ### 3.1 Check current branch
 ```bash
@@ -78,22 +79,16 @@ git fetch origin main:main
 ## PHASE 4: Analyze Changes
 
 ### 4.1 Gather change data
+Two commands cover everything — run them in **one parallel batch**:
 ```bash
-# Overall stats
-git diff {base}...HEAD --stat
-
-# Full diff for detailed analysis
+# Full diff for detailed analysis — already includes per-file stats and every changed path
 git diff {base}...HEAD
 
 # Commits included
 git log {base}..HEAD --oneline
-
-# Check for migrations
-git diff {base}...HEAD --name-only | grep -E "db/migrate|migrations/" || true
-
-# Check for test changes
-git diff {base}...HEAD --name-only | grep -E "spec/|test/|tests/|__tests__/" || true
 ```
+
+Do **not** run separate `--stat` or `--name-only | grep` commands: the full diff already lists every changed path, so derive migrations (`db/migrate`, `migrations/`) and test files (`spec/`, `test/`, `tests/`, `__tests__/`) by scanning the diff you already have — no extra `git` round-trips. If the diff is too large to read comfortably, fall back to a single `git diff {base}...HEAD --stat` instead of the full diff plus the per-category greps.
 
 ### 4.2 Categorize changes for template sections
 Map changes to template sections:

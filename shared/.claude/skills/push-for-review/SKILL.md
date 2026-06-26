@@ -9,10 +9,11 @@ You're pushing the current code to the remote and returning a GitHub compare lin
 
 ## PHASE 1: Determine current and base branch
 
-Run in parallel:
+Run all of these in a **single parallel batch** (one message, multiple tool calls — never one-at-a-time):
 - `git branch --show-current` — current branch
 - `git rev-parse --abbrev-ref HEAD@{upstream} 2>/dev/null || true` — tracked upstream, if any
-- `gh repo view --json defaultBranchRef -q .defaultBranchRef.name` — repo default branch (usually `main` or `master`)
+- `git status --short` and `git diff --stat` — so you already have what you need for Phase 2/2.5 without a second round-trip
+- `gh repo view --json defaultBranchRef,nameWithOwner` — repo default branch **and** `owner/repo` in one call (used again in Phase 4; do not call `gh repo view` a second time)
 
 **Determine the base branch** for the compare link:
 1. If the user passed a base via a previous message or arguments, use it.
@@ -57,7 +58,7 @@ Construct a GitHub compare URL against the chosen base:
 https://github.com/<OWNER>/<REPO>/compare/<BASE>...<HEAD_BRANCH>
 ```
 
-Resolve `<OWNER>/<REPO>` from `gh repo view --json nameWithOwner -q .nameWithOwner`.
+Use the `nameWithOwner` you already fetched in Phase 1 for `<OWNER>/<REPO>` — do not call `gh repo view` again.
 
 Output a single short message containing:
 1. The base branch used (so the user can spot if it's wrong).

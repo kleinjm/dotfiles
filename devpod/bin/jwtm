@@ -39,10 +39,15 @@ stop_spring_for_branch() {
   local name="$1"
   [[ -z "$name" ]] && return 0
 
+  # NOTE: the trailing `|| true` is load-bearing. When spring servers are running
+  # but the last one inspected doesn't match "$name", the `while` loop's final
+  # command is a failed `[[ ]]` test, so the command substitution exits non-zero.
+  # Under `set -e` that aborts jwtm before it reaches `wtm cleanup`, leaving the
+  # worktree behind. `|| true` keeps the assignment's exit status at 0.
   local pids
   pids=$(pgrep -a -f 'spring (server|app)' 2>/dev/null | while read -r pid rest; do
     [[ "$(awk -F' \\| ' '{print $2}' <<< "$rest")" == "$name" ]] && echo "$pid"
-  done)
+  done) || true
   [[ -z "$pids" ]] && return 0
 
   info "Stopping spring server for '$name'..."

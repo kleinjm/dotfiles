@@ -19,5 +19,6 @@
   },
   "effortLevel": "medium",
   "theme": "dark-daltonized",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "tui": "fullscreen"
 }

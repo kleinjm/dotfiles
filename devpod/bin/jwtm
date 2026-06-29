@@ -301,9 +301,23 @@ cmd_cleanup() {
   local target
   target=$(parse_cleanup_branch "$@")
 
-  # --all: run wtm cleanup first (deletes worktree dirs), then close
-  # tmux windows whose worktree directories no longer exist
+  # --all: run wtm cleanup first (deletes worktree dirs), then close the
+  # tmux windows of worktrees this cleanup removed.
   if [[ "$target" == "__ALL__" ]]; then
+    # Snapshot the worktree directories that exist BEFORE cleanup. A window is
+    # only a close target if its branch matched a real worktree here that the
+    # cleanup then removed. Without this gate, the loop's "no directory exists"
+    # heuristic also matches unrelated windows whose names happen to have no
+    # worktree directory (e.g. "zsh"), and kills them too.
+    local pre_worktrees=""
+    if [[ -d "$WORKTREE_BASE" ]]; then
+      local d
+      for d in "$WORKTREE_BASE"/*/; do
+        [[ -d "$d" ]] || continue
+        pre_worktrees+="$(basename "$d")"$'\n'
+      done
+    fi
+
     "$WTM_BIN" cleanup "$@"
 
     if tmux has-session -t "$TARGET_SESSION" 2>/dev/null; then
@@ -315,14 +329,12 @@ cmd_cleanup() {
         [[ -z "$window_name" ]] && continue
         # Extract branch name from window name (strip :port suffix)
         local branch="${window_name%%:*}"
-        # Skip windows whose worktree directory still exists
+        # Only consider windows that mapped to a worktree existing before cleanup...
+        grep -qxF "$branch" <<< "$pre_worktrees" || continue
+        # ...and whose worktree directory this cleanup actually removed.
         [[ ! -d "${WORKTREE_BASE}/${branch}" ]] || continue
-        # Only close windows that look like worktree windows (skip e.g. "editor")
-        if [[ "$window_name" =~ ^[a-zA-Z0-9._-]+(:[0-9]+)?$ ]] && \
-           [[ "$window_name" != "editor" ]]; then
-          close_tmux_window "$window_name"
-          closed=$((closed + 1))
-        fi
+        close_tmux_window "$window_name"
+        closed=$((closed + 1))
       done <<< "$windows"
 
       if [[ "$closed" -gt 0 ]]; then

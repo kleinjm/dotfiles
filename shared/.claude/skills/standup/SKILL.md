@@ -1,11 +1,11 @@
 ---
 name: standup
-description: Generate a concise "Yesterday:" standup summary from your GitHub PRs and issues — what's in progress, needs review, and was completed in the recent window. Pulls items you authored or are assigned to, dedups linked/related items, and outputs a short bullet list. On Mondays the window reaches back to the start of Friday.
+description: Generate a concise "Yesterday:" standup summary from your GitHub PRs and issues — naming each piece of work and where it sits in the dev process (WIP, needs CR, deployed), with a Slack-hyperlinked PR for every item. Pulls items you authored or are assigned to, dedups linked/related items, and outputs a short bullet list. On Mondays the window reaches back to the start of Friday.
 user-invocable: true
 arguments: ""
 ---
 
-You're generating a standup-style recap of the user's recent GitHub activity (PRs and issues). The output is a short bullet list, always prefixed with `Yesterday:`.
+You're generating a standup-style recap of the user's recent GitHub activity (PRs and issues). The output is a short bullet list, always prefixed with `**Yesterday**:`. The audience is the user's team, who already have a sense of what they're working on — so each bullet names **the thing** and **where it is in the process**, not an explanation of what it does.
 
 ## PHASE 1: Determine the time window
 
@@ -43,54 +43,55 @@ For each PR, you may also need its merge/CR status. If a PR's state isn't clear 
 
 ## PHASE 3: Classify each item
 
-Bucket each item into one of:
+Bucket each item by where it sits in the dev process. This drives the emoji + label prefix on each bullet:
 
-- **In progress** — open PRs (especially drafts) or open issues you're actively working, updated in-window.
-- **Needs review / CR** — open non-draft PRs awaiting review, PRs with `reviewDecision` of `REVIEW_REQUIRED`, or anything you'd hand off. Mark these explicitly (e.g. trailing `— needs CR`).
-- **Completed** — PRs merged or issues closed within the window.
+- **WIP** → `:construction: WIP:` — work still in **development or draft**. Draft PRs, and open PRs/issues you're actively building. This covers anything not yet ready to ship — even if it's technically already up for a first review. (In the user's world, a drafted PR awaiting initial CR is still WIP.)
+- **Needs CR** → `:eyes: Needs CR:` — open, **non-draft** PRs that are finished and waiting on code review (e.g. `reviewDecision` of `REVIEW_REQUIRED`).
+- **Deployed** → `:ship: Deployed:` — PRs **merged** (or issues closed) within the window. Always say "Deployed", never "merged".
 
-You don't need to print the bucket names — the classification informs the phrasing of each bullet (e.g. completed items read as done, review items end with `— needs CR`).
+Use `gh pr view` (Phase 2 fallback) to resolve draft vs. ready vs. merged when the search JSON is ambiguous.
 
 ## PHASE 4: Dedup linked / related items
 
 Collapse items that refer to the same piece of work:
 
-- A PR and the issue it closes (look for `Closes #`, `Fixes #`, `Related to #` in the body) → one bullet.
-- Multiple PRs/issues on the same topic (same feature, same component, near-identical titles) → one bullet, mentioning the combined work.
-- Prefer the most representative item (usually the PR) as the canonical entry.
+- A PR and the issue it closes (look for `Closes #`, `Fixes #`, `Related to #` in the body) → one bullet, linking the PR.
+- Multiple PRs on the same topic (same feature, same component, near-identical titles) → one bullet with both PRs linked, joined by `, and ` (see Phase 5).
+- Prefer the PR over the issue as the thing to link.
 
 When in doubt, merge rather than duplicate — the list should read as distinct threads of work, not raw GitHub rows.
 
 ## PHASE 5: Write the list
 
-Output format — **always** start with the literal line `Yesterday:` followed by a blank line, then the bullets:
+Start with the literal line `**Yesterday**:`, then a blank line, then the bullets. Each bullet is:
 
 ```
-Yesterday:
-
-- <concise description of the work, with a brief explanation>
-- <next item> — needs CR
-- ...
+- <emoji> <label>: <link>
 ```
 
-Style rules (match the user's example):
-- One bullet per distinct thread of work.
-- Each bullet is a short phrase + brief explanation of what/why — not a title dump.
-- Plain, factual, first-person-implied voice. No marketing words ("comprehensive", "robust", "seamless").
-- Items needing review end with `— needs CR` (or similar short marker).
-- Completed work reads as finished ("Refactor of...", "Wiring up...").
-- No links, issue numbers, or repo names in the bullets unless they add clarity — keep it human-readable.
-- Keep the whole list tight: typically 3–6 bullets.
+where `<emoji> <label>` comes from Phase 3 (`:construction: WIP:`, `:eyes: Needs CR:`, `:ship: Deployed:`) and `<link>` is a **Slack hyperlink** to the PR.
 
-Reference example (the target shape):
+**Link syntax — use Slack's, not Markdown's.** Slack links are `<url|text>`, e.g. `<https://github.com/EscrowSafe/web/pull/4015|RPA product page>`. Do **not** emit `[text](url)`.
+
+Style rules:
+- **Name the thing, don't explain it.** The link text is a short noun phrase for the work — "Form 1099 redirect after signing", "Document-exchange upload content-type allowlist". The team already knows the context; don't describe what the change does or why.
+- **Every item gets a PR link.** If a thread has more than one PR, combine them in one bullet joined with `, and `:
+  `- :ship: Deployed: <url1|thing one>, and <url2|thing two>`
+- Group by status — typically WIP first, then Needs CR, then Deployed.
+- Plain and factual. No marketing words ("comprehensive", "robust", "seamless").
+- Keep it tight: typically 3–6 bullets.
+
+Reference example (the target shape — note the short names and Slack link syntax):
 
 ```
-Yesterday:
+**Yesterday**:
 
-- Small, quick improvement to fill in MFA text codes on Mac from iMessage
-- Refactor of our dev console methods to help with local testing & get rid of more mod tasks buyer/seller code
-- Rabbit hole on SSN input during 1099 QA - landed on a new SSN input component
-- Wiring up the 1099 form to new component + rejiggering fields to match Figma - needs CR
+- :construction: WIP: <https://github.com/EscrowSafe/web/pull/4001|Form 1099 redirect after signing>
+- :construction: WIP: <https://github.com/EscrowSafe/web/pull/4002|Document-exchange upload content-type allowlist>
+- :construction: WIP: <https://github.com/EscrowSafe/web/pull/4003|Seller Loan Information form fixes and polish>
+- :ship: Deployed: <https://github.com/EscrowSafe/web/pull/4010|Officer SOI review page navigation alignment>, and <https://github.com/EscrowSafe/web/pull/4011|unified signed-signature visuals across opening package review pages>
+- :ship: Deployed: <https://github.com/EscrowSafe/web/pull/4015|RPA product page>
+- :ship: Deployed: <https://github.com/EscrowSafe/web/pull/4020|Opening-package seed data>, and <https://github.com/EscrowSafe/web/pull/4021|ngrok in the devcontainer image>
 ```
 
-Output only the `Yesterday:` block — no preamble, no trailing commentary.
+Output only the `**Yesterday**:` block — no preamble, no trailing commentary.

@@ -5,7 +5,7 @@ user-invocable: true
 arguments: ""
 ---
 
-You're generating a standup-style recap of the user's recent GitHub activity (PRs and issues). The output is a short bullet list, always prefixed with `**Yesterday**:`. The audience is the user's team, who already have a sense of what they're working on — so each bullet names **the thing** and **where it is in the process**, not an explanation of what it does.
+You're generating a standup-style recap of the user's recent GitHub activity (PRs and issues). The output is a short bullet list, always prefixed with `*Yesterday*:`. The audience is the user's team, who already have a sense of what they're working on — so each bullet names **the thing** and **where it is in the process**, not an explanation of what it does.
 
 ## PHASE 1: Determine the time window
 
@@ -60,7 +60,7 @@ When in doubt, merge rather than duplicate — the list should read as distinct 
 
 ## PHASE 5: Write the list
 
-Start with the literal line `**Yesterday**:`, then the bullets on the very next line — **no blank line between the header and the first bullet**. Each bullet is:
+Start with the literal line `*Yesterday*:`, then the bullets on the very next line — **no blank line between the header and the first bullet**. Each bullet is:
 
 ```
 - <emoji> <label>: <link>
@@ -68,7 +68,9 @@ Start with the literal line `**Yesterday**:`, then the bullets on the very next 
 
 where `<emoji> <label>` comes from Phase 3 (`:construction: WIP:`, `:eyes: Needs CR:`, `:ship: Deployed:`) and `<link>` is a Markdown hyperlink to the PR.
 
-**Link syntax — use Markdown `[text](url)`.** The output is meant to be **pasted into the Slack composer**, which auto-converts standard Markdown (`**bold**`, `[text](url)`) into real formatting. Do **not** use Slack's `<url|text>` mrkdwn form — that only renders in messages sent via the API/bots/webhooks; pasted into the composer it fails to link and drops the first word of the label. For the same reason the header is `**Yesterday**` (Markdown bold), not `*Yesterday*` (which Markdown reads as italic).
+**Link syntax — use Markdown `[text](url)`.** The output is **pasted into the Slack composer**, which converts links on paste. Do **not** use Slack's `<url|text>` mrkdwn form — that only renders in messages sent via the API/bots/webhooks; pasted into the composer it fails to link and drops the first word of the label.
+
+**Header bold uses a single asterisk:** `*Yesterday*` (Slack-style bold), not `**Yesterday**`.
 
 Style rules:
 - **Name the thing, don't explain it.** The link text is a short noun phrase for the work — "Form 1099 redirect after signing", "Document-exchange upload content-type allowlist". The team already knows the context; don't describe what the change does or why.
@@ -81,7 +83,7 @@ Style rules:
 Reference example (the target shape — note the short names and Markdown link syntax):
 
 ```
-**Yesterday**:
+*Yesterday*:
 - :construction: WIP: [Form 1099 redirect after signing](https://github.com/EscrowSafe/web/pull/4001)
 - :construction: WIP: [Document-exchange upload content-type allowlist](https://github.com/EscrowSafe/web/pull/4002)
 - :construction: WIP: [Seller Loan Information form fixes and polish](https://github.com/EscrowSafe/web/pull/4003)
@@ -90,4 +92,4 @@ Reference example (the target shape — note the short names and Markdown link s
 - :ship: Deployed: [Opening-package seed data](https://github.com/EscrowSafe/web/pull/4020), and [ngrok in the devcontainer image](https://github.com/EscrowSafe/web/pull/4021)
 ```
 
-Output only the `**Yesterday**:` block — no preamble, no trailing commentary.
+Output only the `*Yesterday*:` block — no preamble, no trailing commentary.

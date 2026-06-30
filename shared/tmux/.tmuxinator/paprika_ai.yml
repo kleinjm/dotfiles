@@ -1,14 +1,14 @@
 name: paprika_ai
 root: <%= ENV["PROJECT_DIR"] %>/paprika_ai
-# needed for pane-base-index 1 config
-startup_pane: 1
+# focus the claude pane on startup (pane-base-index 1; claude is pane 2)
+startup_pane: 2
 
 windows:
   - editor:
-      layout: f4d4,272x62,0,0{80x62,0,0,65,191x62,81,0[191x50,81,0,68,191x11,81,51,71]}
+      # left column: short `rails s` pane (top) above claude (bottom); nvim fills the right.
+      # pane order below maps to the layout cells top-left, bottom-left, then right.
+      layout: db78,272x62,0,0{80x62,0,0[80x10,0,0,2,80x51,0,11,0],191x62,81,0,1}
       panes:
+        - rails s
         - claude
         - nvim .
-        - zsh
-  - server: rails s
-  - console: bundle exec rails c

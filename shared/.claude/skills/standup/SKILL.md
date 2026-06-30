@@ -9,47 +9,44 @@ You're generating a standup-style recap of the user's recent GitHub activity (PR
 
 ## PHASE 1: Determine the time window
 
-Today's date is available in context. Compute the lookback window:
+Today's date is available in context. Compute a `SINCE` date as a literal **ISO `YYYY-MM-DD`** string:
 
-- **Default (Tue–Fri, or any non-Monday):** look back **24 hours** — from the start of yesterday to now.
-- **If today is Monday:** look back to **the start of last Friday** (so the window covers Fri/Sat/Sun work).
+- **Default (Tue–Fri, or any non-Monday):** `SINCE` = yesterday's date.
+- **If today is Monday:** `SINCE` = last Friday's date (so the window covers Fri/Sat/Sun work).
 
-Translate this into a GitHub search date. GitHub search supports relative anchors:
-- Non-Monday: `created:>@today-2d` and `updated:>@today-2d` (the `-2d` gives a safe 24h+ margin).
-- Monday: `created:>@today-4d` and `updated:>@today-4d` (reaches back to Friday).
-
-Use your judgment on the exact day-offset based on today's actual date — the goal is "since yesterday" normally, "since Friday morning" on Mondays.
+> **Important:** GitHub search does **not** understand relative anchors like `@today-2d` — those error out. You must substitute a real ISO date (e.g. `2026-06-29`) into every query below. Compute it yourself from today's date in context.
 
 ## PHASE 2: Fetch the items
 
-Run these searches in parallel with `gh search`. Cover both **authored** and **assigned** items, across PRs and issues. Use `--json` for structured output.
+Run these searches in parallel with `gh search`, substituting the `SINCE` date you computed (shown here as `<SINCE>`). Use `--json` for structured output. Keep the **merged** bucket separate from the **open** bucket — merged PRs are date-filtered by *merge* date so stale-but-recently-touched PRs don't leak in.
 
 ```bash
-# Items I authored (PRs + issues), recently created or updated
-gh search prs --author "@me" --updated ">@today-2d" --json number,title,url,state,repository,isDraft,labels,body --limit 50
-gh search issues --author "@me" --updated ">@today-2d" --json number,title,url,state,repository,labels,body --limit 50
+# DEPLOYED — PRs I merged within the window (gh reports state "merged")
+gh search prs --author "@me" --merged --merged-at ">=<SINCE>" --json number,title,url,state,repository,labels,body --limit 50
 
-# Items assigned to me
-gh search prs --assignee "@me" --updated ">@today-2d" --json number,title,url,state,repository,isDraft,labels,body --limit 50
-gh search issues --assignee "@me" --updated ">@today-2d" --json number,title,url,state,repository,labels,body --limit 50
+# WIP / NEEDS CR — my open PRs touched in the window (isDraft distinguishes the two)
+gh search prs --author "@me" --state open --updated ">=<SINCE>" --json number,title,url,state,isDraft,repository,labels,body --limit 50
 
-# PRs where my review is requested (needs review surfacing)
-gh search prs --review-requested "@me" --state open --json number,title,url,repository,labels,body --limit 50
+# Issues I authored, touched in the window
+gh search issues --author "@me" --updated ">=<SINCE>" --json number,title,url,state,repository,labels,body --limit 50
+
+# Assigned to me (open work + merged), in case I'm not the author
+gh search prs --assignee "@me" --merged --merged-at ">=<SINCE>" --json number,title,url,state,repository,labels,body --limit 50
+gh search prs --assignee "@me" --state open --updated ">=<SINCE>" --json number,title,url,state,isDraft,repository,labels,body --limit 50
+gh search issues --assignee "@me" --updated ">=<SINCE>" --json number,title,url,state,repository,labels,body --limit 50
 ```
 
-Adjust the `>@today-Nd` offset per Phase 1 (use `-4d` on Mondays). If a search errors (e.g. auth), note it and continue with whatever succeeded.
-
-For each PR, you may also need its merge/CR status. If a PR's state isn't clear from the search JSON, fall back to `gh pr view <number> --repo <owner/repo> --json state,isDraft,reviewDecision,mergedAt`.
+If a search errors (e.g. auth), note it and continue with whatever succeeded. `gh search prs` reports merged PRs with `state: "merged"` (not `"closed"`), so you can classify directly off `state` + `isDraft`. If anything is ambiguous, fall back to `gh pr view <number> --repo <owner/repo> --json state,isDraft,reviewDecision,mergedAt`.
 
 ## PHASE 3: Classify each item
 
-Bucket each item by where it sits in the dev process. This drives the emoji + label prefix on each bullet:
+Bucket each item by where it sits in the dev process, mostly from `state` + `isDraft`. This drives the emoji + label prefix on each bullet:
 
-- **WIP** → `:construction: WIP:` — work still in **development or draft**. Draft PRs, and open PRs/issues you're actively building. This covers anything not yet ready to ship — even if it's technically already up for a first review. (In the user's world, a drafted PR awaiting initial CR is still WIP.)
-- **Needs CR** → `:eyes: Needs CR:` — open, **non-draft** PRs that are finished and waiting on code review (e.g. `reviewDecision` of `REVIEW_REQUIRED`).
-- **Deployed** → `:ship: Deployed:` — PRs **merged** (or issues closed) within the window. Always say "Deployed", never "merged".
+- **WIP** → `:construction: WIP:` — `state: open` **and** `isDraft: true`, plus open issues you're actively building. Anything not yet ready to ship — even if it's technically already up for a first review counts as WIP here. (In the user's world, a drafted PR awaiting initial CR is still WIP.)
+- **Needs CR** → `:eyes: Needs CR:` — `state: open` and `isDraft: false`: finished and waiting on code review.
+- **Deployed** → `:ship: Deployed:` — `state: merged` (or a closed issue) within the window. Always say "Deployed", never "merged".
 
-Use `gh pr view` (Phase 2 fallback) to resolve draft vs. ready vs. merged when the search JSON is ambiguous.
+Use `gh pr view` (Phase 2 fallback) to resolve anything ambiguous.
 
 ## PHASE 4: Dedup linked / related items
 
@@ -63,7 +60,7 @@ When in doubt, merge rather than duplicate — the list should read as distinct 
 
 ## PHASE 5: Write the list
 
-Start with the literal line `**Yesterday**:`, then a blank line, then the bullets. Each bullet is:
+Start with the literal line `**Yesterday**:`, then the bullets on the very next line — **no blank line between the header and the first bullet**. Each bullet is:
 
 ```
 - <emoji> <label>: <link>
@@ -85,7 +82,6 @@ Reference example (the target shape — note the short names and Markdown link s
 
 ```
 **Yesterday**:
-
 - :construction: WIP: [Form 1099 redirect after signing](https://github.com/EscrowSafe/web/pull/4001)
 - :construction: WIP: [Document-exchange upload content-type allowlist](https://github.com/EscrowSafe/web/pull/4002)
 - :construction: WIP: [Seller Loan Information form fixes and polish](https://github.com/EscrowSafe/web/pull/4003)

@@ -1,5 +1,7 @@
 # Dotfiles
 
+[![CI](https://github.com/kleinjm/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/kleinjm/dotfiles/actions/workflows/ci.yml)
+
 Personal dotfiles for Mac and Linux development environments. Manages vim, tmux, zsh, git, and various development tool configurations.
 
 ## Quick Start

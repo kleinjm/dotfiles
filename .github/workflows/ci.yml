@@ -10,14 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ludeeus/action-shellcheck@master
-        with:
-          # Fail only on genuine bugs for now. There are pre-existing
-          # warnings (e.g. `set -o pipefail` under #!/bin/sh) worth a
-          # separate cleanup pass; tighten to `warning` once addressed.
-          severity: error
-          # Skip vendored/generated trees that aren't ours to lint.
-          ignore_paths: shared/vim UltiSnips node_modules shared/.claude
+      - name: Install shellcheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+      - name: Lint shell scripts
+        # Only lint the *.sh bash/sh scripts. The repo's many .zsh/zshrc/
+        # zprofile files are zsh, which shellcheck doesn't support, and the
+        # shared/.claude tree is vendored/generated. Fail only on genuine
+        # bugs for now (severity error); there are pre-existing warnings
+        # (e.g. `set -o pipefail` under #!/bin/sh) worth a separate pass.
+        run: |
+          find . -type f -name '*.sh' \
+            -not -path './shared/vim/*' \
+            -not -path './shared/.claude/*' \
+            -not -path './UltiSnips/*' \
+            -not -path './node_modules/*' \
+            -print0 | xargs -0 shellcheck -S error --format=gcc
 
   tmuxinator:
     runs-on: ubuntu-latest

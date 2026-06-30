@@ -26,9 +26,23 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
-      - name: Validate tmuxinator configs parse as YAML
+      - name: Install tmux and tmuxinator
         run: |
+          sudo apt-get update && sudo apt-get install -y tmux
+          gem install tmuxinator
+      - name: Validate tmuxinator configs render
+        # `debug` evaluates the ERB and builds the project without starting a
+        # tmux server, so it catches ERB errors, malformed YAML, missing
+        # windows, and other structural problems — stricter than a YAML parse.
+        env:
+          PROJECT_DIR: /tmp/project
+        run: |
+          fail=0
           for f in shared/tmux/.tmuxinator/*.yml; do
             echo "checking $f"
-            ruby -ryaml -e "YAML.load_file('$f')" || exit 1
+            if ! tmuxinator debug -p "$f" dummy >/dev/null; then
+              echo "::error file=$f::tmuxinator failed to render $f"
+              fail=1
+            fi
           done
+          exit $fail

@@ -1,11 +1,11 @@
 ---
 name: standup
-description: Generate a concise "Yesterday:" standup summary from your GitHub PRs and issues — naming each piece of work and where it sits in the dev process (WIP, needs CR, deployed), with a Slack-hyperlinked PR for every item. Pulls items you authored or are assigned to, dedups linked/related items, and outputs a short bullet list. On Mondays the window reaches back to the start of Friday.
+description: Generate a concise "Yesterday:" standup summary from your GitHub PRs and issues — naming each piece of work and where it sits in the dev process (WIP, needs CR, deployed), with a hyperlinked PR for every item. Pulls items you authored or are assigned to, dedups linked/related items, and outputs a short bullet list. On Mondays the window reaches back to the start of Friday.
 user-invocable: true
 arguments: ""
 ---
 
-You're generating a standup-style recap of the user's recent GitHub activity (PRs and issues). The output is a short bullet list, always prefixed with `*Yesterday*:`. The audience is the user's team, who already have a sense of what they're working on — so each bullet names **the thing** and **where it is in the process**, not an explanation of what it does.
+You're generating a standup-style recap of the user's recent GitHub activity (PRs and issues). The output is a short bullet list, always prefixed with `**Yesterday**:`. The audience is the user's team, who already have a sense of what they're working on — so each bullet names **the thing** and **where it is in the process**, not an explanation of what it does.
 
 ## PHASE 1: Determine the time window
 
@@ -63,35 +63,35 @@ When in doubt, merge rather than duplicate — the list should read as distinct 
 
 ## PHASE 5: Write the list
 
-Start with the literal line `*Yesterday*:` (single asterisks — that's Slack bold, not a typo for Markdown `**`), then a blank line, then the bullets. Each bullet is:
+Start with the literal line `**Yesterday**:`, then a blank line, then the bullets. Each bullet is:
 
 ```
 - <emoji> <label>: <link>
 ```
 
-where `<emoji> <label>` comes from Phase 3 (`:construction: WIP:`, `:eyes: Needs CR:`, `:ship: Deployed:`) and `<link>` is a **Slack hyperlink** to the PR.
+where `<emoji> <label>` comes from Phase 3 (`:construction: WIP:`, `:eyes: Needs CR:`, `:ship: Deployed:`) and `<link>` is a Markdown hyperlink to the PR.
 
-**Link syntax — use Slack's, not Markdown's.** Slack links are `<url|text>`, e.g. `<https://github.com/EscrowSafe/web/pull/4015|RPA product page>`. Do **not** emit `[text](url)`.
+**Link syntax — use Markdown `[text](url)`.** The output is meant to be **pasted into the Slack composer**, which auto-converts standard Markdown (`**bold**`, `[text](url)`) into real formatting. Do **not** use Slack's `<url|text>` mrkdwn form — that only renders in messages sent via the API/bots/webhooks; pasted into the composer it fails to link and drops the first word of the label. For the same reason the header is `**Yesterday**` (Markdown bold), not `*Yesterday*` (which Markdown reads as italic).
 
 Style rules:
 - **Name the thing, don't explain it.** The link text is a short noun phrase for the work — "Form 1099 redirect after signing", "Document-exchange upload content-type allowlist". The team already knows the context; don't describe what the change does or why.
 - **Every item gets a PR link.** If a thread has more than one PR, combine them in one bullet joined with `, and `:
-  `- :ship: Deployed: <url1|thing one>, and <url2|thing two>`
+  `- :ship: Deployed: [thing one](url1), and [thing two](url2)`
 - Group by status — typically WIP first, then Needs CR, then Deployed.
 - Plain and factual. No marketing words ("comprehensive", "robust", "seamless").
 - Keep it tight: typically 3–6 bullets.
 
-Reference example (the target shape — note the short names and Slack link syntax):
+Reference example (the target shape — note the short names and Markdown link syntax):
 
 ```
-*Yesterday*:
+**Yesterday**:
 
-- :construction: WIP: <https://github.com/EscrowSafe/web/pull/4001|Form 1099 redirect after signing>
-- :construction: WIP: <https://github.com/EscrowSafe/web/pull/4002|Document-exchange upload content-type allowlist>
-- :construction: WIP: <https://github.com/EscrowSafe/web/pull/4003|Seller Loan Information form fixes and polish>
-- :ship: Deployed: <https://github.com/EscrowSafe/web/pull/4010|Officer SOI review page navigation alignment>, and <https://github.com/EscrowSafe/web/pull/4011|unified signed-signature visuals across opening package review pages>
-- :ship: Deployed: <https://github.com/EscrowSafe/web/pull/4015|RPA product page>
-- :ship: Deployed: <https://github.com/EscrowSafe/web/pull/4020|Opening-package seed data>, and <https://github.com/EscrowSafe/web/pull/4021|ngrok in the devcontainer image>
+- :construction: WIP: [Form 1099 redirect after signing](https://github.com/EscrowSafe/web/pull/4001)
+- :construction: WIP: [Document-exchange upload content-type allowlist](https://github.com/EscrowSafe/web/pull/4002)
+- :construction: WIP: [Seller Loan Information form fixes and polish](https://github.com/EscrowSafe/web/pull/4003)
+- :ship: Deployed: [Officer SOI review page navigation alignment](https://github.com/EscrowSafe/web/pull/4010), and [unified signed-signature visuals across opening package review pages](https://github.com/EscrowSafe/web/pull/4011)
+- :ship: Deployed: [RPA product page](https://github.com/EscrowSafe/web/pull/4015)
+- :ship: Deployed: [Opening-package seed data](https://github.com/EscrowSafe/web/pull/4020), and [ngrok in the devcontainer image](https://github.com/EscrowSafe/web/pull/4021)
 ```
 
-Output only the `*Yesterday*:` block — no preamble, no trailing commentary.
+Output only the `**Yesterday**:` block — no preamble, no trailing commentary.

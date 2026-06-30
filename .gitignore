@@ -1,8 +1,9 @@
 node_modules
 tmux-client-*.log
 shared/vim/.vim/.netrwhist
-vim/.vim/pythonx/__pycache__
-tmux/.tmux/plugins
+shared/vim/.vim/pythonx/__pycache__
+shared/vim/.vim/pythonx/*.pyc
+shared/tmux/.tmux/plugins
 tmp
 
 # Ignore locally installed vundle plugins

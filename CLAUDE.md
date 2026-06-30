@@ -4,14 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-Personal dotfiles repository for Mac and Linux development environments. Manages configuration files for vim, tmux, zsh, git, and various development tools through symlink-based setup scripts.
+Personal dotfiles repository for Mac development environments. Manages configuration files for vim, tmux, zsh, git, and various development tools through symlink-based setup scripts.
 
 ## Architecture
 
 ### Directory Structure
 
 - `mac/` - Mac-specific configurations and setup scripts
-- `linux/` - Linux-specific configurations and setup scripts
+- `devpod/` - Devcontainer/devpod environment configurations and scripts
 - `shared/` - Cross-platform configurations (vim, zsh, tmux, git, etc.)
   - `shared/vim/` - Vim configuration and plugins
   - `shared/zsh/` - Zsh shell configuration
@@ -41,19 +41,6 @@ This runs:
 1. `mac/scripts/dependencies.sh` - Installs Homebrew packages and system dependencies
 2. `mac/scripts/symlink_to_dotfiles_repo.sh` - Creates symlinks from home directory to dotfiles
 3. `mac/scripts/restore_settings.sh` - Applies Mac system settings
-
-### Linux Setup
-
-```bash
-# Main setup
-linux/make.sh
-```
-
-This runs:
-1. `linux/scripts/dependencies.sh` - Installs system packages and dependencies
-2. `linux/scripts/restore_settings.sh` - Applies Linux settings
-3. `linux/scripts/symlink_to_dotfiles_repo.sh` - Creates symlinks
-4. `linux/scripts/fontconfig.sh` - Configures fonts
 
 ### Manual Font Installation (Mac)
 

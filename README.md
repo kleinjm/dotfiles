@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/kleinjm/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/kleinjm/dotfiles/actions/workflows/ci.yml)
 
-Personal dotfiles for Mac and Linux development environments. Manages vim, tmux, zsh, git, and various development tool configurations.
+Personal dotfiles for Mac development environments. Manages vim, tmux, zsh, git, and various development tool configurations.
 
 ## Quick Start
 
@@ -16,16 +16,10 @@ Personal dotfiles for Mac and Linux development environments. Manages vim, tmux,
 mac/make.sh
 ```
 
-### Linux
-```bash
-# Run main setup script
-linux/make.sh
-```
-
 ## Directory Structure
 
 - `mac/` - Mac-specific configurations and scripts
-- `linux/` - Linux-specific configurations and scripts
+- `devpod/` - Devcontainer/devpod environment configurations and scripts
 - `shared/` - Cross-platform configurations (vim, zsh, tmux, git)
 
 ## Setup Details
@@ -36,7 +30,7 @@ linux/make.sh
 * Run `mac/make.sh` which executes:
   1. `mac/scripts/dependencies.sh` - Install Homebrew packages
   2. `mac/scripts/symlink_to_dotfiles_repo.sh` - Create symlinks to dotfiles
-  3. Linux settings scripts (for cross-platform settings)
+  3. `mac/scripts/restore_settings.sh` - Apply Mac system settings
 * This repo assumes the home dir is `jklein`. If it's not, symlink it with:
   ```sh
   cd /Users
@@ -51,8 +45,7 @@ linux/make.sh
 * Restart vim and you should see devicons
 
 ### Syncing Settings
-* To save local settings to the repo: `linux/scripts/backup_settings.sh`
-* To apply repo settings to the local machine: `linux/scripts/restore_settings.sh` (part of `make` script)
+* To apply repo settings to the local machine: `mac/scripts/restore_settings.sh` (part of `make` script)
 
 ### Sequel Pro
 - Dark query scheme found in `mac/config/sequel-pro/`
@@ -139,25 +132,3 @@ Sensitive files are automatically excluded via `.gitignore`:
 
 ## Troubleshooting
 - If you're getting a message about `__init_nvm` not being defined, nvm likely added something to the .zshrc. Check the bottom of the file.
-
-# Linux
-## Setup
-Run `linux/make.sh` which executes:
-1. `linux/scripts/dependencies.sh` - Install system packages
-2. `linux/scripts/restore_settings.sh` - Apply Linux settings
-3. `linux/scripts/symlink_to_dotfiles_repo.sh` - Create symlinks
-4. `linux/scripts/fontconfig.sh` - Configure fonts
-
-### Apt-get
-- Packages and sources are backed up as part of the dependency scripts
-
-### Apple Magic Mouse
-- The apt_get.sh dependency script installs a tool called Ukuu that can be used to manage the kernel version
-- Type `uname -a` to find out your version. It needs to be >= 4.18.0. See https://github.com/rohitpid/Linux-Magic-Trackpad-2-Driver#installation-with-dkms
-- Start Ukuu and select kernel 4.20.0 (tested with this one and it works)
-- Restart
-- Run `linux/scripts/setup_magic_mouse.sh`
-
-### Albert
-- Albert and CopyQ will get installed as part of dependencies. The linux restore settings script will provide the custom keyboard shortcut to open the paste buffer.
-- The only thing you need to do is make sure the python scripts, specifically copyq, is enabled in alfred preferences. Settings -> Extensions -> Python -> CopyQ

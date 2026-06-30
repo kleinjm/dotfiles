@@ -180,3 +180,4 @@ source "$HOME/.dotfiles/devpod/zellij_start_commands.zsh"
 # Aliases and functions
 source "$HOME/.dotfiles/devpod/aliases.zsh"
 source "$HOME/.dotfiles/devpod/functions.zsh"
+source "$HOME/.dotfiles/shared/zsh/functions.zsh"

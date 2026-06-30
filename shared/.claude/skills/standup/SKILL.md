@@ -5,7 +5,7 @@ user-invocable: true
 arguments: ""
 ---
 
-You're generating a standup-style recap of the user's recent GitHub activity (PRs and issues). The output is a short bullet list, always prefixed with `**Yesterday**:`. The audience is the user's team, who already have a sense of what they're working on — so each bullet names **the thing** and **where it is in the process**, not an explanation of what it does.
+You're generating a standup-style recap of the user's recent GitHub activity (PRs and issues). The output is a short bullet list, always prefixed with `*Yesterday*:`. The audience is the user's team, who already have a sense of what they're working on — so each bullet names **the thing** and **where it is in the process**, not an explanation of what it does.
 
 ## PHASE 1: Determine the time window
 
@@ -63,7 +63,7 @@ When in doubt, merge rather than duplicate — the list should read as distinct 
 
 ## PHASE 5: Write the list
 
-Start with the literal line `**Yesterday**:`, then a blank line, then the bullets. Each bullet is:
+Start with the literal line `*Yesterday*:` (single asterisks — that's Slack bold, not a typo for Markdown `**`), then a blank line, then the bullets. Each bullet is:
 
 ```
 - <emoji> <label>: <link>
@@ -84,7 +84,7 @@ Style rules:
 Reference example (the target shape — note the short names and Slack link syntax):
 
 ```
-**Yesterday**:
+*Yesterday*:
 
 - :construction: WIP: <https://github.com/EscrowSafe/web/pull/4001|Form 1099 redirect after signing>
 - :construction: WIP: <https://github.com/EscrowSafe/web/pull/4002|Document-exchange upload content-type allowlist>
@@ -94,4 +94,4 @@ Reference example (the target shape — note the short names and Slack link synt
 - :ship: Deployed: <https://github.com/EscrowSafe/web/pull/4020|Opening-package seed data>, and <https://github.com/EscrowSafe/web/pull/4021|ngrok in the devcontainer image>
 ```
 
-Output only the `**Yesterday**:` block — no preamble, no trailing commentary.
+Output only the `*Yesterday*:` block — no preamble, no trailing commentary.

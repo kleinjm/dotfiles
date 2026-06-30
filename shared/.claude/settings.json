@@ -17,8 +17,8 @@
       }
     }
   },
-  "effortLevel": "medium",
+  "effortLevel": "low",
+  "tui": "fullscreen",
   "theme": "dark-daltonized",
-  "skipAutoPermissionPrompt": true,
-  "tui": "fullscreen"
+  "skipAutoPermissionPrompt": true
 }

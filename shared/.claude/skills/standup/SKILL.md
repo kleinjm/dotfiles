@@ -53,10 +53,9 @@ Use `gh pr view` (Phase 2 fallback) to resolve anything ambiguous.
 Collapse items that refer to the same piece of work:
 
 - A PR and the issue it closes (look for `Closes #`, `Fixes #`, `Related to #` in the body) → one bullet, linking the PR.
-- Multiple PRs on the same topic (same feature, same component, near-identical titles) → one bullet with both PRs linked, joined by `, and ` (see Phase 5).
 - Prefer the PR over the issue as the thing to link.
 
-When in doubt, merge rather than duplicate — the list should read as distinct threads of work, not raw GitHub rows.
+When in doubt, collapse a PR+issue pair rather than duplicate it. But **every PR gets its own bullet** — do not combine multiple PRs into a single bullet, even when they're on the same topic.
 
 ## PHASE 5: Write the list
 
@@ -74,8 +73,7 @@ where `<emoji> <label>` comes from Phase 3 (`:construction: WIP:`, `:eyes: Needs
 
 Style rules:
 - **Name the thing, don't explain it.** The link text is a short noun phrase for the work — "Form 1099 redirect after signing", "Document-exchange upload content-type allowlist". The team already knows the context; don't describe what the change does or why.
-- **Every item gets a PR link.** If a thread has more than one PR, combine them in one bullet joined with `, and `:
-  `- :ship: Deployed: [thing one](url1), and [thing two](url2)`
+- **One PR per bullet.** Every PR gets its own bullet with its own link — never combine multiple PRs into a single bullet, even when they share a status or topic.
 - Group by status — typically WIP first, then Needs CR, then Deployed.
 - Plain and factual. No marketing words ("comprehensive", "robust", "seamless").
 - Keep it tight: typically 3–6 bullets.
@@ -87,9 +85,11 @@ Reference example (the target shape — note the short names and Markdown link s
 - :construction: WIP: [Form 1099 redirect after signing](https://github.com/EscrowSafe/web/pull/4001)
 - :construction: WIP: [Document-exchange upload content-type allowlist](https://github.com/EscrowSafe/web/pull/4002)
 - :construction: WIP: [Seller Loan Information form fixes and polish](https://github.com/EscrowSafe/web/pull/4003)
-- :ship: Deployed: [Officer SOI review page navigation alignment](https://github.com/EscrowSafe/web/pull/4010), and [unified signed-signature visuals across opening package review pages](https://github.com/EscrowSafe/web/pull/4011)
+- :ship: Deployed: [Officer SOI review page navigation alignment](https://github.com/EscrowSafe/web/pull/4010)
+- :ship: Deployed: [unified signed-signature visuals across opening package review pages](https://github.com/EscrowSafe/web/pull/4011)
 - :ship: Deployed: [RPA product page](https://github.com/EscrowSafe/web/pull/4015)
-- :ship: Deployed: [Opening-package seed data](https://github.com/EscrowSafe/web/pull/4020), and [ngrok in the devcontainer image](https://github.com/EscrowSafe/web/pull/4021)
+- :ship: Deployed: [Opening-package seed data](https://github.com/EscrowSafe/web/pull/4020)
+- :ship: Deployed: [ngrok in the devcontainer image](https://github.com/EscrowSafe/web/pull/4021)
 
 *Today*:
 ```

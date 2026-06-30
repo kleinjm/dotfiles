@@ -2,6 +2,9 @@
 # (claude -p buffers all output until it finishes, so without this the
 # terminal just sits blank).
 standup() {
+  # Suppress zsh's "[2] 27041" job-control notification for the background
+  # job below. local_options reverts this when the function returns.
+  setopt local_options no_monitor
   local tmp rc
   tmp=$(mktemp)
   claude -p "/standup" >"$tmp" 2>&1 &

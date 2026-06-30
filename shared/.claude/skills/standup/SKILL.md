@@ -90,6 +90,8 @@ Reference example (the target shape — note the short names and Markdown link s
 - :ship: Deployed: [Officer SOI review page navigation alignment](https://github.com/EscrowSafe/web/pull/4010), and [unified signed-signature visuals across opening package review pages](https://github.com/EscrowSafe/web/pull/4011)
 - :ship: Deployed: [RPA product page](https://github.com/EscrowSafe/web/pull/4015)
 - :ship: Deployed: [Opening-package seed data](https://github.com/EscrowSafe/web/pull/4020), and [ngrok in the devcontainer image](https://github.com/EscrowSafe/web/pull/4021)
+
+*Today*:
 ```
 
-Output only the `*Yesterday*:` block — no preamble, no trailing commentary.
+After the bullets, emit a blank line followed by the literal line `*Today*:` (nothing after it) — the user fills in today's plan by hand. Output only the `*Yesterday*:` block plus that trailing `*Today*:` line — no preamble, no other commentary.

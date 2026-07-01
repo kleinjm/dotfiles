@@ -1,6 +1,6 @@
 ---
 name: draft-pr
-description: Create a draft PR linked to one or more GitHub issues. Accepts issue numbers (#123) or full URLs as arguments. If no arguments provided, asks user whether to link to a task.
+description: Create a draft PR linked to one or more GitHub issues. Accepts issue numbers (#123) or full URLs as arguments. If no arguments provided, infers the issue we've been working on from the session context or .claude/context.md, then confirms it.
 user-invocable: true
 arguments: "[issue_refs...]"
 ---
@@ -24,9 +24,12 @@ Examples:
 - `/draft-pr relates #123 #456` → `Related to #123`, `Related to #456`
 - `/draft-pr relates https://github.com/EscrowSafe/web/issues/2485` → `Related to #2485`
 
-**If NO arguments are provided:**
-- Ask the user: "Should this draft PR be linked to a task? If so, provide the issue number(s) or URL(s). Otherwise I'll create it without issue links."
-- Wait for user response before proceeding.
+**If NO arguments are provided, infer the issue we've been working on before asking:**
+
+1. **Check the current session/conversation context first.** If an issue link or number was shared at the start of the session or discussed while working, use that issue (default link type `Closes`).
+2. **Otherwise, read `.claude/context.md`** (from the current repo root; also check `.claude/context.md` relative to the working directory). Look for a GitHub issue reference — a `#123` number, a `https://github.com/OWNER/REPO/issues/123` URL, or an "Issue"/"Task"/"Linked issue" field. If found, use that issue.
+3. **Confirm the inferred issue with the user rather than silently assuming it**, e.g.: "No issue provided — linking this PR to #123 (from .claude/context.md / our session). Want me to use that, a different one, or none?" Proceed once confirmed. If the user is clearly expecting you to just go (e.g. they said "just draft it"), skip the confirmation and use the inferred issue.
+4. **If no issue can be inferred** from either source, ask: "Should this draft PR be linked to a task? If so, provide the issue number(s) or URL(s). Otherwise I'll create it without issue links." Wait for the user's response before proceeding.
 
 Store the parsed issues as a list of `{owner, repo, number}` objects and the resolved link type (`"Closes"` or `"Related to"`) for later use.
 

@@ -1,6 +1,6 @@
 ---
 name: standup
-description: Generate a concise "Yesterday:" standup summary from your GitHub PRs and issues — naming each piece of work and where it sits in the dev process (WIP, needs CR, deployed), with a hyperlinked PR for every item. Pulls items you authored or are assigned to, dedups linked/related items, and outputs a short bullet list. On Mondays the window reaches back to the start of Friday.
+description: Generate a concise "Yesterday:" standup summary from your GitHub PRs and issues — naming each piece of work and where it sits in the dev process (WIP, needs CR, ready to deploy, deployed), with a hyperlinked PR for every item. Pulls items you authored or are assigned to, dedups linked/related items, and outputs a short bullet list. On Mondays the window reaches back to the start of Friday.
 user-invocable: true
 arguments: ""
 ---
@@ -38,12 +38,15 @@ gh search issues --assignee "@me" --updated ">=<SINCE>" --json number,title,url,
 
 If a search errors (e.g. auth), note it and continue with whatever succeeded. `gh search prs` reports merged PRs with `state: "merged"` (not `"closed"`), so you can classify directly off `state` + `isDraft`. If anything is ambiguous, fall back to `gh pr view <number> --repo <owner/repo> --json state,isDraft,reviewDecision,mergedAt`.
 
+**Detecting ready-to-merge PRs requires an extra step.** `gh search prs` has no `reviewDecision` field, so you can't tell an approved PR from one still awaiting review off the search results alone. For **each open, non-draft PR** the search returns (the Needs-CR candidates), run `gh pr view <number> --repo <owner/repo> --json reviewDecision,mergeStateStatus` to fetch its review decision. Do these lookups in parallel. A PR with `reviewDecision: "APPROVED"` is **ready to deploy**, not merely awaiting CR.
+
 ## PHASE 3: Classify each item
 
 Bucket each item by where it sits in the dev process, mostly from `state` + `isDraft`. This drives the emoji + label prefix on each bullet:
 
 - **WIP** → `:construction: WIP:` — `state: open` **and** `isDraft: true`, plus open issues you're actively building. Anything not yet ready to ship — even if it's technically already up for a first review counts as WIP here. (In the user's world, a drafted PR awaiting initial CR is still WIP.)
-- **Needs CR** → `:eyes: Needs CR:` — `state: open` and `isDraft: false`: finished and waiting on code review.
+- **Needs CR** → `:eyes: Needs CR:` — `state: open` and `isDraft: false` and **not yet approved** (`reviewDecision` is `REVIEW_REQUIRED`, `CHANGES_REQUESTED`, empty, or unknown): finished and waiting on code review.
+- **Ready to Deploy** → `:merge: Ready to Deploy:` — `state: open` and `isDraft: false` and `reviewDecision: "APPROVED"`: reviewed and cleared to merge, just not merged yet.
 - **Deployed** → `:ship: Deployed:` — `state: merged` (or a closed issue) within the window. Always say "Deployed", never "merged".
 
 Use `gh pr view` (Phase 2 fallback) to resolve anything ambiguous.
@@ -65,7 +68,7 @@ Start with the literal line `*Yesterday*:`, then the bullets on the very next li
 - <emoji> <label>: <link>
 ```
 
-where `<emoji> <label>` comes from Phase 3 (`:construction: WIP:`, `:eyes: Needs CR:`, `:ship: Deployed:`) and `<link>` is a Markdown hyperlink to the PR.
+where `<emoji> <label>` comes from Phase 3 (`:construction: WIP:`, `:eyes: Needs CR:`, `:merge: Ready to Deploy:`, `:ship: Deployed:`) and `<link>` is a Markdown hyperlink to the PR.
 
 **Link syntax — use Markdown `[text](url)`.** The output is **pasted into the Slack composer**, which converts links on paste. Do **not** use Slack's `<url|text>` mrkdwn form — that only renders in messages sent via the API/bots/webhooks; pasted into the composer it fails to link and drops the first word of the label.
 
@@ -74,7 +77,7 @@ where `<emoji> <label>` comes from Phase 3 (`:construction: WIP:`, `:eyes: Needs
 Style rules:
 - **Name the thing, don't explain it.** The link text is a short noun phrase for the work — "Form 1099 redirect after signing", "Document-exchange upload content-type allowlist". The team already knows the context; don't describe what the change does or why.
 - **One PR per bullet.** Every PR gets its own bullet with its own link — never combine multiple PRs into a single bullet, even when they share a status or topic.
-- Group by status — typically WIP first, then Needs CR, then Deployed.
+- Group by status — typically WIP first, then Needs CR, then Ready to Deploy, then Deployed.
 - Plain and factual. No marketing words ("comprehensive", "robust", "seamless").
 - Keep it tight: typically 3–6 bullets.
 
@@ -85,6 +88,8 @@ Reference example (the target shape — note the short names and Markdown link s
 - :construction: WIP: [Form 1099 redirect after signing](https://github.com/EscrowSafe/web/pull/4001)
 - :construction: WIP: [Document-exchange upload content-type allowlist](https://github.com/EscrowSafe/web/pull/4002)
 - :construction: WIP: [Seller Loan Information form fixes and polish](https://github.com/EscrowSafe/web/pull/4003)
+- :eyes: Needs CR: [Document-exchange presenter extraction](https://github.com/EscrowSafe/web/pull/4008)
+- :merge: Ready to Deploy: [Officer index on TableComponent](https://github.com/EscrowSafe/web/pull/4009)
 - :ship: Deployed: [Officer SOI review page navigation alignment](https://github.com/EscrowSafe/web/pull/4010)
 - :ship: Deployed: [unified signed-signature visuals across opening package review pages](https://github.com/EscrowSafe/web/pull/4011)
 - :ship: Deployed: [RPA product page](https://github.com/EscrowSafe/web/pull/4015)

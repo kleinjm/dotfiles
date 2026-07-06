@@ -1,6 +1,6 @@
 ---
 name: create-task-from-slack
-description: Create a Todo task on the EscrowSafe "Web" GitHub project (org project #1) from a Slack message link. Reads the linked Slack message (and its thread) via the Slack MCP, drafts a title and body, adds a draft item to the project with status Todo, then replies in the source Slack thread with a link to the task. Accepts a Slack message/permalink URL as the argument.
+description: Create a Todo task on the EscrowSafe "Web" GitHub project (org project #1) from a Slack message link. Reads the linked Slack message (and its thread) via the Slack MCP, drafts a title and body, opens a GitHub issue in EscrowSafe/web added to the project with status Todo, then replies in the source Slack thread with a markdown hyperlink to the issue. Accepts a Slack message/permalink URL as the argument.
 user-invocable: true
 arguments: "<slack_message_url>"
 ---
@@ -53,10 +53,13 @@ Keep it factual and technical — no marketing language (per repo communication 
 
 Show the user the drafted title and body and confirm before creating, unless they said to just create it.
 
-## PHASE 3: Create the project item with status Todo
+## PHASE 3: Create an open issue and add it to the project with status Todo
 
-Project constants (EscrowSafe org project #1, titled "Web"):
+Create a **real, open GitHub issue** (not a draft item) so the task has its own linkable URL, then add it to the project and set its status to Todo.
 
+Constants (EscrowSafe org project #1, titled "Web"):
+
+- Default issue repo: `EscrowSafe/web`
 - Project ID: `PVT_kwDOCbpDA84Ag05e`
 - Project number / owner: `1` / `EscrowSafe`
 - Status field ID: `PVTSSF_lADOCbpDA84Ag05ezgV6J9w`
@@ -65,24 +68,25 @@ Project constants (EscrowSafe org project #1, titled "Web"):
 > These IDs are stable but if any `gh` call fails with a not-found/field error, re-discover them:
 > `gh project field-list 1 --owner EscrowSafe --format json` and `gh project view 1 --owner EscrowSafe --format json`.
 
-Create a **draft item**, then set its status. `gh` must be authenticated with `project` scope (it is, via the `kleinjm` account).
+`gh` must be authenticated with `repo` + `project` scope (it is, via the `kleinjm` account). Write the body to a temp file in the scratchpad and pass with `--body-file` to avoid shell-quoting issues with multi-line/markdown content.
 
 ```bash
-# 1. Create the draft item (body via --body). Capture the returned item id.
-ITEM_ID=$(gh project item-create 1 --owner EscrowSafe \
+# 1. Create the open issue. Capture its URL.
+ISSUE_URL=$(gh issue create --repo EscrowSafe/web \
   --title "<TITLE>" \
-  --body "<BODY>" \
+  --body-file <scratchpad-body-file>)
+
+# 2. Add the issue to the project. Capture the project item id.
+ITEM_ID=$(gh project item-add 1 --owner EscrowSafe --url "$ISSUE_URL" \
   --format json --jq '.id')
 
-# 2. Set its Status to Todo
+# 3. Set its Status to Todo
 gh project item-edit \
   --project-id PVT_kwDOCbpDA84Ag05e \
   --id "$ITEM_ID" \
   --field-id PVTSSF_lADOCbpDA84Ag05ezgV6J9w \
   --single-select-option-id f75ad846
 ```
-
-If the body is long or multi-line, write it to a temp file in the scratchpad and pass with `--body "$(cat <file>)"` to avoid shell-quoting issues.
 
 ## PHASE 4: Post the task link back to Slack
 
@@ -93,15 +97,16 @@ Load the send tool: `ToolSearch: select:mcp__claude_ai_Slack__slack_send_message
 - `mcp__claude_ai_Slack__slack_send_message` with:
   - `channel_id` — the channel from PHASE 0
   - `thread_ts` — the **parent** message's `ts` (the `message_ts` you parsed; if the link was itself a threaded reply, use the thread's parent `ts`)
-  - `text` — e.g. `📋 Task created: <task-url>` (a short line plus the project item URL)
+  - `message` — a **markdown hyperlink** whose text is the task title and whose target is the issue URL, and nothing else:
+    `[<TITLE>](<ISSUE_URL>)`
 
-Keep the reply to one short line with the URL. If posting fails (e.g. missing write scope), report that to the user but still return the task URL — task creation already succeeded.
+Keep the reply to exactly that one hyperlink — no emoji, no "Task created" prefix, no board link. If posting fails (e.g. missing write scope), report that to the user but still return the issue URL — the issue already exists.
 
 ## PHASE 5: Report
 
-Return the project item's URL (from the `item-create` JSON, field `url`) so the user can click through, confirm the status is set to Todo, and confirm the Slack reply was posted. If `item-create` didn't return a URL, link the project board: https://github.com/orgs/EscrowSafe/projects/1
+Return the issue URL so the user can click through, confirm the issue is open and its project status is Todo, and confirm the Slack reply was posted.
 
 ## Notes
 
-- Default output is a **draft** project item (no repo required). If the user asks for a real, assignable GitHub issue instead, create the issue in the relevant repo with `gh issue create`, then add it with `gh project item-add 1 --owner EscrowSafe --url <issue-url>` and set status the same way.
-- The only thing this skill writes to Slack is the single task-link reply in PHASE 4. It never posts anywhere else.
+- The task is a **real, open GitHub issue** in `EscrowSafe/web` (its status on the project board is Todo). If the user names a different repo, create the issue there instead.
+- The only thing this skill writes to Slack is the single task-link hyperlink reply in PHASE 4. It never posts anywhere else.

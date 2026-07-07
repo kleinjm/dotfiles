@@ -7,7 +7,7 @@ windows:
   - editor:
       # left column: short `rails s` pane (top) above claude (bottom); nvim fills the right.
       # pane order below maps to the layout cells top-left, bottom-left, then right.
-      layout: db78,272x62,0,0{80x62,0,0[80x10,0,0,2,80x51,0,11,0],191x62,81,0,1}
+      layout: 852d,214x56,0,0{111x56,0,0[111x7,0,0,31,111x48,0,8,32],102x56,112,0,33}
       panes:
         - rails s
         - claude

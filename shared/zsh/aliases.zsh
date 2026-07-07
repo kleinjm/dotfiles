@@ -13,3 +13,7 @@ alias ls="ls -FGhla" # -F symbols, -G colorized output, -h full unit (Kilobyte)
 # Always use the latest system ruby version for the latest tmuxinator version
 # Need to wait until rbenv is loaded
 alias mux="RBENV_VERSION=$(rbenv global) tmuxinator"
+
+# Slack-ready standup block from GitHub + the EscrowSafe project board
+# (deterministic Ruby script — no Claude/LLM). See shared/scripts/standup.rb.
+alias standup='ruby "$DOTFILES_DIR/shared/scripts/standup.rb"'

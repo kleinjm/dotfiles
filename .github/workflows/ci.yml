@@ -26,6 +26,18 @@ jobs:
             -not -path './node_modules/*' \
             -print0 | xargs -0 shellcheck -S error --format=gcc
 
+  standup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - name: Unit-test the standup generator
+        # Tests exercise only the pure logic (window, classification, dedup,
+        # rendering) — no gh CLI or network needed.
+        run: ruby shared/scripts/standup_test.rb
+
   tmuxinator:
     runs-on: ubuntu-latest
     steps:

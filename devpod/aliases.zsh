@@ -18,6 +18,9 @@ alias vi='nvim'
 alias zellij='zellij -l welcome'
 alias mux='tmuxinator'
 alias jwtm='$HOME/.dotfiles/devpod/bin/jwtm'
+# Slack-ready standup block from GitHub + the EscrowSafe project board
+# (deterministic Ruby script — no Claude/LLM). See shared/scripts/standup.rb.
+alias standup='ruby "$HOME/.dotfiles/shared/scripts/standup.rb"'
 
 # Git
 alias gd='git add -N . && git diff; git reset >/dev/null 2>&1'

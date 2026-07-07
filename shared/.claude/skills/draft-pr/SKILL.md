@@ -82,16 +82,22 @@ git fetch origin main:main
 ## PHASE 4: Analyze Changes
 
 ### 4.1 Gather change data
-Two commands cover everything — run them in **one parallel batch**:
+Default to a **stat-first** read — it's far cheaper than pulling the entire diff into context. Run these two in **one parallel batch**:
 ```bash
-# Full diff for detailed analysis — already includes per-file stats and every changed path
-git diff {base}...HEAD
+# Per-file stats + every changed path
+git diff {base}...HEAD --stat
 
 # Commits included
 git log {base}..HEAD --oneline
 ```
 
-Do **not** run separate `--stat` or `--name-only | grep` commands: the full diff already lists every changed path, so derive migrations (`db/migrate`, `migrations/`) and test files (`spec/`, `test/`, `tests/`, `__tests__/`) by scanning the diff you already have — no extra `git` round-trips. If the diff is too large to read comfortably, fall back to a single `git diff {base}...HEAD --stat` instead of the full diff plus the per-category greps.
+The `--stat` output already lists every changed path, so derive migrations (`db/migrate`, `migrations/`) and test files (`spec/`, `test/`, `tests/`, `__tests__/`) by scanning it — no extra `git` round-trips or `--name-only | grep` commands.
+
+**Pull the full diff only where you need detail** to write an accurate description — scope it to the specific files that matter rather than the whole PR:
+```bash
+git diff {base}...HEAD -- path/to/file1 path/to/file2
+```
+Reserve a full, unscoped `git diff {base}...HEAD` for small PRs (roughly a handful of files) where reading everything is cheap anyway.
 
 ### 4.2 Categorize changes for template sections
 Map changes to template sections:

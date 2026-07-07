@@ -1,0 +1,11 @@
+name: notion_ai
+root: <%= ENV["PROJECT_DIR"] %>/notion_ai
+# focus the claude pane on startup (pane-base-index 1; claude is pane 2)
+startup_pane: 2
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - claude
+        - nvim .

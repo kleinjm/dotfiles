@@ -21,8 +21,6 @@ require 'open3'
 
 module Standup
   ORG = 'EscrowSafe'
-  ME  = 'kleinjm'
-  PROJECT_NUMBER = '1'
 
   LABELS = {
     wip:      ':construction: WIP:',
@@ -57,7 +55,7 @@ module Standup
   # Build the full Slack block string from already-fetched data:
   #   prs               - array of PR hashes (may contain URL duplicates)
   #   review_decisions  - { pr_url => reviewDecision } for open non-draft PRs
-  #   today_items       - array of board item hashes (each with a 'content' hash)
+  #   today_items       - array of issue hashes (each with 'title' and 'url')
   def build_output(prs, review_decisions, today_items)
     buckets = Hash.new { |h, k| h[k] = [] }
     seen = {}
@@ -75,8 +73,7 @@ module Standup
     lines << ''
     lines << '*Today*:'
     today_items.each do |i|
-      c = i['content'] || {}
-      lines << "- :construction: [#{c['title']}](#{c['url']})"
+      lines << "- :construction: [#{i['title']}](#{i['url']})"
     end
     lines.join("\n")
   end
@@ -118,14 +115,19 @@ module Standup
     end
   end
 
-  # The board holds >1000 items; the limit must exceed the total or In-Progress
-  # items past the cutoff are silently dropped (gh paginates internally to reach it).
-  BOARD_LIMIT = 5000
+  # The board holds >1000 items and the Projects v2 API can't filter by status
+  # server-side, so scanning the whole board is both slow and rate-limit-hungry.
+  # Instead list just my open assigned issues (assignee filtered server-side —
+  # a small set) and keep the ones whose project status is In Progress.
+  REPO = "#{ORG}/web".freeze
+  IN_PROGRESS = 'In Progress'
 
   def fetch_today_items
-    board = gh_json(%W[project item-list #{PROJECT_NUMBER} --owner #{ORG} --format json --limit #{BOARD_LIMIT}])
-    items = board.is_a?(Hash) ? (board['items'] || []) : []
-    items.select { |i| i['status'] == 'In Progress' && Array(i['assignees']).include?(ME) }
+    issues = gh_json(%W[issue list --repo #{REPO} --assignee @me --state open --limit 100
+                        --json number,title,url,projectItems])
+    return [] unless issues.is_a?(Array)
+
+    issues.select { |i| Array(i['projectItems']).any? { |p| p.dig('status', 'name') == IN_PROGRESS } }
   end
 
   def main

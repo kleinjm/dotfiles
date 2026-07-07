@@ -87,8 +87,7 @@ class StandupTest < Minitest::Test
   end
 
   def test_build_output_renders_today_items
-    item = { 'status' => 'In Progress', 'assignees' => ['kleinjm'],
-             'content' => { 'title' => 'Fix S3 buckets', 'url' => 'https://github.com/EscrowSafe/web/issues/4083' } }
+    item = { 'title' => 'Fix S3 buckets', 'url' => 'https://github.com/EscrowSafe/web/issues/4083' }
     out = Standup.build_output([], {}, [item])
     assert_includes out, "*Today*:\n- :construction: [Fix S3 buckets](https://github.com/EscrowSafe/web/issues/4083)"
   end

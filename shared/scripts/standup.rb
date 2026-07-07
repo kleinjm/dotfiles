@@ -118,8 +118,12 @@ module Standup
     end
   end
 
+  # The board holds >1000 items; the limit must exceed the total or In-Progress
+  # items past the cutoff are silently dropped (gh paginates internally to reach it).
+  BOARD_LIMIT = 5000
+
   def fetch_today_items
-    board = gh_json(%W[project item-list #{PROJECT_NUMBER} --owner #{ORG} --format json --limit 200])
+    board = gh_json(%W[project item-list #{PROJECT_NUMBER} --owner #{ORG} --format json --limit #{BOARD_LIMIT}])
     items = board.is_a?(Hash) ? (board['items'] || []) : []
     items.select { |i| i['status'] == 'In Progress' && Array(i['assignees']).include?(ME) }
   end

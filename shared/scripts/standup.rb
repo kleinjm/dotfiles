@@ -128,6 +128,7 @@ module Standup
     return [] unless issues.is_a?(Array)
 
     issues.select { |i| Array(i['projectItems']).any? { |p| p.dig('status', 'name') == IN_PROGRESS } }
+          .sort_by { |i| i['number'] }
   end
 
   def main

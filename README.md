@@ -10,7 +10,6 @@ Personal dotfiles for Mac development environments. Manages vim, tmux, zsh, git,
 ```bash
 # Prerequisites
 # - Latest Mac OS
-# - Clone private `environment_configurations` repo in same parent directory
 
 # Run main setup script
 mac/make.sh
@@ -26,7 +25,6 @@ mac/make.sh
 
 ### Mac
 * Make sure you're on the latest Mac OS
-* Clone the private `environment_configurations` repo in the same parent directory as this `dotfiles` repo
 * Run `mac/make.sh` which executes:
   1. `mac/scripts/dependencies.sh` - Install Homebrew packages
   2. `mac/scripts/symlink_to_dotfiles_repo.sh` - Create symlinks to dotfiles
@@ -52,7 +50,6 @@ mac/make.sh
 
 ### Additional environment configurations
 * Chrome theme - Dark Theme v3
-* See `$PRIVATE_CONFIGS_DIR/README.txt`
 
 ### Userscripts
 Stored in bookmarks on my google chrome account.
@@ -102,7 +99,6 @@ NOTE: the same `id_rsa.pub` is shared so this should not be necessary
 ```
 ssh-copy-id -i ~/.ssh/id_rsa.pub jamesmkl@jamesmklein.com
 ```
-- See `$LOCAL_CONFIG` (vim `leader + lcl`) for additional configurations
 
 ### Neovim
 I'm not using neovim currently but to get it set up I used the following
@@ -128,7 +124,6 @@ Sensitive files are automatically excluded via `.gitignore`:
 - `mac/.claude/.credentials.json` and related credential files
 - `*.key`, `*.pem`, `*.cert`
 - `.env` and `.env.*` files
-- Private configurations should be stored in the separate `environment_configurations` repository
 
 ## Troubleshooting
 - If you're getting a message about `__init_nvm` not being defined, nvm likely added something to the .zshrc. Check the bottom of the file.

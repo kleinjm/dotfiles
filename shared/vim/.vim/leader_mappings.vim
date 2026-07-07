@@ -40,8 +40,6 @@ nmap <leader>br :.GBrowse<cr>
 nmap <leader>bl :Git blame<cr>
 " open temp file to scratch on
 map <Leader>tmp :vsp ~/.tempfile<CR>
-" open my local zsh config
-map <Leader>lcl :vsp $LOCAL_CONFIG<CR>
 " open the url anywhere on the current line
 map <Leader>url :call OpenUrlOnCurrentLineInBrowser()<CR><CR>
 

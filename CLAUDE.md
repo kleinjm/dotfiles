@@ -26,7 +26,6 @@ Personal dotfiles repository for Mac development environments. Manages configura
 Set in `shared/zsh/.zshenv`:
 - `$DOTFILES_DIR` - Path to this repository (default: `$HOME/GitHubRepos/dotfiles`)
 - `$PROJECT_DIR` - Base directory for projects (default: `$HOME/GitHubRepos`)
-- `$PRIVATE_CONFIGS_DIR` - Path to private environment configurations repo
 
 ## Setup and Installation
 
@@ -131,7 +130,6 @@ Sensitive files are gitignored (see `.gitignore`):
 - `mac/.claude/.credentials.json`
 - `*.credentials.json`, `*.key`, `*.pem`, `*.cert`
 - `.env` and `.env.*`
-- Private configs should be in separate `environment_configurations` repo
 
 ## System Preferences Backup
 
@@ -150,6 +148,5 @@ System-wide `.nvmrc` symlinked to `dotfiles/nvmrc`, set to use `node` (latest ve
 ## Additional Notes
 
 - Home directory is assumed to be `jklein`. If different, create symlink: `cd /Users && sudo ln -s [actual_user] jklein`
-- Private environment configurations (Alfred, Sequel Pro, etc.) are stored separately in `environment_configurations` repo
 - Tmux config based on [oh-my-tmux](https://github.com/gpakosz/.tmux)
 - Show hidden files in Finder: `defaults write com.apple.Finder AppleShowAllFiles true && killall Finder`

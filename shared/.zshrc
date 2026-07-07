@@ -78,16 +78,6 @@ export PATH=$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/opt/mysql@5.7/bin:/usr/l
 # NOTE: PATH must be before this
 source $ZSH/oh-my-zsh.sh
 
-# source local env vars if they exist.
-# NOTE: oh-my-zsh overrides some things ie. `ls` at
-# https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/theme-and-appearance.zsh#L24
-# thus, these files need to be defined after sourcing oh-my-zsh.sh
-# See https://github.com/robbyrussell/oh-my-zsh/issues/5783#issuecomment-275614664
-export LOCAL_CONFIG=$PRIVATE_CONFIGS_DIR/zshrc.local
-if [ -f $LOCAL_CONFIG ]; then
-  source $LOCAL_CONFIG
-fi
-
 export EDITOR='nvim' # Preferred editor for local and remote sessions
 export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh
 # something was setting RBENV_VERSION and it was preventing using .ruby-version

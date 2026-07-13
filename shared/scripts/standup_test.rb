@@ -96,6 +96,10 @@ class StandupTest < Minitest::Test
     assert_equal "*Yesterday*:\n\n*Today*:", Standup.build_output([], {}, [])
   end
 
+  def test_build_output_monday_uses_friday_header
+    assert_equal "*Friday*:\n\n*Today*:", Standup.build_output([], {}, [], monday: true)
+  end
+
   # Header must sit directly on top of its first bullet (Slack composer quirk).
   def test_no_blank_line_between_header_and_first_bullet
     out = Standup.build_output([pr(1, 'X', 'merged')], {}, [])

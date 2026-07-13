@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Standup generator. Emits a Slack-ready "*Yesterday*:" / "*Today*:" block.
+# Standup generator. Emits a Slack-ready "*Yesterday*:" / "*Today*:" block
+# (the first header becomes "*Friday*:" when run on a Monday).
 #
 # Yesterday  = PRs (authored or assigned to me) touched in the window, classified
 #              by where they sit in the dev process. Issues are intentionally
@@ -56,7 +57,7 @@ module Standup
   #   prs               - array of PR hashes (may contain URL duplicates)
   #   review_decisions  - { pr_url => reviewDecision } for open non-draft PRs
   #   today_items       - array of issue hashes (each with 'title' and 'url')
-  def build_output(prs, review_decisions, today_items)
+  def build_output(prs, review_decisions, today_items, monday: false)
     buckets = Hash.new { |h, k| h[k] = [] }
     seen = {}
     prs.each do |pr|
@@ -66,7 +67,7 @@ module Standup
       buckets[classify(pr, review_decisions[pr['url']])] << pr
     end
 
-    lines = ['*Yesterday*:']
+    lines = [monday ? '*Friday*:' : '*Yesterday*:']
     ORDER.each do |b|
       buckets[b].each { |pr| lines << "- #{LABELS[b]} [#{pr['title']}](#{pr['url']})" }
     end
@@ -132,9 +133,10 @@ module Standup
   end
 
   def main
-    since = since_date(Date.today)
+    today = Date.today
+    since = since_date(today)
     prs = fetch_prs(since)
-    puts build_output(prs, fetch_review_decisions(prs), fetch_today_items)
+    puts build_output(prs, fetch_review_decisions(prs), fetch_today_items, monday: today.monday?)
   end
 end
 

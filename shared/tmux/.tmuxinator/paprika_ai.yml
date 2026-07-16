@@ -12,3 +12,17 @@ windows:
         - rails s
         - claude
         - nvim .
+  - paprika_client:
+      root: <%= ENV["PROJECT_DIR"] %>/paprika_client
+      # nvim on top (70% height), empty terminal below (30% height)
+      layout: ffe9,214x56,0,0[214x39,0,0,0,214x16,0,40,1]
+      panes:
+        - nvim .
+        -
+  - instacart_api:
+      root: <%= ENV["PROJECT_DIR"] %>/instacart_api
+      # nvim on top (70% height), empty terminal below (30% height)
+      layout: ffe9,214x56,0,0[214x39,0,0,0,214x16,0,40,1]
+      panes:
+        - nvim .
+        -

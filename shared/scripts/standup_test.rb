@@ -116,18 +116,22 @@ class StandupTest < Minitest::Test
     refute_includes out, 'Task #'
   end
 
-  # --- issue_numbers_in_body ---------------------------------------------
-  def test_issue_numbers_in_body_extracts_and_dedups
-    body = "**Related:** Related to #4197\nbuilds on #4100 and #4197 again"
-    assert_equal [4197, 4100], Standup.issue_numbers_in_body(body)
+  # --- related_issue_numbers ---------------------------------------------
+  def test_related_issue_numbers_only_scans_related_lines
+    body = "**Related:** Related to #4197 and #4200\n\n## Summary\nbuilds on #4100"
+    assert_equal [4197, 4200], Standup.related_issue_numbers(body)
   end
 
-  def test_issue_numbers_in_body_skips_mid_word_hashes
-    assert_equal [], Standup.issue_numbers_in_body('color abc#123 and def#45')
+  def test_related_issue_numbers_dedups
+    assert_equal [42], Standup.related_issue_numbers("Related to #42\nalso related: #42")
   end
 
-  def test_issue_numbers_in_body_handles_nil
-    assert_equal [], Standup.issue_numbers_in_body(nil)
+  def test_related_issue_numbers_skips_mid_word_hashes
+    assert_equal [], Standup.related_issue_numbers('Related: color abc#123')
+  end
+
+  def test_related_issue_numbers_handles_nil
+    assert_equal [], Standup.related_issue_numbers(nil)
   end
 
   def test_build_output_monday_uses_friday_header

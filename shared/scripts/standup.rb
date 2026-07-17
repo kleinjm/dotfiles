@@ -59,10 +59,15 @@ module Standup
     Array(issues).map { |i| " ([Task ##{i['number']}](#{i['url']}))" }.join
   end
 
-  # Issue numbers referenced anywhere in a PR body as `#123`. Deduped, order
-  # preserved. `#` must not be preceded by a word char (skips `abc#123`).
-  def issue_numbers_in_body(body)
-    body.to_s.scan(/(?<![\w])#(\d+)/).flatten.map(&:to_i).uniq
+  # Issue numbers from a PR body's "Related" lines (e.g. `**Related:** Related
+  # to #4197`), as `#123`. Only lines mentioning "Related" are scanned so stray
+  # `#N` elsewhere in the body is ignored. Closing links (Closes/Fixes/Resolves)
+  # come separately from GitHub's closingIssuesReferences. Deduped, order kept.
+  def related_issue_numbers(body)
+    body.to_s.each_line
+        .select { |line| line =~ /related/i }
+        .flat_map { |line| line.scan(/(?<![\w])#(\d+)/).flatten }
+        .map(&:to_i).uniq
   end
 
   # Build the full Slack block string from already-fetched data:
@@ -132,9 +137,9 @@ module Standup
   end
 
   # Issues each PR references: GitHub's closing links (Fixes/Closes #N) plus any
-  # `#N` mentioned in the body. Search doesn't return either, so this needs a
-  # per-PR `pr view`. Returns { pr_url => [{ 'number', 'url' }, ...] }, deduped
-  # by PR url; the PR's own number is excluded.
+  # `#N` on the body's "Related" lines. Search doesn't return either, so this
+  # needs a per-PR `pr view`. Returns { pr_url => [{ 'number', 'url' }, ...] },
+  # deduped by PR url; the PR's own number is excluded.
   def fetch_linked_issues(prs)
     prs.each_with_object({}) do |pr, acc|
       next if acc.key?(pr['url'])
@@ -144,7 +149,7 @@ module Standup
                                 --json body,closingIssuesReferences])
       view = {} unless view.is_a?(Hash)
       numbers = Array(view['closingIssuesReferences']).map { |r| r['number'] } +
-                issue_numbers_in_body(view['body'])
+                related_issue_numbers(view['body'])
       acc[pr['url']] = numbers.uniq
                               .reject { |n| n == pr['number'] }
                               .map { |n| { 'number' => n, 'url' => "https://github.com/#{repo}/issues/#{n}" } }

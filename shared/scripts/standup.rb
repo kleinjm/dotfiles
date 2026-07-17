@@ -53,11 +53,18 @@ module Standup
     review_decision == 'APPROVED' ? :ready : :needs_cr
   end
 
+  # Trailing " ([Task #123](url))" markers for a PR's linked (closing) issues.
+  # `issues` is an array of { 'number' => Int, 'url' => String }; empty for none.
+  def issue_suffix(issues)
+    Array(issues).map { |i| " ([Task ##{i['number']}](#{i['url']}))" }.join
+  end
+
   # Build the full Slack block string from already-fetched data:
   #   prs               - array of PR hashes (may contain URL duplicates)
   #   review_decisions  - { pr_url => reviewDecision } for open non-draft PRs
   #   today_items       - array of issue hashes (each with 'title' and 'url')
-  def build_output(prs, review_decisions, today_items, monday: false)
+  #   linked_issues     - { pr_url => [{ 'number', 'url' }, ...] } for each PR
+  def build_output(prs, review_decisions, today_items, linked_issues: {}, monday: false)
     buckets = Hash.new { |h, k| h[k] = [] }
     seen = {}
     prs.each do |pr|
@@ -69,7 +76,9 @@ module Standup
 
     lines = [monday ? '*Friday*:' : '*Yesterday*:']
     ORDER.each do |b|
-      buckets[b].each { |pr| lines << "- #{LABELS[b]} [#{pr['title']}](#{pr['url']})" }
+      buckets[b].each do |pr|
+        lines << "- #{LABELS[b]} [#{pr['title']}](#{pr['url']})#{issue_suffix(linked_issues[pr['url']])}"
+      end
     end
     lines << ''
     lines << '*Today*:'
@@ -116,6 +125,20 @@ module Standup
     end
   end
 
+  # Issues each PR closes ("Fixes #123" etc.), via closingIssuesReferences.
+  # Search doesn't return this, so it needs a per-PR `pr view`. Returns
+  # { pr_url => [{ 'number', 'url' }, ...] }, deduped by PR url.
+  def fetch_linked_issues(prs)
+    prs.each_with_object({}) do |pr, acc|
+      next if acc.key?(pr['url'])
+
+      repo = repo_from_url(pr['url'])
+      view = repo && gh_json(%W[pr view #{pr['number']} --repo #{repo} --json closingIssuesReferences])
+      refs = view.is_a?(Hash) ? Array(view['closingIssuesReferences']) : []
+      acc[pr['url']] = refs.map { |r| { 'number' => r['number'], 'url' => r['url'] } }
+    end
+  end
+
   # The board holds >1000 items and the Projects v2 API can't filter by status
   # server-side, so scanning the whole board is both slow and rate-limit-hungry.
   # Instead list just my open assigned issues (assignee filtered server-side —
@@ -136,7 +159,8 @@ module Standup
     today = Date.today
     since = since_date(today)
     prs = fetch_prs(since)
-    puts build_output(prs, fetch_review_decisions(prs), fetch_today_items, monday: today.monday?)
+    puts build_output(prs, fetch_review_decisions(prs), fetch_today_items,
+                      linked_issues: fetch_linked_issues(prs), monday: today.monday?)
   end
 end
 

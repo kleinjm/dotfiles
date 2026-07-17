@@ -96,6 +96,26 @@ class StandupTest < Minitest::Test
     assert_equal "*Yesterday*:\n\n*Today*:", Standup.build_output([], {}, [])
   end
 
+  def test_build_output_appends_linked_issue_marker
+    pr = pr(1, 'Add sent status', 'merged')
+    linked = { pr['url'] => [{ 'number' => 123, 'url' => 'https://github.com/EscrowSafe/web/issues/123' }] }
+    out = Standup.build_output([pr], {}, [], linked_issues: linked)
+    assert_includes out, "[Add sent status](#{pr['url']}) ([Task #123](https://github.com/EscrowSafe/web/issues/123))"
+  end
+
+  def test_build_output_appends_multiple_linked_issue_markers
+    pr = pr(1, 'X', 'merged')
+    linked = { pr['url'] => [{ 'number' => 1, 'url' => 'u1' }, { 'number' => 2, 'url' => 'u2' }] }
+    out = Standup.build_output([pr], {}, [], linked_issues: linked)
+    assert_includes out, '([Task #1](u1)) ([Task #2](u2))'
+  end
+
+  def test_build_output_no_marker_without_linked_issue
+    pr = pr(1, 'X', 'merged')
+    out = Standup.build_output([pr], {}, [])
+    refute_includes out, 'Task #'
+  end
+
   def test_build_output_monday_uses_friday_header
     assert_equal "*Friday*:\n\n*Today*:", Standup.build_output([], {}, [], monday: true)
   end

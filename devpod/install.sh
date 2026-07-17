@@ -42,3 +42,28 @@ if [[ -f "${DOTFILES_DIR}/devpod/link.sh" ]]; then
   echo "Linking DevPod dotfiles..."
   bash "${DOTFILES_DIR}/devpod/link.sh"
 fi
+
+# Install the local diffity fork (colorblind diff viewer) as the global
+# `diffity` command, backing the `review-changes` zsh function. The fork is a
+# sibling repo mounted into the container at /workspaces/diffity. Its checked-in
+# node_modules carry the host's (macOS) native binaries, so we reinstall +
+# rebuild better-sqlite3 for this container's platform, then build and
+# `npm link` so `diffity` resolves to the fork instead of the npm release.
+# Guarded so a diffity build failure never aborts the rest of dotfiles setup.
+DIFFITY_DIR="/workspaces/diffity"
+if [[ -d "${DIFFITY_DIR}/packages/cli" ]]; then
+  echo "Installing local diffity fork from ${DIFFITY_DIR}..."
+  if (
+    set -e
+    cd "${DIFFITY_DIR}"
+    npm install
+    npm rebuild better-sqlite3   # force a native rebuild for this platform
+    npm run build
+    cd packages/cli
+    npm link
+  ); then
+    echo "  diffity linked ($(command -v diffity))"
+  else
+    echo "  WARNING: diffity setup failed; 'review-changes' will be unavailable." >&2
+  fi
+fi

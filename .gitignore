@@ -60,3 +60,7 @@ shared/.claude/remote-settings.json
 
 # macOS system files
 .DS_Store
+
+# diffity dev skills — auto-installed into ~/.claude/skills (bind-mounted to
+# shared/.claude/skills) by the linked diffity fork; regenerated, not authored.
+shared/.claude/skills/diffity-dev-*/

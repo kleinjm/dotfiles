@@ -7,6 +7,12 @@ services:
     # mem_limit: 16g
     # memswap_limit: 16g
 
+    # Expose diffity's diff viewer (see the `review-changes` zsh function and
+    # devpod/install.sh) so it's reachable from a browser on the host. The
+    # `review-changes` function pins diffity to :5391.
+    ports:
+      - "5391:5391"
+
     volumes:
       # SSH keys for git push/pull AND commit signing are mounted via the
       # devpod-data/ssh persistent volume (see devpod/README.md). No GPG mount
@@ -16,6 +22,9 @@ services:
       # `gh auth login` every time). Adjust the host path to match where your
       # devpod-data sibling lives (same dir as your other devpod-data mounts).
       - ~/GitHubRepos/devpod-data/gh:/home/vscode/.config/gh
+
+      # Rollbar access token
+      - ~/GitHubRepos/devpod-data/rollbar/.rollbar-mcp.json:/home/vscode/.rollbar-mcp.json:ro
 
       # Mount personal preferences / settings (optional and experimental, use at your own risk as it might involve some level of debugging :P)
       #

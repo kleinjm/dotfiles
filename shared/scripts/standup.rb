@@ -53,10 +53,16 @@ module Standup
     review_decision == 'APPROVED' ? :ready : :needs_cr
   end
 
-  # Trailing " ([Task #123](url))" markers for a PR's linked (closing) issues.
+  # Trailing " ([Task #123](url))" markers for a PR's linked issues.
   # `issues` is an array of { 'number' => Int, 'url' => String }; empty for none.
   def issue_suffix(issues)
     Array(issues).map { |i| " ([Task ##{i['number']}](#{i['url']}))" }.join
+  end
+
+  # Issue numbers referenced anywhere in a PR body as `#123`. Deduped, order
+  # preserved. `#` must not be preceded by a word char (skips `abc#123`).
+  def issue_numbers_in_body(body)
+    body.to_s.scan(/(?<![\w])#(\d+)/).flatten.map(&:to_i).uniq
   end
 
   # Build the full Slack block string from already-fetched data:
@@ -125,17 +131,23 @@ module Standup
     end
   end
 
-  # Issues each PR closes ("Fixes #123" etc.), via closingIssuesReferences.
-  # Search doesn't return this, so it needs a per-PR `pr view`. Returns
-  # { pr_url => [{ 'number', 'url' }, ...] }, deduped by PR url.
+  # Issues each PR references: GitHub's closing links (Fixes/Closes #N) plus any
+  # `#N` mentioned in the body. Search doesn't return either, so this needs a
+  # per-PR `pr view`. Returns { pr_url => [{ 'number', 'url' }, ...] }, deduped
+  # by PR url; the PR's own number is excluded.
   def fetch_linked_issues(prs)
     prs.each_with_object({}) do |pr, acc|
       next if acc.key?(pr['url'])
 
       repo = repo_from_url(pr['url'])
-      view = repo && gh_json(%W[pr view #{pr['number']} --repo #{repo} --json closingIssuesReferences])
-      refs = view.is_a?(Hash) ? Array(view['closingIssuesReferences']) : []
-      acc[pr['url']] = refs.map { |r| { 'number' => r['number'], 'url' => r['url'] } }
+      view = repo && gh_json(%W[pr view #{pr['number']} --repo #{repo}
+                                --json body,closingIssuesReferences])
+      view = {} unless view.is_a?(Hash)
+      numbers = Array(view['closingIssuesReferences']).map { |r| r['number'] } +
+                issue_numbers_in_body(view['body'])
+      acc[pr['url']] = numbers.uniq
+                              .reject { |n| n == pr['number'] }
+                              .map { |n| { 'number' => n, 'url' => "https://github.com/#{repo}/issues/#{n}" } }
     end
   end
 

@@ -136,10 +136,22 @@ module Standup
     end
   end
 
+  # Resolve a #N in `repo` to an issue hash { 'number', 'url' }, or nil if the
+  # number isn't a real issue. `gh issue view` succeeds on PR numbers too, but
+  # returns a `/pull/` URL — filtering on `/issues/` drops PRs (and anything
+  # that doesn't resolve).
+  def resolve_issue(repo, number)
+    view = gh_json(%W[issue view #{number} --repo #{repo} --json number,url])
+    return nil unless view.is_a?(Hash) && view['url'].to_s.include?('/issues/')
+
+    { 'number' => view['number'], 'url' => view['url'] }
+  end
+
   # Issues each PR references: GitHub's closing links (Fixes/Closes #N) plus any
   # `#N` on the body's "Related" lines. Search doesn't return either, so this
-  # needs a per-PR `pr view`. Returns { pr_url => [{ 'number', 'url' }, ...] },
-  # deduped by PR url; the PR's own number is excluded.
+  # needs a per-PR `pr view`. Each candidate number is verified to be a real
+  # issue (not a PR) via resolve_issue. Returns { pr_url => [{ 'number', 'url' },
+  # ...] }, deduped by PR url; the PR's own number is excluded.
   def fetch_linked_issues(prs)
     prs.each_with_object({}) do |pr, acc|
       next if acc.key?(pr['url'])
@@ -152,7 +164,7 @@ module Standup
                 related_issue_numbers(view['body'])
       acc[pr['url']] = numbers.uniq
                               .reject { |n| n == pr['number'] }
-                              .map { |n| { 'number' => n, 'url' => "https://github.com/#{repo}/issues/#{n}" } }
+                              .filter_map { |n| repo && resolve_issue(repo, n) }
     end
   end
 

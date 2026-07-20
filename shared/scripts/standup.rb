@@ -94,7 +94,7 @@ module Standup
     lines << ''
     lines << '*Today*:'
     today_items.each do |i|
-      lines << "- :construction: [#{i['title']}](#{i['url']})"
+      lines << "- :construction: [#{i['title']} (Task ##{i['number']})](#{i['url']})"
     end
     lines.join("\n")
   end

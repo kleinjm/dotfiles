@@ -87,9 +87,9 @@ class StandupTest < Minitest::Test
   end
 
   def test_build_output_renders_today_items
-    item = { 'title' => 'Fix S3 buckets', 'url' => 'https://github.com/EscrowSafe/web/issues/4083' }
+    item = { 'number' => 4083, 'title' => 'Fix S3 buckets', 'url' => 'https://github.com/EscrowSafe/web/issues/4083' }
     out = Standup.build_output([], {}, [item])
-    assert_includes out, "*Today*:\n- :construction: [Fix S3 buckets](https://github.com/EscrowSafe/web/issues/4083)"
+    assert_includes out, "*Today*:\n- :construction: [Fix S3 buckets (Task #4083)](https://github.com/EscrowSafe/web/issues/4083)"
   end
 
   def test_build_output_empty_has_headers_only

@@ -174,6 +174,8 @@ After successful creation, capture the PR URL from `gh pr create` output. Displa
 
 > **TODO: Add screenshots to PR description**
 
+**Exception — skip the screenshot TODO entirely (both in the PR body and in this reminder) when the user has provided a demo video** (e.g. a Loom or other video link passed in the arguments or conversation, or already embedded in the PR body). A video already shows the UI change, so do not add a `TODO: add screenshot` marker to the description and do not surface the reminder above.
+
 Then immediately proceed to Phase 8 to watch CI and fix failures.
 
 ## PHASE 8: CI Watch Loop

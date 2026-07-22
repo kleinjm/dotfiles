@@ -88,10 +88,15 @@ open_tmux_window() {
 
   info "Creating tmux window for '$branch'..."
 
-  # Tear down the temp session even if a tmux command fails partway through.
-  # Without this, `set -e` aborts before the final kill-session and leaks an
-  # orphaned wtm-temp-<pid> session on every failed run.
-  trap 'tmux kill-session -t "$temp_session" 2>/dev/null || true' RETURN
+  # Tear down the temp session if a tmux command fails partway through: without
+  # this, `set -e` aborts before the window is moved out and leaks an orphaned
+  # wtm-temp-<pid> session. Use a single-shot EXIT trap (RETURN fires on every
+  # function return up the stack, and on the outer firing $temp_session is out
+  # of scope — the expansion becomes `kill-session -t ''`, which tmux resolves
+  # to the *current* session and kills it, taking down the user's session).
+  # The trap targets the literal wtm-temp-$$ name so it can never expand empty,
+  # and is cleared the moment the window is safely moved into the real session.
+  trap 'tmux kill-session -t "wtm-temp-$$" 2>/dev/null || true' EXIT
 
   # Window names here are "branch:port" and branches can carry version strings
   # (e.g. cve/js-yaml-5.2.1). The resulting name contains both '.' and ':',
@@ -109,18 +114,26 @@ open_tmux_window() {
   # Apply the layout
   tmux select-layout -t "$win" "$LAYOUT"
 
-  # Send commands to panes (staggered to avoid nvm symlink race condition)
-  tmux send-keys -t "${win}.1" "bin/dev" Enter
-  sleep 0.5
-  tmux send-keys -t "${win}.2" "claude" Enter
-  sleep 0.5
-  tmux send-keys -t "${win}.3" "nvim ." Enter
+  # Send commands to panes (staggered to avoid nvm symlink race condition).
+  # Set JWTM_SKIP_LAUNCH=1 to build the window/layout without starting any of
+  # them (leaves four plain shells) — useful for a quiet window, and for
+  # isolating whether a launched program is destabilizing tmux.
+  if [[ -z "$JWTM_SKIP_LAUNCH" ]]; then
+    tmux send-keys -t "${win}.1" "bin/dev" Enter
+    sleep 0.5
+    tmux send-keys -t "${win}.2" "claude" Enter
+    sleep 0.5
+    tmux send-keys -t "${win}.3" "nvim ." Enter
+  fi
 
   # Focus on claude pane
   tmux select-pane -t "${win}.2"
 
-  # Move window to target session (the window ID survives the move)
+  # Move window to target session (the window ID survives the move). This
+  # empties the temp session, which tmux then auto-destroys, so cleanup is done
+  # — clear the failure trap before any further tmux calls.
   tmux move-window -s "$win" -t "${TARGET_SESSION}:"
+  trap - EXIT
 
   # Switch to the new window if already in tmux
   if [[ -n "$TMUX" ]]; then

@@ -7,8 +7,7 @@ startup_pane: 1
 
 windows:
   - editor:
-      layout: f4d4,272x62,0,0{80x62,0,0,65,191x62,81,0[191x50,81,0,68,191x11,81,51,71]}
+      layout: 2cd3,214x56,0,0{141x56,0,0,7,72x56,142,0,8}
       panes:
         - claude
         - nvim .
-        - main

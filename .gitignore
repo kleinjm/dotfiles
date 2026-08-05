@@ -38,6 +38,9 @@ shared/.claude/.last-cleanup
 shared/.claude/.last-update-result.json
 shared/.claude/mcp-needs-auth-cache.json
 shared/.claude/remote-settings.json
+shared/.claude/daemon/
+shared/.claude/daemon.log
+shared/.claude/jobs/
 **/.claude/history.jsonl
 # Project-level Claude Code config (auto-created per repo, root-level only)
 /.claude/

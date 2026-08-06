@@ -25,7 +25,14 @@ bind T if-shell '[ "$(tmux show-environment -g TMUX_THEME 2>/dev/null)" = "TMUX_
    set -g pane-active-border-style "fg=colour51,bg=colour234"; \
    set -g status-style "fg=colour247,bg=colour234"; \
    set -g message-style "fg=colour250,bg=colour234"; \
+   set -wgu "pane-colours[17]"; \
+   set -wgu "pane-colours[59]"; \
    set -wgu "pane-colours[153]"; \
+   set -wgu "pane-colours[220]"; \
+   set -wgu "pane-colours[231]"; \
+   set -wgu "pane-colours[237]"; \
+   set -wgu "pane-colours[239]"; \
+   set -wgu "pane-colours[244]"; \
    set -wgu "pane-colours[246]"; \
    display-message "Dark theme"' \
   'set-environment -g TMUX_THEME light; \
@@ -35,14 +42,28 @@ bind T if-shell '[ "$(tmux show-environment -g TMUX_THEME 2>/dev/null)" = "TMUX_
    set -g pane-active-border-style "fg=colour25,bg=colour253"; \
    set -g status-style "fg=colour235,bg=colour252"; \
    set -g message-style "fg=colour232,bg=colour255"; \
+   set -wg "pane-colours[17]" "#cfe3f7"; \
+   set -wg "pane-colours[59]" "#d0d8e0"; \
    set -wg "pane-colours[153]" "#00448a"; \
+   set -wg "pane-colours[220]" "#8a6d00"; \
+   set -wg "pane-colours[231]" "#1c1c1c"; \
+   set -wg "pane-colours[237]" "#e4e4e4"; \
+   set -wg "pane-colours[239]" "#6c6c6c"; \
+   set -wg "pane-colours[244]" "#585858"; \
    set -wg "pane-colours[246]" "#4e4e4e"; \
    display-message "Light theme (outdoor)"'
 
 # Palette remaps above: apps (notably Claude Code) hardcode a dark-theme palette
 # that washes out on a light background. pane-colours[N] rewrites what colourN
-# renders as, so inline code (153, pale blue) and muted text (246, mid gray)
-# become readable. The dark branch unsets them to restore the real palette.
+# renders as, so the light branch inverts the codes Claude Code leans on:
+#   231 near-white body/code-block text -> near-black
+#   153 pale blue inline code           -> dark blue
+#   244/246 dim gray meta text          -> darker gray
+#   220 yellow status hint              -> dark amber
+# and, since a few of these are used as backgrounds, the paired bg codes are
+# lightened so the now-dark text stays legible on them:
+#   17 diff-added bg, 59 command bar bg, 237 input box bg, 239 its border
+# The dark branch unsets every entry to restore the real palette.
 # To find the code for something unreadable:
 #   tmux capture-pane -p -e | cat -v | grep '38;5;'
 

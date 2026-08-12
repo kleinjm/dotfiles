@@ -49,7 +49,7 @@ bind T if-shell '[ "$(tmux show-environment -g TMUX_THEME 2>/dev/null)" = "TMUX_
    set -wg "pane-colours[59]" "#d0d8e0"; \
    set -wg "pane-colours[141]" "#5f21c7"; \
    set -wg "pane-colours[153]" "#00448a"; \
-   set -wg "pane-colours[154]" "#3f6b00"; \
+   set -wg "pane-colours[154]" "#274400"; \
    set -wg "pane-colours[186]" "#7a5a00"; \
    set -wg "pane-colours[220]" "#8a6d00"; \
    set -wg "pane-colours[231]" "#1c1c1c"; \

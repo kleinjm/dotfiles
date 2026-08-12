@@ -26,6 +26,8 @@ bind T if-shell '[ "$(tmux show-environment -g TMUX_THEME 2>/dev/null)" = "TMUX_
    set -g status-style "fg=colour247,bg=colour234"; \
    set -g message-style "fg=colour250,bg=colour234"; \
    set -wgu "pane-colours[17]"; \
+   set -wgu "pane-colours[24]"; \
+   set -wgu "pane-colours[52]"; \
    set -wgu "pane-colours[59]"; \
    set -wgu "pane-colours[74]"; \
    set -wgu "pane-colours[75]"; \
@@ -48,6 +50,8 @@ bind T if-shell '[ "$(tmux show-environment -g TMUX_THEME 2>/dev/null)" = "TMUX_
    set -g status-style "fg=colour235,bg=colour252"; \
    set -g message-style "fg=colour232,bg=colour255"; \
    set -wg "pane-colours[17]" "#cfe3f7"; \
+   set -wg "pane-colours[24]" "#cfe3f7"; \
+   set -wg "pane-colours[52]" "#f7d6d6"; \
    set -wg "pane-colours[59]" "#d0d8e0"; \
    set -wg "pane-colours[74]" "#005f87"; \
    set -wg "pane-colours[75]" "#0055cc"; \
@@ -76,7 +80,8 @@ bind T if-shell '[ "$(tmux show-environment -g TMUX_THEME 2>/dev/null)" = "TMUX_
 #   74/75 light blue file paths/links   -> dark blue
 # and, since a few of these are used as backgrounds, the paired bg codes are
 # lightened so the now-dark text stays legible on them:
-#   17 diff-added bg, 59 command bar bg, 237 input box bg, 239 its border
+#   17 diff-added bg, 52 diff-removed bg, 24 selection bg,
+#   59 command bar bg, 237 input box bg, 239 its border
 # The dark branch unsets every entry to restore the real palette.
 # To find the code for something unreadable:
 #   tmux capture-pane -p -e | cat -v | grep '38;5;'

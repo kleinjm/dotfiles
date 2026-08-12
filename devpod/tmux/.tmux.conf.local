@@ -27,7 +27,10 @@ bind T if-shell '[ "$(tmux show-environment -g TMUX_THEME 2>/dev/null)" = "TMUX_
    set -g message-style "fg=colour250,bg=colour234"; \
    set -wgu "pane-colours[17]"; \
    set -wgu "pane-colours[59]"; \
+   set -wgu "pane-colours[141]"; \
    set -wgu "pane-colours[153]"; \
+   set -wgu "pane-colours[154]"; \
+   set -wgu "pane-colours[186]"; \
    set -wgu "pane-colours[220]"; \
    set -wgu "pane-colours[231]"; \
    set -wgu "pane-colours[237]"; \
@@ -44,7 +47,10 @@ bind T if-shell '[ "$(tmux show-environment -g TMUX_THEME 2>/dev/null)" = "TMUX_
    set -g message-style "fg=colour232,bg=colour255"; \
    set -wg "pane-colours[17]" "#cfe3f7"; \
    set -wg "pane-colours[59]" "#d0d8e0"; \
+   set -wg "pane-colours[141]" "#5f21c7"; \
    set -wg "pane-colours[153]" "#00448a"; \
+   set -wg "pane-colours[154]" "#3f6b00"; \
+   set -wg "pane-colours[186]" "#7a5a00"; \
    set -wg "pane-colours[220]" "#8a6d00"; \
    set -wg "pane-colours[231]" "#1c1c1c"; \
    set -wg "pane-colours[237]" "#e4e4e4"; \
@@ -60,6 +66,9 @@ bind T if-shell '[ "$(tmux show-environment -g TMUX_THEME 2>/dev/null)" = "TMUX_
 #   153 pale blue inline code           -> dark blue
 #   244/246 dim gray meta text          -> darker gray
 #   220 yellow status hint              -> dark amber
+#   154 lime syntax keys/punctuation    -> dark green
+#   186 pale yellow string literals     -> dark amber-brown
+#   141 light purple numeric literals   -> dark violet
 # and, since a few of these are used as backgrounds, the paired bg codes are
 # lightened so the now-dark text stays legible on them:
 #   17 diff-added bg, 59 command bar bg, 237 input box bg, 239 its border

@@ -1,0 +1,12 @@
+name: financial_planning
+root: <%= ENV["PROJECT_DIR"] %>/financial_planning
+# needed for pane-base-index 1 config
+startup_pane: 1
+
+windows:
+  - editor:
+      # claude on top (75% height), shell below (25% height)
+      layout: 28ea,214x56,0,0[214x42,0,0,0,214x13,0,43,1]
+      panes:
+        - claude
+        -

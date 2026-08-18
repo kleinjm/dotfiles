@@ -10,7 +10,7 @@
 # Don't forget that zsh plugins like git include their own aliases
 
 # shell commands
-alias cp="cp -iv" # -i will ask form confirmation when overwriting files
+alias cp="cp -v" # -v verbose. No -i: it hangs non-interactive scripts on overwrite
 alias df="df -h" # disk free space
 alias du="du -cksh" # disk usage
 alias ls="ls -FGhla" # -F symbols, -G colorized output, -h full unit (Kilobyte)

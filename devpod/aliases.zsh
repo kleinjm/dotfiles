@@ -1,6 +1,6 @@
 # Shell commands (safer defaults)
 alias ls="ls -Fhla --color"
-alias cp="cp -iv"
+alias cp="cp -v" # no -i: it hangs non-interactive scripts on overwrite
 alias mv="mv -iv"
 alias rm="rm -v"
 alias mkdir="mkdir -v"

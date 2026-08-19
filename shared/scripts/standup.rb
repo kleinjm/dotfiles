@@ -5,8 +5,10 @@
 # (the first header becomes "*Friday*:" when run on a Monday).
 #
 # Yesterday  = PRs (authored or assigned to me) touched in the window, classified
-#              by where they sit in the dev process. Issues are intentionally
-#              excluded — Yesterday is "what I actually did" (PRs only).
+#              by where they sit in the dev process, plus *every* open PR awaiting
+#              code review regardless of when it was last touched (a PR sitting
+#              in review for a week still needs calling out). Issues are
+#              intentionally excluded — Yesterday is "what I actually did" (PRs only).
 # Today      = items assigned to me sitting in the "In Progress" column of the
 #              EscrowSafe org project board (https://github.com/orgs/EscrowSafe/projects/1).
 #
@@ -70,6 +72,15 @@ module Standup
         .map(&:to_i).uniq
   end
 
+  # Merge the windowed PRs with PRs from outside the window, keeping only the
+  # out-of-window ones that are awaiting code review — everything else outside
+  # the window is old news. Dedup by url; windowed entries win.
+  def merge_needs_cr(window_prs, other_prs, review_decisions)
+    seen = window_prs.map { |pr| pr['url'] }.to_set
+    window_prs + other_prs.select { |pr| seen.add?(pr['url']) }
+                          .select { |pr| classify(pr, review_decisions[pr['url']]) == :needs_cr }
+  end
+
   # Build the full Slack block string from already-fetched data:
   #   prs               - array of PR hashes (may contain URL duplicates)
   #   review_decisions  - { pr_url => reviewDecision } for open non-draft PRs
@@ -121,6 +132,17 @@ module Standup
       %W[search prs --author @me --owner #{ORG} --state open --updated >=#{since} --json #{fields} --limit 50],
       %W[search prs --assignee @me --owner #{ORG} --merged --merged-at >=#{since} --json #{fields} --limit 50],
       %W[search prs --assignee @me --owner #{ORG} --state open --updated >=#{since} --json #{fields} --limit 50]
+    ]
+    queries.flat_map { |q| gh_json(q) || [] }
+  end
+
+  # Every open PR authored by or assigned to me, with no date bound — the source
+  # for the "all open PRs needing CR" part of the Yesterday block.
+  def fetch_open_prs
+    fields = 'number,title,url,state,isDraft'
+    queries = [
+      %W[search prs --author @me --owner #{ORG} --state open --json #{fields} --limit 100],
+      %W[search prs --assignee @me --owner #{ORG} --state open --json #{fields} --limit 100]
     ]
     queries.flat_map { |q| gh_json(q) || [] }
   end
@@ -187,8 +209,11 @@ module Standup
   def main
     today = Date.today
     since = since_date(today)
-    prs = fetch_prs(since)
-    puts build_output(prs, fetch_review_decisions(prs), fetch_today_items,
+    window_prs = fetch_prs(since)
+    open_prs = fetch_open_prs
+    review_decisions = fetch_review_decisions(window_prs + open_prs)
+    prs = merge_needs_cr(window_prs, open_prs, review_decisions)
+    puts build_output(prs, review_decisions, fetch_today_items,
                       linked_issues: fetch_linked_issues(prs), monday: today.monday?)
   end
 end

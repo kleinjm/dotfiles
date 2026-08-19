@@ -143,4 +143,24 @@ class StandupTest < Minitest::Test
     out = Standup.build_output([pr(1, 'X', 'merged')], {}, [])
     assert_match(/\A\*Yesterday\*:\n- /, out)
   end
+
+  # --- merge_needs_cr -----------------------------------------------------
+  def test_merge_needs_cr_adds_out_of_window_prs_awaiting_review
+    window = [pr(1, 'In window', 'merged')]
+    other = [pr(2, 'Stale review', 'open')]
+    merged = Standup.merge_needs_cr(window, other, { other[0]['url'] => 'REVIEW_REQUIRED' })
+    assert_equal([1, 2], merged.map { |p| p['number'] })
+  end
+
+  def test_merge_needs_cr_drops_out_of_window_prs_in_other_buckets
+    other = [pr(2, 'Approved', 'open'), pr(3, 'Draft', 'open', true), pr(4, 'Merged', 'merged')]
+    merged = Standup.merge_needs_cr([], other, { other[0]['url'] => 'APPROVED' })
+    assert_empty merged
+  end
+
+  def test_merge_needs_cr_does_not_duplicate_prs_already_in_window
+    window = [pr(2, 'Needs CR', 'open')]
+    merged = Standup.merge_needs_cr(window, [pr(2, 'Needs CR', 'open')], {})
+    assert_equal([2], merged.map { |p| p['number'] })
+  end
 end

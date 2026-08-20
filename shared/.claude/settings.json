@@ -20,5 +20,44 @@
   "effortLevel": "low",
   "tui": "fullscreen",
   "theme": "dark-daltonized",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(gh issue list:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh project item-list:*)"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(heroku pg:reset:*)",
+      "Bash(heroku run:*)",
+      "Bash(terragrunt destroy:*)"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: EscrowSafe (real estate escrow/title SaaS; repo `EscrowSafe/web`)",
+      "**Cloud provider(s)**: AWS (S3 via ActiveStorage `amazon_app` / `amazon_pii` services, `aws` CLI used routinely) and Heroku (`heroku` git remote and CLI used routinely)",
+      "**Repository visibility**: private (gh API: `EscrowSafe/web` is private)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: 1Password (Engineering Vault) for Rails credential keys; Rails encrypted credentials under `config/credentials/*.key` and `config/master.key`; GitHub Actions secrets for CI. Never read, print, or copy key files or `.env` out of the repo.",
+      "**Default / protected branches**: default `main`; active rulesets on `main` and `staging`; both listed as protected — treat pushes to `main` and `staging` as protected-branch writes",
+      "**CI/CD deploy targets**: GitHub Actions workflows in `.github/workflows`; Heroku app `escrowsafe` via the `heroku` git remote (production deploy target)",
+      "**Network posture**: devcontainer-based local development (Docker, VS Code/Cursor); dev server on a per-worktree port read from `.claude/port` (never assume 3000); `ngrok` used occasionally for temporary external ingress",
+      "**Source control**: GitHub — `github.com:EscrowSafe/web.git` (private) plus the Heroku deploy remote `git.heroku.com/escrowsafe.git`; no other orgs configured",
+      "**Trusted internal domains**: `github.com/EscrowSafe/*`, `escrowsafe.slack.com`, `app.aikido.dev`, `git.heroku.com/escrowsafe`",
+      "**Trusted cloud buckets**: `escrowsafe-ci` (config-derived — not a confirmed upload destination; uploads of local data still require confirmation)",
+      "**Key internal services**: GitHub (issues, PRs, org project \"Web\" #1), Slack (via MCP connector), Aikido (security findings), Customer.io (transactional email, not ActionMailer), Rollbar via `ErrorTracker`, Flipper feature flags, Fivetran",
+      "**Internal package registry**: None configured — RubyGems/npm public registries via Bundler and Yarn",
+      "**Sensitive data locations & audiences**: escrow PII — buyer/seller/borrower identity documents, selfie liveness captures, Statement of Info packets, wire instructions and passphrases, FinCEN RRE data (dormant), PaperTrail audit trails, and encrypted PII columns; ActiveStorage `amazon_pii` service; `.env`, `config/master.key`, `config/credentials/*.key`, `tmp/local_secret.txt`. Share only with audiences cleared at the [named+specifics] bar; preserve exact handles when known.",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: the Heroku app `escrowsafe` and its `git.heroku.com/escrowsafe.git` remote; the `production` and `staging` Rails credential scopes; plus any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: Heroku app `escrowsafe` (production) and the `staging` environment; protected branches `main` and `staging`",
+      "**Protected IaC scopes**: Terragrunt/Terraform scopes covering IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development on the EscrowSafe Rails 8 monolith — feature work, RSpec test debugging and stabilization, draft PR creation, and GitHub issue/backlog triage",
+      "**Trusted repo**: `EscrowSafe/web` (private) at this worktree `/workspaces/web-worktrees/fix/community-association-bug` and its `origin` remote `github.com:EscrowSafe/web.git`. Private visibility means confidential material is fine to commit there; secrets and sensitive data (personal & entrusted) are never cleared into any repo by its visibility.",
+      "**Org-specific CLIs**: `heroku`, `aws`, `terragrunt`, `gh`, `playwright-cli`, `bundle`/`bin/rails`, `yarn`, `ngrok`, plus local wrappers (`g`, `gd`, `gb`, `wtm`/`owtm`/`jwtm` worktree helpers, `gprune`, `mux`, `standup`)"
+    ]
+  }
 }

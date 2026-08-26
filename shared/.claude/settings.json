@@ -2,6 +2,10 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "worktree": {
+    "baseRef": "fresh"
+  },
+  "workflowKeywordTriggerEnabled": false,
   "statusLine": {
     "type": "command",
     "command": "bash \"$HOME/.claude/statusline-command.sh\""
@@ -18,8 +22,10 @@
     }
   },
   "effortLevel": "low",
+  "awaySummaryEnabled": false,
   "tui": "fullscreen",
   "theme": "dark-daltonized",
+  "editorMode": "normal",
   "skipAutoPermissionPrompt": true,
   "autoMode": {
     "allow": [

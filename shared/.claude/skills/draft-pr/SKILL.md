@@ -108,6 +108,10 @@ Map changes to template sections:
 ## PHASE 5: Generate PR Content
 
 ### 5.1 Title
+- Format: `Subject - Description`, e.g. `Form 593 - Add customer side entity flow` or `User Email - Update copy and CTA link`
+  - **Subject**: the feature, page, or area the work touches
+  - **Description**: what the change does, starting with a specific verb
+- Use normal sentence case throughout (capitalize the first word and proper nouns only) — no Title Case
 - Keep under 70 characters
 - Use specific verbs: add, fix, refactor, update, remove
 - Reflect the issue context gathered in Phase 1

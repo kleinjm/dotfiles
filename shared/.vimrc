@@ -243,9 +243,16 @@ command! -bang -nargs=* Ag
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \                 <bang>0)
 
-" Search only the files that are on the current and uncommitted branch
+" Search only the files changed on the current branch relative to its base
+" branch (local main, origin/main, a PR base, etc. -- see git-base-branch),
+" including uncommitted changes. Deleted files are filtered out so every
+" result is openable.
 let s:base_branch_script = resolve(expand('<sfile>:p:h')) . '/scripts/git-base-branch'
-execute "command! Fzfc call fzf#run(fzf#wrap({'source': 'git diff $(" . s:base_branch_script . ") --name-only'}))"
+let s:branch_diff_cmd =
+      \ 'git diff --name-only --relative --diff-filter=d ' .
+      \ '$(git merge-base HEAD $(' . s:base_branch_script . '))'
+execute "command! -bang Fzfc call fzf#vim#files('', " .
+      \ "fzf#vim#with_preview({'source': '" . s:branch_diff_cmd . "'}), <bang>0)"
 
 let g:fzf_files_options =
       \ '--reverse ' .

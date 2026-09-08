@@ -63,3 +63,6 @@
 	format = ssh
 [credential "https://git.heroku.com"]
 	helper = !heroku git:credentials
+[safe]
+	directory = /workspaces/web
+	directory = /workspaces/web-worktrees/*

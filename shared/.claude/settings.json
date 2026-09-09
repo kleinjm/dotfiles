@@ -65,6 +65,5 @@
       "**Trusted repo**: `EscrowSafe/web` (private) at this worktree `/workspaces/web-worktrees/fix/community-association-bug` and its `origin` remote `github.com:EscrowSafe/web.git`. Private visibility means confidential material is fine to commit there; secrets and sensitive data (personal & entrusted) are never cleared into any repo by its visibility.",
       "**Org-specific CLIs**: `heroku`, `aws`, `terragrunt`, `gh`, `playwright-cli`, `bundle`/`bin/rails`, `yarn`, `ngrok`, plus local wrappers (`g`, `gd`, `gb`, `wtm`/`owtm`/`jwtm` worktree helpers, `gprune`, `mux`, `standup`)"
     ]
-  },
-  "model": "opus"
+  }
 }

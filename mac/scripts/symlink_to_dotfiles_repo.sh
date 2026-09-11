@@ -48,4 +48,18 @@ ln -sf "$DOTFILES_DIR"/mac/cursor/settings.json "$HOME"/Library/Application\ Sup
 ln -s "$DOTFILES_DIR"/mac/.agent-os "$HOME"
 ln -s "$DOTFILES_DIR"/shared/.claude "$HOME"
 
+# Per-project CLAUDE.local.md files, named <project>.CLAUDE.local.md. The link
+# is relative so it resolves both here and inside a devcontainer, where the
+# projects live under a different absolute path.
+for local_md in "$DOTFILES_DIR"/shared/.claude/project-local/*.CLAUDE.local.md; do
+  [ -e "$local_md" ] || continue
+  project=$(basename "$local_md" .CLAUDE.local.md)
+  if [ -d "$PROJECT_DIR/$project" ]; then
+    ln -sfn "../dotfiles/shared/.claude/project-local/$(basename "$local_md")" \
+      "$PROJECT_DIR/$project/CLAUDE.local.md"
+  else
+    echo "Skipping $project CLAUDE.local.md: $PROJECT_DIR/$project not found"
+  fi
+done
+
 echo "Symlinking completed successfully"

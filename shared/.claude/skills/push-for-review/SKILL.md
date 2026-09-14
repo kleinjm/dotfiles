@@ -1,11 +1,11 @@
 ---
 name: push-for-review
-description: Push the current branch and return a GitHub compare link against the base branch (which may differ from main) so the user can review the diff before opening a PR. If currently on main, cut a new branch first. Pre-step to /draft-pr.
+description: Push the current branch and return a GitHub compare link against the base branch (which may differ from main) so the user can review the diff before opening a PR. If currently on main, cut a new branch first. Pre-step to /create-pr.
 user-invocable: true
 arguments: "[branch_name]"
 ---
 
-You're pushing the current code to the remote and returning a GitHub compare link the user can click to review the diff. This is the pre-step to `/draft-pr` — no PR is opened here.
+You're pushing the current code to the remote and returning a GitHub compare link the user can click to review the diff. This is the pre-step to `/create-pr` — no PR is opened here.
 
 ## PHASE 1: Determine current and base branch
 
@@ -63,13 +63,13 @@ Use the `nameWithOwner` you already fetched in Phase 1 for `<OWNER>/<REPO>` — 
 Output a single short message containing:
 1. The base branch used (so the user can spot if it's wrong).
 2. The compare link.
-3. A one-line reminder that they can run `/draft-pr` next to open a draft PR.
+3. A one-line reminder that they can run `/create-pr` next to open a draft PR.
 
 Example output:
 
 > Pushed `feat/foo-bar`. Compare against `main`:
 > https://github.com/EscrowSafe/web/compare/main...feat/foo-bar
 >
-> Run `/draft-pr` to open a draft PR from this branch.
+> Run `/create-pr` to open a draft PR from this branch.
 
 Keep the response to that — no extra commentary, no summary of changes.

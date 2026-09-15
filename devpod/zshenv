@@ -1,0 +1,12 @@
+# .zshenv is sourced by EVERY zsh invocation, including non-interactive ones
+# (git hooks, devcontainer lifecycle scripts, `ssh host cmd`, and the shells
+# Claude Code runs tool calls in). Those never source .zshrc, so the
+# `mise activate` there does not reach them and mise-managed tools like
+# terraform, terragrunt, tflint and aws come back "command not found".
+#
+# Shims are the mise-recommended answer for exactly that case. Interactive
+# shells still get the faster `mise activate zsh` from .zshrc, which takes
+# precedence over these shims.
+if [[ -d "$HOME/.local/share/mise/shims" ]]; then
+  export PATH="$HOME/.local/share/mise/shims:$PATH"
+fi

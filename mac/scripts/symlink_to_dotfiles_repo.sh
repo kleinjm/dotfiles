@@ -32,8 +32,15 @@ ln -sf "$DOTFILES_DIR"/mac/scripts/vendor/* /usr/local/bin
 mkdir -p "$HOME"/.pyenv
 ln -sf "$DOTFILES_DIR"/shared/pyenv/version "$HOME"/.pyenv/version
 
+# Don't check the global ruby version into the repo: a literal version string
+# breaks on any machine that hasn't installed it. Point the global at the
+# latest installed ruby instead; project .ruby-version files still win.
 mkdir -p "$HOME"/.rbenv
-ln -sf "$DOTFILES_DIR"/rbenv/.rbenv/version "$HOME"/.rbenv/version
+rm -f "$HOME"/.rbenv/version
+latest_ruby=$(rbenv versions --bare 2>/dev/null | grep -E '^[0-9]+\.[0-9]+' | sort -V | tail -1)
+if [ -n "$latest_ruby" ]; then
+  echo "$latest_ruby" > "$HOME"/.rbenv/version
+fi
 
 # Cursor IDE settings
 mkdir -p "$HOME"/Library/Application\ Support/Cursor/User

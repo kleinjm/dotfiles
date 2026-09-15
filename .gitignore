@@ -20,6 +20,7 @@ shared/.claude/statsig/
 shared/.claude/todos/
 shared/.claude/sessions/
 shared/.claude/policy-limits.json
+shared/.claude/policy-limits.json.stamp.json
 shared/.claude/shell-snapshots/
 shared/.claude/plugins/
 shared/.claude/plans/

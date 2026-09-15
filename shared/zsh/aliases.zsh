@@ -10,19 +10,10 @@ alias ls="ls -FGhla" # -F symbols, -G colorized output, -h full unit (Kilobyte)
 # Remove pyenv configs as not to interfere with brew
 # alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
 
-# Always use the latest installed ruby version for the latest tmuxinator version.
-# A function (not an alias) so the version resolves at call time, after rbenv
-# loads, and so an uninstalled `rbenv global` never gets baked in.
-mux() {
-  local version
-  version=$(rbenv versions --bare 2>/dev/null | grep -E '^[0-9]+\.[0-9]+' | sort -V | tail -1)
-  if [[ -n "$version" ]]; then
-    RBENV_VERSION="$version" tmuxinator "$@"
-  else
-    tmuxinator "$@"
-  fi
-}
-compdef mux=tmuxinator 2>/dev/null
+# Never set RBENV_VERSION here: tmuxinator starts the tmux server, so anything
+# exported leaks into every pane of the session. The rbenv global (written to
+# the latest installed ruby by symlink_to_dotfiles_repo.sh) is enough.
+alias mux=tmuxinator
 
 # Slack-ready standup block from GitHub + the EscrowSafe project board
 # (deterministic Ruby script — no Claude/LLM). See shared/scripts/standup.rb.

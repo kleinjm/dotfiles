@@ -21,3 +21,9 @@ export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE="true"
 for file in $DOTFILES_DIR/shared/zsh/*.zshenv; do
   source "$file"
 done
+
+# Machine-local secrets (API tokens, PATs). Deliberately NOT in this repo:
+# lives in $HOME, chmod 600, never committed. The tokens themselves are stored
+# in 1Password; this file is a cache so every shell has them exported.
+# See README "Secrets" for the format.
+[ -f "$HOME/.secrets.zshenv" ] && source "$HOME/.secrets.zshenv"

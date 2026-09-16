@@ -120,7 +120,21 @@ gem install neovim
 
 ## Security
 
-Sensitive files are automatically excluded via `.gitignore`:
+Machine-local secrets (API tokens, PATs) live in `~/.secrets.zshenv`, which is
+**not** in this repo. `shared/zsh/.zshenv` sources it if present, so the exports
+reach every shell — interactive, non-interactive, and scripts.
+
+```sh
+touch ~/.secrets.zshenv && chmod 600 ~/.secrets.zshenv
+# then add lines like:
+#   export NOTION_PAT="ntn_..."
+```
+
+Store the tokens themselves in 1Password; the file is just a cache so a new
+machine can be rebuilt from the vault. Never `stow` it and never move it into
+`shared/zsh/` — that directory is tracked.
+
+Sensitive files are additionally excluded via `.gitignore`:
 - `mac/.claude/.credentials.json` and related credential files
 - `*.key`, `*.pem`, `*.cert`
 - `.env` and `.env.*` files

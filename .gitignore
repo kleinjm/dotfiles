@@ -69,3 +69,7 @@ shared/.claude/jobs/
 # diffity dev skills — auto-installed into ~/.claude/skills (bind-mounted to
 # shared/.claude/skills) by the linked diffity fork; regenerated, not authored.
 shared/.claude/skills/diffity-dev-*/
+
+# Anthropic-published skills synced by the Claude Code client into
+# ~/.claude/skills/synced; account-keyed and regenerated, not authored.
+shared/.claude/skills/synced/

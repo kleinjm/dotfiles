@@ -17,6 +17,10 @@ services:
       # devpod-data sibling lives (same dir as your other devpod-data mounts).
       - ~/GitHubRepos/devpod-data/gh:/home/vscode/.config/gh
 
+      # GitHub App private key + app-id, so bin/gh-app-token can open PRs as
+      # the app rather than falling back to the user's own gh credentials.
+      - ~/GitHubRepos/devpod-data/gh-app:/home/vscode/.config/escrowsafe:ro
+
       # Rollbar access token
       - ~/GitHubRepos/devpod-data/rollbar/.rollbar-mcp.json:/home/vscode/.rollbar-mcp.json:ro
 

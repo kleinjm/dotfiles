@@ -36,6 +36,7 @@ fi
 # Pre-create persistence directories on the host (visible at /workspaces
 # from inside this container, ~/GitHubRepos/devpod-data on the host).
 mkdir -p /workspaces/devpod-data/gh
+mkdir -p /workspaces/devpod-data/gh-app
 
 # Link configs into the home directory
 if [[ -f "${DOTFILES_DIR}/devpod/link.sh" ]]; then

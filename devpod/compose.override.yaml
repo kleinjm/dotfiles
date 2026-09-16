@@ -30,3 +30,13 @@ services:
       #
       # - ~/.claude/CLAUDE.md:/home/vscode/.claude/CLAUDE.md:ro
       # - ~/agent-os:/home/vscode/agent-os:ro
+
+  chrome:
+    # macOS Screen Sharing holds a launchd socket on 5900, so the raw VNC port
+    # is republished on 5901. `!override` replaces the port list rather than
+    # merging into it, which would leave the conflicting 5900 binding in place.
+    # The noVNC viewer on 7900 is unaffected.
+    ports: !override
+      - "4444:4444"
+      - "7900:7900"
+      - "5901:5900"

@@ -92,7 +92,7 @@ export GIT_MERGE_AUTOEDIT=no
 # Load all .zsh config files in this dir
 # NOTE: must come after oh-my-zsh.sh is sourced
 for file in $HOME/*.zsh; do
-  source "$file"
+  [ -r "$file" ] && source "$file"
 done
 
 source $HOME/.oh-my-zsh/custom/plugins/*.zsh

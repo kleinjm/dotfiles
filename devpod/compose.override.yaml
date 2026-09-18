@@ -2,6 +2,15 @@
 # https://code.visualstudio.com/docs/devcontainers/create-dev-container#_extend-your-docker-compose-file-for-development
 services:
   rails-app:
+    # PID 1 in this container is `sleep infinity`, which never reaps children.
+    # Without an init, orphaned Playwright/Chromium and tmux processes pile up
+    # as zombies and keep ptys open. See devpod/tmux-server-wedge.md.
+    init: true
+
+    # Playwright drives a container-local Chromium (not just the selenium
+    # `chrome` service), and the 64MB default /dev/shm makes it die hard.
+    shm_size: '2gb'
+
     # Resource limits (optional - adjust based on your system)
     # cpus: 8
     # mem_limit: 16g

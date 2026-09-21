@@ -1,13 +1,15 @@
 name: shipcrm
 root: <%= ENV["PROJECT_DIR"] %>/shipcrm
 # needed for pane-base-index 1 config
-startup_pane: 1
+startup_pane: 2
 
 windows:
   - editor:
-      # claude on the left (50% width); right half split 80/20 between nvim and a shell
-      layout: bffe,272x58,0,0{135x58,0,0,30,136x58,136,0[136x46,136,0,31,136x11,136,47,32]}
+      # left half split vertically: docker compose up on top, claude below;
+      # right half split 80/20 between nvim and a shell
+      layout: 8daf,272x58,0,0{135x58,0,0[135x10,0,0,30,135x47,0,11,31],136x58,136,0[136x46,136,0,32,136x11,136,47,33]}
       panes:
+        - docker compose up
         - claude
         - nvim .
         -

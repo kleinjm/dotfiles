@@ -60,9 +60,6 @@ npx eslint [files]
 # CoffeeScript
 npx coffeelint [files]
 
-# SCSS/Sass
-npx sass-lint [files]
-
 # Ruby
 bundle exec rubocop [files]
 ```

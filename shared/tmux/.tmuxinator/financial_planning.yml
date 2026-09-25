@@ -5,8 +5,10 @@ startup_pane: 1
 
 windows:
   - editor:
-      # claude on top (75% height), shell below (25% height)
-      layout: 28ea,214x56,0,0[214x42,0,0,0,214x13,0,43,1]
+      # claude on top (~80% height); bottom split in half:
+      # serve.py on the left (so to-do ticks save), empty shell on the right
+      layout: 37a8,214x52,0,0[214x41,0,0,20,214x10,0,42{107x10,0,42,21,106x10,108,42,22}]
       panes:
         - claude
+        - python3 scripts/serve.py
         -

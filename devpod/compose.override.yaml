@@ -30,6 +30,13 @@ services:
       # the app rather than falling back to the user's own gh credentials.
       - ~/GitHubRepos/devpod-data/gh-app:/home/vscode/.config/escrowsafe:ro
 
+      # AWS CLI config + credentials (e.g. the `es-admin` profile used by
+      # terragrunt in the infra repo). Without this, ~/.aws is container-local
+      # and every rebuild means re-running `aws configure --profile es-admin`
+      # in a real terminal. Not :ro — `aws configure` and `aws sso login` write
+      # here. Create the host dir first: mkdir -p ~/GitHubRepos/devpod-data/aws
+      - ~/GitHubRepos/devpod-data/aws:/home/vscode/.aws
+
       # Rollbar access token
       - ~/GitHubRepos/devpod-data/rollbar/.rollbar-mcp.json:/home/vscode/.rollbar-mcp.json:ro
 

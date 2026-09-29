@@ -8,7 +8,7 @@ startup_pane: 1
 windows:
   - editor:
       # wide claude pane on the left; right side split between nvim and a shell
-      layout: 1dc9,187x47,0,0{117x47,0,0,6,69x47,118,0[69x38,118,0,7,69x8,118,39,13]}
+      layout: 5123,214x52,0,0{111x52,0,0,6,102x52,112,0[102x46,112,0,7,102x5,112,47,8]}
       panes:
         - claude
         - nvim .

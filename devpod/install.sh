@@ -20,17 +20,14 @@ else
   git clone "${DOTFILES_REPO}" "${DOTFILES_DIR}"
 fi
 
-# Sync compose.override.yaml into the web repo so the next container
-# recreate picks up persistence mounts (e.g. gh CLI auth). Overwrite is
-# fine — this file is owned by the dotfiles template.
-WEB_OVERRIDE="/workspaces/web/.devcontainer/compose.override.yaml"
-DOTFILES_OVERRIDE="${DOTFILES_DIR}/devpod/compose.override.yaml"
-if [[ -d "/workspaces/web/.devcontainer" && -f "${DOTFILES_OVERRIDE}" ]]; then
-  if ! cmp -s "${DOTFILES_OVERRIDE}" "${WEB_OVERRIDE}" 2>/dev/null; then
-    echo "Updating ${WEB_OVERRIDE} from dotfiles template..."
-    cp "${DOTFILES_OVERRIDE}" "${WEB_OVERRIDE}"
-    echo "  (run 'bin/dpod recreate' from the host to apply mount changes)"
-  fi
+# Link the host-side pre-flight hook into the web repo, which syncs
+# compose.override.yaml from this repo before the devcontainer config is
+# hashed. The link is relative so it resolves both here and on the host, where
+# the two repos are siblings.
+WEB_DEVCONTAINER="/workspaces/web/.devcontainer"
+if [[ -d "${WEB_DEVCONTAINER}" && -f "${DOTFILES_DIR}/devpod/pre-flight.local.sh" ]]; then
+  ln -sfn ../../dotfiles/devpod/pre-flight.local.sh "${WEB_DEVCONTAINER}/pre-flight.local.sh"
+  echo "Linked ${WEB_DEVCONTAINER}/pre-flight.local.sh"
 fi
 
 # Pre-create persistence directories on the host (visible at /workspaces

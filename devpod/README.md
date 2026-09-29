@@ -14,8 +14,8 @@ Personal dotfiles for DevPod development containers.
 ## One-time setup (per machine)
 
 1. Copy `setup.local.sh` into the web repo (this is the only file you need
-   to copy by hand — `compose.override.yaml` is kept in sync automatically
-   by `install.sh`, see below):
+   to copy by hand — `pre-flight.local.sh` is symlinked and
+   `compose.override.yaml` kept in sync automatically, see below):
    ```bash
    cp ~/.dotfiles/devpod/setup.local.sh /path/to/web/.devcontainer/setup.local.sh
    ```
@@ -26,19 +26,27 @@ Personal dotfiles for DevPod development containers.
    ```
 
 After that, `setup.local.sh` runs automatically when the container is
-created and curls `install.sh` from GitHub. `install.sh` then writes
-`compose.override.yaml` into `web/.devcontainer/` from the dotfiles
-template — so any time you update the template here, the next container
-recreate picks up the change.
+created and curls `install.sh` from GitHub. `install.sh` symlinks
+`pre-flight.local.sh` into `web/.devcontainer/`, and the web repo's
+`pre-flight.sh` runs it on the host at the start of every `bin/dpod up` —
+so any time you update `compose.override.yaml` here, the next start picks
+up the change.
+
+The sync has to happen on the host. DevPod hashes the devcontainer config,
+including every file listed in `dockerComposeFile`, when it creates the
+container; rewriting `compose.override.yaml` from inside the container
+changes that hash afterwards, and the next start recreates the container
+from scratch — losing installed apt packages, mise runtimes and gems.
 
 ## Files
 
 | File | Purpose |
 |------|---------|
-| `install.sh` | First-run entry point. Sets up `~/.dotfiles`, syncs `compose.override.yaml` into the web repo, calls `link.sh`. |
+| `install.sh` | First-run entry point. Sets up `~/.dotfiles`, symlinks `pre-flight.local.sh` into the web repo, calls `link.sh`. |
+| `pre-flight.local.sh` | Host-side hook (must keep this name). Symlinked into the web repo; syncs `compose.override.yaml` before the devcontainer config is hashed. |
 | `link.sh` | Symlinks configs into `~`. Run this on container restart. |
 | `setup.local.sh` | DevPod hook (must keep this name). Curls `install.sh` from GitHub. Copy to web repo once. |
-| `compose.override.yaml` | Docker Compose overrides. Master copy lives here; `install.sh` syncs it into the web repo. |
+| `compose.override.yaml` | Docker Compose overrides. Master copy lives here; `pre-flight.local.sh` syncs it into the web repo. |
 | `zshrc` | Zsh configuration (symlinked to `~/.zshrc`) |
 | `zprofile` | Zsh profile (symlinked to `~/.zprofile`) |
 | `aliases.zsh` | Shell aliases (sourced by zshrc) |
@@ -56,7 +64,7 @@ recreate picks up the change.
 3. `setup.local.sh` curls `install.sh` from this repo on GitHub.
 4. `install.sh`:
    - Sets up `~/.dotfiles` — symlink to `/workspaces/dotfiles` if present, else clone from GitHub.
-   - Syncs `devpod/compose.override.yaml` into `web/.devcontainer/compose.override.yaml` so the next recreate picks up any changes.
+   - Symlinks `devpod/pre-flight.local.sh` to `web/.devcontainer/pre-flight.local.sh`, which syncs `compose.override.yaml` on the host at the start of each `bin/dpod up`.
    - Pre-creates `~/GitHubRepos/devpod-data/gh` on the host (visible at `/workspaces/devpod-data/gh` from inside the container).
    - Calls `link.sh`.
 5. `link.sh` symlinks every config into `~`.

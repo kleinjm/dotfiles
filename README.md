@@ -134,10 +134,10 @@ Both scripts run inside the locky container (`bin/locky shell` from the web repo
   ```
   It is idempotent: installed plugins are skipped and settings are set to the same value again. A few keys `bb settings show` reports are read-only and are skipped. It exits 1 if any step failed.
 
+Restoring installs third-party plugins from their recorded git sources, so a plugin that has since published a new version within its semver range installs that version, not the one that was running when exported.
+
 ### Shell (locky)
 `locky/setup.local.sh` is the container's personal boot hook. Link it once from the host or the container: `ln -s /workspace/dotfiles/locky/setup.local.sh /workspace/web/.locky/setup.local.sh`. On every boot it adds `source /workspace/dotfiles/locky/shell.zsh` to `~/.zshrc`. `shell.zsh` defines `ghpub`, which runs `gh` with the classic `public_repo` token in `docker-data/gh-public-token` (mode 600, outside every repo) for issues and PRs on repos outside EscrowSafe; plain `gh` keeps the EscrowSafe token.
-
-Restoring installs third-party plugins from their recorded git sources, so a plugin that has since published a new version within its semver range installs that version, not the one that was running when exported.
 
 ## Security
 

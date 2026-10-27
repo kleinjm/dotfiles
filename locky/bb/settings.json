@@ -1,0 +1,48 @@
+{
+  "general": {
+    "showKeyboardHints": true,
+    "showGitChanges": true,
+    "steerActiveThreadOnEnter": true,
+    "terminalCopyOnSelect": true,
+    "confirmThreadArchive": true,
+    "showDiagnosticEvents": false,
+    "keepHistoryAfterContextClear": false,
+    "summarizeShellCommands": true,
+    "providerOrder": [],
+    "defaultProviderId": null,
+    "providerCompletedTurnDisplay": {},
+    "streamerMode": false,
+    "allowFastServiceTier": true,
+    "telemetryEnabled": true,
+    "managedBranchPrefix": "bb/",
+    "idleProviderSessionTimeoutMinutes": 30,
+    "machineServerUrl": null,
+    "machineGitCredentialsEnabled": true,
+    "defaultMachineAccess": null,
+    "onboardingCompletedAt": "2026-10-27T20:57:26.406Z",
+    "earlyAdopter": false,
+    "showUnhandledProviderEvents": false
+  },
+  "theme": {
+    "id": "escrowsafe",
+    "faviconColor": "green"
+  },
+  "ui": {
+    "sidebar.pluginPanelOrder": [
+      "__bb__/new-thread",
+      "__bb__/search-threads",
+      "__bb__/extensions",
+      "__bb__/skills",
+      "__bb__/automations"
+    ],
+    "sidebar.visiblePluginPanels": [
+      "__bb__/new-thread",
+      "__bb__/extensions",
+      "__bb__/skills",
+      "__bb__/automations",
+      "__bb__/search-threads"
+    ],
+    "sidebar.threadListProvider": "wtm/workspace-list"
+  },
+  "keyboard": []
+}

@@ -1,0 +1,63 @@
+{
+  "installed": [
+    {
+      "id": "browser-automation",
+      "source": "builtin:browser-automation",
+      "enabled": true
+    },
+    {
+      "id": "hotspot",
+      "source": "git:https://github.com/Hazihell/bb-plugin-hotspot.git@semver:^0.1.0",
+      "enabled": true
+    },
+    {
+      "id": "wtm",
+      "source": "path:/workspace/web/.locky/plugins/wtm",
+      "enabled": true
+    }
+  ],
+  "enabled": {
+    "account-pool": false,
+    "agent-annotations": true,
+    "ask-user-question": true,
+    "automations": true,
+    "bb--composer": true,
+    "bb--connect-next": false,
+    "bb--github-pr-status": true,
+    "bb--mcp": false,
+    "bb--prompt-library": true,
+    "bb--provider-usage": true,
+    "bb--storage-retention": false,
+    "bb-account": true,
+    "bb-ai": true,
+    "bb-guide": true,
+    "browser-automation": true,
+    "concurrency-limit": true,
+    "connect": true,
+    "custom-instructions": true,
+    "drafts": true,
+    "environment-git-worktree": true,
+    "environment-personal-workspace": true,
+    "environment-project-checkout": true,
+    "hotspot": true,
+    "inline-vis": true,
+    "keep-awake": true,
+    "monaco-editor": true,
+    "navigation": true,
+    "pdf-preview": true,
+    "plugin-api-docs": false,
+    "plugin-api-tester": false,
+    "provider-acp": true,
+    "provider-claude-code": true,
+    "provider-codex": true,
+    "provider-pi": true,
+    "provider-retry": true,
+    "push-notifications": true,
+    "scheduled-send": true,
+    "secrets": true,
+    "side-chat": true,
+    "thread-list": true,
+    "workflows": true,
+    "wtm": true
+  }
+}

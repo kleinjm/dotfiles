@@ -19,6 +19,7 @@ mac/make.sh
 
 - `mac/` - Mac-specific configurations and scripts
 - `devpod/` - Devcontainer/devpod environment configurations and scripts
+- `locky/` - Configuration for the locky container (bb running in Docker/podman for the web repo)
 - `shared/` - Cross-platform configurations (vim, zsh, tmux, git)
 
 ## Setup Details
@@ -117,6 +118,23 @@ gem install neovim
 
 ### Quiver
 - Quiver settings are stored in `mac/config/Quiver-settings.json`
+
+### bb (locky)
+`locky/bb/` keeps bb's configuration so a fresh bb can be rebuilt: `plugins.json` lists the plugins installed on top of bb's built-ins (with their sources) and every plugin's enabled state, and `settings.json` holds the general settings, theme, UI preferences changed from their defaults, and keyboard overrides. Credentials (`auth.json`, `auth-secret`, plugin tokens) and `bb.db` are never exported.
+
+Both scripts run inside the locky container (`bin/locky shell` from the web repo, or any bb terminal), with bb running:
+
+* **Back up** after installing a plugin or changing a setting, then commit the two JSON files:
+  ```sh
+  bash /workspace/dotfiles/locky/bb/export.sh
+  ```
+* **Restore** onto a fresh bb, after `bin/locky up` has finished provisioning (the `wtm` plugin and `escrowsafe` theme come from the web repo's `.locky/`, so they must exist first):
+  ```sh
+  bash /workspace/dotfiles/locky/bb/restore.sh
+  ```
+  It is idempotent: installed plugins are skipped and settings are set to the same value again. A few keys `bb settings show` reports are read-only and are skipped. It exits 1 if any step failed.
+
+Restoring installs third-party plugins from their recorded git sources, so a plugin that has since published a new version within its semver range installs that version, not the one that was running when exported.
 
 ## Security
 

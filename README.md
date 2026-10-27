@@ -139,6 +139,9 @@ Restoring installs third-party plugins from their recorded git sources, so a plu
 ### Shell (locky)
 `locky/setup.local.sh` is the container's personal boot hook. Link it once from the host or the container: `ln -s /workspace/dotfiles/locky/setup.local.sh /workspace/web/.locky/setup.local.sh`. On every boot it adds `source /workspace/dotfiles/locky/shell.zsh` to `~/.zshrc`. `shell.zsh` defines `ghpub`, which runs `gh` with the classic `public_repo` token in `docker-data/gh-public-token` (mode 600, outside every repo) for issues and PRs on repos outside EscrowSafe; plain `gh` keeps the EscrowSafe token.
 
+### Orchestrator thread (locky)
+`locky/orchestrator/AGENTS.md` is the role for a pinned bb thread with no project, used to ask about threads, PRs and CI and to start `wtm` worktrees. bb reads `<workspace>/.bb/AGENTS.md` when a session starts, so link it into the thread's personal workspace: `mkdir -p <workspace>/.bb && ln -s /workspace/dotfiles/locky/orchestrator/AGENTS.md <workspace>/.bb/AGENTS.md`. Create the thread from the bb UI (new chat, no project): `bb thread spawn` from inside another thread requires a project.
+
 ## Security
 
 Machine-local secrets (API tokens, PATs) live in `~/.secrets.zshenv`, which is

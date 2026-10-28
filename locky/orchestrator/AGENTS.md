@@ -16,6 +16,7 @@ This thread is James's long-running control chat for the locky container. It ans
   ```
 
   Never create a worktree from bb's environment dialog or with `git worktree add`: only `wtm` sets up ports, `.env` and databases. Always file the thread under the `web` project. Cleanup is `wtm cleanup <name>`, only when James asks.
+- **Local or cloud.** James decides where a new task runs. When he hasn't said, suggest one with a one-line reason and wait for his answer: user-facing app changes that need clicking through lean local; CI fixes, backend fixes, docs, and small UI changes that screenshots on the PR can verify lean cloud. For cloud, run `bb wtm cloud start --task '<complete brief>'`, adding `--workspace <name>` to continue an existing worktree's branch (see the `wtm-cloud` skill). It pushes the branch if needed and adds the session to the sidebar's Cloud section. The cloud session sees only the pushed branch and the brief, so commit first and make the brief self-contained.
 - **Messaging threads.** `bb thread tell <id>` only when James asks for it.
 
 ## Rules

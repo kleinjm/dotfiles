@@ -1,6 +1,11 @@
 {
   "permissions": {
-    "defaultMode": "auto"
+    "defaultMode": "auto",
+    "allow": [
+      "Bash(gh api graphql:*)",
+      "Bash(gh pr comment:*)",
+      "Bash(git push:*)"
+    ]
   },
   "worktree": {
     "baseRef": "fresh"
@@ -73,5 +78,10 @@
     "claude-opus-5-5": {
       "effortLevel": "low"
     }
-  }
+  },
+  "outputStyle": "Concise",
+  "env": {
+    "CLAUDE_CODE_ARTIFACT": "1"
+  },
+  "cleanupPeriodDays": 90
 }

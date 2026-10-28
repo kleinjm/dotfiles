@@ -26,11 +26,6 @@
       "enabled": true
     },
     {
-      "id": "switchboard",
-      "source": "git:https://github.com/kalindudc/bb-marketplace.git@semver:switchboard/:>=0.1.0 <1.0.0",
-      "enabled": true
-    },
-    {
       "id": "wtm",
       "source": "path:/workspace/web/.locky/plugins/wtm",
       "enabled": true
@@ -79,7 +74,6 @@
     "scheduled-send": true,
     "secrets": true,
     "side-chat": true,
-    "switchboard": true,
     "thread-list": true,
     "workflows": true,
     "wtm": true

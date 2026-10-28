@@ -6,6 +6,11 @@
       "enabled": true
     },
     {
+      "id": "genui",
+      "source": "git:https://github.com/ComicBit/bb-plugin-genui",
+      "enabled": true
+    },
+    {
       "id": "hotspot",
       "source": "git:https://github.com/Hazihell/bb-plugin-hotspot.git@semver:^0.1.0",
       "enabled": true
@@ -39,6 +44,7 @@
     "environment-git-worktree": true,
     "environment-personal-workspace": true,
     "environment-project-checkout": true,
+    "genui": true,
     "hotspot": true,
     "inline-vis": true,
     "keep-awake": true,

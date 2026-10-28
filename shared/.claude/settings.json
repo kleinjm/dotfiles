@@ -12,7 +12,8 @@
   },
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true,
-    "figma@claude-plugins-official": true
+    "figma@claude-plugins-official": true,
+    "cc-plugin-you-should-know@builtin": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
@@ -24,7 +25,8 @@
   },
   "effortLevel": "low",
   "awaySummaryEnabled": false,
-  "tui": "fullscreen",
+  "tui": "default",
+  "prefersReducedMotion": true,
   "theme": "dark-daltonized",
   "editorMode": "normal",
   "skipAutoPermissionPrompt": true,
@@ -67,5 +69,9 @@
       "**Org-specific CLIs**: `heroku`, `aws`, `terragrunt`, `gh`, `playwright-cli`, `bundle`/`bin/rails`, `yarn`, `ngrok`, plus local wrappers (`g`, `gd`, `gb`, `wtm`/`owtm`/`jwtm` worktree helpers, `gprune`, `mux`, `standup`)"
     ]
   },
-  "prefersReducedMotion": true
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "low"
+    }
+  }
 }

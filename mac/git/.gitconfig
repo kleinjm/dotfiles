@@ -1,7 +1,7 @@
 [user]
   name = James Klein
   email = kleinjm007@gmail.com
-	signingkey = B37B7953A6BD2CB0
+	signingkey = /Users/jklein/.ssh/id_ed25519.pub
 [alias]
     a = add -A
     ap = add -p
@@ -62,3 +62,5 @@
 	gpgsign = true
 [tag]
 	gpgSign = true
+[gpg]
+	format = ssh

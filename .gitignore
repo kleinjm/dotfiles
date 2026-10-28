@@ -44,6 +44,14 @@ shared/.claude/daemon/
 shared/.claude/daemon.log
 shared/.claude/daemon.status.json
 shared/.claude/jobs/
+shared/.claude/daemon-auth-*
+shared/.claude/gh-pr-status-cache.json
+shared/.claude/remote-settings.json.synced-at
+shared/.claude/skills/.trash/
+shared/.claude/transcript-archive/
+# Signed config caches: machine-local, regenerated, carry account/machine ids
+shared/.claude/*.signature.json
+shared/.claude/*.signature-iat.json
 **/.claude/history.jsonl
 # Project-level Claude Code config (auto-created per repo, root-level only)
 /.claude/

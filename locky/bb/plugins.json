@@ -17,7 +17,7 @@
     },
     {
       "id": "gh-projects-board",
-      "source": "path:/workspace/bb-plugin-gh-projects-board",
+      "source": "git:https://github.com/kleinjm/bb-plugin-gh-projects-board.git@semver:^0.1.1",
       "enabled": true
     },
     {

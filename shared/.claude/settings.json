@@ -4,7 +4,9 @@
     "allow": [
       "Bash(gh api graphql:*)",
       "Bash(gh pr comment:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(wtm cleanup:*)",
+      "Bash(yes:*)"
     ]
   },
   "worktree": {

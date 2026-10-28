@@ -42,7 +42,8 @@
       "__bb__/automations",
       "__bb__/search-threads"
     ],
-    "sidebar.threadListProvider": "wtm/workspace-list"
+    "sidebar.threadListProvider": "wtm/workspace-list",
+    "infoPanel.collapsedSections": []
   },
   "keyboard": []
 }

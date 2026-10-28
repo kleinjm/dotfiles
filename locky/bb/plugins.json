@@ -6,11 +6,6 @@
       "enabled": true
     },
     {
-      "id": "context-health",
-      "source": "git:https://github.com/MacHatter1/bb-context-health.git@semver:^0.1.0",
-      "enabled": true
-    },
-    {
       "id": "context-meter",
       "source": "git:https://github.com/Hazihell/bb-plugin-context-meter.git@semver:^0.1.0",
       "enabled": true
@@ -49,7 +44,6 @@
     "browser-automation": true,
     "concurrency-limit": true,
     "connect": true,
-    "context-health": true,
     "context-meter": true,
     "custom-instructions": true,
     "drafts": true,

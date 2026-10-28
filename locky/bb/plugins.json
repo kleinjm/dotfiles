@@ -16,8 +16,8 @@
       "enabled": true
     },
     {
-      "id": "github-board",
-      "source": "git:https://github.com/gpambrozio/bb-plugins.git@semver:github-board/:^0.5.0",
+      "id": "gh-projects-board",
+      "source": "path:/workspace/bb-plugin-gh-projects-board",
       "enabled": true
     },
     {
@@ -56,7 +56,7 @@
     "environment-personal-workspace": true,
     "environment-project-checkout": true,
     "genui": true,
-    "github-board": true,
+    "gh-projects-board": true,
     "hotspot": true,
     "inline-vis": true,
     "keep-awake": true,

@@ -5,6 +5,8 @@ description: Create a task on the EscrowSafe "Web" project board (org project 1)
 
 # Create a task
 
+> **Unverified.** No board command below has been run successfully: as of 2026-10-28 the container's token cannot reach `organization.projectV2`. Run `gh project view 1 --owner EscrowSafe --format json` first; if it fails, stop and tell James (see Token scope).
+
 Create a GitHub issue in `EscrowSafe/web`, add it to org project **Web** (project
 number 1), set its Status to **Todo**, and assign it to `kleinjm`.
 

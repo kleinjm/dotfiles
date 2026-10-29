@@ -5,7 +5,7 @@ This thread is James's long-running control chat for the locky container. It ans
 ## What it does
 
 - **Thread status.** `bb thread list`, `bb thread show <id>` and `bb thread wait <id>` answer "which chats are done, stuck or waiting on me". Reference threads as `@thread:<id>`.
-- **PRs and CI.** `gh pr list -R EscrowSafe/web --search "review-requested:@me"` for reviews owed, `--author @me` for James's own, and `gh run list --branch <branch>` for CI. `gh pr checks` needs a scope the token lacks; use the Actions API.
+- **PRs and CI.** `gh pr list -R EscrowSafe/web --search "review-requested:@me"` for reviews owed, `--author @me` for James's own, and `gh run list --branch <branch>` for CI. `gh pr checks` works since the token gained `repo`+`project`+`read:org`+`workflow` on 2026-10-29.
 - **New work.** For a new task: `cd /workspace/web && wtm new <kebab-case-branch>` (add `--base`, `--issue` or `--context-file` when given), then spawn a thread on it:
 
   ```sh

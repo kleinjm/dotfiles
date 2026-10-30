@@ -16,7 +16,7 @@ reason this skill exists — gather them yourself.
 
     cd /workspace/web && bin/standup.rb
 
-Takes ~60s. Its output is the `*Yesterday*:` PR list. Keep its emoji labels
+Takes ~60s. Its output is the `**Yesterday**:` PR list. Keep its emoji labels
 (`:construction: WIP:`, `:eyes: Needs CR:`, `:merge: Ready to Deploy:`,
 `:ship: Deployed:`) and its PR-plus-task link shape.
 
@@ -75,13 +75,27 @@ syntax, not Markdown:
 
     <https://github.com/EscrowSafe/web/pull/5790|Locky - Support macOS with Docker Desktop>
 
-Three sections:
+Shape, exactly — note the blank line under each heading:
 
-- `*Yesterday*:` — the PR spine from step 1.
-- `Also yesterday:` — streams with no PR or task. This is the part that only
-  exists because you went looking.
-- `*Today*:` — what is in flight. **Put production risk and anything blocked on
-  James first**, not the tidy items.
+    **Yesterday**:
+
+    - :ship: Deployed: <url|Title>
+    - A stream with no PR, in one sentence.
+
+    **Today**:
+
+    - :rotating_light: The blocked thing first.
+
+Two sections, `**Yesterday**:` and `**Today**:`. The draft tool renders
+STANDARD MARKDOWN, not Slack mrkdwn, so `*x*` comes out italic — use `**x**`
+for bold. Put a BLANK LINE after each heading, or the first bullet runs onto
+the heading's line.
+
+- `**Yesterday**:` — the PR spine from step 1, then the streams with no PR or
+  task as further bullets in the same list. Do not give them their own heading;
+  they are the same day's work and read better together.
+- `**Today**:` — what is in flight. **Put production risk and anything blocked
+  on James first**, not the tidy items.
 
 Rules that matter:
 

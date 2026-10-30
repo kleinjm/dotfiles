@@ -87,6 +87,10 @@ Shape, exactly — note the blank line under each heading:
     - :construction: <issue url|Title (Task #NNNN)>
     - :construction: A thread with no task, named in a few words.
 
+On a Friday the message ends with one more blank line and an empty heading:
+
+    **Weekend**:
+
 Two sections, `**Yesterday**:` and `**Today**:`. The draft tool renders
 STANDARD MARKDOWN, not Slack mrkdwn, so `*x*` comes out italic — use `**x**`
 for bold. Put a BLANK LINE after each heading, or the first bullet runs onto
@@ -102,6 +106,10 @@ the heading's line.
   coworker should see at a glance what he is on, not where he is in it.
   Anything that needs a decision from him belongs in a direct message, not
   here.
+- `**Weekend**:` — ON FRIDAY ONLY, and left EMPTY. A blank line after the last
+  Today bullet, then the heading on its own with nothing under it. James fills
+  it in himself before sending. Do not add it any other day, and never guess
+  at its contents.
 
 Rules that matter:
 

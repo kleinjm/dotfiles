@@ -6,6 +6,11 @@
       "enabled": true
     },
     {
+      "id": "chat-timestamps",
+      "source": "git:https://github.com/fgrehm/bb-plugins",
+      "enabled": true
+    },
+    {
       "id": "context-meter",
       "source": "git:https://github.com/Hazihell/bb-plugin-context-meter.git@semver:^0.1.0",
       "enabled": true
@@ -47,6 +52,7 @@
     "bb-ai": true,
     "bb-guide": true,
     "browser-automation": true,
+    "chat-timestamps": true,
     "concurrency-limit": true,
     "connect": true,
     "context-meter": true,

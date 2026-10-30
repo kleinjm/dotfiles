@@ -3,7 +3,11 @@
 ## Git and PRs
 
 - Never `git push` or open a PR until explicitly told to. Committing locally without asking is fine.
-- Open PRs as draft.
+- **Open PRs ready for review, not as a draft.** This overrides the draft default in `.agents/skills/create-pr/SKILL.md` (step 8's `gh pr create --draft` and step 9's "leave the PR as a draft"). Drop `--draft`, and do not ask whether to mark it ready.
+- **Bot reviews are pre-approved for me — never block on asking.** This overrides the per-request yes in `create-pr` steps 8, 9 and 10 and in `cr-feedback-review`:
+  - **CodeRabbit** reviews automatically once the PR is open and ready, so do not post `@coderabbitai review` on the first round. Post it only to ask for a re-review after a fix push, and `@coderabbitai full review` only after a base merge or a rewrite. Never post `@coderabbitai approve`.
+  - **Copilot**: request it without asking (`gh pr edit <PR-NUMBER> --add-reviewer @copilot`, as me, never with `GH_TOKEN`) whenever the `Risk` tags include `auth`, `pii`, or `credentials` — the bottom row of the step 8 table. For any other tag set, skip Copilot and say which tags decided it, as the table already specifies. Re-request on later rounds under the same rule.
+  - Report each request and its outcome; I will override in one line when I want the other call.
 - Open PRs under my own account, never through a GitHub App, even when `bin/gh-app-token` prints a token.
 - Never comment or reply on a PR or issue thread unless asked. "Address a comment" means change the code, nothing else. Exception: top-level PR comments that are commands to CodeRabbit (`@coderabbitai review` and the like) are fine unprompted.
 - Branch names are descriptive kebab-case with no personal prefix (`escrow-instructions-tagging-entered-once`). Related PRs share a feature-name prefix.

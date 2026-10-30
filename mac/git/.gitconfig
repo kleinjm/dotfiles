@@ -64,3 +64,5 @@
 	gpgSign = true
 [gpg]
 	format = ssh
+[credential "https://git.heroku.com"]
+	helper = !heroku git:credentials

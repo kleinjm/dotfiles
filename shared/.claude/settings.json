@@ -1,13 +1,17 @@
 {
+  "cleanupPeriodDays": 90,
+  "env": {
+    "CLAUDE_CODE_ARTIFACT": "1"
+  },
   "permissions": {
-    "defaultMode": "auto",
     "allow": [
       "Bash(gh api graphql:*)",
       "Bash(gh pr comment:*)",
       "Bash(git push:*)",
       "Bash(wtm cleanup:*)",
       "Bash(yes:*)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "worktree": {
     "baseRef": "fresh"
@@ -20,7 +24,7 @@
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
-    "cc-plugin-you-should-know@builtin": true
+    "cc-plugin-you-should-know@builtin": false
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
@@ -30,7 +34,13 @@
       }
     }
   },
+  "outputStyle": "Concise",
   "effortLevel": "low",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "low"
+    }
+  },
   "awaySummaryEnabled": false,
   "tui": "default",
   "prefersReducedMotion": true,
@@ -75,15 +85,5 @@
       "**Trusted repo**: `EscrowSafe/web` (private), checked out at `/workspaces/web` (devcontainer) or `/workspace/web` (locky), plus their git worktrees, and its `origin` remote `github.com:EscrowSafe/web.git`. Private visibility means confidential material is fine to commit there; secrets and sensitive data (personal & entrusted) are never cleared into any repo by its visibility.",
       "**Org-specific CLIs**: `heroku`, `aws`, `terragrunt`, `gh`, `playwright-cli`, `bundle`/`bin/rails`, `yarn`, `ngrok`, plus local wrappers (`g`, `gd`, `gb`, `wtm`/`owtm`/`jwtm` worktree helpers, `gprune`, `mux`, `standup`)"
     ]
-  },
-  "modelSettings": {
-    "claude-opus-5-5": {
-      "effortLevel": "low"
-    }
-  },
-  "outputStyle": "Concise",
-  "env": {
-    "CLAUDE_CODE_ARTIFACT": "1"
-  },
-  "cleanupPeriodDays": 90
+  }
 }

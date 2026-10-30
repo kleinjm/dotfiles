@@ -84,7 +84,8 @@ Shape, exactly — note the blank line under each heading:
 
     **Today**:
 
-    - :rotating_light: The blocked thing first.
+    - :construction: <issue url|Title (Task #NNNN)>
+    - :construction: A thread with no task, named in a few words.
 
 Two sections, `**Yesterday**:` and `**Today**:`. The draft tool renders
 STANDARD MARKDOWN, not Slack mrkdwn, so `*x*` comes out italic — use `**x**`
@@ -94,15 +95,21 @@ the heading's line.
 - `**Yesterday**:` — the PR spine from step 1, then the streams with no PR or
   task as further bullets in the same list. Do not give them their own heading;
   they are the same day's work and read better together.
-- `**Today**:` — what is in flight. **Put production risk and anything blocked
-  on James first**, not the tidy items.
+- `**Today**:` — WHAT he is working on, not how it is going. The tasks he is
+  assigned (`bin/standup.rb` already prints these under its own `*Today*`
+  heading — keep them), then any thread he is working without a task, named
+  the same way. Names only: no status, no blockers, no what-is-left. A
+  coworker should see at a glance what he is on, not where he is in it.
+  Anything that needs a decision from him belongs in a direct message, not
+  here.
 
 Rules that matter:
 
 - One sentence each. If a stream needs two, it wants its own ticket.
 - Name branches that have no PR; do not invent links for them.
-- State what is blocked and on whom. "Blocked on whether MEMCACHIER_SERVERS is
-  set" is the useful sentence; "investigating rate limiting" is not.
+- Under Yesterday, state what is blocked and on whom. "Blocked on whether
+  MEMCACHIER_SERVERS is set" is the useful sentence; "investigating rate
+  limiting" is not. Under Today, say none of that — Today is a list of names.
 - Leave out findings that belong on an audit checklist rather than in standup.
 
 ## 6. Draft it, never send

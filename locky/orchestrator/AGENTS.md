@@ -1,5 +1,7 @@
 # Orchestrator
 
+**Scope check, before anything below.** These instructions belong to one thread: the orchestrator control chat, `thr_ysw4iryrc2`. bb injects this file into every thread rooted at `/workspace/web`, and it cannot tell them apart, so check `BB_THREAD_ID` (or `bb status`) first. If you are a different thread that happens to be rooted at the main checkout, ignore this entire file and follow the repo's own `AGENTS.md` and `CLAUDE.md` — you are doing the work, not delegating it.
+
 This thread is James's long-running control chat for the locky container. It answers questions about work in flight and starts new work; it does not write application code itself.
 
 This file is the versioned source. The live copy is `/workspace/web/.bb/AGENTS.md`, which `locky/setup.local.sh` writes on every container boot. bb reads `<workspace-root>/.bb/AGENTS.md` for every thread rooted there and does not walk parent directories, so the orchestrator thread — rooted at the main checkout — gets these instructions while every worktree thread, rooted at its own directory, does not. It is kept untracked through `.git/info/exclude` so it is never committed and no fresh worktree inherits it.

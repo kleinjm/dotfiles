@@ -36,9 +36,6 @@ rather than noise.
     # Commits across every worktree and branch, both days
     cd /workspace/web && git log --all --since="<yesterday> 00:00" --format='%h %cI %s'
 
-    # Personal config, tooling, container setup
-    cd /workspace/dotfiles && git log --since="<yesterday> 00:00" --format='%h %cI %s'
-
     # Audits and long comments posted to issues
     gh api repos/EscrowSafe/web/issues/<n>/comments \
       --jq '.[] | select(.created_at >= "<yesterday>") | "\(.created_at) \(.user.login) \(.body[0:80])"'
@@ -75,6 +72,10 @@ syntax, not Markdown:
 
     <https://github.com/EscrowSafe/web/pull/5790|Locky - Support macOS with Docker Desktop>
 
+The first heading is `**Yesterday**:` — except on a Monday, where the day it
+covers is Friday and the heading reads `**Friday**:` instead. Everything below
+that says "Yesterday" means that heading, whichever word it carries.
+
 Shape, exactly — note the blank line under each heading:
 
     **Yesterday**:
@@ -91,7 +92,7 @@ On a Friday the message ends with one more blank line and an empty heading:
 
     **Weekend**:
 
-Two sections, `**Yesterday**:` and `**Today**:`. The draft tool renders
+Two sections, `**Yesterday**:` (`**Friday**:` on a Monday) and `**Today**:`. The draft tool renders
 STANDARD MARKDOWN, not Slack mrkdwn, so `*x*` comes out italic — use `**x**`
 for bold. Put a BLANK LINE after each heading, or the first bullet runs onto
 the heading's line.
@@ -119,6 +120,10 @@ Rules that matter:
   MEMCACHIER_SERVERS is set" is the useful sentence; "investigating rate
   limiting" is not. Under Today, say none of that — Today is a list of names.
 - Leave out findings that belong on an audit checklist rather than in standup.
+- NEVER mention James's personal dotfiles. Work in /workspace/dotfiles — agent
+  guidance, skills, shell and editor config, bb plugin backups — is his own
+  setup, not team work, and does not belong in standup in any form. Do not
+  gather it and do not describe it in other words.
 
 ## 6. Draft it, never send
 

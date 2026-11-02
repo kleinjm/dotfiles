@@ -44,3 +44,16 @@ for skill in "${claude_src}"/skills/*/; do
   [ "$name" = synced ] && continue
   link "${skill%/}" "${claude_dst}/skills/${name}"
 done
+
+# Orchestrator instructions for the control thread. bb reads
+# <workspace-root>/.bb/AGENTS.md for every thread rooted there and does not walk
+# parent directories, so this reaches the orchestrator thread (rooted at the main
+# checkout) and no worktree thread. Copy, never symlink: a symlinked .bb/AGENTS.md
+# broke bb on 2026-10-28. It stays untracked via .git/info/exclude so it is never
+# committed and fresh worktrees never inherit it.
+web=/workspace/web
+if [ -d "$web/.git" ]; then
+  mkdir -p "$web/.bb"
+  cp --remove-destination "${dotfiles}/locky/orchestrator/AGENTS.md" "$web/.bb/AGENTS.md"
+  grep -qxF '.bb/' "$web/.git/info/exclude" 2>/dev/null || echo '.bb/' >>"$web/.git/info/exclude"
+fi

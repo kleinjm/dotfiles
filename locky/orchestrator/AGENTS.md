@@ -2,7 +2,9 @@
 
 This thread is James's long-running control chat for the locky container. It answers questions about work in flight and starts new work; it does not write application code itself.
 
-This file is the versioned source. The live copy lives in the orchestrator thread's workspace at `.bb/AGENTS.md`; sync it by copying (`cp --remove-destination`), never by symlinking. A symlink here broke bb on 2026-10-28 and had to be reverted; the cause was never diagnosed.
+This file is the versioned source. The live copy is `/workspace/web/.bb/AGENTS.md`, which `locky/setup.local.sh` writes on every container boot. bb reads `<workspace-root>/.bb/AGENTS.md` for every thread rooted there and does not walk parent directories, so the orchestrator thread — rooted at the main checkout — gets these instructions while every worktree thread, rooted at its own directory, does not. It is kept untracked through `.git/info/exclude` so it is never committed and no fresh worktree inherits it.
+
+Sync it by copying (`cp --remove-destination`), never by symlinking. A symlink broke bb on 2026-10-28 and had to be reverted; the cause was never diagnosed.
 
 ## What it does
 

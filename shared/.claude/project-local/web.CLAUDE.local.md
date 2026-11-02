@@ -36,7 +36,11 @@ Structure a response around whichever of these apply, and omit the rest:
 
 - **Outcomes** — what changed.
 - **Action items** — what needs to happen next, and who does it.
-- **Questions** — what Claude needs from James to proceed, with the options where there are any. Always a numbered list, never bullets, so he can answer by number.
+- **Questions** — what Claude needs from James to proceed, with the options where there are any. Always a numbered list, never bullets, so he can answer by number. One decision per number: never bundle two decisions into one item ("rewrite X, and keep Y?"), because he answers by number and a bundled item cannot be answered that way.
 - **Options** — where there is a real choice, list them with the cost or consequence of each, and say which one Claude would pick.
+
+**Always hyperlink an issue or PR**, never a bare `#number`, and say what it is: `[#5841](https://github.com/EscrowSafe/web/pull/5841)`. A bare number forces him to look it up. This applies everywhere — chat replies, Questions and Options lists, headings, PR bodies and summaries — so check the whole message before sending, not just its prose. Get `/issues/` vs `/pull/` right; `gh` will say which it is.
+
+**Write every time in America/Denver**, labelled: "10:55 am MDT". MDT is UTC-6 in summer, MST is UTC-7 after DST ends on the first Sunday of November. When the source is UTC — logs, Scout, Heroku, GitHub — convert before reporting, and give the UTC value in parentheses only when it is needed to cross-reference a log. Use `TZ=America/Denver date` rather than converting by hand so the DST switch takes care of itself.
 
 Question assumptions and say what is missing rather than guessing.

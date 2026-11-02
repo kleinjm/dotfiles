@@ -2,6 +2,8 @@
 
 This thread is James's long-running control chat for the locky container. It answers questions about work in flight and starts new work; it does not write application code itself.
 
+This file is the versioned source. The live copy lives in the orchestrator thread's workspace at `.bb/AGENTS.md`; sync it by copying (`cp --remove-destination`), never by symlinking. A symlink here broke bb on 2026-10-28 and had to be reverted; the cause was never diagnosed.
+
 ## What it does
 
 - **Thread status.** `bb thread list`, `bb thread show <id>` and `bb thread wait <id>` answer "which chats are done, stuck or waiting on me". Reference threads as `@thread:<id>`.
@@ -15,7 +17,16 @@ This thread is James's long-running control chat for the locky container. It ans
     --prompt '<task>'
   ```
 
-  Never create a worktree from bb's environment dialog or with `git worktree add`: only `wtm` sets up ports, `.env` and databases. Always file the thread under the `web` project. Cleanup is `wtm cleanup <name>`, only when James asks.
+  Then retitle it, in the same turn: `bb thread spawn` has no `--title`, so bb names the thread with the first N characters of the prompt, and a good brief produces a useless sidebar row like "Take the branch claude/cloud-session-author-identity to a m…". Run `bb thread update <id> --title "<name>"` with a 2-4 word noun phrase naming the subject — "Claude Permission Changes", "Scout APM Workers", "Agent Guidance Docs" — not a sentence and not a verb phrase. Name it after the feature, page or area, the same instinct as the `Subject` half of a PR title.
+
+  Never create a worktree from bb's environment dialog or with `git worktree add`: only `wtm` sets up ports, `.env` and databases. Always file the thread under the `web` project.
+- **Cleanup.** Only when James asks. "Cleanup <name>" always covers the bb thread as well as the worktree, so archive it with `bb thread archive <id>` in the same job rather than offering that as a follow-up question.
+
+  First verify the branch is safe to delete: a clean `git status --porcelain`, an empty `git log @{u}..`, and `git merge-base --is-ancestor HEAD origin/main`. A squash merge makes `git branch -d` unreliable, so check the merge base rather than trusting the branch state; if the branch looks unmerged, compare `git diff origin/main...HEAD` — an empty three-dot diff means it contributes nothing and is safe.
+
+  Then run `wtm cleanup --yes <name>` as the ENTIRE command. Nothing before it and nothing after it: no `cd` prefix, no `yes |` pipe, and no `| tail` to read the output. `Bash(wtm cleanup:*)` is allowlisted, but a permission rule only matches when its text is the whole command, so any compound form falls through to the auto-mode classifier and is denied as "Irreversible Local Destruction", which then needs James to approve by hand.
+
+  The worktree NAME is its directory under `/workspace/web-worktrees/` and is not always the branch name — branch `api-request-log-admin` lived in `api-request-log` — so read `wtm list` or `git worktree list` before naming one. `wtm gc --prune` clears orphaned databases, directory husks and stale spring/ruby-lsp processes left behind by a cleanup that raced a running process.
 - **Local or cloud.** James decides where a new task runs. When he hasn't said, suggest one with a one-line reason and wait for his answer: user-facing app changes that need clicking through lean local; CI fixes, backend fixes, docs, and small UI changes that screenshots on the PR can verify lean cloud. For cloud, run `bb wtm cloud start --task '<complete brief>'`, adding `--workspace <name>` to continue an existing worktree's branch (see the `wtm-cloud` skill). It pushes the branch if needed and adds the session to the sidebar's Cloud section. The cloud session sees only the pushed branch and the brief, so commit and push what it needs first (the command pushes only a branch GitHub does not have yet) and make the brief self-contained.
 - **Standup.** `/standup` writes the daily update and leaves it as an unsent Slack draft in `#daily-updates`; the skill is at `locky/skills/standup` in dotfiles, symlinked into `~/.bb/skills/`.
 - **Messaging threads.** `bb thread tell <id>` only when James asks for it.

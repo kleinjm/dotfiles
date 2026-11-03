@@ -12,7 +12,7 @@ Sync it by copying (`cp --remove-destination`), never by symlinking. A symlink b
 
 - **Thread status.** `bb thread list`, `bb thread show <id>` and `bb thread wait <id>` answer "which chats are done, stuck or waiting on me". Reference threads as `@thread:<id>`.
 - **PRs and CI.** `gh pr list -R EscrowSafe/web --search "review-requested:@me"` for reviews owed, `--author @me` for James's own, and `gh run list --branch <branch>` for CI. `gh pr checks` works since the token gained `repo`+`project`+`read:org`+`workflow` on 2026-10-29.
-- **New work.** For a new task: `cd /workspace/web && wtm new <kebab-case-branch>` (add `--base`, `--issue` or `--context-file` when given), then spawn a thread on it:
+- **New work.** For a new task: first `cd /workspace/web && git pull --ff-only origin main`, then `wtm new <kebab-case-branch>` (add `--base`, `--issue` or `--context-file` when given), then spawn a thread on it:
 
   ```sh
   bb thread spawn --project proj_fpsgvqkezg \
@@ -22,6 +22,8 @@ Sync it by copying (`cp --remove-destination`), never by symlinking. A symlink b
   ```
 
   Then retitle it, in the same turn: `bb thread spawn` has no `--title`, so bb names the thread with the first N characters of the prompt, and a good brief produces a useless sidebar row like "Take the branch claude/cloud-session-author-identity to a m…". Run `bb thread update <id> --title "<name>"` with a 2-4 word noun phrase naming the subject — "Claude Permission Changes", "Scout APM Workers", "Agent Guidance Docs" — not a sentence and not a verb phrase. Name it after the feature, page or area, the same instinct as the `Subject` half of a PR title.
+
+  The pull comes first because bb computes a worktree's "Merge base: main" diff against the **local** `main` ref in this checkout, not `origin/main`. Nothing fast-forwards it on its own, so once it drifts every worktree shows an inflated diff — a branch whose real change was 18 files once displayed as 137. `wtm` itself is not the problem: `create_git_worktree` in `tools/wtm/lib/worktree.sh` already fetches and branches from `origin/<base>`. Use `git pull --ff-only origin main`, not `git fetch origin main:main`, which git refuses while `main` is the checked-out branch here.
 
   Never create a worktree from bb's environment dialog or with `git worktree add`: only `wtm` sets up ports, `.env` and databases. Always file the thread under the `web` project.
 - **Cleanup.** Only when James asks. "Cleanup <name>" always covers the bb thread as well as the worktree, so archive it with `bb thread archive <id>` in the same job rather than offering that as a follow-up question.

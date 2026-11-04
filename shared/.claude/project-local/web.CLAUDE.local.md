@@ -10,6 +10,7 @@
   - Report each request and its outcome; I will override in one line when I want the other call.
 - Open PRs under my own account, never through a GitHub App, even when `bin/gh-app-token` prints a token.
 - Never comment or reply on a PR or issue thread unless asked. "Address a comment" means change the code, nothing else. Exception: top-level PR comments that are commands to CodeRabbit (`@coderabbitai review` and the like) are fine unprompted.
+  - Exception: on bot-authored review threads (CodeRabbit, Copilot), reply and resolve without asking, as `cr-feedback-review` does: a short reply saying what changed or why a finding is declined, then resolve. Human-authored threads stay untouched.
 - Branch names are descriptive kebab-case with no personal prefix (`escrow-instructions-tagging-entered-once`). Related PRs share a feature-name prefix.
 - **PR description approval is waived for me.** This overrides the approval gate in `AGENTS.md`, `CLAUDE.md`, and `.agents/skills/create-pr/SKILL.md` (Phase 6 and the checklist line). Once I have told you to open a PR, write the title and body and open the draft without pausing for sign-off, then print what you used so I can edit it. This waives the description review only — "never push or open a PR until told" still stands.
 - Split large branches into vertical functional slices — each one a working feature end to end — not by layer. Migrations, models, docs, and refactors are the exception and can land as their own foundational PR.

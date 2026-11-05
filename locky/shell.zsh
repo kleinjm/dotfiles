@@ -63,3 +63,5 @@ export ZSH_AUTOSUGGEST_USE_ASYNC=1
 __autosuggest="${DATA_DIR:-/workspace/docker-data}/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 [[ -r "$__autosuggest" ]] && source "$__autosuggest"
 unset __autosuggest
+
+export BROWSER=/workspace/dotfiles/locky/bin/browser

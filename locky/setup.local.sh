@@ -57,3 +57,36 @@ if [ -d "$web/.git" ]; then
   cp --remove-destination "${dotfiles}/locky/orchestrator/AGENTS.md" "$web/.bb/AGENTS.md"
   grep -qxF '.bb/' "$web/.git/info/exclude" 2>/dev/null || echo '.bb/' >>"$web/.git/info/exclude"
 fi
+
+# Editor: nvim reuses the shared vim config and Vundle bundles, with locky
+# overrides (rg instead of ag) in locky/vim/vimrc.
+link "${dotfiles}/locky/vim/vimrc" "${HOME}/.vimrc"
+link "${dotfiles}/shared/vim/.vim" "${HOME}/.vim"
+mkdir -p "${HOME}/.config/nvim"
+link "${dotfiles}/locky/vim/init.vim" "${HOME}/.config/nvim/init.vim"
+
+# fzf for the shell. Personal, so installed outside the image's mise config:
+# `mise use -g` would write into the shared /opt/mise/config.toml.
+fzf_version=0.74.5
+if mise install -q "fzf@${fzf_version}" 2>/dev/null; then
+  mkdir -p "${HOME}/.local/bin"
+  ln -sfn "$(mise where "fzf@${fzf_version}")/fzf" "${HOME}/.local/bin/fzf"
+else
+  echo "fzf install failed; retrying next boot" >&2
+fi
+
+# Git aliases and preferences. include.path stacks on the identity 60-git writes.
+git config --global --get-all include.path 2>/dev/null | grep -qxF "${dotfiles}/locky/gitconfig" ||
+  git config --global --add include.path "${dotfiles}/locky/gitconfig"
+
+# Host credentials kept from the devpod era, reached through the /workspace bind
+# mount rather than extra compose mounts.
+devpod_data=/workspace/devpod-data
+[ -d "${devpod_data}/aws" ] && link "${devpod_data}/aws" "${HOME}/.aws"
+[ -f "${devpod_data}/rollbar/.rollbar-mcp.json" ] &&
+  link "${devpod_data}/rollbar/.rollbar-mcp.json" "${HOME}/.rollbar-mcp.json"
+
+if command -v claude >/dev/null 2>&1 && ! claude mcp get rollbar >/dev/null 2>&1; then
+  claude mcp add --scope user rollbar -- npx -y @rollbar/mcp-server@latest >/dev/null ||
+    echo "Rollbar MCP registration failed; retrying next boot" >&2
+fi

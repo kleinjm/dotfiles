@@ -1,0 +1,42 @@
+# Included from ~/.gitconfig by setup.local.sh. Identity and signing come from
+# the host via .locky's 60-git step; keep them out of this file.
+[alias]
+    a = add -A
+    ap = add -p
+    c = commit --verbose
+    ca = commit -a --verbose
+    cam = commit -a -m
+    cm = commit -m
+    co = checkout
+    cob = checkout -b
+    d = diff
+    dc = diff --cached
+    ds = diff --stat
+    l = log
+    m = commit --amend --verbose
+    main = !git fetch --prune && git checkout main && git pull origin main && :
+    mm = merge --no-edit
+    s = status -s
+    publish = push -u origin HEAD
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+    br = branch
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    la = "!git config -l | grep alias | cut -c 7-"
+
+[core]
+    editor = nvim
+
+[merge]
+    log = true
+
+[diff]
+    colorMoved = default
+
+[color "diff"]
+    new = "#87d7ff" bold
+
+[pull]
+    ff = only
+
+[credential "https://git.heroku.com"]
+    helper = !heroku git:credentials

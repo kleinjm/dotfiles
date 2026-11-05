@@ -14,7 +14,8 @@
       "Bash(gh api repos/EscrowSafe/web/pulls/*/comments/*/replies *)",
       "Bash(gh api graphql *)",
       "Bash(bb wtm cloud start:*)",
-      "Bash(wtm gc --prune)"
+      "Bash(wtm gc --prune)",
+      "Bash(gh pr edit:*)"
     ],
     "defaultMode": "auto"
   },

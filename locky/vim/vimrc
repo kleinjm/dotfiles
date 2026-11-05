@@ -1,0 +1,29 @@
+" Locky container overrides on top of the shared vim setup.
+source /workspace/dotfiles/shared/.vimrc
+
+" The container has ripgrep, not ag. :Ag keeps its name so the shared mappings
+" and functions.vim (Ag! on the word under the cursor) keep working.
+set grepprg=rg\ --vimgrep\ --smart-case
+set grepformat=%f:%l:%c:%m
+let g:ackprg = 'rg --vimgrep --smart-case'
+nnoremap \ :Ag!<SPACE>
+command! -bang -nargs=* Ag
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- ' . fzf#shellescape(<q-args>),
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" No browser in the container: copy the GitHub URL to the host clipboard (OSC 52).
+function! GBrowseAndCopy()
+  redir => url
+  silent :.GBrowse!
+  redir END
+  let url = trim(url)
+  if url != ''
+    call system('/workspace/dotfiles/locky/bin/browser ' . shellescape(url) . ' > /dev/tty 2>&1')
+    redraw!
+    echo "URL copied to clipboard: " . url
+  endif
+endfunction
+nmap <leader>br :call GBrowseAndCopy()<cr>

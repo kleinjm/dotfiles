@@ -1,0 +1,19 @@
+#!/bin/bash
+# Fake browser for containers - copies URL to HOST clipboard via OSC 52
+# Works with iTerm2, Terminal.app, and most modern terminals
+# Requires: iTerm2 > Preferences > General > Selection > "Applications in terminal may access clipboard"
+
+URL="$1"
+ENCODED=$(echo -n "$URL" | base64 | tr -d '\n')
+
+# OSC 52 escape sequence - needs different wrapping for tmux
+if [[ -n "$TMUX" ]]; then
+  # Inside tmux: use passthrough escape sequence
+  printf "\033Ptmux;\033\033]52;c;%s\007\033\\" "$ENCODED"
+else
+  # Outside tmux: standard OSC 52
+  printf "\033]52;c;%s\007" "$ENCODED"
+fi
+
+echo "URL copied to clipboard: $URL"
+echo "(Paste in your browser with Cmd+V)"

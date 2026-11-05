@@ -2,6 +2,8 @@
 
 Personal dotfiles for DevPod development containers.
 
+> **Superseded for escrowsafe-web.** The web project has moved from the devcontainer (`web/.devcontainer`, DevPod) to the locky container (`web/.locky`). The personal setup for it now lives in [`../locky/`](../locky/), wired in through `web/.locky/setup.local.sh`, which symlinks to `locky/setup.local.sh`. This directory is kept for reference and for any remaining DevPod use. Changes made here do not reach the locky container.
+
 ## Which script do I run?
 
 | Situation | Run | What happens |

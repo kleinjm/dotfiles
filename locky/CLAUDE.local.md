@@ -1,0 +1,47 @@
+# Personal Claude Code Instructions
+
+## Git and PRs
+
+- Never `git push` or open a PR until explicitly told to. Committing locally without asking is fine.
+- **Open PRs ready for review, not as a draft.** This overrides the draft default in `.agents/skills/create-pr/SKILL.md` (step 8's `gh pr create --draft` and step 9's "leave the PR as a draft"). Drop `--draft`, and do not ask whether to mark it ready.
+- **Bot reviews are pre-approved for me — never block on asking.** This overrides the per-request yes in `create-pr` steps 8, 9 and 10 and in `cr-feedback-review`:
+  - **CodeRabbit** reviews automatically once the PR is open and ready, so do not post `@coderabbitai review` on the first round. Post it only to ask for a re-review after a fix push, and `@coderabbitai full review` only after a base merge or a rewrite. Never post `@coderabbitai approve` or `@coderabbitai resolve`: CodeRabbit refuses both from the PR author, and it approves on its own once a review finds nothing blocking. Keep the two-round cap as the skill has it; do not spend a third round to clear nits.
+  - **Copilot**: request it without asking (`gh pr edit <PR-NUMBER> --add-reviewer @copilot`, as me, never with `GH_TOKEN`) whenever the `Risk` tags include `auth`, `pii`, or `credentials` — the bottom row of the step 8 table. For any other tag set, skip Copilot and say which tags decided it, as the table already specifies. Re-request on later rounds under the same rule.
+  - Report each request and its outcome; I will override in one line when I want the other call.
+- Open PRs under my own account, never through a GitHub App, even when `bin/gh-app-token` prints a token.
+- Never comment or reply on a PR or issue thread unless asked. "Address a comment" means change the code, nothing else. Exception: top-level PR comments that are commands to CodeRabbit (`@coderabbitai review` and the like) are fine unprompted.
+  - Exception: on bot-authored review threads (CodeRabbit, Copilot), reply and resolve without asking, as `cr-feedback-review` does: a short reply saying what changed or why a finding is declined, then resolve. Human-authored threads stay untouched.
+- Branch names are descriptive kebab-case with no personal prefix (`escrow-instructions-tagging-entered-once`). Related PRs share a feature-name prefix.
+- **PR description approval is waived for me.** This overrides the approval gate in `AGENTS.md`, `CLAUDE.md`, and `.agents/skills/create-pr/SKILL.md` (Phase 6 and the checklist line). Once I have told you to open a PR, write the title and body and open the draft without pausing for sign-off, then print what you used so I can edit it. This waives the description review only — "never push or open a PR until told" still stands.
+- Split large branches into vertical functional slices — each one a working feature end to end — not by layer. Migrations, models, docs, and refactors are the exception and can land as their own foundational PR.
+
+## Testing
+
+- Never run the full suite locally; CI does that. Run targeted specs for the files in play.
+- Run those targeted specs before pushing, so CI cycles are not spent on a known failure.
+- Never skip or re-run a flaky test to get it green. Diagnose the root cause and fix it, even when the flake is pre-existing and unrelated to the current work.
+- Poll CI in the main thread. No background agents or background commands for it.
+
+## Code
+
+- Default to no comments. Add one only where the code cannot carry the meaning, and never to record build or change context — that belongs in the PR description.
+- Write logic belongs in an `ApplicationService`, not in `before_save` / `after_save` callbacks.
+
+## Communication
+
+Keep output concise and to the point. James will ask if more detail is needed on a specific point. Lead with the result; skip the preamble and the closing recap.
+
+Call out anything critical with formatting — **bold**, or `>> arrows <<` for something he must not scroll past.
+
+Structure a response around whichever of these apply, and omit the rest:
+
+- **Outcomes** — what changed.
+- **Action items** — what needs to happen next, and who does it.
+- **Questions** — what Claude needs from James to proceed, with the options where there are any. Always a numbered list, never bullets, so he can answer by number. One decision per number: never bundle two decisions into one item ("rewrite X, and keep Y?"), because he answers by number and a bundled item cannot be answered that way.
+- **Options** — where there is a real choice, list them with the cost or consequence of each, and say which one Claude would pick.
+
+**Always hyperlink an issue or PR**, never a bare `#number`, and say what it is: `[#5841](https://github.com/EscrowSafe/web/pull/5841)`. A bare number forces him to look it up. This applies everywhere — chat replies, Questions and Options lists, headings, PR bodies and summaries — so check the whole message before sending, not just its prose. Get `/issues/` vs `/pull/` right; `gh` will say which it is.
+
+**Write every time in America/Denver**, labelled: "10:55 am MDT". MDT is UTC-6 in summer, MST is UTC-7 after DST ends on the first Sunday of November. When the source is UTC — logs, Scout, Heroku, GitHub — convert before reporting, and give the UTC value in parentheses only when it is needed to cross-reference a log. Use `TZ=America/Denver date` rather than converting by hand so the DST switch takes care of itself.
+
+Question assumptions and say what is missing rather than guessing.

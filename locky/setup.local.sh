@@ -90,3 +90,11 @@ if command -v claude >/dev/null 2>&1 && ! claude mcp get rollbar >/dev/null 2>&1
   claude mcp add --scope user rollbar -- npx -y @rollbar/mcp-server@latest >/dev/null ||
     echo "Rollbar MCP registration failed; retrying next boot" >&2
 fi
+
+# Claude Code personal project instructions. Relative links resolve both here and
+# on the host, where web, web-worktrees and dotfiles are siblings. wtm copies the
+# file into new worktrees, so each boot turns those copies back into links.
+ln -sfn ../dotfiles/locky/CLAUDE.local.md "$web/CLAUDE.local.md"
+for wt in /workspace/web-worktrees/*/; do
+  [ -e "${wt}CLAUDE.local.md" ] && ln -sfn ../../dotfiles/locky/CLAUDE.local.md "${wt}CLAUDE.local.md"
+done

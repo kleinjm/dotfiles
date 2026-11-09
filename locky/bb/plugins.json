@@ -26,6 +26,11 @@
       "enabled": true
     },
     {
+      "id": "github",
+      "source": "builtin:github",
+      "enabled": true
+    },
+    {
       "id": "hotspot",
       "source": "git:https://github.com/Hazihell/bb-plugin-hotspot.git@semver:^0.1.0",
       "enabled": true
@@ -68,6 +73,7 @@
     "environment-project-checkout": true,
     "genui": true,
     "gh-projects-board": true,
+    "github": true,
     "hotspot": true,
     "inline-vis": true,
     "keep-awake": true,

@@ -91,6 +91,16 @@ if command -v claude >/dev/null 2>&1 && ! claude mcp get rollbar >/dev/null 2>&1
     echo "Rollbar MCP registration failed; retrying next boot" >&2
 fi
 
+# ngrok v3 may refuse the Mac's v2-format config, so only its token is carried
+# over, into the v3 config `ngrok config add-authtoken` writes.
+ngrok_mac_config="${dotfiles}/mac/ngrok2/.ngrok2/ngrok.yml"
+if command -v ngrok >/dev/null 2>&1 && [ -f "$ngrok_mac_config" ] &&
+  ! grep -qs '^ *authtoken:' "${HOME}/.config/ngrok/ngrok.yml"; then
+  ngrok_token="$(sed -n 's/^ *authtoken: *//p' "$ngrok_mac_config" | head -1)"
+  [ -n "$ngrok_token" ] && ngrok config add-authtoken "$ngrok_token" >/dev/null ||
+    echo "ngrok authtoken setup failed; retrying next boot" >&2
+fi
+
 # Claude Code personal project instructions. Relative links resolve both here and
 # on the host, where web, web-worktrees and dotfiles are siblings. wtm copies the
 # file into new worktrees, so each boot turns those copies back into links.

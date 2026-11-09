@@ -82,3 +82,4 @@ shared/.claude/skills/diffity-dev-*/
 # Anthropic-published skills synced by the Claude Code client into
 # ~/.claude/skills/synced; account-keyed and regenerated, not authored.
 shared/.claude/skills/synced/
+mac/ngrok2/.ngrok2/ngrok.yml

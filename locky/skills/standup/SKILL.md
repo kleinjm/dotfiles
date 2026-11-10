@@ -112,6 +112,25 @@ the heading's line.
   it in himself before sending. Do not add it any other day, and never guess
   at its contents.
 
+**Tasks with sub-issues.** For every task under either heading, check for
+sub-issues and, when it has any, append their breakdown to its bullet:
+
+    gh api graphql -f query='{ repository(owner:"EscrowSafe", name:"web") {
+      issue(number: <n>) { subIssues(first: 50) { totalCount nodes {
+        state projectItems(first: 5) { nodes {
+          status: fieldValueByName(name: "Status") {
+            ... on ProjectV2ItemFieldSingleSelectValue { name } } } } } } } } }'
+
+Count each sub-issue once: **done** when it is closed or its project status is
+QA or Done, **in progress** when its status is In Progress, Needs CR or Ready
+to Deploy, and **remaining** otherwise. Append ` - Sub-issues (<total>): <d>
+done, <p> in progress, <r> remaining`, dropping any zero count:
+
+    - :construction: <task url|Signature Certificates (Task #5929)> - Sub-issues (6): 2 done, 1 in progress, 3 remaining
+
+This is the one exception to "names only" under Today. A task with no
+sub-issues keeps its plain bullet.
+
 Rules that matter:
 
 - One sentence each. If a stream needs two, it wants its own ticket.

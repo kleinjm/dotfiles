@@ -55,6 +55,9 @@ ln -sf "$DOTFILES_DIR"/mac/cursor/settings.json "$HOME"/Library/Application\ Sup
 ln -s "$DOTFILES_DIR"/mac/.agent-os "$HOME"
 ln -s "$DOTFILES_DIR"/shared/.claude "$HOME"
 
+# ~/.claude is shared/.claude itself, so settings.json is generated there (gitignored).
+"$DOTFILES_DIR"/shared/scripts/claude-settings.sh "$DOTFILES_DIR"/mac/claude/settings.json "$DOTFILES_DIR"/shared/.claude/settings.json
+
 # Per-project CLAUDE.local.md files, named <project>.CLAUDE.local.md. The link
 # is relative so it resolves both here and inside a devcontainer, where the
 # projects live under a different absolute path.

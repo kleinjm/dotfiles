@@ -140,7 +140,21 @@ Restoring installs third-party plugins from their recorded git sources, so a plu
 `locky/setup.local.sh` is the container's personal boot hook. Link it once from the host or the container: `ln -s /workspace/dotfiles/locky/setup.local.sh /workspace/web/.locky/setup.local.sh`. Every step is idempotent and reruns on each boot.
 
 * **zsh**: adds `source /workspace/dotfiles/locky/shell.zsh` to `~/.zshrc` and clones `zsh-autosuggestions` once into `docker-data/zsh/`. `shell.zsh` carries the devpod aliases and functions (git, Rails, `gprune`, `standup`), sources autosuggestions, and defines `ghpub`, which runs `gh` with the classic `public_repo` token in `docker-data/gh-public-token` (mode 600, outside every repo) for issues and PRs on repos outside EscrowSafe; plain `gh` keeps the EscrowSafe token. The prompt, history, `vim` alias, `EDITOR` and wtm completion come from the web repo's `.locky` provisioning, not from here. There is no oh-my-zsh, so its `git` plugin aliases are not available.
-* **Claude Code**: symlinks `settings.json`, `statusline-command.sh`, `agents/`, `commands/` and each skill from `shared/.claude` into the container's `~/.claude` (which is `docker-data/claude`). Only config is shared with the Mac; sessions, history and credentials stay per environment. `settings.local.json` (`Bash(*)`) and `skills/synced` (each environment's claude.ai sync bucket) are never linked. A real file found where a link belongs is moved aside to `<name>.pre-dotfiles` the first time.
+* **Claude Code**: writes `settings.json` (see [Claude Code settings](#claude-code-settings)) and symlinks `statusline-command.sh`, `agents/`, `commands/` and each skill from `shared/.claude` into the container's `~/.claude` (which is `docker-data/claude`). Only config is shared with the Mac; sessions, history and credentials stay per environment. `settings.local.json` (`Bash(*)`) and `skills/synced` (each environment's claude.ai sync bucket) are never linked. A real file found where a link belongs is moved aside to `<name>.pre-dotfiles` the first time.
+
+### Claude Code settings
+`settings.json` is generated per machine, so the Mac and the container can differ (the default model: haiku on the Mac for personal, opus in the container for work) without leaving diffs in this repo. Edit the source files, never the generated one:
+
+* `shared/.claude/settings.base.json`: everything both machines share.
+* `mac/claude/settings.json` and `locky/claude/settings.json`: per-machine overrides, deep-merged on top of the base.
+
+`shared/scripts/claude-settings.sh <overlay> <destination>` does the merge. The container runs it on every boot from `locky/setup.local.sh`, writing its own `~/.claude/settings.json`. On the Mac, `~/.claude` is `shared/.claude`, so the output lands at `shared/.claude/settings.json`, which is gitignored; `symlink_to_dotfiles_repo.sh` runs it, and after editing a source file rerun it by hand:
+
+```sh
+"$DOTFILES_DIR"/shared/scripts/claude-settings.sh "$DOTFILES_DIR"/mac/claude/settings.json "$DOTFILES_DIR"/shared/.claude/settings.json
+```
+
+A `/model` change or anything else Claude Code saves to `settings.json` stays on that machine and is overwritten by the next merge; move it into a source file to keep it.
 
 ### Orchestrator thread (locky)
 `locky/orchestrator/AGENTS.md` is the role for a pinned bb thread with no project, used to ask about threads, PRs and CI and to start `wtm` worktrees. bb reads `<workspace>/.bb/AGENTS.md` when a session starts, so copy it into the thread's personal workspace, `~/.bb/plugins/environment-personal-workspace/host-data/workspaces/<thread-id>/`: `mkdir -p <workspace>/.bb && cp /workspace/dotfiles/locky/orchestrator/AGENTS.md <workspace>/.bb/`. A symlink does not work: bb refuses a path that resolves outside the workspace. Re-copy after editing the dotfiles version. Create the thread from the bb UI (new chat, no project): `bb thread spawn` from inside another thread requires a project.

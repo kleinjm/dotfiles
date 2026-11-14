@@ -34,7 +34,9 @@ link() {
   fi
   ln -sfn "$src" "$dst"
 }
-link "${claude_src}/settings.json" "${claude_dst}/settings.json"
+# A generated file, not a link: the Mac writes its own copy into shared/.claude,
+# which is this same bind-mounted directory, so the container must never touch it.
+"${dotfiles}/shared/scripts/claude-settings.sh" "${dotfiles}/locky/claude/settings.json" "${claude_dst}/settings.json"
 link "${claude_src}/statusline-command.sh" "${claude_dst}/statusline-command.sh"
 link "${claude_src}/agents" "${claude_dst}/agents"
 link "${claude_src}/commands" "${claude_dst}/commands"

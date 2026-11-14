@@ -83,3 +83,6 @@ shared/.claude/skills/diffity-dev-*/
 # ~/.claude/skills/synced; account-keyed and regenerated, not authored.
 shared/.claude/skills/synced/
 mac/ngrok2/.ngrok2/ngrok.yml
+
+# Generated per machine by shared/scripts/claude-settings.sh (Mac only: ~/.claude is this directory)
+shared/.claude/settings.json

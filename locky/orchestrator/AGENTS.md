@@ -21,6 +21,8 @@ Sync it by copying (`cp --remove-destination`), never by symlinking. A symlink b
     --prompt '<task>'
   ```
 
+  End every `<task>` brief with: "Before starting, use the `work-overview` skill to pin a live overview of this task, and keep it current as the work moves."
+
   Then retitle it, in the same turn: `bb thread spawn` has no `--title`, so bb names the thread with the first N characters of the prompt, and a good brief produces a useless sidebar row like "Take the branch claude/cloud-session-author-identity to a m…". Run `bb thread update <id> --title "<name>"` with a 2-4 word noun phrase naming the subject — "Claude Permission Changes", "Scout APM Workers", "Agent Guidance Docs" — not a sentence and not a verb phrase. Name it after the feature, page or area, the same instinct as the `Subject` half of a PR title.
 
   The pull comes first because bb computes a worktree's "Merge base: main" diff against the **local** `main` ref in this checkout, not `origin/main`. Nothing fast-forwards it on its own, so once it drifts every worktree shows an inflated diff — a branch whose real change was 18 files once displayed as 137. `wtm` itself is not the problem: `create_git_worktree` in `tools/wtm/lib/worktree.sh` already fetches and branches from `origin/<base>`. Use `git pull --ff-only origin main`, not `git fetch origin main:main`, which git refuses while `main` is the checked-out branch here.

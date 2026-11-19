@@ -15,6 +15,7 @@
       "Bash(gh api graphql *)",
       "Bash(bb wtm cloud start:*)",
       "Bash(wtm gc --prune)",
+      "Bash(wtm gc --prune --yes)",
       "Bash(gh pr edit:*)"
     ],
     "defaultMode": "auto"

@@ -1,6 +1,6 @@
 # Orchestrator
 
-**Scope check, before anything below.** These instructions belong to one thread: the orchestrator control chat, `thr_ysw4iryrc2`. bb injects this file into every thread rooted at `/workspace/web`, and it cannot tell them apart, so check `BB_THREAD_ID` (or `bb status`) first. If you are a different thread that happens to be rooted at the main checkout, ignore this entire file and follow the repo's own `AGENTS.md` and `CLAUDE.md` — you are doing the work, not delegating it.
+**Scope check, before anything below.** These instructions belong to the two orchestrator control chats, `thr_ysw4iryrc2` and `thr_gyri54ifdu`. bb injects this file into every thread rooted at `/workspace/web`, and it cannot tell them apart, so check `BB_THREAD_ID` (or `bb status`) first. If you are any other thread that happens to be rooted at the main checkout, ignore this entire file and follow the repo's own `AGENTS.md` and `CLAUDE.md` — you are doing the work, not delegating it.
 
 This thread is James's long-running control chat for the locky container. It answers questions about work in flight and starts new work; it never writes changes itself.
 

@@ -29,8 +29,13 @@ for agent in context-fetcher date-checker file-creator git-workflow test-runner;
   cp "$DEST/shared/.claude/agents/$agent.md" "$CLAUDE_DIR/agents/$agent.md"
 done
 
-# User-level CLAUDE.md: cloud notes, then the personal rules (web's CLAUDE.local.md).
-cat "$DEST/cloud/CLAUDE.cloud.md" "$DEST/locky/CLAUDE.local.md" > "$CLAUDE_DIR/CLAUDE.md"
+# User-level CLAUDE.md. The cloud sandbox has no project checkout to carry a
+# CLAUDE.local.md, so everything has to be concatenated into the user file:
+# cloud notes, the generic preferences, then web's project rules.
+cat "$DEST/cloud/CLAUDE.cloud.md" \
+  "$DEST/shared/.claude/CLAUDE.md" \
+  "$DEST/shared/.claude/project-local/web.CLAUDE.local.md" \
+  > "$CLAUDE_DIR/CLAUDE.md"
 
 # Settings: merge the portable preferences into whatever the image already has.
 SETTINGS="$CLAUDE_DIR/settings.json"

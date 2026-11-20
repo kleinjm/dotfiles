@@ -37,6 +37,9 @@ link() {
 # A generated file, not a link: the Mac writes its own copy into shared/.claude,
 # which is this same bind-mounted directory, so the container must never touch it.
 "${dotfiles}/shared/scripts/claude-settings.sh" "${dotfiles}/locky/claude/settings.json" "${claude_dst}/settings.json"
+# Generic preferences that apply in every project and every session. On the Mac
+# ~/.claude is shared/.claude itself, so this file is already in place there.
+link "${claude_src}/CLAUDE.md" "${claude_dst}/CLAUDE.md"
 link "${claude_src}/statusline-command.sh" "${claude_dst}/statusline-command.sh"
 link "${claude_src}/agents" "${claude_dst}/agents"
 link "${claude_src}/commands" "${claude_dst}/commands"
@@ -106,7 +109,12 @@ fi
 # Claude Code personal project instructions. Relative links resolve both here and
 # on the host, where web, web-worktrees and dotfiles are siblings. wtm copies the
 # file into new worktrees, so each boot turns those copies back into links.
-ln -sfn ../dotfiles/locky/CLAUDE.local.md "$web/CLAUDE.local.md"
+#
+# Points at the same shared/.claude/project-local file the Mac links, so there
+# is one copy to edit rather than two that drift. Generic preferences are not in
+# here at all any more; they are in shared/.claude/CLAUDE.md, linked above.
+web_local=shared/.claude/project-local/web.CLAUDE.local.md
+ln -sfn "../dotfiles/${web_local}" "$web/CLAUDE.local.md"
 for wt in /workspace/web-worktrees/*/; do
-  [ -e "${wt}CLAUDE.local.md" ] && ln -sfn ../../dotfiles/locky/CLAUDE.local.md "${wt}CLAUDE.local.md"
+  [ -e "${wt}CLAUDE.local.md" ] && ln -sfn "../../dotfiles/${web_local}" "${wt}CLAUDE.local.md"
 done

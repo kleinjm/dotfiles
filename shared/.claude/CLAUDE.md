@@ -49,9 +49,18 @@ Question assumptions and say what is missing rather than guessing.
 
 ## Code
 
-- Default to no comments. Add one only where the code cannot carry the meaning,
-  and never to record build or change context — that belongs in the PR
-  description.
+- Default to no comments. Silence is the baseline: a comment has to justify
+  being there, not justify being left out.
+- Add one only where the code *cannot* carry the meaning — a non-obvious why, a
+  workaround for someone else's bug, a constraint the language cannot express.
+  Not merely where the code is complicated: if a better name or a smaller
+  function removes the need, do that instead.
+- **No comment may explain what changed or why it changed.** That is the commit
+  message's and the PR description's job. `# added for X`, `# was Y before`,
+  `# per ticket 123`, and prose contrasting the old behaviour with the new are
+  all out, however informative they feel while writing them.
+- Never narrate the line below. A comment that restates the code it sits on is
+  worse than nothing.
 
 ## Git
 
